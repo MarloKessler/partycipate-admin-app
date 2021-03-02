@@ -1,0 +1,92 @@
+.sidebar{
+    height:100%
+}
+
+.sidebar a {
+    color: black;
+    text-decoration: none;
+}
+.sidebar .item.activatable.level {
+    padding-left: 30px;
+    padding-right: 30px; 
+    list-style-type: none;
+    margin: 5px;
+} 
+
+.sidebar .menu-toggle {
+    margin-left: auto;
+    display: block;
+}
+
+.sidebar .menu-toggle .icon {
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar .menu-toggle button {
+    background-color: transparent;
+    border: none;
+}
+
+
+.sidebar .side-menu {
+    display: none;
+    padding-top: 5px;
+
+    background-color: #EFF0F0;
+
+    flex-direction: column;
+    float: left;
+
+    padding-bottom: 500px;
+
+}
+
+.sidebar .side-menu.show-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+
+
+.sidebar .side-menu .item {
+    padding: 10px;
+    margin: 5px;
+}
+
+.sidebar .item.activatable:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.sidebar .item.activatable:active {
+    background-color: rgb(255, 255, 255);
+}
+
+.sidebar .item.activatable.level:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.sidebar .item.activatable.level:active {
+    background-color: rgb(255, 255, 255);
+}
+
+
+@media(min-width: 600px) {
+    .sidebar .menu-toggle {
+        display: none;
+    }
+
+    .sidebar .side-menu {
+        
+        margin-left: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        
+    }
+
+    .sidebar .side-menu.show-menu {
+        width: fit-content;
+        flex-direction: row;
+    }
+}
