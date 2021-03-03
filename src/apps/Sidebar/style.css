@@ -38,8 +38,7 @@
     flex-direction: column;
     float: left;
 
-    padding-bottom: 500px;
-
+    height: 100%;
 }
 
 .sidebar .side-menu.show-menu {

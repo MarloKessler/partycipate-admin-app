@@ -1,0 +1,32 @@
+{
+  "surveys": [
+    {
+      "id": 1,
+      "type": "multiple-choice",
+      "may_skip": true,
+      "creation_date": "2021-02-28T18:25:43.511Z",
+      "content": "{ 'question': 'How much is the fish', answers: ['42', '$3000000', 'There is no applicable answer which might solve this question…'] }"
+    },
+    {
+      "id": 2,
+      "type": "single-choice",
+      "may_skip": false,
+      "creation_date": "2021-01-15T18:25:43.511Z",
+      "content": "{ 'question': 'What is 3 + 4', answers: ['12', '30', '50', '200', '7'] }"
+    },
+    {
+      "id": 3,
+      "type": "single-choice",
+      "may_skip": true,
+      "creation_date": "2020-11-23T18:25:43.511Z",
+      "content": "{ 'question': 'Where is no water in the sea?', answers: ['In the seat.', 'In the season.', 'In the drysea.'] }"
+    },
+    {
+      "type": "multimlldsfjsdjfsiodfple-choice",
+      "may_skip": false,
+      "creation_date": "2021-03-03T21:00:07.761Z",
+      "content": "{ 'question': 'What is 3 * 4', answers: ['12', '30', '50', '48/4', '7'] }",
+      "id": 4
+    }
+  ]
+}
