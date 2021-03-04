@@ -1,59 +1,29 @@
-.sidebar{
-    height:100%;
-}
-
-.sidebar a {
-    color: black;
-    text-decoration: none;
-}
-
-.sidebar .item.activatable.level {
-    padding-left: 30px;
-    padding-right: 30px; 
-    text-decoration: none;
-    margin: 5px;
-} 
-
-.sidebar .menu-toggle {
-    margin-left: auto;
-    display: block;
-}
-
-.sidebar .menu-toggle .icon {
-    width: 30px;
-    height: 30px;
-}
-
-.sidebar .menu-toggle button {
-    background-color: transparent;
-    border: none;
-}
-
-.sidebar .side-menu {
-    display: none;
+.sidebar {
+    height: 100%; 
     padding-top: 5px;
     background-color: #EFF0F0;
     flex-direction: column;
-    float: left;
-    height: 100%;
-}
-
-.sidebar .side-menu.show-menu {
+    float: left; 
     display: flex;
-    flex-direction: column;
-    width: 100%;  
+    width: 240px;
+}
+
+.sidebar .activatable {
+      padding: 5%;
+      margin: 5%;
+}
+
+.sidebar a {
+    color: black; 
+    text-decoration: none;
+    font-size: 18px;
 }
 
 
-.sidebar .side-menu .item {
-    padding: 10px;
-    margin: 5px;
-}
-
-.sidebar .item.activatable:hover {
+.sidebar .activatable:hover {
     background-color: rgb(255, 255, 255);
 }
 
-.sidebar .item.activatable:active {
+.sidebar .activatable:active {
     background-color: rgb(255, 255, 255);
 }
