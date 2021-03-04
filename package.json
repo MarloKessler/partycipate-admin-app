@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-dev-server": "json-server -w dev-server/db.json -r dev-server/routes.json"
+    "start-dev-server": "json-server -w dev-server/db.json -r dev-server/routes.json -p 3500"
   },
   "eslintConfig": {
     "extends": [

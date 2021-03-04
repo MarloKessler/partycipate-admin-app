@@ -15,10 +15,11 @@ function Navbar() {
         setShowMenu(!showMenu)
         navMenuRef.current.classList.toggle("show-menu")
     }
+    console.log("PU: ", process.env.PUBLIC_URL)
 
     return (
         <div className="navbar">
-            <div className="item"><a href={ `${process.env.REACT_APP_WEBSITE_URL}/` }><h1>Partycipate</h1></a></div>
+            <div className="item logo"><a href={ `${process.env.REACT_APP_WEBSITE_URL}/` }><img src={ `${process.env.PUBLIC_URL}/images/logo.jpeg` } /></a></div>
 
             <div className="menu-toggle item activatable"><button className="item" onClick={ toggleMenu }>{ showMenu ? <CgClose className="icon"/> : <CgMenu className="icon"/> }</button></div>
             

@@ -1,12 +1,18 @@
 
 .navbar {
-    padding: 20px;
+    padding: 10px 20px;
 
     display: flex;
     flex-wrap: wrap;
 
     align-items: flex-end;
     background-color: white;
+}
+
+
+.navbar .logo img {
+    max-height: 70px;
+    object-fit: contain;
 }
 
 .navbar a {
@@ -37,7 +43,7 @@
 
 .navbar .nav-menu {
     display: none;
-    padding-top: 10px;
+    margin: auto 0 10px;
 }
 
 .navbar .nav-menu.show-menu {
@@ -60,7 +66,7 @@
 }
 
 
-@media(min-width: 600px) {
+@media(min-width: 900px) {
     .navbar .menu-toggle {
         display: none;
     }

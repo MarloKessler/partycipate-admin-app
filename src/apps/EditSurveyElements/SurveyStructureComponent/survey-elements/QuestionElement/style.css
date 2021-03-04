@@ -1,0 +1,10 @@
+
+.survey-element {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-block {
+    display: flex;
+    flex-direction: column;
+}

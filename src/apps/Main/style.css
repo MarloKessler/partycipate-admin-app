@@ -80,3 +80,20 @@ code {
   transition: .3s;
   background-color: #cfcfcf;
 }
+
+
+/* input */
+.input {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: medium;
+  color: white;
+  background-color: #c4c4c4;
+}
+
+
+/* small */
+.small {
+  color: #777;
+}
