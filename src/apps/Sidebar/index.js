@@ -25,7 +25,7 @@ function Sidebar() {
         <div className="sidebar">
             <div className="menu-toggle item activatable"><button className="item" onClick={ toggleMenu }>{ showMenu ? <CgClose className="icon"/> : <CgMenu className="icon"/> }</button></div>
             <div className="side-menu" ref={ sideMenuRef }>
-                
+
                 <div className="item activatable"><Link to="/">Home</Link></div>
                 <div className="item activatable"><Link to="/create-survey">Create Survey</Link></div>
 

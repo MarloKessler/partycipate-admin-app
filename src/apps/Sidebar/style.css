@@ -57,22 +57,3 @@
 .sidebar .item.activatable:active {
     background-color: rgb(255, 255, 255);
 }
-
-
-
-@media(min-width: 600px) {
-    .sidebar .menu-toggle {
-        display: none;
-    }
-
-    .sidebar .side-menu {
-        margin-left: auto;
-        display: flex;
-        flex-wrap: nowrap;
-    }
-
-    .sidebar .side-menu.show-menu {
-        width: fit-content;
-        flex-direction: row;
-    }
-}
