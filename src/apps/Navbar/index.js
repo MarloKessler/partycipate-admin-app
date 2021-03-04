@@ -19,7 +19,7 @@ function Navbar() {
 
     return (
         <div className="navbar">
-            <div className="item logo"><a href={ `${process.env.REACT_APP_WEBSITE_URL}/` }><img src={ `${process.env.PUBLIC_URL}/images/logo.jpeg` } /></a></div>
+            <div className="item logo"><a href={ `${process.env.REACT_APP_WEBSITE_URL}/` }><img src={ `${process.env.PUBLIC_URL}/images/logo.png` } /></a></div>
 
             <div className="menu-toggle item activatable"><button className="item" onClick={ toggleMenu }>{ showMenu ? <CgClose className="icon"/> : <CgMenu className="icon"/> }</button></div>
             

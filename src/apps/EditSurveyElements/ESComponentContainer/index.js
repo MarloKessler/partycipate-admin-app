@@ -1,5 +1,5 @@
 import "./style.css"
-
+import PageTitleElement from "../../PageTitleElement"
 
 export default ESComponentContainer
 
@@ -7,7 +7,7 @@ export default ESComponentContainer
 function ESComponentContainer({ title, children, className = "" }) {
     return (
         <div className={ `es-element-container ${className}` }>
-            <h2 className="replace-with-title-element">{ title }</h2>
+            <PageTitleElement>{ title }</PageTitleElement>
             <div className="replace-with-card-element">{ children }</div>
         </div>
     )

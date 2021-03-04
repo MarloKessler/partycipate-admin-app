@@ -11,7 +11,8 @@
 
 
 .navbar .logo img {
-    max-height: 70px;
+    margin: 10px;
+    max-height: 60px;
     object-fit: contain;
 }
 
@@ -72,11 +73,9 @@
     }
 
     .navbar .nav-menu {
-        
         margin-left: auto;
         display: flex;
         flex-wrap: nowrap;
-        
     }
 
     .navbar .nav-menu.show-menu {
