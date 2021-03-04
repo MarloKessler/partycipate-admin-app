@@ -1,0 +1,10 @@
+div.CardElement{
+    border: 1px solid black;
+    background-color: white;
+    margin: 20px;
+    padding: 30px;
+    width: 250px;
+    border-radius: 20px;
+}
+
+
