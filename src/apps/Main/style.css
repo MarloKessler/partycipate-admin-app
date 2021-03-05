@@ -50,8 +50,11 @@ code {
 
 /* Item */
 .item {
-  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: .3s;
+  border-radius: 5px;
 }
 
 .item:hover {
@@ -61,24 +64,52 @@ code {
 
 
 /* Button */
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
 .button {
   padding: 10px;
   border: none;
   border-radius: 30px;
   transition: .3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  background-color: transparent;
+}
+
+.btn-dark {
   color: white;
   background-color: #c4c4c4;
 }
 
-.button:hover {
+.btn-dark:hover {
   transition: .3s;
   background-color: #bbb;
 }
 
-.button:active {
+.btn-dark:active {
   transition: .3s;
   background-color: #cfcfcf;
+}
+
+.btn-light {
+  color: black;
+  background-color: transparent;
+}
+
+.btn-light:hover {
+  transition: .3s;
+  background-color: #e3e3e3;
+}
+
+.btn-light:active {
+  transition: .3s;
+  background-color: #e9e9e9;
 }
 
 

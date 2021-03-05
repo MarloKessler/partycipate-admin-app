@@ -8,7 +8,13 @@ class PageTitleElement extends Component {
         return(
             <div>
                 <h1 className="PageTitle">{ this.props.children }</h1>
-                <hr className="PageTitleUnderline"/>
+                <hr style={{
+                    color: "black",
+                    backgroundColor: "black",
+                    height: 0.5,
+                    marginLeft: 20,
+                    width: 60
+                }}/>
             </div>
         )
     }

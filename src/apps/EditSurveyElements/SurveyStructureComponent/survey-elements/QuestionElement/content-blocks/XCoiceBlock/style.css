@@ -1,16 +1,80 @@
+.xcb-header {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
 
-.trash-btn {
-    margin-left: 10px;
+.xcb-header label {
+    margin-top: 0;
+}
+
+.xcb-header button {
     padding: 10px;
+    margin-left: auto;
+}
+
+.xcb-header .button-icon {
+    margin-left: 5px;
+}
+
+
+.xcb-element-type-selection {
+    width: fit-content;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 1px 1px lightgray;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.xcb-element-type-selection.show {
+    display: flex;
+}
+
+.xcb-element-type-selection button {
+    width: 100%;
+    padding: 0;
+    transition: .3s;
     cursor: pointer;
     border: none;
     background-color: transparent;
 }
 
-.trash-btn:hover {
-    background-color: rgba(190, 190, 190, 0.5);
+.xcb-element-type-selection .item {
+    padding: 10px;
 }
 
-.trash-btn:active {
-    background-color: rgba(205, 205, 205, 0.5);
+
+.xchoice-block .answer-option {
+    display: flex;
+    align-items: center;
+}
+
+.xchoice-block .answer-option textarea {
+    flex: 1 1 100%;
+}
+
+.xchoice-block .answer-option button {
+    display: flex;
+    align-items: center;
+}
+
+.answer-input {
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.trash-btn {
+    margin: 0 10px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.xchoice-block .create-answer-btn {
+    width: 20%;
+    margin-top: 20px;
 }

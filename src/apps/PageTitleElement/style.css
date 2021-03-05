@@ -7,11 +7,3 @@ h1.PageTitle{
     padding-bottom: 0%;
     font-weight: normal;
 }
-
-.PageTitleUnderline {
-    color: black;
-    background-color: black;
-    height: .5;
-    margin-left: 20;
-    width: 60;
-}

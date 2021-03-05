@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom"
 import Navbar from "../Navbar"
 import Sidebar from "../Sidebar"
 import ErrorPage from "../ErrorPage"
-import CardElement from "../CardElement"
 
 
 export default Main
