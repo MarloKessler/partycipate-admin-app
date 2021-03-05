@@ -5,7 +5,7 @@ import Sidebar from "../Sidebar"
 import ErrorPage from "../ErrorPage"
 import CardElement from "../CardElement"
 import PageTitleElement from "../PageTitleElement"
-import CreateSurveyPage from "../CreateSurveyPage"
+import CreateSurveyPage from "../EditSurveyElements/CreateSurveyPage"
 
 
 export default Main
@@ -30,7 +30,7 @@ function Main() {
               <Route path="*" component={ () => <ErrorPage message="The page you’re looking for can’t be found."/> }/>
             </Switch>
             <PageTitleElement>Titel Startseite</PageTitleElement>
-            <CardElement content="Create a new survey"/>
+            <CardElement>Create a new survey</CardElement>
           </div>
         </div>
     </div>
