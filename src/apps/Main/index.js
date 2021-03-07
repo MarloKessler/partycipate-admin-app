@@ -21,16 +21,14 @@ function Main() {
             <Switch>
               <Route exact path="/" component={HomePage}/>
               <Route path="/create-survey" component={ CreateSurveyPage }/>
-              <Route path="/view-results" component={ViewResultsPage}/>
+              <Route path="/surveys" component={SurveysPage}/>
+              <Route path="/surveys/:id" component={ViewResultsPage }/>
               <Route path="/my-account" component={MyAccountPage}/>
               <Route path="/get-help" compoenent={GetHelpPage}/>
               <Route path="/why-partycipate" component={WhyPartycipatePage}/>
-              <Route path="/surveys" component={SurveysPage}/>
               <Route path="/contact" component={ContactPage}/>
               <Route path="*" component={ () => <ErrorPage message="The page you’re looking for can’t be found."/> }/>
             </Switch>
-            <PageTitleElement>Titel Startseite</PageTitleElement>
-            <CardElement>Create a new survey</CardElement>
           </div>
         </div>
     </div>
