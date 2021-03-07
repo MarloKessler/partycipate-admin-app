@@ -1,24 +1,9 @@
-import "./style.css";
-import React,{useState} from 'react';
+import "./style.css"
 
 
-class CardElement extends React.Component {
-    constructor(props) {
-        super(props)
-        this.children = props.children
-        this.className = props.className || ""
-    }
+export default CardElement
 
-    render() {
-        return(
-            <div className={ `CardElement ${this.className}` }>
-                { this.children }
-            </div>
-        )
-    }
-}
 
-/*
 function CardElement({ children, className = "", ...props }){
     return(
         <div className={ `CardElement ${className}` } {...props}>
@@ -26,5 +11,3 @@ function CardElement({ children, className = "", ...props }){
         </div>
     )
 }
-*/
-export default CardElement

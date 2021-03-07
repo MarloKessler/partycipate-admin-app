@@ -1,25 +1,21 @@
 
-.survey-structure-body {
+.edit-survey-component-body {
     display: flex;
     flex-direction: column;
-    padding-top: 30px;
-
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 
 
-.survey-structure-body label {
+.edit-survey-component-body label {
     margin-left: 10px ;
 }
 
 
-.survey-structure-body small {
+.edit-survey-component-body small {
     margin: 0 0 0 10px;
 }
 
 
-.survey-structure-body input {
+.edit-survey-component-body input {
     margin: 10px 0;
 }
 
@@ -27,12 +23,12 @@
     margin: 30px 0;
 }
 
-.survey-structure-body .s-name-input {
+.edit-survey-component-body .s-name-input {
     font-size: x-large;
     font-weight: bold;
 }
 
-.survey-structure-body .s-question-input {
+.edit-survey-component-body .s-question-input {
     font-size: large;
     font-weight: bold;
 }

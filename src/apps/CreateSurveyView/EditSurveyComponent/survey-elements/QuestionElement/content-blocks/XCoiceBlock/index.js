@@ -65,7 +65,7 @@ function XCoiceBlock({ elementIndex }) {
         <div className="content-block xchoice-block">
             <div className="xcb-header">
                 <label>Set your answer possibilities</label>
-                <button className="button btn-light" ref={ setETSButton } onClick={ toggleETSPane }>{ getTypeLabelFor(element.type) }<FiChevronDown className="button-icon"/></button>
+                <button className="button btn-dark" ref={ setETSButton } onClick={ toggleETSPane }>{ getTypeLabelFor(element.type) }<FiChevronDown className="button-icon"/></button>
                 <ElementTypeSelection className={ showETSPane ? "show" : "" } onChange={ updateElementType } elementRef={ setETSPane } style={ styles.popper } {...attributes.popper}/>
             </div>
             { answers.map( (answer, index) => (
@@ -97,16 +97,16 @@ const getTypeLabelFor = (type) => {
 
 
 function ElementTypeSelection({ className = "", elementRef, onChange, ...props }) {
-    console.log("er: ", elementRef)
     return (
         <div className={ `xcb-element-type-selection ${className}` } ref={ elementRef } { ...props}>
-            { Object.keys(XChoiceTypes).map( key => {
+            { Object.keys(XChoiceTypes).map( (key, index) => {
                 const type = XChoiceTypes[key]
-                return <button className="btn-light" onClick={ () => onChange(type) }><div className="item">{ getTypeLabelFor(type) }</div></button>
+                return <button className="btn-light" key={ index } onClick={ () => onChange(type) }><div className="item">{ getTypeLabelFor(type) }</div></button>
             }) }            
         </div>
     )
 }
+
 
 const XChoiceTypes = {
     singleChoice: "single-choice", 

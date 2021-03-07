@@ -15,8 +15,7 @@ function Navbar() {
         setShowMenu(!showMenu)
         navMenuRef.current.classList.toggle("show-menu")
     }
-    console.log("PU: ", process.env.PUBLIC_URL)
-
+    
     return (
         <div className="navbar">
             <div className="item logo"><a href={ `${process.env.REACT_APP_WEBSITE_URL}/` }><img src={ `${process.env.PUBLIC_URL}/images/logo.png` } /></a></div>

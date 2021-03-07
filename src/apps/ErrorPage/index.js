@@ -11,8 +11,8 @@ function ErrorPage({ message = "Hello there" }) {
         <div className="error-page">
             <h2>{ message }</h2>
             <div className="ep-options">
-                <button className="item button" onClick={ () => history.push("/") }>Home</button>
-                <button className="item button" onClick={ () => history.goBack() }>Go back</button>
+                <button className="item button btn-dark" onClick={ () => history.push("/") }>Home</button>
+                <button className="item button btn-dark" onClick={ () => history.goBack() }>Go back</button>
             </div>
         </div>
     )
