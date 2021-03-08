@@ -1,4 +1,6 @@
 import "./style.css"
+import { useContext } from "react"
+import SurveyContext from "../SurveyContext"
 import { CopyBlock, dracula } from "react-code-blocks"
 import ESComponentContainer from "../ESComponentContainer"
 
@@ -6,14 +8,15 @@ import ESComponentContainer from "../ESComponentContainer"
 export default ImplementSurveyComponent
 
 
-function ImplementSurveyComponent({ surveyID="987631234567", token="1234567890" }) {
+function ImplementSurveyComponent() {
+    const { survey } = useContext(SurveyContext)
     const headCode = 
 `<!-- Insert in head -->
-<script src="https://www.google.de/surveys/" token="${token}" surveyID="${surveyID}"/>`
+<script src="https://www.google.de/surveys/" surveyID="${survey.id}"/>`
 
     const divCode = 
 `<!-- Insert at the place where you want to show your survey -->
-<div id="partycipate-survey-${surveyID}"/>`
+<div id="partycipate-survey-${survey.id}"/>`
 
     return (
         <ESComponentContainer title="3 - Implement your survey" className="implement-survey-component">

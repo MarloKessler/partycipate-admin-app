@@ -3,9 +3,13 @@
     padding-top: 5px;
     background-color: #EFF0F0;
     flex-direction: column;
-    float: left; 
     display: flex;
+    float: left;
     width: 240px;
+}
+
+.sidebar .item {
+    justify-content: flex-start;
 }
 
 .sidebar .activatable {
@@ -18,7 +22,6 @@
     text-decoration: none;
     font-size: 18px;
 }
-
 
 .sidebar .activatable:hover {
     background-color: rgb(255, 255, 255);

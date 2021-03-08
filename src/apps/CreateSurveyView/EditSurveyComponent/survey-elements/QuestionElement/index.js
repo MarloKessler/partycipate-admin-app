@@ -1,6 +1,6 @@
 import "./style.css"
 import { useContext } from "react"
-import SurveyContext from "../../SurveyContext"
+import SurveyContext from "../../../SurveyContext"
 import { XCoiceBlock } from "./content-blocks"
 
 

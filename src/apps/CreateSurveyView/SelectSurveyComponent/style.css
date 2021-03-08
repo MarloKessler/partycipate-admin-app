@@ -1,14 +1,16 @@
-.cards {
+
+.select-survey-component .cards {
     font-size: 20px;
     background-color: #EFF0F0;
     text-align: center;
+    cursor: pointer;
 }
 
-.cards-hover :hover {
+.select-survey-component .cards-hover :hover {
     background-color: rgb(255, 255, 255);
     color: #87E8BA
 }
 
-.cards-hover :active {
+.select-survey-component .cards-hover :active {
     background-color: rgb(255, 255, 255);
 }

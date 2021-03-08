@@ -2,7 +2,7 @@ import "./style.css"
 import { useContext, useEffect, useState } from "react"
 import { FiChevronDown, FiTrash2 } from "react-icons/fi"
 import { usePopper } from 'react-popper';
-import SurveyContext from "../../../../SurveyContext"
+import SurveyContext from "../../../../../SurveyContext"
 
 
 export { XCoiceBlock }

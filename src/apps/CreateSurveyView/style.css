@@ -3,3 +3,21 @@
     width: 100%;
     height: max-content;
 }
+
+.create-survey-view .csv-toolbar {
+    display: flex;
+    justify-content: center;
+}
+
+.create-survey-view .csv-toolbar .button {
+    font-size: medium;
+    margin: 20px;
+}
+
+.create-survey-view .csv-toolbar .back-btn {
+    padding-right: 20px;
+}
+
+.create-survey-view .csv-toolbar .next-btn {
+    padding-left: 20px;
+}
