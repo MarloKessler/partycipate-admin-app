@@ -43,7 +43,7 @@ function setHTML(shadow, survey) {
         let htmlElement = SurveyElement(element)
         if (htmlElement) surveyContainer.appendChild(htmlElement)
     }
-    surveyContainer.appendChild(SendButton())
+    surveyContainer.appendChild(SendButton(survey))
 }
 
 
@@ -61,9 +61,11 @@ function QuestionElement(surveyElement) {
     htmlElement.setAttribute("class", "survey-element")
 
     // Append question
-    const questionParagraph = createElement("p")
-    questionParagraph.innerHTML = `<b>${surveyElement.content.question}</b>`
+    const questionParagraph = createElement("h3")
     htmlElement.appendChild(questionParagraph)
+    questionParagraph.setAttribute("class", "question")
+    questionParagraph.innerHTML = `${surveyElement.content.question}`
+    
 
     // Append Answers
     const answerBlock = AnswerBlock(surveyElement)
@@ -81,26 +83,32 @@ function AnswerBlock(element) {
     }
 }
 
+
 function XChoiceAnswerBlock(elementID, answers, type) {
     const element = createElement("ul")
     element.setAttribute("class", "answers")
-    answers.forEach((answer, index) => {
-    })
+    answers.forEach((answer, index) => element.appendChild(AnswerCard(elementID, type, index, answer)))
     return element
 }
 
 
-function AnswerCard({ elementID, index, answer }) {
+function AnswerCard(elementID, type, index, answer) {
     const answerCard = createElement("li")
-    answerCard.setAttribute("class", "item card answer-card")
+    answerCard.setAttribute("class", "card answer-card")
 
     // Add input
-    const input = document.createElement("input")
+    const input = createElement("input")
     answerCard.appendChild(input)
     input.setAttribute("name", elementID)
     input.setAttribute("value", index)
-    if (type === "single-choice") input.setAttribute("type", "radio")
-    if (type === "multiple-choice") input.setAttribute("type", "checkbox")
+    if (type === "single-choice") {
+        input.setAttribute("type", "radio")
+        answerCard.addEventListener("click", () => input.checked = true)
+    }
+    if (type === "multiple-choice") {
+        input.setAttribute("type", "checkbox")
+        answerCard.addEventListener("click", () => input.checked = !input.checked)
+    }
 
     // Add answer text
     const answerParagraph = createElement("p")
@@ -110,36 +118,25 @@ function AnswerCard({ elementID, index, answer }) {
     return answerCard
 }
 
-/*
-function SelectorCell(elementID, index, type) {
-    const selectorCell = createElement("td")
-    const input = document.createElement("input")
-    selectorCell.appendChild(input)
-    
-    // Configure input
-    input.setAttribute("name", elementID)
-    input.setAttribute("value", index)
-    if (type === "single-choice") input.setAttribute("type", "radio")
-    if (type === "multiple-choice") input.setAttribute("type", "checkbox")
-
-    return selectorCell
-}
-
-
-function AnswerCell(elementID, index, answer) {
-    const answerCell = createElement("td")
-    answerCell.innerHTML = answer
-    answerCell.addEventListener("click", () => document.querySelector(`input[name="${elementID}"][value="${index}"]`).checked = "true")
-    return answerCell
-}
-*/
 
 
 function SendButton() {
     const sendButton = createElement("button")
     sendButton.setAttribute("class", "item btn-dark send-button")
+    sendButton.addEventListener("click", () => {
+
+    })
     sendButton.innerHTML = "Send"
     return sendButton
+}
+
+
+function isSendable(survey) {
+    for (let element of survey.elements) {
+        document.getElementsByClassName("survey-element").forEach(element => {
+
+        })
+    }
 }
 
 
@@ -152,7 +149,7 @@ function setStyle(shadow) {
             margin: 0;
             overflow: hidden;
 
-            padding: 20px; 
+            padding: 10px; 
             display: flex; 
             flex-direction: column; 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -190,7 +187,6 @@ function setStyle(shadow) {
 
         .btn-dark {
             padding: 5px;
-            margin-left: auto;
             color: white;
             background-color: #c4c4c4;
         }
@@ -206,12 +202,46 @@ function setStyle(shadow) {
         }
 
         .send-button {
+            margin: 0 10px 0 auto;
             padding: 10px;
             font-size: medium;
         }
+
+
+        /* Card */
+        .card {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px 1px rgba(200, 200, 200, 0.5);
+        }
+
+
+        .question {
+            margin-left: 10px;
+        }
+
+        .answers {
+            padding: 0;
+        }
+
+        .answer-card {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            list-style-type: none;
+            cursor: pointer;
+        }
+
+        .answer-card input {
+            margin-right: 10px;
+        }
+
+        .answer-card p {
+            margin: 5px 0;
+        }
     `
     var style = createElement('style')
-
     style.appendChild(document.createTextNode(css))
     shadow.appendChild(style)
 }
@@ -230,7 +260,7 @@ const fetchSurvey = async id => {
             { 
                 id: 456, 
                 position: 1, 
-                type: "single-choice", 
+                type: "multiple-choice", 
                 content: { 
                     question: 
                     'What is 3 * 4?', 
