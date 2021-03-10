@@ -22,7 +22,7 @@ class Database {
     }
 
     static getSurveys = async () => {
-        await Fetch.get(`${dbBasePath}/surveys`)
+        //await Fetch.get(`${dbBasePath}/surveys`)
         return [
             {
                 id: 1,
@@ -32,12 +32,12 @@ class Database {
             {
                 id: 2,
                 creation_date: new Date("2021-02-28T18:25:43.511Z"),
-                title: "Website Satisfaction Survey"
+                title: "Car Survey"
             },
             {
                 id: 3,
                 creation_date: new Date("2021-02-28T18:25:43.511Z"),
-                title: "Website Satisfaction Survey"
+                title: "Best IT Survey"
             },
         ]
     }

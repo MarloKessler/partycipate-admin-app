@@ -6,6 +6,7 @@ import Navbar from "../Navbar"
 import Sidebar from "../Sidebar"
 import ErrorPage from "../ErrorPage"
 import CreateSurveyView from "../CreateSurveyView"
+import SurveyOverview from "../SurveyOverview"
 
 
 export default Main
@@ -21,7 +22,7 @@ function Main() {
             <Switch>
               <Route exact path="/" component={HomePage}/>
               <Route exact path="/create-survey" component={ CreateSurveyView }/>
-              <Route exact path="/surveys" component={SurveysPage}/>
+              <Route exact path="/surveys" component={SurveyOverview}/>
               <Route exact path="/surveys/:id" component={ViewResultsPage }/>
               <Route exact path="/my-account" component={MyAccountPage}/>
               <Route exact path="/get-help" compoenent={GetHelpPage}/>
@@ -81,12 +82,6 @@ function GetHelpPage(){
 function WhyPartycipatePage(){
   return(
   <p>WhyPartycipatePage</p>
-  )
-}
-
-function SurveysPage(){
-  return(
-  <p>SurveysPage</p>
   )
 }
 
