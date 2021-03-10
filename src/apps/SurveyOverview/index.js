@@ -7,12 +7,12 @@ import PageTitleElement from "../PageTitleElement"
 export default () => {
     const history = useHistory()
     const [surveys, setSurveys] = useState()
-    {/*const errorVariable = "Sorry, an error occured!"*/}
+    const [errorOccured, setErrorOccured] = useState()
 
     useEffect(() => {
         Server.database().getSurveys()
         .then(setSurveys)
-        {/*.catch(errorVariable)*/}
+        .catch(() => setErrorOccured(true))
     }, [])
 
     return (
@@ -33,7 +33,9 @@ export default () => {
                         }
                     </tbody>
                 </table>
-                : <div>Loading surveys…</div>
+                : errorOccured
+                    ? <div>We are sorry, your surveys couldn't be loaded!</div>
+                    : <div>Loading surveys…</div>
             }
         </div>
         </div>

@@ -10,7 +10,7 @@ class Fetch {
             method: 'GET', 
             headers: reqHeader,
         }
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_ENDPOINT}/${path}`, initObject)
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/${path}`, initObject)
         if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
         return await response.json()
     }
@@ -23,7 +23,7 @@ class Fetch {
             headers: reqHeader,
             body: JSON.stringify(body),
         }
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_ENDPOINT}/${path}`, initObject)
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/${path}`, initObject)
         if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
     }
 
@@ -35,7 +35,7 @@ class Fetch {
             headers: reqHeader,
             body: JSON.stringify(body),
         }
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_ENDPOINT}/${path}`, initObject)
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/${path}`, initObject)
         if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
     }
 
@@ -46,7 +46,7 @@ class Fetch {
             method: 'DELETE',
             headers: reqHeader,
         }
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_ENDPOINT}/${path}`, initObject)
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/${path}`, initObject)
         if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
     }
 }

@@ -1,0 +1,177 @@
+//import "./dev-style.css" // Remove before build
+
+export default element => {
+    const style = document.createElement('style')
+    style.appendChild(document.createTextNode(css))
+    element.appendChild(style)
+}
+
+const css = `
+/* SurveyContainer */
+.partycipate-survey-container {
+    margin: 0;
+    overflow: hidden;
+
+    padding: 10px; 
+    display: flex; 
+    flex-direction: column; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color:rgb(52, 63, 68);
+}
+
+input:focus, textarea:focus, select:focus, button {
+    outline: none;
+}
+
+
+/* Item */
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    border-radius: 5px;
+}
+
+.item:hover {
+    transform: scale(0.95);
+    transition: .3s;
+}
+
+.item:disabled:hover {
+    transform: none;
+}
+
+
+/* Button */
+button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.btn-dark {
+    padding: 5px;
+    color: white;
+    background-color: #c4c4c4;
+}
+
+.btn-dark:hover {
+    transition: .3s;
+    background-color: #bbb;
+}
+  
+.btn-dark:active {
+    transition: .3s;
+    background-color: #cfcfcf;
+}
+
+.btn-dark:disabled {
+    background-color: #d6d6d6;
+}
+
+
+.send-button {
+    margin: 0 10px 0 auto;
+    padding: 10px;
+    font-size: medium;
+}
+
+
+/* Card */
+.card-element {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 1px rgba(200, 200, 200, 0.5);
+}
+
+
+/* SurveyComponent */
+.survey-component {
+    display: flex;
+    flex-direction: column;
+}
+
+.survey-component .send-button {
+    margin-left: auto;
+}
+
+.survey-element {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* QuestionElement */
+.content-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.question {
+    margin: 0;
+}
+
+.question h3, .question p {
+    margin: 0;
+}
+
+.question h3 {
+    margin-bottom: 5px;
+}
+
+.question small {
+    color: gray;
+}
+
+
+
+@media(min-width: 600px) {
+    .question {
+        margin: 0 10px;
+    }
+}
+
+.answers {
+    margin: 10px 0;
+    padding: 0;
+}
+
+.answer-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.answer-card input {
+    margin-right: 10px;
+}
+
+.answer-card p {
+    margin: 5px 0;
+}
+
+.answer-card.selected {
+    border: 1px solid green;
+}
+
+
+
+.chart-container {
+    padding: 10px 0;
+}
+
+@media(min-width: 600px) {
+    .chart-container {
+        padding: 20px 10px;
+    }
+}
+`

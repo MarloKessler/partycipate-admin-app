@@ -1,5 +1,7 @@
 import { h } from "preact"
 import { useEffect, useState } from "preact/hooks"
+import Chart from "chart.js"
+import ChartDataLabels from 'chartjs-plugin-datalabels'
 import Server from "../Server"
 import { XChoiceResults } from "./results-elements"
 
@@ -9,6 +11,13 @@ export default ResultsComponent
 
 function ResultsComponent({ surveyID }) {
     const [results, setResults] = useState()
+    
+
+    // Setup chart.js
+    useEffect(() => {
+        Chart.defaults.global.legend.display = false;
+        Chart.plugins.register(ChartDataLabels)
+    }, [])
 
     useEffect(() => {
         Server.getSurveyResults(surveyID)

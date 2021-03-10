@@ -12,11 +12,11 @@ function ImplementSurveyComponent() {
     const { survey } = useContext(SurveyContext)
     const headCode = 
 `<!-- Insert in head -->
-<script src="https://www.google.de/surveys/" surveyID="${survey.id}"/>`
+<script src="${process.env.REACT_APP_SNIPPET_SCRIPT_URL}"></script>`
 
     const divCode = 
-`<!-- Insert at the place where you want to show your survey -->
-<div id="partycipate-survey-${survey.id}"/>`
+`<!-- Insert in body where you want to display your survey -->
+<partycipate-survey survey-id="${survey.id}"/>`
 
     return (
         <ESComponentContainer title="3 - Implement your survey" className="implement-survey-component">

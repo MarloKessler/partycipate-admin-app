@@ -107,7 +107,27 @@ button {
 }
 
 .question {
-    margin: 0 10px;
+    margin: 0;
+}
+
+.question h3, .question p {
+    margin: 0;
+}
+
+.question h3 {
+    margin-bottom: 5px;
+}
+
+.question small {
+    color: gray;
+}
+
+
+
+@media(min-width: 600px) {
+    .question {
+        margin: 0 10px;
+    }
 }
 
 .answers {
@@ -133,4 +153,16 @@ button {
 
 .answer-card.selected {
     border: 1px solid green;
+}
+
+
+
+.chart-container {
+    padding: 10px 0;
+}
+
+@media(min-width: 600px) {
+    .chart-container {
+        padding: 20px 10px;
+    }
 }
