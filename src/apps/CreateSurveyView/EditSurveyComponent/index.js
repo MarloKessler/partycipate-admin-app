@@ -22,7 +22,7 @@ function SurveyStructureComponent() {
                 <label>Survey Name</label>
                 <input className="input s-name-input" type="text" value={ survey.title } placeholder="Name" onChange={ updateName }/>
                 <small>The name will not be shown to the user.</small>
-                { survey.elements.map( (element, index) => <QuestionElement className="survey-element" index={ index } key={ index }/> ) }
+                { survey.elements && survey.elements.map( (_, index) => <QuestionElement className="survey-element" index={ index } key={ index }/> ) }
             </div>
         </ESComponentContainer>
     )

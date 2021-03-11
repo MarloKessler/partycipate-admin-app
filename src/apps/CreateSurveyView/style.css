@@ -4,9 +4,18 @@
     height: max-content;
 }
 
+
 .create-survey-view .csv-toolbar {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.create-survey-view .csv-toolbar .error-message {
+    margin: 10px 0 0;
+    flex: 1 100%;
+    text-align: center;
+    color: red;
 }
 
 .create-survey-view .csv-toolbar .button {
