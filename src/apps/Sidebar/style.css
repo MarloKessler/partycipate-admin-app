@@ -1,7 +1,7 @@
 .sidebar {
     height: 100%; 
     padding-top: 5px;
-    background-color: #EFF0F0;
+    background-color: #144D6A;
     flex-direction: column;
     display: flex;
     float: left;
@@ -18,7 +18,7 @@
 }
 
 .sidebar a {
-    color: black; 
+    color: white; 
     text-decoration: none;
     font-size: 18px;
 }
@@ -27,6 +27,16 @@
     background-color: rgb(255, 255, 255);
 }
 
+.sidebar a:hover{
+    color: black;
+    font-size: 18px;
+}
+
 .sidebar .activatable:active {
     background-color: rgb(255, 255, 255);
+}
+
+.sidebar a:active{
+    color: black;
+    font-size: 18px;
 }

@@ -7,6 +7,8 @@ import Sidebar from "../Sidebar"
 import ErrorPage from "../ErrorPage"
 import CreateSurveyView from "../CreateSurveyView"
 import SurveyOverview from "../SurveyOverview"
+//import SingleChoiceChart from '../ResultsView/QuestionResultsElement/charts/SingleChoiceChart'
+import ResultsView from "../ResultsView"
 
 
 export default Main
@@ -23,9 +25,9 @@ function Main() {
               <Route exact path="/" component={HomePage}/>
               <Route exact path="/create-survey" component={ CreateSurveyView }/>
               <Route exact path="/surveys" component={SurveyOverview}/>
-              <Route exact path="/surveys/:id" component={ViewResultsPage }/>
+              <Route exact path="/surveys/:id" component={ResultsView}/>
               <Route exact path="/my-account" component={MyAccountPage}/>
-              <Route exact path="/get-help" compoenent={GetHelpPage}/>
+              <Route exact path="/get-help" component={GetHelpPage}/>
               <Route exact path="/why-partycipate" component={WhyPartycipatePage}/>
               <Route exact path="/contact" component={ContactPage}/>
               <Route path="*" component={ () => <ErrorPage message="The page you’re looking for can’t be found."/> }/>
@@ -61,11 +63,6 @@ function HomePage(){
   )
 }
 
-function ViewResultsPage(){
-  return(
-    <p>ViewResultsPage</p>
-  )
-}
 
 function MyAccountPage(){
   return(

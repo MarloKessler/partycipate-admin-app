@@ -39,13 +39,14 @@ class Database {
             creation_date: new Date("2021-02-28T18:25:43.511Z"),
             title: "Website Satisfaction Survey",
             elements: [
+                // Element:
                 {
                     id: 123,
                     type: "single-choice",
                     content: { 
                         question: 'String', 
                         answers: [ '42', '$300', 'There is no applicable answer which might solve this question…' ],
-                        results: [ '50', '30', '10' ]
+                        results: [ 50, 30, 10 ]
                     },
                 }
             ]

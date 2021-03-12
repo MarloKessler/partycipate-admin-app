@@ -30,7 +30,7 @@ code {
   display: flex;
   flex-direction: column;
   
-  background-color: #f5f5f5;
+  background-color: #FFFF;
 }
 
 
@@ -53,7 +53,6 @@ code {
 
 .tp {
   height: 3000px;
-  border: 3px solid red;
 }
 
 
