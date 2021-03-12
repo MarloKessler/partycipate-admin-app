@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Server from "../Server"
 import PageTitleElement from "../PageTitleElement"
-import SingleChoiceChart from "./QuestionResultsElement/charts/SingleChoiceChart"
+import QuestionResultsElement from "./QuestionResultsElement"
 
 
 
@@ -22,12 +22,11 @@ function ResultsView() {
     return (
         <div className= "survey-results"> 
             { survey &&
-            <div>
-                 <PageTitleElement>{ survey }</PageTitleElement>
-                <div className="SingleChoiceChart">
-                    <SingleChoiceChart element={survey.element[0]}></SingleChoiceChart>
-                </div> 
-            </div> }
+                <div>
+                    <PageTitleElement>{ survey.title }</PageTitleElement>
+                    { survey.elements.map( (element, index) => <QuestionResultsElement element={ element } key={ index }/>) } 
+                </div>
+            }
         </div>
     )
 }

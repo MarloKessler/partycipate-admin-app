@@ -44,7 +44,7 @@ class Database {
                     id: 123,
                     type: "single-choice",
                     content: { 
-                        question: 'String', 
+                        question: 'How much is the fish?', 
                         answers: [ '42', '$300', 'There is no applicable answer which might solve this question…' ],
                         results: [ 50, 30, 10 ]
                     },
