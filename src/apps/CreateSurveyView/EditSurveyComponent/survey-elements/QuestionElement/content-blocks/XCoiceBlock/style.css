@@ -65,6 +65,7 @@
     width: 100%;
     box-sizing: border-box;
     resize: none;
+    color: #7777;
 }
 
 .trash-btn {
