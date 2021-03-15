@@ -1,36 +1,107 @@
 import "./style.css"
-import { Doughnut } from 'react-chartjs-2'
+import { useRef, useEffect } from 'react'
+import Chart from 'chart.js'
 
 
 export default DoughnutChart
 
-function DoughnutChart({ element }) {
 
-   const data = {
-        labels: element.content.answers,
-        datasets: [
-            {
-                data: element.content.results,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                ],
-                borderWidth: 1,
-            },
-        ],
-    }
+function DoughnutChart({ element }) {
+    const chartRef  = useRef()
+    const legendRef = useRef()
+
+    useEffect(() => {
+        const chart = new Chart(chartRef.current, {
+                type: "doughnut",
+                data: getData(element),
+                options: getChartOptions(element),
+            }
+        )
+        legendRef.current.innerHTML = chart.generateLegend()
+    }, [])
     
-    return <Doughnut data={ data }/>
+    return (
+        <div className="doughnut-chart">
+            <canvas ref={ chartRef }></canvas>
+            <div className="legend" ref={ legendRef }></div>
+        </div>
+    )
+}
+
+
+const getData = ({ content }) => {
+    const [bgColors, hoverBGColors] = getBGColors(content.answers.length)
+    const data = {
+        labels: content.answers,
+        datasets: [{
+                data: content.results,
+                backgroundColor: bgColors,
+                borderColor: 'transparent',
+                hoverBackgroundColor: hoverBGColors,
+                borderWidth: 1,
+        }],
+    }
+    return data
+}
+
+
+const getBGColors = length => {
+    const factor = 100/(length + 1)
+    const bgColors      = []
+    const hoverBGColors = []
+    var i
+    for (i = 1; i <= length; i++) {
+        bgColors.push(`hsl(184, 31%, ${100 - i * factor}%)`)
+        hoverBGColors.push(`hsl(184, 31%, ${100 - i * factor + 0.5 * factor}%)`)
+    }
+    return [bgColors, hoverBGColors]
+}
+
+
+const getChartOptions = ({ content }) => {
+    const formatter = new Intl.NumberFormat(window.navigator.language || "en", { style: 'percent', maximumFractionDigits: 0 })
+    
+    const totalVotes = content.participants
+
+    const options = {
+        legend: { display: false },
+        legendCallback: chart => {
+            var html = ""
+            const dataset = chart.data.datasets[0]
+            dataset.data.forEach((data, index) => {
+                html += `
+                <div class="legend-item">
+                    <div class="li-colorbox" style="background-color: ${dataset.backgroundColor[index]};"></div>
+                    <div class="li-label">${chart.data.labels[index]}</div>
+                </div>`
+            })
+            return html
+        },
+        tooltips: {
+            enabled: true,
+            mode: 'single',
+            callbacks: {
+                label: (item, data) => {
+                    const percentage = data.datasets[item.datasetIndex].data[item.index]
+                    const percentageString = formatter.format(percentage)
+                    const votes = content.results[item.index]
+                    return [`${percentageString} (${votes} Votes)`]
+                },
+            },
+            custom: tooltip => {
+                if (!tooltip) return
+                // Disable color box
+                tooltip.displayColors = false
+
+                // Make tooltip body as title
+                const body = tooltip.body
+                if (body && body.length > 0) {
+                    tooltip.title = body[0].lines
+                    body[0].lines = []
+                }
+            },
+        },
+    }
+
+    return options
 }

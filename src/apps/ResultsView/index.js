@@ -27,7 +27,7 @@ function ResultsView() {
                     <PageTitleElement className="so-page-title">{ survey.title }</PageTitleElement>
                     { survey.elements.map((element, index) => <QuestionResultsElement element={ element } key={ index }/>) } 
                 </div>
-                : <ErrorPage message="We re sorry, the survey you requested couldn't be found."/>
+                : survey === null && <ErrorPage message="We re sorry, the survey you requested couldn't be found."/>
             }
         </div>
     )

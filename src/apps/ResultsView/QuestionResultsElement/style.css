@@ -1,6 +1,21 @@
 
-.results-element h3 {
-    margin: 0;
+.re-header {
+    margin-bottom: 20px;
+}
+
+.re-header-first-line {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.results-element h3, .results-element h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.re-total-votes {
+    margin-left: auto;
+    color: gray;
 }
 
 .results-element p {

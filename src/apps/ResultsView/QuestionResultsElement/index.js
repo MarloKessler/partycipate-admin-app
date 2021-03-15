@@ -11,18 +11,15 @@ function QuestionResultsElement({ element }) {
     return (
         <CardElement className="results-element">
             <div className="re-header">
-                <h3>{ element.content.question }</h3>
-                <h4></h4>
+                <div className="re-header-first-line">
+                    <h3>{ element.content.question }</h3>
+                    <h4 className="re-total-votes">{ element.content.participants } Participants</h4>
+                </div>
+                <p><small>{ getElementTypeLabel(element.type) }</small></p>
             </div>
-            <p><small>{ getElementTypeLabel(element.type) }</small></p>
             <ResultsChart element={ element } />
         </CardElement>
     )
-}
-
-
-const getTotalVotes(element) {
-    
 }
 
 

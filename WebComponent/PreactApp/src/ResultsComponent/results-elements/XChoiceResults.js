@@ -101,47 +101,29 @@ const setResultsChart = (content, canvas) => {
 }
 
 
-function formatLabel(str, maxwidth = 20){
-    var sections = [];
-    var words = str.split(" ");
-    var temp = "";
+const formatLabel = (str, maxwidth = 20) => {
+    var sections = []
+    var words = str.split(" ")
+    var temp = ""
 
-    words.forEach(function(item, index){
-        if(temp.length > 0)
-        {
-            var concat = temp + ' ' + item;
+    words.forEach((item, index) => {
+        if (temp.length > 0) {
+            var concat = `${temp} ${item}`
 
-            if(concat.length > maxwidth){
-                sections.push(temp);
+            if (concat.length > maxwidth) {
+                sections.push(temp)
                 temp = "";
-            }
-            else{
-                if(index == (words.length-1))
-                {
-                    sections.push(concat);
-                    return;
-                }
-                else{
-                    temp = concat;
-                    return;
-                }
+            } else {
+                if(index == (words.length-1)) return sections.push(concat)
+                else return temp = concat
             }
         }
 
-        if(index == (words.length-1))
-        {
-            sections.push(item);
-            return;
-        }
+        if (index == words.length - 1) return sections.push(item)
 
-        if(item.length < maxwidth) {
-            temp = item;
-        }
-        else {
-            sections.push(item);
-        }
+        if(item.length < maxwidth) temp = item
+        else sections.push(item)
+    })
 
-    });
-
-    return sections;
+    return sections
 }

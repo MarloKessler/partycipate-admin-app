@@ -84,25 +84,26 @@ class Database {
             creation_date: new Date("2021-02-28T18:25:43.511Z"),
             title: "Website Satisfaction Survey",
             elements: [
-                // Element:
-                {
-                    id: 123,
-                    type: "single-choice",
-                    content: { 
-                        question: 'How much is the fish?', 
-                        answers: [ '42', '$300', 'There is no applicable answer which might solve this question…' ],
-                        results: [ 50, 30, 10 ]
-                    },
-                },
                 {
                     id: 124,
                     type: "multiple-choice",
                     content: { 
                         question: 'How much is the fish?', 
                         answers: [ '42', '$300', 'There is no applicable answer which might solve this question…' ],
-                        results: [ 50, 30, 10 ]
+                        results: [ 40, 30, 10 ],
+                        participants: 61,
                     },
-                }
+                },
+                {
+                    id: 123,
+                    type: "single-choice",
+                    content: { 
+                        question: 'How much is the fish?', 
+                        answers: [ '42', '$300', 'There is no applicable answer which might solve this question…', '42', '$300', 'There is no applicable answer which might solve this question…' ],
+                        results: [ 50, 30, 10, 50, 30, 10 ],
+                        participants: 180,
+                    },
+                },
             ]
         }
         return await Fetch.get(`${dbBasePath}/survey-results/${id}`)
