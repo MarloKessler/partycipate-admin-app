@@ -27,13 +27,13 @@
 .edit-survey-component-body .s-name-input {
     font-size: x-large;
     font-weight: bold;
-    color: #7777;
+    color: #777;
 }
 
 .edit-survey-component-body .s-question-input {
     font-size: large;
     font-weight: bold;
-    color: #7777;
+    color: #777;
 }
 
 .survey-structure-component .loading {

@@ -1,0 +1,20 @@
+
+.Notification {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0;
+
+    transition: all 5s;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #c5e3e6;
+}
+
+.Notification.show {
+    top: auto;
+    height: fit-content;
+    transition: all 5s;
+}

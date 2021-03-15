@@ -6,6 +6,7 @@ const dbBasePath = "database"
 
 class Database {
     static createSurvey = async survey => {
+        await new Promise((res, rej) => setTimeout(res, 5000))
         return survey
         return await Fetch.post(`${dbBasePath}/surveys`, undefined, survey)
     }
