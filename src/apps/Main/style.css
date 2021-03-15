@@ -30,7 +30,7 @@ code {
   display: flex;
   flex-direction: column;
   
-  background-color: #FFFF;
+  background-color: #F5F5F5;
 }
 
 
@@ -93,12 +93,13 @@ button {
 
 .btn-dark {
   color: white;
-  background-color: #c4c4c4;
+  background-color: #BBD9DB;
 }
 
 .btn-dark:hover {
   transition: .3s;
-  background-color: #bbb;
+  background-color: #333;
+  color: #BBD9DB;
 }
 
 .btn-dark:active {
@@ -134,6 +135,6 @@ button {
 
 
 /* small */
-.small {
+small {
   color: #777;
 }

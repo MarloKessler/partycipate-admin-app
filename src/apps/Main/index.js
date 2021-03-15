@@ -9,6 +9,7 @@ import CreateSurveyView from "../CreateSurveyView"
 import SurveyOverview from "../SurveyOverview"
 //import SingleChoiceChart from '../ResultsView/QuestionResultsElement/charts/SingleChoiceChart'
 import ResultsView from "../ResultsView"
+import PageTitleElement from "../PageTitleElement"
 
 
 export default Main
@@ -59,20 +60,28 @@ function Main() {
 
 function HomePage(){
   return(
-    <div className="tp">HomePage</div>
+    <div className="tp">
+      <PageTitleElement>Welcome back, Partycipant! 🎉</PageTitleElement>
+    </div>
   )
 }
 
 
 function MyAccountPage(){
   return(
-  <p>MyAccountPage</p>
+  <div className ="tp" style ={{ width: "100%" }}>
+    <PageTitleElement>Hello, Participant! 🎉</PageTitleElement>
+    <p style ={{ margin: "10px 20px" }}>Here you will find the details of your account soon.</p>
+  </div>
   )
 }
 
 function GetHelpPage(){
   return(
-  <p>GetHelpPage</p>
+  <div classname ="tp" style={{ width: "100%" }}>
+    <PageTitleElement>Hello, Participant! 🎉</PageTitleElement>
+    <p style={{ margin: "10px 20px" }}>Here you will find instructions for additional help soon.</p>
+  </div>
   )
 }
 

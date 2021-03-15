@@ -17,6 +17,7 @@
 
 .edit-survey-component-body input {
     margin: 10px 0;
+    background-color: white;
 }
 
 .survey-element {
@@ -26,6 +27,7 @@
 .edit-survey-component-body .s-name-input {
     font-size: x-large;
     font-weight: bold;
+    color: red;
 }
 
 .edit-survey-component-body .s-question-input {

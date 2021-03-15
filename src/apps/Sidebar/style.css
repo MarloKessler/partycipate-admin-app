@@ -1,7 +1,7 @@
 .sidebar {
     height: 100%; 
     padding-top: 5px;
-    background-color: #144D6A;
+    background-color: #BBD9DB;
     flex-direction: column;
     display: flex;
     float: left;
@@ -18,25 +18,18 @@
 }
 
 .sidebar a {
-    color: white; 
+    color: black; 
     text-decoration: none;
     font-size: 18px;
 }
 
 .sidebar .activatable:hover {
+    transition: .3s;
+    color: #BBD9DB;
     background-color: rgb(255, 255, 255);
-}
-
-.sidebar a:hover{
-    color: black;
-    font-size: 18px;
 }
 
 .sidebar .activatable:active {
+    transition: .3s;
     background-color: rgb(255, 255, 255);
-}
-
-.sidebar a:active{
-    color: black;
-    font-size: 18px;
 }

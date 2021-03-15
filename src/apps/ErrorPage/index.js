@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom"
 export default ErrorPage
 
 
-function ErrorPage({ message = "Hello there" }) {
+function ErrorPage({ message = "We are sorry, an error occured." }) {
     const history = useHistory()
     return (
         <div className="error-page">

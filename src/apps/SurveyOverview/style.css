@@ -1,58 +1,16 @@
 .survey-overview {
-    padding: 20px 50px 0 50px;
-}
-
-.survey-table {
     width: 100%;
-    overflow: hidden;
-    border-spacing: 15px;
-    background-color: #EBF4F0;
-    font-size: 20px;
+    height: fit-content;
+    padding-bottom: 50px;
 }
 
-.survey-table tbody tr {
+.survey-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.survey-list .so-card {
+    width: 100%;
     cursor: pointer;
-    transition: .3s;
-    background-color: white;
-}
-
-.survey-table tbody tr:last-child {
-    border-bottom: none;
-}
-
-.survey-table tbody tr:hover {
-    background-color: #e4e4e4;
-    transition: .3s;
-    padding-bottom: 1em;
-}
-
-.survey-table tbody tr:active {
-    background-color: #e4e4e4;
-    transition: .3s;
-}
-
-.survey-table tbody tr td {
-    transition: .3s;
-}
-
-.survey-table tbody tr:hover td {
-    transform: scale(.97);
-    transition: .3s;
-}
-
-.survey-table th, .survey-table td {
-    padding: 10px 20px;
-    text-align: start;
-}
-
-.survey-table th {
-    color: rgb(7, 7, 7);
-    background-color: #f8fafc;
-    font-size: small;
-    text-transform: uppercase;
-}
-
-.survey-table tr td:last-child {
-    width: 1%;
-    white-space: nowrap;
 }

@@ -7,11 +7,11 @@ export default Sidebar
 function Sidebar() {
     return (
         <div className="sidebar">
-            <div className="item activatable"><Link to="/">Home</Link></div>
-            <div className="item activatable"><Link to="/create-survey">Create Survey</Link></div>
-            <div className="item activatable"><Link to="/surveys">View Results</Link></div>
-            <div className="item activatable"><Link to="/my-account">My Account</Link></div>
-            <div className="item activatable"><Link to="/get-help">Get Help</Link></div>
+            <Link to="/"><div className="item activatable">Home</div></Link>
+            <Link to="/create-survey"><div className="item activatable">Create Survey</div></Link>
+            <Link to="/surveys"><div className="item activatable">View Results</div></Link>
+            <Link to="/my-account"><div className="item activatable">My Account</div></Link>
+            <Link to="/get-help"><div className="item activatable">Get Help</div></Link>
         </div>
     )
 }

@@ -9,7 +9,7 @@ export default class SurveyComponent extends Component {
     constructor(props) {
         super(props)
         Server.getSurvey(props.surveyID).then(survey => this.setState(() => {
-            const response = { survey_id: survey.id, elements: [] }
+            const response = { id: survey.id, elements: [] }
             survey.elements.forEach(element => response.elements.push({ id: element.id, type: element.type, participateAnswer: [] }))
             return {
                 survey: survey,

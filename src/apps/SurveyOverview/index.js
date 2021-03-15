@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import Server from "../Server"
 import PageTitleElement from "../PageTitleElement"
+import CardElement from "../CardElement"
 
 export default () => {
     const history = useHistory()
@@ -16,28 +17,22 @@ export default () => {
     }, [])
 
     return (
-        <div className = "survey-table">
-        <PageTitleElement>Which results do you want to see?</PageTitleElement>
-        <div className="survey-overview">
-             { surveys
-                ? <table className="survey-table">
-                    <tbody>
-                        {
-                            surveys.map( survey => {
-                                return (
-                                    <tr key={ survey.id } onClick={ () => history.push(`/surveys/${survey.id}`) }>
-                                        <td>{ survey.title }</td>
-                                    </tr>
-                                )
-                            })
-                        }
-                    </tbody>
-                </table>
+        <div className = "survey-overview">
+            <PageTitleElement>Which results do you want to see?</PageTitleElement>
+            { surveys
+                ? <ul className="survey-list">
+                    {
+                        surveys.map( survey => (
+                            <li className="item" onClick={ () => history.push(`/surveys/${survey.id}`) } key={ survey.id }>
+                                <CardElement className="so-card">{ survey.title }</CardElement>
+                            </li>
+                        ))
+                    }
+                </ul>
                 : errorOccured
                     ? <div>We are sorry, your surveys couldn't be loaded!</div>
                     : <div>Loading surveys…</div>
             }
-        </div>
         </div>
     )
 }

@@ -1,3 +1,14 @@
-.survey-results{
-        background-color: #EBF4F0;
+.survey-results {
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 30px;
+    background-color: #F5F5F5;
+}
+
+.survey-results .so-page-title {
+    margin-bottom: 40px;
+}
+
+.survey-results .results-element {
+    margin: 30px 20px;
 }
