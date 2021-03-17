@@ -52,7 +52,8 @@ code {
 }
 
 .tp {
-  height: 3000px;
+  width: 100%;
+  height: fit-content;
 }
 
 

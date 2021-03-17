@@ -10,9 +10,12 @@ class Fetch {
             method: 'GET', 
             headers: reqHeader,
         }
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/${path}`, initObject)
-        if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
-        return await response.json()
+        const url = `${process.env.REACT_APP_BACKEND_URL}/${path}`
+        const response = await fetch(url, initObject)
+        //if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
+        const body = await response.text()
+        const dict = JSON.parse(body)
+        return dict
     }
 
     static post = async (path, header, body) => {
@@ -23,8 +26,10 @@ class Fetch {
             headers: reqHeader,
             body: JSON.stringify(body),
         }
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/${path}`, initObject)
+        const url = `${process.env.REACT_APP_BACKEND_URL}/${path}`
+        const response = await fetch(url, initObject)
         if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
+        return response
     }
 
     static put = async (path, header, body) => {

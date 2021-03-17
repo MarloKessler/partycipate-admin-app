@@ -29,12 +29,12 @@ function DoughnutChart({ element }) {
 }
 
 
-const getData = ({ content }) => {
-    const [bgColors, hoverBGColors] = getBGColors(content.answers.length)
+const getData = ({ answerPossibilities: answer_possibilities, results }) => {
+    const [bgColors, hoverBGColors] = getBGColors(answer_possibilities.length)
     const data = {
-        labels: content.answers,
+        labels: answer_possibilities.map(possibility => possibility.answer),
         datasets: [{
-                data: content.results,
+                data: results,
                 backgroundColor: bgColors,
                 borderColor: 'transparent',
                 hoverBackgroundColor: hoverBGColors,
@@ -58,10 +58,9 @@ const getBGColors = length => {
 }
 
 
-const getChartOptions = ({ content }) => {
+const getChartOptions = ({ results, count_participants }) => {
     const formatter = new Intl.NumberFormat(window.navigator.language || "en", { style: 'percent', maximumFractionDigits: 0 })
-    
-    const totalVotes = content.participants
+    console.log("count_participants", count_participants)
 
     const options = {
         legend: { display: false },
@@ -82,9 +81,9 @@ const getChartOptions = ({ content }) => {
             mode: 'single',
             callbacks: {
                 label: (item, data) => {
-                    const percentage = data.datasets[item.datasetIndex].data[item.index]
+                    const percentage = data.datasets[item.datasetIndex].data[item.index] / count_participants
                     const percentageString = formatter.format(percentage)
-                    const votes = content.results[item.index]
+                    const votes = results[item.index]
                     return [`${percentageString} (${votes} Votes)`]
                 },
             },

@@ -28,9 +28,4 @@
     margin: 0;
     flex: 1 100%;
     text-align: center;
-    color: #777;
-}
-
-.create-survey-view .csv-toolbar .status-message.error-message {
-    color: red;
 }

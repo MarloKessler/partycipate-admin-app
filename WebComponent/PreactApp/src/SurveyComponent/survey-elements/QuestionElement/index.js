@@ -10,11 +10,11 @@ export { QuestionElement }
 
 function QuestionElement({ index, ...props }) {
     const { survey } = useContext(SurveyContext)
-    const content = survey.elements[index].content
+    const element = survey.elements[index]
 
     return (
         <div { ...props }>
-            <h3 className="question">{ content.question }</h3>
+            <h3 className="question">{ element.question }</h3>
             <XCoiceBlock elementIndex={ index } />
         </div>
     )

@@ -3,17 +3,24 @@ import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import Server from "../Server"
 import PageTitleElement from "../PageTitleElement"
+import ErrorPage from "../ErrorPage"
 import CardElement from "../CardElement"
 
 export default () => {
     const history = useHistory()
     const [surveys, setSurveys] = useState()
-    const [errorOccured, setErrorOccured] = useState()
 
     useEffect(() => {
         Server.database().getSurveys()
-        .then(setSurveys)
-        .catch(() => setErrorOccured(true))
+        .then(surveys => {
+            console.log("survey: ", surveys)
+
+            setSurveys(surveys)
+        })
+        .catch((error) => {
+            console.log("error: ", error)
+            setSurveys(null)
+        })
     }, [])
 
     return (
@@ -29,9 +36,7 @@ export default () => {
                         ))
                     }
                 </ul>
-                : errorOccured
-                    ? <div>We are sorry, your surveys couldn't be loaded!</div>
-                    : <div>Loading surveys…</div>
+                : surveys === null && <ErrorPage message="We are sorry, your surveys couldn't be loaded!"/>
             }
         </div>
     )

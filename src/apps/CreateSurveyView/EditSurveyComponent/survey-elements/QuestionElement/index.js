@@ -10,11 +10,11 @@ export { QuestionElement }
 
 function QuestionElement({ index, ...props }) {
     const { survey, updateSurvey } = useContext(SurveyContext)
-    const content = survey.elements[index].content
+    const element = survey.elements[index]
 
     const updateQuestion = event => {
-        content.question = event.target.value
-        survey.elements[index].content = content
+        element.question = event.target.value
+        survey.elements[index] = element
         updateSurvey(survey)
     }
 
@@ -22,7 +22,7 @@ function QuestionElement({ index, ...props }) {
     return (
         <div { ...props }>
             <label>Define your question</label>
-            <input className="input s-question-input" type="text" value={ content.question } placeholder="Question" onChange={ updateQuestion }/>
+            <input className="input s-question-input" type="text" value={ element.question } placeholder="Question" onChange={ updateQuestion }/>
             <XCoiceBlock elementIndex={ index } />
         </div>
     )

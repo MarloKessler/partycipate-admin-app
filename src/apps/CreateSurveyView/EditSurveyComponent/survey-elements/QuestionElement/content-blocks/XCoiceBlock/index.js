@@ -11,7 +11,7 @@ export { XCoiceBlock }
 function XCoiceBlock({ elementIndex }) {
     const { survey, updateSurvey } = useContext(SurveyContext)
     const element = survey.elements[elementIndex]
-    const answers = element.content.answers
+    const answer_possibilities = element.answer_possibilities
     const [focusOnLastAnswer, setFocusOnLastAnswer] = useState(false)
 
     // Add popper to ElementTypeSelection pane
@@ -36,27 +36,27 @@ function XCoiceBlock({ elementIndex }) {
     useEffect(() => setFocusOnLastAnswer(false))
     
 
-    const handleKeyDown = (event, index) => { if(index === answers.length - 1 && event.key === "Enter") createAnswer() }
+    const handleKeyDown = (event, index) => { if(index === answer_possibilities.length - 1 && event.key === "Enter") createAnswer() }
 
 
     const createAnswer = () => {
         // Set flag to focus last answer on rerender
         setFocusOnLastAnswer(true)
         // Add new answer
-        answers.push("")
-        survey.elements[elementIndex].content.answers = answers
+        answer_possibilities.push({ position: answer_possibilities.length + 1, answer: "" })
+        survey.elements[elementIndex].answer_possibilities = answer_possibilities
         updateSurvey(survey)
     }
 
     const updateAnswer = (event, index) => {
-        answers[index] = event.target.value
-        survey.elements[elementIndex].content.answers = answers
+        answer_possibilities[index].answer = event.target.value
+        survey.elements[elementIndex].answer_possibilities = answer_possibilities
         updateSurvey(survey)
     }
 
     const deleteAnswer = index => {
-        answers.splice(index, 1)
-        survey.elements[elementIndex].content.answers = answers
+        answer_possibilities.splice(index, 1)
+        survey.elements[elementIndex].answer_possibilities = answer_possibilities
         updateSurvey(survey)
     }
 
@@ -68,13 +68,13 @@ function XCoiceBlock({ elementIndex }) {
                 <button className="button btn-dark" ref={ setETSButton } onClick={ toggleETSPane }>{ getTypeLabelFor(element.type) }<FiChevronDown className="button-icon"/></button>
                 <ElementTypeSelection className={ showETSPane ? "show" : "" } onChange={ updateElementType } elementRef={ setETSPane } style={ styles.popper } {...attributes.popper}/>
             </div>
-            { answers.map( (answer, index) => (
+            { answer_possibilities.map( (possibility, index) => (
                 <div className="answer-option" key={ index }>
                     <input 
-                        autoFocus={ index === (answers.length - 1) && focusOnLastAnswer } 
+                        autoFocus={ index === (answer_possibilities.length - 1) && focusOnLastAnswer } 
                         type="text" className="input answer-input" 
                         placeholder={ `Answer ${index + 1}` } 
-                        value={ answer } 
+                        value={ possibility.answer } 
                         onChange={ event => updateAnswer(event, index) } 
                         onKeyDown={ event => handleKeyDown(event, index)}
                     />

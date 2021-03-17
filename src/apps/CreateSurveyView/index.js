@@ -14,8 +14,10 @@ class CreateSurveyView extends React.Component {
     constructor(props) {
         super(props)
         
+        const element = { position: 1, type: "", question: "", answer_possibilities: [ { position: 1, answer: "" } ], may_skip: false, }
+        const survey = { creation_date: new Date().toISOString(), cookie: "", user_id: 1, title: "", elements: [ element ]}
         this.state = {
-            survey: { title: "", elements: [{ type: "", content: { question: "", answers: [ "" ] } }]},
+            survey: survey,
             updateSurvey: survey => this.setState(() => ({ survey: survey })),
             step: 0,
             isSaving: false,
@@ -30,8 +32,9 @@ class CreateSurveyView extends React.Component {
             if (this.state.step === 1) {
                 this.setState(() => ({ statusMessage: "Saving Survey…", isSaving: true }))
                 Server.database().createSurvey(this.state.survey)
-                .then(survey => {
-                    this.state.updateSurvey(survey)
+                .then(surveyID => {
+                    this.state.survey.id = surveyID
+                    this.state.updateSurvey(this.state.survey)
                     this.setState(() => ({ step: this.state.step + 1 }))
                     this.setState(() => ({ statusMessage: null }))
                 })
