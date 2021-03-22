@@ -1,0 +1,23 @@
+    .logoutBox {
+      float: left;
+      background: white;
+      font-size: 20px;
+      color: #BBD9DB;
+      justify-content: center;
+      flex: 1;
+      width: 90%;
+      margin-right: 2%;
+      padding: 20px;
+  }
+
+  .logout {
+    display: block;
+    width: 100%;
+    }
+
+  .logo img {
+    margin: 20px;
+    object-fit: contain;
+    height: 100px;
+}
+

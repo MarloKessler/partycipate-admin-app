@@ -1,0 +1,53 @@
+.tp {
+  display: block;
+  width: 100%;
+  }
+
+.FirstBox {
+    float: left;
+    width: 32%;
+    margin-right: 2%;
+    padding: 20px;
+    background: white;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+.SecondBox {
+    float: left;
+    width: 32%;
+    margin-right: 2%;
+    padding: 20px;
+    background: White;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+
+.hello {
+  padding-left: 20px;
+  font-size: 16pt;
+}
+
+.tp .FirstBox:hover {
+  transition: .3s;
+  background-color: white;
+  color: #BBD9DB;
+}
+
+.tp .FirstBox:active {
+  transition: .3s;
+  background-color: rgb(255, 255, 255);
+}
+
+.tp .SecondBox:hover {
+  transition: .3s;
+  background-color: white;
+  color: #BBD9DB;
+}
+
+.tp .SecondBox:active {
+  transition: .3s;
+  background-color: rgb(255, 255, 255);
+}
+

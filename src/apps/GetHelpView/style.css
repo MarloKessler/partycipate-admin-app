@@ -1,0 +1,26 @@
+.faqs {
+    margin: 20px;
+    color: #647374;
+    padding-bottom: 40px;
+}
+
+.faqs :hover {
+    transition: .3s;
+    color: #BBD9DB;
+}
+
+.faqs :active {
+    transition: .3s;
+    color: #BBD9DB;
+}
+
+a.FAQ_Link{ 
+    text-decoration: none; 
+    color: #82a0aa;
+    font-weight: bold;
+}
+
+.level {
+    width: 100%;
+}
+

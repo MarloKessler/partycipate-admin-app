@@ -46,16 +46,8 @@ code {
   width: 100%;
   flex: 1;
   overflow: auto;
-  
-  display: flex;
   justify-content: center;
 }
-
-.tp {
-  height: 3000px;
-}
-
-
 
 /* Item */
 .item {

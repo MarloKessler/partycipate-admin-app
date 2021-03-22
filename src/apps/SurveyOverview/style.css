@@ -13,4 +13,7 @@
 .survey-list .so-card {
     width: 100%;
     cursor: pointer;
+    background-color: #C4C4C4;
+    font-size: 24px;
+    color: white;
 }

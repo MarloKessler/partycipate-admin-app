@@ -7,13 +7,15 @@ import Sidebar from "../Sidebar"
 import ErrorPage from "../ErrorPage"
 import CreateSurveyView from "../CreateSurveyView"
 import SurveyOverview from "../SurveyOverview"
-//import SingleChoiceChart from '../ResultsView/QuestionResultsElement/charts/SingleChoiceChart'
 import ResultsView from "../ResultsView"
 import PageTitleElement from "../PageTitleElement"
+import GetHelpView from "../GetHelpView"
+import HomePage from "../HomePage"
+import LogoutView from "../LogoutView"
+import LoginView from "../LoginView"
 
 
 export default Main
-
 
 function Main() {
   return (
@@ -28,9 +30,11 @@ function Main() {
               <Route exact path="/surveys" component={SurveyOverview}/>
               <Route exact path="/surveys/:id" component={ResultsView}/>
               <Route exact path="/my-account" component={MyAccountPage}/>
-              <Route exact path="/get-help" component={GetHelpPage}/>
+              <Route exact path="/get-help" component={GetHelpView}/>
               <Route exact path="/why-partycipate" component={WhyPartycipatePage}/>
               <Route exact path="/contact" component={ContactPage}/>
+              <Route exact path="/logout" component={LogoutView}/>
+              <Route exact path="/login" component={LoginView}/>
               <Route path="*" component={ () => <ErrorPage message="The page you’re looking for can’t be found."/> }/>
             </Switch>
             </div>
@@ -38,6 +42,8 @@ function Main() {
     </div>
   )
 }
+
+
 
 /*
 <div className="Content">
@@ -58,29 +64,12 @@ function Main() {
 </div>
 */
 
-function HomePage(){
-  return(
-    <div className="tp">
-      <PageTitleElement>Welcome back, Partycipant! 🎉</PageTitleElement>
-    </div>
-  )
-}
-
 
 function MyAccountPage(){
   return(
   <div className ="tp" style ={{ width: "100%" }}>
     <PageTitleElement>Hello, Participant! 🎉</PageTitleElement>
     <p style ={{ margin: "10px 20px" }}>Here you will find the details of your account soon.</p>
-  </div>
-  )
-}
-
-function GetHelpPage(){
-  return(
-  <div classname ="tp" style={{ width: "100%" }}>
-    <PageTitleElement>Hello, Participant! 🎉</PageTitleElement>
-    <p style={{ margin: "10px 20px" }}>Here you will find instructions for additional help soon.</p>
   </div>
   )
 }
