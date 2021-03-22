@@ -9,7 +9,7 @@ import { XChoiceResults } from "./results-elements"
 export default ResultsComponent
 
 
-function ResultsComponent({ surveyID }) {
+function ResultsComponent({ survey }) {
     const [results, setResults] = useState()
     
 
@@ -20,9 +20,22 @@ function ResultsComponent({ surveyID }) {
     }, [])
 
     useEffect(() => {
-        Server.getSurveyResults(surveyID)
-        .then(setResults)
-    }, [ surveyID ])
+        Server.getSurveyResults(survey.id)
+        .then(resultsArray => {
+            survey.elements[0].answerPossibilities.sort((a, b) => {
+                if ( a.position < b.position ){
+                    return -1;
+                  }
+                  if ( a.position > b.position ){
+                    return 1;
+                  }
+                  return 0;
+            })
+            survey.elements[0].results = resultsArray[0].results
+            survey.elements[0].count_participants = resultsArray[0].count_participants
+            setResults(survey)
+        })
+    }, [ survey ])
 
     return (
         <div>

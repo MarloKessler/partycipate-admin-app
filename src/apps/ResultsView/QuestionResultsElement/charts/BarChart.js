@@ -21,12 +21,11 @@ function BarChart({ element }) {
 }
 
 
-const getData = ({ content }) => {
-    const totalVotes = content.participants
-    const dataItems = content.results.map(item => item/totalVotes)
-    const [bgColors, hoverBGColors] = getBGColors(content.answers.length)
+const getData = ({ answerPossibilities:answer_possibilities, results, count_participants }) => {
+    const dataItems = results.map(item => item/count_participants)
+    const [bgColors, hoverBGColors] = getBGColors(answer_possibilities.length)
     const data = {
-        labels: content.answers,
+        labels: answer_possibilities.map(possibility => possibility.answer),
         datasets: [{
                 data: dataItems,
                 backgroundColor: bgColors,
@@ -52,7 +51,7 @@ const getBGColors = length => {
 }
 
 
-const getChartOptions = ({ content }) => {
+const getChartOptions = ({ results }) => {
     const formatter = new Intl.NumberFormat(window.navigator.language || "en", { style: 'percent', maximumFractionDigits: 0 })
 
     const options = {
@@ -64,7 +63,7 @@ const getChartOptions = ({ content }) => {
                 title: ([item], data) => {
                     const percentage = data.datasets[item.datasetIndex].data[item.index]
                     const percentageString = formatter.format(percentage)
-                    const votes = content.results[item.index]
+                    const votes = results[item.index]
                     return [`${percentageString} (${votes} Votes)`]
                 },
                 label: () => {},

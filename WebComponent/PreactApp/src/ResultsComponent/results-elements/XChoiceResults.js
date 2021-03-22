@@ -6,17 +6,15 @@ import ChartDataLabels from 'chartjs-plugin-datalabels'
 
 
 export function XChoiceResults({ element }) {
-    const content = element.content
     const chartCont = useRef()
     const chartRef  = useRef()
 
-    useEffect(() => setResultsChart(content, chartRef.current), [ content ])
+    useEffect(() => setResultsChart(element, chartRef.current), [ element ])
 
     return (
         <div>
             <div className="question">
-                <h3>{ content.question }</h3>
-                <p><small>(Multiple choices possible)</small></p>
+                <h3>{ element.question }</h3>
             </div>
             
             <div ref={ chartCont } className="chart-container">
@@ -28,26 +26,23 @@ export function XChoiceResults({ element }) {
 
 
 
-const setResultsChart = (content, canvas) => {
+const setResultsChart = (element, canvas) => {
     const barColors = distinctColors({
-        count: content.answers.length,
+        count: element.answerPossibilities.length,
         chromaMin: 80,
     })
 
-    const formatter = new Intl.NumberFormat(window.navigator.language || "en", {
-        style: 'percent',
-        maximumFractionDigits: 0
-    })
+    const formatter = new Intl.NumberFormat(window.navigator.language || "en", { style: 'percent', maximumFractionDigits: 0 })
 
     new Chart(canvas, {
         plugins: [ChartDataLabels],
         type: "bar",
         data: {
-            labels: content.answers,
+            labels: element.answerPossibilities.map(possibility => possibility.answer),
             datasets: [
                 {
-                    label: content.question,
-                    data: content.responses,
+                    label: element.question,
+                    data: element.results.map(result => result/element.count_participants),
                     backgroundColor: barColors,
                     hoverBackgroundColor: barColors,
                     borderColor: "transparent",

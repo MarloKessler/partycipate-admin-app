@@ -12,8 +12,8 @@ function QuestionResultsElement({ element }) {
         <CardElement className="results-element">
             <div className="re-header">
                 <div className="re-header-first-line">
-                    <h3>{ element.content.question }</h3>
-                    <h4 className="re-total-votes">{ element.content.participants } Participants</h4>
+                    <h3>{ element.question }</h3>
+                    <h4 className="re-total-votes">{ element.count_participants } Participants</h4>
                 </div>
                 <p><small>{ getElementTypeLabel(element.type) }</small></p>
             </div>
@@ -36,6 +36,6 @@ function ResultsChart({ element }) {
     switch (element.type) {
         case "single-choice": return <DoughnutChart element={ element }/>
         case "multiple-choice": return <BarChart element={ element }/>
-        default: <div>no chart type match</div>
+        default: return <div>Chart not available</div>
     }
 }

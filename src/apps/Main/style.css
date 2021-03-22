@@ -49,6 +49,13 @@ code {
   justify-content: center;
 }
 
+.tp {
+  width: 100%;
+  height: fit-content;
+}
+
+
+
 /* Item */
 .item {
   display: flex;

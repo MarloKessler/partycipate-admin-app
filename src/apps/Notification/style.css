@@ -10,7 +10,8 @@
     transition: all 5s;
     border-radius: 5px;
     padding: 20px;
-    background-color: #c5e3e6;
+    color: white;
+    background-color: #82a0aa;
 }
 
 .Notification.show {
