@@ -1,23 +1,30 @@
-    .logoutBox {
-      float: left;
-      background: white;
-      font-size: 20px;
-      color: #BBD9DB;
-      justify-content: center;
-      flex: 1;
-      width: 90%;
-      margin-right: 2%;
-      padding: 20px;
-  }
+.logoutBox {
+  font-size: 16px;
+  background: white;
+  color: #BBD9DB;
+  justify-content: center;
+  width: 80%;
+}
 
-  .logout {
-    display: block;
-    width: 100%;
-    }
+.logout {
+  display: block;
+  width: 100%;
+}
 
-  .logo img {
-    margin: 20px;
-    object-fit: contain;
-    height: 100px;
+.logo img {
+  margin: 20px;
+  object-fit: contain;
+  height: 100px;
+}
+
+.logout .bye {
+  margin-left: 20px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  font-size: 20px;
+}
+
+.logout .message {
+  font-size: 18px;
 }
 

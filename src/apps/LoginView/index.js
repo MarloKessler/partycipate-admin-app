@@ -8,9 +8,9 @@ import { FiChevronRight } from "react-icons/fi"
 export default function LoginView(){
   return(
     <div className="login">
-      <PageTitleElement>Log in to your existing account! 🎉</PageTitleElement>
-      <div>
-        <CardElement>
+      <PageTitleElement className="loginHeader">Log in to your existing account! 🎉</PageTitleElement>
+      <div className="login-body"> 
+        <CardElement className="celement">
           <PageTitleElement className="Log-in"><a>Log-in</a></PageTitleElement>
           <label for="uname" className="labelUN"><b>E-Mail:</b></label><br/>
           <input class="un " align="center" type="text" placeholder="Enter E-Mail" name="uname" required></input>
@@ -18,13 +18,14 @@ export default function LoginView(){
           <br/>
           <label for="psw" className="labelPass"><b>Password:</b></label><br/>
           <input class="pass" align="center" type="password" placeholder="Enter Password" name="psw" required></input>
-        </CardElement>  
-      </div>
-      <Link to="/">
-        <div className="toobar">
+          <Link to="/">
+        <div className="toolbar">
           <button className="button btn-dark" type="submit">Login<FiChevronRight/></button>
         </div>
       </Link>
+        </CardElement>  
+      </div>
+
     </div>
   )
 }
