@@ -10,9 +10,9 @@ function LogoutView(){
       <div className="logout">
         <PageTitleElement>Thank you, Partycipant!🎉</PageTitleElement>
         <div className="bye">You have successfully logged out and you can leave this page now.</div>
-          <div>
-                  <CardElement className='logoutBox'> 
-                  <div className="message">We hope to see you back soon on</div>
+          <div className="logout-body">
+                  <CardElement className="logoutBox"> 
+                    <div>We hope to see you back soon on</div>
                   <Link to="/" >
                     <div className="item logo">
                         <a href={ `${process.env.REACT_APP_WEBSITE_URL}/` }>

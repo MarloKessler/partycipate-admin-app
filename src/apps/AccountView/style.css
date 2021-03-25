@@ -1,0 +1,119 @@
+.Change-pw a{
+    font-size: 30px;
+    display: block;
+}
+
+.changepwHeader {
+    margin-bottom: 15px;
+}
+
+.celement {
+    background-color: white;
+    width: 50%;
+    height: 100%
+}
+
+.changepw-body{
+    display:flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.un {
+    width: 70%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 30px;
+    text-align: center;
+    margin-bottom: 27px;
+    }
+
+.pass {
+    width: 70%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 30px;
+    text-align: center;
+    margin-bottom: 27px;
+}
+
+.changepw button{
+    margin-top: 10px;
+    justify-content: center;
+    padding-right: 30px;
+    font-size: 18px;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+.changepw .labelUN{
+    display: block;
+    position: relative;
+    left: 5%;
+    padding-top: 20px;
+    text-align: left;
+    color: black;
+}
+
+.changepw .labelPass{
+    display: block;
+    position: relative;
+    left: 5%;
+    text-align: left;
+}
+.changepw .labelPassRe{
+    display: block;
+    position: relative;
+    left: 5%;
+    text-align: left;
+}
+.toolbar .btn-dark{
+    padding-left: 40px;
+}
+
+.changepw{
+    width: 100%;
+}
+
+.delement{
+        background-color: white;
+        width: 50%;
+        height: 100%
+}
+
+.del a{
+    position:relative;
+    left:3%;
+    
+    
+
+}
+.delete a{
+    color: black;
+    font-size: 30px;
+}

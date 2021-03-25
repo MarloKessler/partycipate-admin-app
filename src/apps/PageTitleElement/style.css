@@ -1,5 +1,11 @@
+.page-title-element {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
 
-.page-title-element .PageTitle{
+.page-title-element .pte-title h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 40px;
     color:black;
@@ -7,4 +13,9 @@
     margin-bottom: 0%;
     padding-bottom: 0%;
     font-weight: normal;
+}
+
+.page-title-element .pte-help-btn {
+    margin: 0 20px 0 auto;
+    flex-shrink: 0;
 }

@@ -10,10 +10,40 @@
     list-style: none;
 }
 
+.so-search-bar-container {
+    position: sticky;
+    /* Setting the top to 0px leads to a small gap between the searchbar and the top */
+    top: -1px;
+    z-index: 1;
+    padding: 10px 21px;
+    background-color: #F5F5F5;
+}
+
+.so-search-bar-container .so-search-bar {
+    margin: 0;
+    padding: 10px 20px;
+    transition: .3s;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    box-shadow: none;
+}
+
+.so-search-bar input {
+    width: 100%;
+    border: none;
+    font-size: larger;
+    color: #777;
+    background-color: transparent;    
+}
+
 .survey-list .so-card {
+    margin: 10px 20px;
+    padding: 20px;
     width: 100%;
     cursor: pointer;
     background-color: #C4C4C4;
-    font-size: 24px;
+    font-size: larger;
     color: white;
 }

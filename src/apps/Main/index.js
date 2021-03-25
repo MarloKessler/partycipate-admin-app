@@ -13,6 +13,8 @@ import GetHelpView from "../GetHelpView"
 import HomePage from "../HomePage"
 import LogoutView from "../LogoutView"
 import LoginView from "../LoginView"
+import SignupView from "../SignupView"
+import AccountView from "../AccountView"
 
 
 export default Main
@@ -29,12 +31,14 @@ function Main() {
               <Route exact path="/create-survey" component={ CreateSurveyView }/>
               <Route exact path="/surveys" component={SurveyOverview}/>
               <Route exact path="/surveys/:id" component={ResultsView}/>
-              <Route exact path="/my-account" component={MyAccountPage}/>
+              <Route exact path="/my-account" component={AccountView}/>
               <Route exact path="/get-help" component={GetHelpView}/>
+              <Route exact path="/get-help/:id" component={GetHelpView}/>
               <Route exact path="/why-partycipate" component={WhyPartycipatePage}/>
               <Route exact path="/contact" component={ContactPage}/>
               <Route exact path="/logout" component={LogoutView}/>
               <Route exact path="/login" component={LoginView}/>
+              <Route exact path="/signup" component={SignupView}/>
               <Route path="*" component={ () => <ErrorPage message="The page you’re looking for can’t be found."/> }/>
             </Switch>
             </div>
@@ -65,14 +69,7 @@ function Main() {
 */
 
 
-function MyAccountPage(){
-  return(
-  <div className ="tp" style ={{ width: "100%" }}>
-    <PageTitleElement>Hello, Participant! 🎉</PageTitleElement>
-    <p style ={{ margin: "10px 20px" }}>Here you will find the details of your account soon.</p>
-  </div>
-  )
-}
+
 
 function WhyPartycipatePage(){
   return(

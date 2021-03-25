@@ -4,20 +4,18 @@
   }
 
 .FirstBox {
+    display: block;
     float: left;
-    width: 32%;
-    margin-right: 2%;
-    padding: 20px;
+    width: 300px;
     background: white;
     font-size: 20px;
     color: black;
     text-align: center;
 }
 .SecondBox {
+    display: block;
     float: left;
-    width: 32%;
-    margin-right: 2%;
-    padding: 20px;
+    width: 300px;
     background: White;
     font-size: 20px;
     color: black;

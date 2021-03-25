@@ -1,3 +1,16 @@
+
+.get-help-view {
+    width: 100%;
+}
+
+.get-help-view .faqs .faq-section {
+    padding-top: 30px;
+}
+
+.get-help-view .faqs .faq-section:first-child {
+    padding-top: 0;
+}
+
 .faqs {
     margin: 20px;
     color: #647374;
@@ -19,8 +32,3 @@ a.FAQ_Link{
     color: #82a0aa;
     font-weight: bold;
 }
-
-.level {
-    width: 100%;
-}
-

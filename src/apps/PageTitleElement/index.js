@@ -1,23 +1,21 @@
 import "./style.css";
-import React,{ Component } from 'react';
+import HelpButton from "../HelpButton"
 
 
-
-
-function PageTitleElement({ children, className = "" }) {
-
+export default function PageTitleElement({ children, className = "", helpSectionID }) {
     return(
         <div className={ `page-title-element ${className}` }>
-            <h1 className="PageTitle">{ children }</h1>
-            <hr style={{
-                color: "black",
-                backgroundColor: "black",
-                height: 0.5,
-                marginLeft: 20,
-                width: 60
-            }}/>
+            <div className="pte-title">
+                <h1 className="PageTitle">{ children }</h1>
+                <hr style={{
+                    color: "black",
+                    backgroundColor: "black",
+                    height: 0.5,
+                    marginLeft: 20,
+                    width: 60
+                }}/>
+            </div>
+            { helpSectionID && <HelpButton className="pte-help-btn" sectionID={helpSectionID}/> }
         </div>
     )
 }
-
-export default PageTitleElement

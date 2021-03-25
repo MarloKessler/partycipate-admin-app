@@ -1,9 +1,23 @@
 .logoutBox {
-  font-size: 16px;
+  font-size: 25px;
   background: white;
   color: #BBD9DB;
   justify-content: center;
-  width: 80%;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+}
+
+.logoutBox div {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.logout-body{
+  display:flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .logout {
@@ -20,11 +34,9 @@
 .logout .bye {
   margin-left: 20px;
   margin-top: 30px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-size: 20px;
 }
 
-.logout .message {
-  font-size: 18px;
-}
+
 
