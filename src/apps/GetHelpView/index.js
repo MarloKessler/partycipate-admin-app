@@ -114,6 +114,16 @@ const styles = {
     rowTitleTextSize: 'x-large',          
 }
 
+
+export const HelpSections = {
+    general: "general",
+    createSurvey: "create-survey",
+    analyseSurvey: "analyse-survey",
+    //general: "general",
+    //general: "general",
+}
+
+
 export default function GetHelpView() {
     const { id } = useParams()
     

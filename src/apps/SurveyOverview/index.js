@@ -5,6 +5,7 @@ import Server from "../Server"
 import PageTitleElement from "../PageTitleElement"
 import ErrorPage from "../ErrorPage"
 import CardElement from "../CardElement"
+import { HelpSections } from "../GetHelpView"
 
 export default () => {
     const history = useHistory()
@@ -37,7 +38,7 @@ export default () => {
 
     return (
         <div className = "survey-overview searching">
-            <PageTitleElement helpSectionID="analyse-survey">Which results do you want to see?</PageTitleElement>
+            <PageTitleElement helpSection={ HelpSections.analyseSurvey }>Which results do you want to see?</PageTitleElement>
             { filteredSurveys
                 ? <div>
                     <div className="so-search-bar-container">

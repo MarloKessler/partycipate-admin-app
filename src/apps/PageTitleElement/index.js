@@ -2,7 +2,7 @@ import "./style.css";
 import HelpButton from "../HelpButton"
 
 
-export default function PageTitleElement({ children, className = "", helpSectionID }) {
+export default function PageTitleElement({ children, className = "", helpSection }) {
     return(
         <div className={ `page-title-element ${className}` }>
             <div className="pte-title">
@@ -15,7 +15,7 @@ export default function PageTitleElement({ children, className = "", helpSection
                     width: 60
                 }}/>
             </div>
-            { helpSectionID && <HelpButton className="pte-help-btn" sectionID={helpSectionID}/> }
+            { helpSection && <HelpButton className="pte-help-btn" section={helpSection}/> }
         </div>
     )
 }

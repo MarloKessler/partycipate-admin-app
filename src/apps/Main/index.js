@@ -8,7 +8,6 @@ import ErrorPage from "../ErrorPage"
 import CreateSurveyView from "../CreateSurveyView"
 import SurveyOverview from "../SurveyOverview"
 import ResultsView from "../ResultsView"
-import PageTitleElement from "../PageTitleElement"
 import GetHelpView from "../GetHelpView"
 import HomePage from "../HomePage"
 import LogoutView from "../LogoutView"
@@ -17,9 +16,7 @@ import SignupView from "../SignupView"
 import AccountView from "../AccountView"
 
 
-export default Main
-
-function Main() {
+export default function Main() {  
   return (
     <div className="App">
         <Navbar/>
@@ -46,29 +43,6 @@ function Main() {
     </div>
   )
 }
-
-
-
-/*
-<div className="Content">
-  <Sidebar/>
-  <div className="Page-Container">
-    <Switch>
-      <Route exact path="/" component={HomePage}/>
-      <Route exact path="/create-survey" component={ CreateSurveyView }/>
-      <Route exact path="/surveys" component={SurveysPage}/>
-      <Route exact path="/surveys/:id" component={ViewResultsPage }/>
-      <Route exact path="/my-account" component={MyAccountPage}/>
-      <Route exact path="/get-help" compoenent={GetHelpPage}/>
-      <Route exact path="/why-partycipate" component={WhyPartycipatePage}/>
-      <Route exact path="/contact" component={ContactPage}/>
-      <Route path="*" component={ () => <ErrorPage message="The page you’re looking for can’t be found."/> }/>
-    </Switch>
-  </div>
-</div>
-*/
-
-
 
 
 function WhyPartycipatePage(){

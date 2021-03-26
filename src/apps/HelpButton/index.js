@@ -3,7 +3,7 @@ import { useHistory } from "react-router"
 import { IoHelpOutline } from "react-icons/io5"
 
 
-export default function HelpButton({ className = "", sectionID = "" }) {
+export default function HelpButton({ className = "", section: sectionID = "" }) {
     const history = useHistory()
     return (
         <a className={`button item help-button ${className}`} href={`${window.location.origin}/get-help/${sectionID}`} target="blank">

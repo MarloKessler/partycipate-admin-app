@@ -117,3 +117,16 @@
     color: black;
     font-size: 30px;
 }
+
+
+/*
+.cardel{
+    flex: 1 1 100%;
+}
+
+@media(min-width: 1200px) {
+    .cardel{
+        flex: 1 1 50%;
+    }
+}
+*/
