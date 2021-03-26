@@ -101,23 +101,21 @@
 }
 
 .delement{
-        background-color: white;
-        width: 50%;
-        height: 100%
+    background-color: white;
+    width: 50%;
+    height: 100%;
 }
 
-.del a{
-    position:relative;
-    left:3%;
-    
-    
-
-}
 .delete a{
     color: black;
     font-size: 30px;
-}
+    display: block;
+    }
 
+.del div {
+    margin-left: 20px;
+    margin-right: 20px;
+}
 
 /*
 .cardel{

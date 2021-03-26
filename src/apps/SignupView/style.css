@@ -3,8 +3,13 @@
     display: block;
 }
 
+.Sign-up {
+    display: block;
+}
+
 .signupHeader {
     margin-bottom: 15px;
+    display: block;
 }
 
 .celement {
@@ -100,4 +105,8 @@
 
 .signup{
     width: 100%;
+}
+
+#text{
+    
 }

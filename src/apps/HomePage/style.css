@@ -4,22 +4,25 @@
   }
 
 .FirstBox {
-    display: block;
-    float: left;
-    width: 300px;
     background: white;
     font-size: 20px;
     color: black;
     text-align: center;
+    display: flex;
+    height: 100px;
+    display: inline-block;
+    font-size: 25px;
 }
+
 .SecondBox {
-    display: block;
-    float: left;
-    width: 300px;
     background: White;
     font-size: 20px;
     color: black;
     text-align: center;
+    display: flex;
+    height: 100px;
+    font-size: 25px;
+    display: inline-block;
 }
 
 .hello {
@@ -49,3 +52,14 @@
   background-color: rgb(255, 255, 255);
 }
 
+.carts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.carts-two {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

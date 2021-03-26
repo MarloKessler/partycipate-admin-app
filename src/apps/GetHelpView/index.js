@@ -80,6 +80,10 @@ const createSurveyFAQs = {
             title: "I have an additional question?",
             content: `Please, don't hesitate and <a href='/contact' class='FAQ_Link'>contact</a> us!`,
         },
+        {
+            title: "Do you offer any help concerning privacy documentation?",
+            content: `Of course we do. You can copy the following snippet to your website: `,
+        },
     ],
 }
 
@@ -89,6 +93,10 @@ const accountFAQs = {
         {
             title: "How can I delete my account?",
             content: `If you want to delete your account, you can do so in the section <a href='/my-account' class='FAQ_Link'>My Account</a>. <br>Do think twice before you delete your account, your data can't be restored afterwards.`,
+        },
+        {
+            title: "How can I change my password?",
+            content: `If you want to change your password, you can do so in the secation <a href='/my-account' class='FAQ_Link'>My Account</a>.`,
         },
     ],
 }
