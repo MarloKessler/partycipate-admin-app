@@ -1,9 +1,8 @@
 import Database from "./Database"
+import Auth from "./Auth"
 
 
-class Server {
+export default class Server {
     static database = () => Database
+    static auth = () => Auth
 }
-
-
-export default Server
