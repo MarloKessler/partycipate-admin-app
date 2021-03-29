@@ -73,7 +73,7 @@ function SurveyComponent({ step, onTypeSelected }) {
 }
 
 
-function CSVToolbar({ step, statusIcon, statusMessage, creationErrorOccured, onGoBack, onGoForward, isSaving }) {
+function CSVToolbar({ step, statusMessage, onGoBack, onGoForward, isSaving }) {
     return (
         <div className="csv-toolbar">
             { step === 1 && <button className="button btn-dark back-btn" disabled={ isSaving } onClick={ onGoBack }><FiChevronLeft/>Back</button> }

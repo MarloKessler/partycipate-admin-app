@@ -1,5 +1,7 @@
 import './style.css'
-import { Switch, Route } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import { Switch, Route, useHistory, Redirect } from "react-router-dom"
+import Server from "../Server"
 
 // Views
 import Navbar from "../Navbar"
@@ -8,34 +10,44 @@ import ErrorPage from "../ErrorPage"
 import CreateSurveyView from "../CreateSurveyView"
 import SurveyOverview from "../SurveyOverview"
 import ResultsView from "../ResultsView"
-import GetHelpView from "../GetHelpView"
-import HomePage from "../HomePage"
+import DocsView from "../DocsView"
+import DashboardView from "../DashboardView"
 import LogoutView from "../LogoutView"
 import LoginView from "../LoginView"
 import SignupView from "../SignupView"
 import AccountView from "../AccountView"
 
 
-export default function Main() {  
+export default function Main() {
+  const [ user, setUser ] = useState()
+  const history = useHistory()
+  useEffect(() => Server.auth().onAuthStateChanged((newUser, oldUser) => {
+    if (oldUser && !newUser) history.push("/logout")
+    setUser(newUser)
+  }), [])
+
+  useEffect(() => setTimeout(Server.auth().init(), 5000), [])
+
   return (
     <div className="App">
         <Navbar/>
           <div className="Admin-App">
-            <Sidebar/>
+            { user && <Sidebar/> }
             <div className="Page-Container">
             <Switch>
-              <Route exact path="/" component={HomePage}/>
-              <Route exact path="/create-survey" component={ CreateSurveyView }/>
-              <Route exact path="/surveys" component={SurveyOverview}/>
-              <Route exact path="/surveys/:id" component={ResultsView}/>
-              <Route exact path="/my-account" component={AccountView}/>
-              <Route exact path="/get-help" component={GetHelpView}/>
-              <Route exact path="/get-help/:id" component={GetHelpView}/>
-              <Route exact path="/why-partycipate" component={WhyPartycipatePage}/>
-              <Route exact path="/contact" component={ContactPage}/>
-              <Route exact path="/logout" component={LogoutView}/>
-              <Route exact path="/login" component={LoginView}/>
-              <Route exact path="/signup" component={SignupView}/>
+              <SecureRoute exact path="/dashboard" component={<DashboardView/>}/>
+              <SecureRoute exact path="/create-survey" component={<CreateSurveyView/>}/>
+              <SecureRoute exact path="/surveys" component={<SurveyOverview/>}/>
+              <SecureRoute exact path="/surveys/:id" component={<ResultsView/>}/>
+              <SecureRoute exact path="/my-account" component={<AccountView/>}/>
+              <AuthRoute exact path="/logout" component={<LogoutView/>}/>
+              <AuthRoute exact path="/signup" component={<SignupView/>}/>
+              <AuthRoute exact path="/login" component={<LoginView/>}/>
+              <Route exact path="/" component={HomeView}/>
+              <Route exact path="/why-partycipate" component={WhyPartycipateView}/>
+              <Route exact path="/docs" component={DocsView}/>
+              <Route exact path="/docs/:id" component={DocsView}/>
+              <Route exact path="/contact" component={ContactView}/>
               <Route path="*" component={ () => <ErrorPage message="The page you’re looking for can’t be found."/> }/>
             </Switch>
             </div>
@@ -45,14 +57,42 @@ export default function Main() {
 }
 
 
-function WhyPartycipatePage(){
-  return(
-  <p>WhyPartycipatePage</p>
+function SecureRoute({ exact, path, component }) {
+  const history = useHistory()
+  const user = Server.auth().currentUser()
+  return (
+    <Route exact={exact} path={path}>
+      { user ? component : <Redirect to={{pathname: "/login", search: `red=${window.location.pathname}`, state: history.location.state }}/> }
+    </Route>
   )
 }
 
-function ContactPage(){
+
+function AuthRoute({ exact, path, component }) {
+  const user = Server.auth().currentUser()
+  return (
+    <Route exact={exact} path={path}>
+      { user ? <Redirect to="dashboard"/> : component }
+    </Route>
+  )
+}
+
+
+
+function HomeView() {
   return(
-  <p>Contact</p>
+    <p>HomeView</p>
+    )
+}
+
+function WhyPartycipateView(){
+  return(
+  <p>WhyPartycipateView</p>
+  )
+}
+
+function ContactView(){
+  return(
+  <p>ContactView</p>
   )
 }

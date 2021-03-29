@@ -14,15 +14,15 @@ export default function AccountView(){
         <CardElement className="celement">
           <PageTitleElement className="Change-pw"><a>Change your Password here</a></PageTitleElement>
           <label for="uname" className="labelUN"><b>E-Mail:</b></label><br/>
-          <input class="un " align="center" type="text" placeholder="Enter E-Mail" name="uname" required></input>
+          <input className="un " align="center" type="text" placeholder="Enter E-Mail" name="uname" required></input>
           <br/>
           <br/>
           <label for="psw" className="labelPass"><b>Password:</b></label><br/>
-          <input class="pass" align="center" type="password" placeholder="Enter Password" name="psw" required></input>
+          <input className="pass" align="center" type="password" placeholder="Enter Password" name="psw" required></input>
           <br/>
           <br/>
           <label for="psw" className="labelPassRe"><b>Repeat password:</b></label><br/>
-          <input class="pass" align="center" type="password" placeholder="Repeat Password" name="psw" required></input>
+          <input className="pass" align="center" type="password" placeholder="Repeat Password" name="psw" required></input>
             
             <div className="toolbar">
             <button className="button btn-dark" type="submit">Change now<FiChevronRight/></button>

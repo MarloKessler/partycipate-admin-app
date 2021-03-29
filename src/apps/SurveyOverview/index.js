@@ -5,7 +5,7 @@ import Server from "../Server"
 import PageTitleElement from "../PageTitleElement"
 import ErrorPage from "../ErrorPage"
 import CardElement from "../CardElement"
-import { HelpSections } from "../GetHelpView"
+import { HelpSections } from "../DocsView"
 
 export default () => {
     const history = useHistory()
