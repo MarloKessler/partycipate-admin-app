@@ -1,8 +1,26 @@
 
-.implement-survey-component p {
+.implement-survey-component .is-subheading {
     margin-top: 0;
 }
 
+
 .implement-survey-component .sc-gsTCUz {
     margin: 20px 0;
+}
+
+
+.implement-survey-component .is-implementation-privacy-note {
+    margin-top: 40px;
+    text-align: center;
+    color: white;
+}
+
+.implement-survey-component .is-implementation-privacy-note a {
+    transition: .3s;
+    color: white;
+}
+
+.implement-survey-component .is-implementation-privacy-note a:hover {
+    transition: .3s;
+    color: rgb(230, 230, 230);
 }
