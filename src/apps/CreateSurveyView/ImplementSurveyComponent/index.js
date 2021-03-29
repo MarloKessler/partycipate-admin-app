@@ -33,6 +33,8 @@ function ImplementSurveyComponent() {
                 language={ "html" }
                 theme={ dracula }
             />
+
+            <p>Please adapt your privacy and cookie statement accordingly. A </p>
         </ESComponentContainer>
     )
 }
