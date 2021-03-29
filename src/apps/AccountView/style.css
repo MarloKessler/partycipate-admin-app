@@ -7,6 +7,23 @@
     margin-bottom: 15px;
 }
 
+.message {
+    font-size: 18px;
+}
+
+.messagebutton {
+    color: white;
+}
+
+.messagebutton:hover {
+    color: #BBD9DB;
+    transition: .3s;
+}
+  
+.messagebutton:active {
+    transition: .3s;
+}
+
 .celement {
     background-color: white;
     height: 100%;
@@ -139,3 +156,4 @@
         flex: 1 1 40%;
     }
 }
+
