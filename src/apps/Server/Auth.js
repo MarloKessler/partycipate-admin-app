@@ -8,11 +8,11 @@ export default class Auth {
         const oldUser = user
         user = {name: "truth"}
         AuthStateListeners.callListeners(user, oldUser)
-        setTimeout(() => {
+        /*setTimeout(() => {
             const oldUser = user
             user = undefined
             AuthStateListeners.callListeners(user, oldUser)
-        }, 5000)
+        }, 5000)*/
     }
 
     static login() {}

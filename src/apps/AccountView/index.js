@@ -3,9 +3,16 @@ import "./style.css"
 import CardElement from "../CardElement"
 import { Link } from "react-router-dom"
 import { FiChevronRight } from "react-icons/fi"
+import { useState } from "react"
+import Notification from "../Notification"
 
 
-export default function AccountView(){
+export default function AccountView() {
+  const [ showWarning, setShowWarning ] = useState(false)
+
+  const handleDelete = () => {
+    console.log("delete account")
+  }
   
   return(
     <div className="changepw">
@@ -46,13 +53,19 @@ export default function AccountView(){
             </div>
             <div className="toolbar">
             
-            <button className="button btn-dark" type="submit" >Delete now<FiChevronRight/></button>
+            <button className="button btn-dark" type="submit" onClick={() => setShowWarning(true)}>Delete now<FiChevronRight/></button>
             </div>
         </CardElement>  
 
         
       </div>
-
+      <Notification show={showWarning}>
+        <p>Do you really want to delete your account? This cannot be undone!</p>
+        <div className="notification-toolbar">
+          <button onClick={() => setShowWarning(false)}>Cancel</button>
+          <button onClick={handleDelete}>Delete</button>
+        </div>
+      </Notification>
     </div>
   )
 }
