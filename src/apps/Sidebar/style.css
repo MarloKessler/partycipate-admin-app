@@ -1,26 +1,36 @@
+
 .sidebar {
-    height: 100%; 
-    padding-top: 5px;
-    background-color: #BBD9DB;
-    flex-direction: column;
+    width: 100%;
+    height: 0;
+    transition: .1s;
+    overflow: hidden;
     display: flex;
-    float: left;
-    width: 240px;
+    flex-direction: row;
+    background-color: #BBD9DB;
+}
+
+.sidebar.show {
+    width: 100%;
+    height: fit-content;
+    transition: .1s;
+    padding: 0;
 }
 
 .sidebar .item {
+    margin: 10px 0;
+    padding: 10px;
     justify-content: flex-start;
-}
-
-.sidebar .activatable {
-      padding: 5%;
-      margin: 5%;
+    font-size: 18px;
+    text-align: start;
 }
 
 .sidebar a {
     color: black; 
     text-decoration: none;
-    font-size: 18px;
+}
+
+.sidebar .activatable {
+    transition: .3s;
 }
 
 .sidebar .activatable:hover {
@@ -31,5 +41,115 @@
 
 .sidebar .activatable:active {
     transition: .3s;
+    color: #BBD9DB;
     background-color: rgb(255, 255, 255);
+}
+
+
+.sb-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    max-height: calc(100% - 60px);
+    margin-right: 20px;
+    overflow: hidden;
+    padding: 0;
+    transition: .1s;
+    display: flex;
+    flex-direction: column;
+    background-color: #BBD9DB;
+}
+
+.sb-menu.show {
+    z-index: 100;
+    width: fit-content;
+    padding: 20px 20px 40px 20px;
+    transition: .1s;
+}
+
+.sb-menu > .logout {
+    margin-top: auto;
+}
+
+.sbm-close-btn {
+    width: fit-content;
+}
+
+
+.sb-toolbar-menu {
+    width: 100%;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.sb-toolbar-menu.hide {
+    height: 0;
+    transition: .3s;
+}
+
+.item.sbtm-btn {
+    margin: 0;
+    padding: 20px;
+    flex: 0 1 25%;
+    justify-content: center;
+}
+
+.item.sbtm-btn > svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+@media(min-width: 600px) {
+    .sb-menu.show {
+        width: 30%;
+    }
+}
+
+
+
+@media(min-width: 900px) {
+    .sidebar {
+        width: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: #BBD9DB;
+    }
+
+    .sidebar.show {
+        height: 100%;
+        max-height: 100%;
+        transition: .1s;
+        padding: 20px 20px 40px 20px;
+        width: 200px;
+        overflow: hidden;
+    }
+
+    .sb-menu {
+        position: relative;
+        width: 100%;
+        height: calc(100% - 60px);
+        display: flex;
+    }
+
+    .sb-menu.show {
+        position: relative;
+        padding: 0;
+        width: 100%;
+    }
+
+    .sb-toolbar-menu {
+        display: none;
+    }
+
+    .sbm-close-btn {
+        display: none;
+    }
 }

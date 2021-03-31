@@ -1,5 +1,6 @@
 import { v4 as uuid } from "uuid" 
 
+
 var user
 
 
@@ -16,6 +17,11 @@ export default class Auth {
     }
 
     static login() {}
+    static logout() {
+        const oldUser = user
+        user = undefined
+        AuthStateListeners.callListeners(user, oldUser)
+    }
 
     static onAuthStateChanged(authStateChangedHandler) {
         const listenerID = AuthStateListeners.addListener(authStateChangedHandler)

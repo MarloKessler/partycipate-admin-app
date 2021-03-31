@@ -66,6 +66,20 @@
     background-color: rgba(235, 235, 235, 0.5);
 }
 
+.nav-menu > .focus-btn {
+    margin-left: 10px;
+    background-color: #BBD9DB;
+}
+
+.nav-menu > .login-btn {
+    margin-left: 10px;
+}
+
+.navbar .nb-separator {
+    margin: 0 5px;
+    display: none;
+}
+
 
 
 @media(min-width: 300px) {
@@ -82,7 +96,7 @@
 }
 
 
-@media(min-width: 900px) {
+@media(min-width: 750px) {
     .navbar .logo img {
         height: 60px;
     }
@@ -95,10 +109,15 @@
         margin-left: auto;
         display: flex;
         flex-wrap: nowrap;
+        align-items: center;
     }
 
     .navbar .nav-menu.show-menu {
         width: fit-content;
         flex-direction: row;
+    }
+
+    .navbar .nb-separator {
+        display: inline;
     }
 }
