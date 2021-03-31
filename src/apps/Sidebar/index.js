@@ -16,15 +16,15 @@ export default function Sidebar() {
     // Toggles the sidebar if user switches between frontend and backend.
     useEffect(() => {
         const updateNavbar = () => {
-            const sbCl = sidebar.current.classList
-            if (!sbCl) return
+            const sb = sidebar.current
+            if (!sb) return
             if (App.userIsInBackend()) {
-                if (!sbCl.contains("show")) sbCl.add("show")
-            } else if (sbCl.contains("show")) sbCl.remove("show")
+                if (!sb.classList.contains("show")) sb.classList.add("show")
+            } else if (sb.classList.contains("show")) sb.classList.remove("show")
 
-            const sbMRCl = sbMenuRef.current.classList
-            if (!sbMRCl) return
-            if (!App.userIsInBackend() && sbMRCl.contains("show")) sbMRCl.remove("show")
+            const sbMR = sbMenuRef.current
+            if (!sbMR) return
+            if (!App.userIsInBackend() && sbMR.classList.contains("show")) sbMR.classList.remove("show")
         }
         updateNavbar()
         history.listen(updateNavbar)
