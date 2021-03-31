@@ -21,6 +21,10 @@ const generalFAQs = {
             title: "How secure is Partycipate?",
             content: `Partycipate is totally secure, so you can lay back and benefit from our functionalities.`,
         },
+        {
+            title: "How can I register at Partycipate?",
+            content: `Registrating at Partycipate is easy. Just enter your e-mail address and set a password and you're good to go. You can do so  <a href=' /signup' class='FAQ_Link'>here </a>.`,
+        },
     ],
 }
 
@@ -63,11 +67,11 @@ const createSurveyFAQs = {
             <br>Next, enter your question of interest in an easily understandable way.
             <br>Last, define the answer possibilities. To add an additional one, click on “add answer". 
             To delete an answer, click on the bin-symbol right next to it. 
-            <br>You can also change the survey type using a particular button on the right. 
-            When you finished, click on "save" to get directed to the final step. 
+            <br>You can also change the survey type using the drop-down button on the right. 
+            When you're finished, click on "save" to get directed to the final step. 
             
             <br> <br> 3.	Implement your survey:
-            <br>In the last step you get your code snippet. Copy and paste it to your website. Congratulations, you're down and your survey is now answerable! `,
+            <br>In the last step you get your code snippet. Copy and paste it to your website. Don't forget to also copy our privacy snippet. Congratulations, you're down and your survey is now answerable! `,
         },
         {
             id: "which-survey-types-do-you-offer",
@@ -75,14 +79,15 @@ const createSurveyFAQs = {
             content: `Currently, we offer single- and multiple-choice surveys. <br>We are planning on extending our survey types in future, so stay tuned! `,
         },
         
-    
-        {
-            title: "I have an additional question?",
-            content: `Please, don't hesitate and <a href='/contact' class='FAQ_Link'>contact</a> us!`,
-        },
         {
             title: "Do you offer any help concerning privacy documentation?",
             content: `Of course we do. You can copy the following snippet to your website: `,
+        },
+        {
+            title: "Do you have any advice for creating a good survey?",
+            content: `Make sure to use a question and answer possibilities that can be easily understood by your users. People often do not take the time to read thoroughly.
+            <br> Think about your answer possibilites carefully. Have you included all possible options?
+            <br> Ideally, you test your survey with someone prior to releasing it.`,
         },
     ],
 }
@@ -96,7 +101,11 @@ const accountFAQs = {
         },
         {
             title: "How can I change my password?",
-            content: `If you want to change your password, you can do so in the secation <a href='/my-account' class='FAQ_Link'>My Account</a>.`,
+            content: `If you want to change your password, you can do so in the section <a href='/my-account' class='FAQ_Link'>My Account</a>.`,
+        },
+        {
+            title: "Can I restore my account after deletion?",
+            content: `No. We work according to the highest privacy and data security standards and will therefore delete all your data, if you chose to delete your account`,
         },
     ],
 }

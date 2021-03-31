@@ -21,7 +21,7 @@ export default function AccountView() {
         <CardElement className="celement">
           <PageTitleElement className="Change-pw"><a>Change your Password here</a></PageTitleElement>
           <label for="uname" className="labelUN"><b>Old password:</b></label><br/>
-          <input className="un " align="center" type="text" placeholder="Enter old Password" name="uname" required></input>
+          <input className="pass" align="center" type="password" placeholder="Enter old Password" name="uname" required></input>
           <br/>
           <br/>
           <label for="psw" className="labelPass"><b>Password:</b></label><br/>
@@ -59,11 +59,11 @@ export default function AccountView() {
 
         
       </div>
-      <Notification show={showWarning}>
+      <Notification show={showWarning} className="notification">
         <p className="message">Do you really want to delete your account? This cannot be undone!</p>
         <div className="notification-toolbar">
-          <button onClick={() => setShowWarning(false)} className="messagebutton">Cancel</button>
-          <button onClick={handleDelete} className="messagebutton">Delete</button>
+          <button onClick={() => setShowWarning(false)} className="messagebutton-cancel">Cancel</button>
+          <button onClick={handleDelete} className="messagebutton-delete">Delete</button>
         </div>
       </Notification>
     </div>

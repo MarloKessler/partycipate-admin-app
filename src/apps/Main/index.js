@@ -16,6 +16,8 @@ import LogoutView from "../LogoutView"
 import LoginView from "../LoginView"
 import SignupView from "../SignupView"
 import AccountView from "../AccountView"
+import HomeView from "../HomeView"
+import ContactView from "../ContactView"
 
 
 export default function Main() {
@@ -78,21 +80,8 @@ function AuthRoute({ exact, path, component }) {
 }
 
 
-
-function HomeView() {
-  return(
-    <p>HomeView</p>
-    )
-}
-
 function WhyPartycipateView(){
   return(
   <p>WhyPartycipateView</p>
-  )
-}
-
-function ContactView(){
-  return(
-  <p>ContactView</p>
   )
 }

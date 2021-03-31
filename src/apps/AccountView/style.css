@@ -9,18 +9,32 @@
 
 .message {
     font-size: 18px;
+    font-weight: bold;
 }
 
-.messagebutton {
+.messagebutton-cancel {
     color: white;
 }
 
-.messagebutton:hover {
+.messagebutton-cancel:hover {
+    color: #BBD9DB;
+    transition: .3s;
+}
+.messagebutton-cancel:active {
+    transition: .3s;
+}
+
+.messagebutton-delete {
+    color: red;
+    font-weight: bold;
+}
+
+.messagebutton-delete:hover {
     color: #BBD9DB;
     transition: .3s;
 }
   
-.messagebutton:active {
+.messagebutton-delete:active {
     transition: .3s;
 }
 
@@ -156,4 +170,5 @@
         flex: 1 1 40%;
     }
 }
+
 

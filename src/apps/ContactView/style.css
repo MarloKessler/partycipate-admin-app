@@ -1,0 +1,48 @@
+.contactBox {
+    font-size: 25px;
+    background: white;
+    color: #BBD9DB;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+  }
+  
+  .contactBox div {
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  .contact-body{
+    display:flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .contact {
+    display: block;
+    width: 100%;
+  }
+
+  .contact-text{
+      margin:20px;
+  }
+
+  .link{
+      text-decoration: none;
+      color:black;
+      /*color: #BBD9DB;*/
+  }
+
+  .link:hover{
+    color: #BBD9DB;
+    transition: .3s;
+  }
+
+  .link:active{
+    transition: .3s;
+  }
+
+
+  

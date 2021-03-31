@@ -1,0 +1,96 @@
+.home {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.pageelement {
+    text-align: left;
+}
+
+.left{
+    float: left;
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+.right{
+    float: right;
+    flex: 1 1 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+@media(min-width: 900px) {
+    .left {
+      flex: 1 1 50%;
+    }
+  }
+
+@media(min-width: 900px) {
+    .right {
+      flex: 1 1 50%;
+    }
+  }
+
+.welcome {
+    font-size: 28px;
+    padding-left: 20px;
+    padding: 20px 20px;
+    line-height: 2;
+    text-align: left;
+}
+
+.button-learnmore {
+    margin-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: white;
+    background-color: #BBD9DB;
+    border-radius: 20px;
+    text-align: center;
+    width: 150px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.button-register {
+    margin-left: 20px;
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #BBD9DB;
+    border-radius: 20px;
+    text-align: center;
+    width: 150px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.button-learnmore:hover{
+    background-color: #8fa7a8;
+    transition: .3s;
+}
+
+.button-learnmore:active{
+    color: #8fa7a8;
+    transition: .3s;
+}
+
+.button-register:hover{
+    background-color: #8fa7a8;
+    transition: .3s;
+}   
+
+.button-register:active{
+    color: #8fa7a8;
+    transition: .3s;
+}
+
+.cardelement {
+    text-align: center;
+    font-size: 20px;
+}
