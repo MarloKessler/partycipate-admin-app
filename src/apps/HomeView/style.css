@@ -30,66 +30,33 @@
     .left {
       flex: 1 1 50%;
     }
-  }
+}
 
 @media(min-width: 900px) {
     .right {
       flex: 1 1 50%;
     }
-  }
+}
 
-.welcome {
+.home > .left > p {
     font-size: 28px;
     padding-left: 20px;
-    padding: 20px 20px;
+    padding-right: 20px;
     line-height: 2;
     text-align: left;
 }
 
-.button-learnmore {
-    margin-left: 20px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    color: white;
-    background-color: #BBD9DB;
+.home > .left .btn-dark {
+    margin: 0 20px;
+    padding: 15px;
     border-radius: 20px;
-    text-align: center;
-    width: 150px;
     font-size: 20px;
-    margin-top: 30px;
+    text-decoration: none;
 }
 
-.button-register {
-    margin-left: 20px;
-    color: white;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: #BBD9DB;
-    border-radius: 20px;
-    text-align: center;
-    width: 150px;
-    font-size: 20px;
-    margin-top: 30px;
-}
-
-.button-learnmore:hover{
-    background-color: #8fa7a8;
-    transition: .3s;
-}
-
-.button-learnmore:active{
-    color: #8fa7a8;
-    transition: .3s;
-}
-
-.button-register:hover{
-    background-color: #8fa7a8;
-    transition: .3s;
-}   
-
-.button-register:active{
-    color: #8fa7a8;
-    transition: .3s;
+.home > .left > div:last-of-type {
+    height: fit-content;
+    margin: 45px 0;
 }
 
 .home .cardelement {

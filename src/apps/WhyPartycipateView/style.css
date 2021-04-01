@@ -1,0 +1,46 @@
+.why-participate {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.why-participate > div:first-of-type {
+    flex: 1 1 100%;
+}
+
+.why-participate > div:first-of-type > p {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 28px;
+    text-align: left;
+}
+
+
+.why-participate > div:nth-of-type(2) {
+    flex: 1 1 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.wpv-card-element {
+    text-align: center;
+    font-size: 20px;
+}
+
+
+
+@media(min-width: 900px) {
+    .why-participate > div:first-of-type {
+      flex: 1 1 50%;
+    }
+}
+
+
+
+@media(min-width: 900px) {
+    .why-participate > div:nth-of-type(2) {
+      flex: 1 1 50%;
+    }
+}
+

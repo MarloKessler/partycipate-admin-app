@@ -18,6 +18,7 @@ import SignupView from "../SignupView"
 import AccountView from "../AccountView"
 import HomeView from "../HomeView"
 import ContactView from "../ContactView"
+import WhyPartycipateView from "../WhyPartycipateView"
 
 
 export default function Main() {
@@ -76,12 +77,5 @@ function AuthRoute({ exact, path, component }) {
     <Route exact={exact} path={path}>
       { user ? <Redirect to="dashboard"/> : component }
     </Route>
-  )
-}
-
-
-function WhyPartycipateView(){
-  return(
-  <p>WhyPartycipateView</p>
   )
 }
