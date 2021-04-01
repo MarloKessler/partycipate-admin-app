@@ -1,0 +1,21 @@
+import PageTitleElement from "../PageTitleElement"
+import CardElement from "../CardElement"
+import "./style.css"
+
+
+export default function WhyPartycipateView(){
+    return(
+        <div className="why-participate">
+            <div>
+                <PageTitleElement className="pageelement">Why choose<br/>Partycipate?</PageTitleElement>
+                <p>You want to investigate a question, receive feedback on a product/service or measure customer satisfaction?</p>
+                <p>At the same time you do not have the time or resources to dive deeper into the development of surveys?</p>
+                <p>Welcome to Partycipate, where you neither have to worry about technology orchoosing the right survey type.</p>
+            </div>
+            <div>
+                <CardElement className="wpv-card-element">Multiple-choice Surveys</CardElement>
+                <CardElement className="wpv-card-element">Single-choice Surveys</CardElement>
+            </div>
+        </div>
+    )
+}

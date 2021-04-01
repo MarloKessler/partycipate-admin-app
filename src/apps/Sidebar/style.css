@@ -67,6 +67,7 @@
     width: fit-content;
     padding: 20px 20px 40px 20px;
     transition: .1s;
+    box-shadow: 0 0 1px 1px #aac5c7;
 }
 
 .sb-menu > .logout {
@@ -143,6 +144,7 @@
         position: relative;
         padding: 0;
         width: 100%;
+        box-shadow: none;
     }
 
     .sb-toolbar-menu {
