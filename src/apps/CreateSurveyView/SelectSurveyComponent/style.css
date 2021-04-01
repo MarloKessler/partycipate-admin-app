@@ -1,3 +1,7 @@
+.scroll {
+    overflow: hidden;
+    overflow-y: scroll;
+}
 
 .select-survey-component .cards {
     font-size: 20px;

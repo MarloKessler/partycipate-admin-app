@@ -16,8 +16,12 @@ export default function HomeView(){
             </div>
         </div>
         <div className="right">
-          <CardElement className="cardelement">Multiple-choice Surveys</CardElement>
-          <CardElement className="cardelement">Single-choice Surveys</CardElement>
+          <CardElement className="cardelement">
+            <span>Multiple-choice Surveys</span>
+              <div className="ce-separator"/>
+            <img src={`${process.env.PUBLIC_URL}/images/Balkendiagramm.png`}/>
+          </CardElement>
+          <CardElement className="cardelement"><img src={`${process.env.PUBLIC_URL}/images/Kreisdiagramm.png`}/>Single-choice Surveys</CardElement>
         </div>
       </div>
     )

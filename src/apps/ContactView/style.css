@@ -1,34 +1,54 @@
+.contact {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  flex-wrap: wrap;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.left div{
+  float: left;
+  flex: 1 1 100%;
+  text-align: left;
+}
+
+.left > p{
+  font-size: 28px;
+  text-align: left;
+  margin-left: 20px;
+  line-height:2; 
+  flex: 1 1 100%;
+}
+
+.right{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  align-self: center;
+}
+
+
 .contactBox {
+    float:right;
     font-size: 25px;
     background: white;
     color: #BBD9DB;
-    justify-content: center;
-    width: 50%;
-    height: 100%;
+    justify-content: center; 
     text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /*flex: 1 1 0%;*/
+    display: flex;
+    width: 100%;
+    
   }
   
   .contactBox div {
     font-weight: bold;
     margin-top: 15px;
+    
   }
   
-  .contact-body{
-    display:flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-  }
-  
-  .contact {
-    display: block;
-    width: 100%;
-  }
-
-  .contact-text{
-      margin:20px;
-  }
-
   .link{
       text-decoration: none;
       color:black;
@@ -43,6 +63,16 @@
   .link:active{
     transition: .3s;
   }
+  @media(min-width: 900px) {
+    .left {
+      flex: 1 1 50%;
+    }
+  }
 
+  @media(min-width: 900px) {
+    .right {
+      flex: 1 1 50%;
+    }
+  }
 
   

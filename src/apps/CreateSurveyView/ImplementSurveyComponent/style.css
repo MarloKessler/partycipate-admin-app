@@ -1,3 +1,7 @@
+.scrolling {
+    overflow: hidden;
+    overflow-y: scroll;
+}
 
 .implement-survey-component .is-subheading {
     margin-top: 0;

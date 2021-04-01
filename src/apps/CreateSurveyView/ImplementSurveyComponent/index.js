@@ -17,6 +17,7 @@ import ESComponentContainer from "../ESComponentContainer"
 <partycipate-survey survey-id="${survey.id}"/>`
 
     return (
+        <div className="scrolling">
         <ESComponentContainer title="3 - Implement your survey" className="implement-survey-component">
             <p className="is-subheading">To implement your survey in any website, insert the following code:</p>
             <CopyBlock
@@ -34,5 +35,6 @@ import ESComponentContainer from "../ESComponentContainer"
 
             <p className="is-implementation-privacy-note">To be compliant with the GDPR, please adapt your privacy and cookie statement accordingly. For further help please <Link to="docs/create-survey">click here</Link>.</p>
         </ESComponentContainer>
+        </div>
     )
 }

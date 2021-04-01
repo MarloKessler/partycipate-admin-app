@@ -18,11 +18,13 @@ function SelectSurveyComponent({ onTypeSelected }) {
     }
 
     return(
+        <div className="scroll">
         <ESComponentContainer className="select-survey-component" title="1 - Choose your survey type:">
             <div className="cards-hover">
                 <CardElement className="cards" onClick={() => onChooseSurveyType("single-choice")}>Single-choice</CardElement>
                 <CardElement className="cards" onClick={() => onChooseSurveyType("multiple-choice")}>Multiple-choice</CardElement>
             </div>
         </ESComponentContainer>
+        </div>
     )
 }
