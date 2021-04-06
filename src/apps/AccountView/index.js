@@ -16,10 +16,10 @@ export default function AccountView() {
   
   return(
     <div className="changepw">
-      <PageTitleElement className="changepwHeader">Make changes to your account 🎉</PageTitleElement>
+      <PageTitleElement className="changepwHeader">Make changes to your Account 🎉</PageTitleElement>
       <div className="changepw-body"> 
         <CardElement className="celement">
-          <PageTitleElement className="Change-pw"><a>Change your password here</a></PageTitleElement>
+          <PageTitleElement className="Change-pw"><a>Change your Password here</a></PageTitleElement>
           <label for="uname" className="labelUN"><b>Old password:</b></label><br/>
           <input className="pass" align="center" type="password" placeholder="Enter old password" name="uname" required></input>
           <br/>
@@ -41,13 +41,13 @@ export default function AccountView() {
           <PageTitleElement className="delete"><a>Delete your Account here</a></PageTitleElement>
             <br/>
             <div className="del"> 
-            <div>If you choose to delete your account, all surveys will become inactive and all survey results will be lost.</div>
+            <div>If you choose to delete your Account, all surveys will become inactive and all survey results will be lost.</div>
             <br/>
             <br/>
-            <div>We will delete all data related to your account.</div>
+            <div>We will delete all data related to your Account.</div>
             <br/>
             <br/>
-            <div>Please note that an account deletion cannot be undone.</div>
+            <div>Please note that an Account deletion cannot be undone.</div>
             <br/>
             <br/>
             </div>
@@ -60,7 +60,7 @@ export default function AccountView() {
         
       </div>
       <Notification show={showWarning} className="notification">
-        <p className="message">Do you really want to delete your account? This cannot be undone!</p>
+        <p className="message">Do you really want to delete your Account? This cannot be undone!</p>
         <div className="notification-toolbar">
           <button onClick={() => setShowWarning(false)} className="messagebutton-cancel">Cancel</button>
           <button onClick={handleDelete} className="messagebutton-delete">Delete</button>

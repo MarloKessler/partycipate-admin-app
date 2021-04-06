@@ -18,14 +18,14 @@ export default function ContactView(){
       <div className="rightcontact">
         <CardElement className="cardelementcontact">
           <Link to="/" className="link">
-              <div >
+              <div className="emailright">
                 <AiOutlineMail style={iconStyles}/>
                 <p>info@partycipate.de</p>
               </div>
           </Link>
           
           <Link to="/docs" className="link" >
-              <div >
+              <div className="faqsright">
                 <IoHelpOutline style={iconStyles}/>
                 <p>FAQs</p>
               </div>

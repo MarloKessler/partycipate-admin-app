@@ -2,16 +2,16 @@
 .Notification {
     position: fixed;
     top: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 25%;
+    right: 25%;
+    bottom: 40%;
     height: 0;
-
     transition: all 5s;
     border-radius: 5px;
     padding: 20px;
-    color: white;
-    background-color: #8fa7a8;
+    background-color: #F5F5F5;
+    text-align: center;
+    box-shadow: 60px -16px teal;
 }
 
 .Notification.show {
