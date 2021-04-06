@@ -3,6 +3,7 @@
     width: 100%;
     overflow: hidden;
     flex-wrap: wrap;
+    color: #647374;
 }
 
 .why-participate > div:first-of-type {

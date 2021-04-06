@@ -8,7 +8,7 @@ export default function HomeView(){
     return(
       <div className="home">
         <div className="left">
-          <PageTitleElement className="pageelement">Welcome to Partycipate 🎉 <br/> the easy-to-use, <br/> flexible Survey tool!</PageTitleElement>
+          <PageTitleElement className="pageelement">Welcome to Partycipate 🎉 <br/> the easy-to-use, <br/> flexible survey tool!</PageTitleElement>
           <p>Build your own survey using our intuitive module kit, embedd it to your website, and view your results in real-time!</p>
           <div>
             <Link className="btn-dark" to="/docs" >Learn more</Link>

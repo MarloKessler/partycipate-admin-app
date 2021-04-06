@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     overflow: hidden;
     overflow-y: scroll;
+    color: #647374;
 }
 
 .pageelement {
