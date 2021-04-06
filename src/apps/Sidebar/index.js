@@ -44,6 +44,7 @@ export default function Sidebar() {
             </div>
             <div className="sb-menu" ref={sbMenuRef}>
                 <button className="item sbm-close-btn activatable" onClick={toggleSBMenu}><CgClose/></button>
+                <Link className="item activatable" to="/dashboard" onClick={toggleSBMenu}>My Dashboard</Link>
                 <Link className="item activatable" to="/create-survey" onClick={toggleSBMenu}>Create Survey</Link>
                 <Link className="item activatable" to="/surveys" onClick={toggleSBMenu}>View Results</Link>
                 <Link className="item activatable" to="/my-account" onClick={toggleSBMenu}>My Account</Link>

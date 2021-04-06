@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   overflow: hidden;
   overflow-y: scroll;
+  color: #647374; 
 }
 
 .pageelementcontact {
@@ -24,6 +25,7 @@
   padding-top: 100px;
   padding-bottom: 15px;
   background-color: #EFF0F0;
+
 }
 
 @media(min-width: 900px) {
@@ -53,7 +55,7 @@
   text-align: center;
   font-size: 20px;
   max-width: 100%;
-  background-color: #BBD9DB;
+  
 }
 
 
@@ -69,10 +71,11 @@
   color:black;
   font-weight: bold;
   margin-top: 15px;
+  color:#BBD9DB;
 }
 
 .link:hover{
-color: white;
+color: #82a0aa;
 transition: .3s;
 }
 

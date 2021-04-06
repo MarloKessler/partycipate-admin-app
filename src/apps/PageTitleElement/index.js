@@ -8,8 +8,8 @@ export default function PageTitleElement({ children, className = "", helpSection
             <div className="pte-title">
                 <h1 className="PageTitle">{ children }</h1>
                 <hr style={{
-                    color: "black",
-                    backgroundColor: "black",
+                    color: "#647374",
+                    backgroundColor: "#647374",
                     height: 0.5,
                     marginLeft: 20,
                     width: 60

@@ -16,12 +16,13 @@
 .implement-survey-component .is-implementation-privacy-note {
     margin-top: 40px;
     text-align: center;
-    color: white;
+    color: #647374;
 }
 
 .implement-survey-component .is-implementation-privacy-note a {
     transition: .3s;
-    color: white;
+    color: #647374;
+    
 }
 
 .implement-survey-component .is-implementation-privacy-note a:hover {

@@ -19,17 +19,17 @@ export default function AccountView() {
       <PageTitleElement className="changepwHeader">Make changes to your account 🎉</PageTitleElement>
       <div className="changepw-body"> 
         <CardElement className="celement">
-          <PageTitleElement className="Change-pw"><a>Change your Password here</a></PageTitleElement>
+          <PageTitleElement className="Change-pw"><a>Change your password here</a></PageTitleElement>
           <label for="uname" className="labelUN"><b>Old password:</b></label><br/>
-          <input className="pass" align="center" type="password" placeholder="Enter old Password" name="uname" required></input>
+          <input className="pass" align="center" type="password" placeholder="Enter old password" name="uname" required></input>
           <br/>
           <br/>
-          <label for="psw" className="labelPass"><b>Password:</b></label><br/>
-          <input className="pass" align="center" type="password" placeholder="Enter Password" name="psw" required></input>
+          <label for="psw" className="labelPass"><b>New password:</b></label><br/>
+          <input className="pass" align="center" type="password" placeholder="Enter new password" name="psw" required></input>
           <br/>
           <br/>
-          <label for="psw" className="labelPassRe"><b>Repeat password:</b></label><br/>
-          <input className="pass" align="center" type="password" placeholder="Repeat Password" name="psw" required></input>
+          <label for="psw" className="labelPassRe"><b>Repeat new password:</b></label><br/>
+          <input className="pass" align="center" type="password" placeholder="Repeat new password" name="psw" required></input>
             
             <div className="toolbar">
             <button className="button btn-dark" type="submit">Change now<FiChevronRight/></button>

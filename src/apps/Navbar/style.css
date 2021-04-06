@@ -17,8 +17,9 @@
 }
 
 .navbar a {
-    color: black;
+    color: #647374;
     text-decoration: none;
+    font-size: 18px;
 }
 
 .navbar h1 {

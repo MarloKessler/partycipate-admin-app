@@ -19,7 +19,7 @@ function SurveyStructureComponent() {
     return (
         <ESComponentContainer title="2 - Specify the details of your survey">
             <div className="edit-survey-component-body">
-                <label>Survey Name</label>
+                <label>Survey name</label>
                 <input className="input s-name-input" type="text" value={ survey.title } placeholder="Name" onChange={ updateName }/>
                 <small>The name will not be shown to the user.</small>
                 { survey.elements && survey.elements.map( (_, index) => <QuestionElement className="survey-element" index={ index } key={ index }/> ) }

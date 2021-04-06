@@ -2,6 +2,7 @@
 .edit-survey-component-body {
     display: flex;
     flex-direction: column;
+    font-size: 20px;
 }
 
 
@@ -12,6 +13,9 @@
 
 .edit-survey-component-body small {
     margin: 0 0 0 10px;
+    font-size: 15px;
+    color: #647374;
+    text-decoration: italic;
 }
 
 
@@ -25,15 +29,13 @@
 }
 
 .edit-survey-component-body .s-name-input {
-    font-size: x-large;
-    font-weight: bold;
-    color: #777;
+    font-size: 18px;
+    color: #647374;
 }
 
 .edit-survey-component-body .s-question-input {
-    font-size: large;
-    font-weight: bold;
-    color: #777;
+    font-size: 18px;
+    color: #647374;
 }
 
 .survey-structure-component .loading {

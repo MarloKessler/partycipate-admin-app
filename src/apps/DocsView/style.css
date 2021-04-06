@@ -13,7 +13,6 @@
 
 .faqs {
     margin: 20px;
-    color: #647374;
     padding-bottom: 40px;
 }
 
@@ -31,4 +30,6 @@ a.FAQ_Link{
     text-decoration: none; 
     color: #82a0aa;
     font-weight: bold;
+    
 }
+

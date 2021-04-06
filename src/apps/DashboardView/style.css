@@ -5,7 +5,8 @@
 
 .hello {
   padding: 20px;
-  font-size: 18px;
+  font-size: 28px;
+  color: #647374;
 }
 
 .dv-cards {
@@ -13,20 +14,24 @@
   flex-direction: row;
   flex-wrap: wrap;
   text-align: center;
-  font-size: 18px;
+  
 }
 
 .dv-cards .dv-item {
   flex: 1 1 100%;
   text-decoration: none;
-  color: black;
   padding-top: 5px;
+  font-size: 18px;
 }
 
 @media(min-width: 900px) {
   .dv-cards .dv-item {
     flex: 1 1 50%;
   }
+}
+
+.element{
+  background-color: #BBD9DB;
 }
 
 .element:hover {

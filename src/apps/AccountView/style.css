@@ -10,10 +10,14 @@
 .message {
     font-size: 18px;
     font-weight: bold;
+    
+    
 }
 
 .messagebutton-cancel {
     color: white;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .messagebutton-cancel:hover {
@@ -27,6 +31,9 @@
 .messagebutton-delete {
     color: red;
     font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 10px;
 }
 
 .messagebutton-delete:hover {
@@ -39,7 +46,7 @@
 }
 
 .celement {
-    background-color: white;
+    background-color: #bbd9db;
     height: 100%;
     flex: 1 1 100%;
 }
@@ -69,6 +76,7 @@
     margin-left: 30px;
     text-align: center;
     margin-bottom: 27px;
+    
 }
 
 .pass {
@@ -88,6 +96,7 @@
     margin-left: 30px;
     text-align: center;
     margin-bottom: 27px;
+    background-color:white;
 }
 
 .changepw button{
@@ -95,6 +104,7 @@
     justify-content: center;
     padding-right: 30px;
     font-size: 18px;
+    background-color: #82a0aa;
 }
 
 .toolbar {
@@ -109,7 +119,8 @@
     left: 5%;
     padding-top: 20px;
     text-align: left;
-    color: black;
+    color: #647374;
+    font-size:18px;
 }
 
 .changepw .labelPass{
@@ -117,12 +128,16 @@
     position: relative;
     left: 5%;
     text-align: left;
+    color: #647374;
+    font-size:18px;
 }
 .changepw .labelPassRe{
     display: block;
     position: relative;
     left: 5%;
     text-align: left;
+    color: #647374;
+    font-size:18px;
 }
 .toolbar .btn-dark{
     padding-left: 40px;
@@ -133,13 +148,13 @@
 }
 
 .delement{
-    background-color: white;
+    background-color: #bbd9db;
     height: 100%;
     flex: 1 1 100%;
 }
 
 .delete a{
-    color: black;
+    color: #647374;
     font-size: 30px;
     display: block;
     }
@@ -147,6 +162,8 @@
 .del div {
     margin-left: 20px;
     margin-right: 20px;
+    color:#647374;
+    font-size: 20px;
 }
 
 /*
