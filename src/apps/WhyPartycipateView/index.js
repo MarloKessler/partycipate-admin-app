@@ -1,6 +1,6 @@
-import PageTitleElement from "../PageTitleElement"
-import CardElement from "../CardElement"
 import "./style.css"
+import PageTitleElement from "../PageTitleElement"
+import DemoElement from "../DemoElement"
 
 
 export default function WhyPartycipateView(){
@@ -13,8 +13,7 @@ export default function WhyPartycipateView(){
                 <p>Welcome to Partycipate, where you neither have to worry about technology orchoosing the right survey type.</p>
             </div>
             <div>
-                <CardElement className="wpv-card-element">Multiple-choice Surveys</CardElement>
-                <CardElement className="wpv-card-element">Single-choice Surveys</CardElement>
+                <DemoElement/>
             </div>
         </div>
     )
