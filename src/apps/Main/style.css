@@ -53,10 +53,12 @@ code {
 
 .Page-Container {
   width: 100%;
-  flex: 1;
+  flex: 1 1 100%;
   overflow: auto;
-  justify-content: center;
   display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .tp {

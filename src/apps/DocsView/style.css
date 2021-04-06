@@ -1,27 +1,32 @@
 
-.get-help-view {
+.docs-view {
     width: 100%;
 }
 
-.get-help-view .faqs .faq-section {
+.docs-view .dv-section-container .doc-section {
     padding-top: 30px;
 }
 
-.get-help-view .faqs .faq-section:first-child {
+
+.docs-view .dv-section-container .doc-section:first-child {
     padding-top: 0;
 }
 
-.faqs {
+.docs-view .dv-section-container .doc-section .row-content-text {
+    margin: 10px 0 20px;
+}
+
+.dv-section-container {
     margin: 20px;
     padding-bottom: 40px;
 }
 
-.faqs :hover {
+.dv-section-container :hover {
     transition: .3s;
     color: #BBD9DB;
 }
 
-.faqs :active {
+.dv-section-container :active {
     transition: .3s;
     color: #BBD9DB;
 }

@@ -2,12 +2,10 @@ import "./style.css"
 import PageTitleElement from "../PageTitleElement"
 
 
-function Privacy(){
-    return(
-      <div className="privacy">
-        <PageTitleElement>Privacy 🎉</PageTitleElement>
-      </div>
-    )
-  }
-
-  export default Privacy 
+export default function PrivacyStatementView (){
+  return(
+    <div className="privacy-statement-view">
+      <PageTitleElement>Privacy 🎉</PageTitleElement>
+    </div>
+  )
+}

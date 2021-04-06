@@ -136,8 +136,6 @@ export const HelpSections = {
     general: "general",
     createSurvey: "create-survey",
     analyseSurvey: "analyse-survey",
-    //general: "general",
-    //general: "general",
 }
 
 
@@ -152,22 +150,22 @@ export default function GetHelpView() {
     }, [id])
 
     return (
-        <div className="get-help-view">
+        <div className="docs-view">
             <PageTitleElement>FAQs: 🎉</PageTitleElement>
-            <div className="faqs">
-                <section id="general" className="faq-section">
+            <div className="dv-section-container">
+                <section id="general" className="doc-section">
                     <Faq data={generalFAQs} styles={styles}/>
                 </section>
-                <section id="create-survey" className="faq-section">
+                <section id="create-survey" className="doc-section">
                     <Faq data={createSurveyFAQs} styles={styles}/>
                 </section>
-                <section id="analyse-survey" className="faq-section">
+                <section id="analyse-survey" className="doc-section">
                     <Faq data={analyseSurveysFAQs} styles={styles}/>
                 </section>
-                <section id="account" className="faq-section">
+                <section id="account" className="doc-section">
                     <Faq data={accountFAQs} styles={styles}/>
                 </section>
-                <section className="faq-section">
+                <section className="doc-section">
                     <Faq data={additionalFAQs} styles={styles}/>
                 </section>
             </div>
