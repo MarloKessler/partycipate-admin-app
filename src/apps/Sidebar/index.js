@@ -48,7 +48,6 @@ export default function Sidebar() {
                 <Link className="item activatable" to="/create-survey" onClick={toggleSBMenu}>Create Survey</Link>
                 <Link className="item activatable" to="/surveys" onClick={toggleSBMenu}>View Results</Link>
                 <Link className="item activatable" to="/my-account" onClick={toggleSBMenu}>My Account</Link>
-                <Link className="item activatable" to="/docs" onClick={toggleSBMenu}>Get Help</Link>
                 <button className="item activatable logout" onClick={logout}>Logout</button>
             </div>
         </div>

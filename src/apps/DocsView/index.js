@@ -105,7 +105,7 @@ const accountFAQs = {
         },
         {
             title: "Can I restore my account after deletion?",
-            content: `No. We work according to the highest privacy and data security standards and will therefore delete all your data, if you chose to delete your account`,
+            content: `No. We work according to the highest privacy and data security standards and will therefore delete all your data, if you chose to delete your account!`,
         },
     ],
 }

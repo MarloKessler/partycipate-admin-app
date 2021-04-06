@@ -10,8 +10,7 @@
 .message {
     font-size: 18px;
     font-weight: bold;
-    
-    
+    color: #82a0aa;   
 }
 
 .messagebutton-cancel {
@@ -29,11 +28,11 @@
 }
 
 .messagebutton-delete {
-    color: red;
-    font-weight: bold;
+    color: #F50057;
     border-radius: 10px;
     padding: 10px;
     margin-left: 10px;
+    text-align: left;
 }
 
 .messagebutton-delete:hover {
@@ -107,6 +106,11 @@
     background-color: #82a0aa;
 }
 
+.changepw button:hover {
+    background-color: #F5F5F5;
+    color: #82a0aa;
+}
+
 .toolbar {
     display: flex;
     justify-content: center;
@@ -131,6 +135,7 @@
     color: #647374;
     font-size:18px;
 }
+
 .changepw .labelPassRe{
     display: block;
     position: relative;
@@ -139,6 +144,7 @@
     color: #647374;
     font-size:18px;
 }
+
 .toolbar .btn-dark{
     padding-left: 40px;
 }
