@@ -1,12 +1,13 @@
 .why-participate {
-    display: flex;
     width: 100%;
     overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
     flex-wrap: wrap;
     color: #647374;
 }
 
-.why-participate > div:first-of-type {
+.why-participate > div {
     flex: 1 1 100%;
 }
 
@@ -18,12 +19,6 @@
 }
 
 
-.why-participate > div:nth-of-type(2) {
-    flex: 1 1 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
 .wpv-card-element {
     text-align: center;
     font-size: 20px;
@@ -32,16 +27,7 @@
 
 
 @media(min-width: 900px) {
-    .why-participate > div:first-of-type {
+    .why-participate > div {
       flex: 1 1 50%;
     }
 }
-
-
-
-@media(min-width: 900px) {
-    .why-participate > div:nth-of-type(2) {
-      flex: 1 1 50%;
-    }
-}
-

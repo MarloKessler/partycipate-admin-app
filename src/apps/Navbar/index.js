@@ -6,7 +6,7 @@ import Server from "../Server"
 import App from "../AppContext"
 
 
- export default function Navbar() {
+export default function Navbar() {
     const navMenuRef = useRef()
     const history    = useHistory()
     const [showMenu, setShowMenu]       = useState(false)

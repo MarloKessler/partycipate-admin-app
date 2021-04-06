@@ -1,12 +1,9 @@
 import "./style.css"
 
 
-export default CardElement
-
-
-function CardElement({ children, className = "", elementRef, ...props }){
+export default function CardElement({ children, className = "", elementRef, ...props }){
     return(
-        <div className={ `CardElement ${className}` } ref={ elementRef } {...props}>
+        <div className={ `card-element ${className}` } ref={ elementRef } {...props}>
             { children }
         </div>
     )
