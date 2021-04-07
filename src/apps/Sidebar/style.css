@@ -16,30 +16,27 @@
     padding: 0;
 }
 
+
+.sidebar a {
+    text-decoration: none;
+}
+
+
 .sidebar .item {
     margin: 10px 0;
     padding: 10px;
     justify-content: flex-start;
     font-size: 18px;
     text-align: start;
+    color: #647374; 
 }
 
-.sidebar a {
-    color: #647374; 
-    text-decoration: none;
-}
 
 .sidebar .activatable {
     transition: .3s;
 }
 
 .sidebar .activatable:hover {
-    transition: .3s;
-    color: #BBD9DB;
-    background-color: rgb(255, 255, 255);
-}
-
-.sidebar .activatable:active {
     transition: .3s;
     color: #BBD9DB;
     background-color: rgb(255, 255, 255);
@@ -119,9 +116,7 @@
     .sidebar {
         width: 0;
         padding: 0;
-        display: flex;
         flex-direction: column;
-        background-color: #BBD9DB;
     }
 
     .sidebar.show {
@@ -137,11 +132,9 @@
         position: relative;
         width: 100%;
         height: calc(100% - 60px);
-        display: flex;
     }
 
     .sb-menu.show {
-        position: relative;
         padding: 0;
         width: 100%;
         box-shadow: none;

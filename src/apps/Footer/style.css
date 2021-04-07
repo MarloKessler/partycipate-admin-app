@@ -27,17 +27,19 @@ footer a:hover {
 .footer-menu {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
 }
 
-.footer-menu .menu-item {
+.footer-menu .item {
     width: 100%;
     padding: 10px 0;
+    text-align: center;
 }
 
 .footer-menu .divider-point {
     display: none;
-    margin: 0 10px;
+
 }
 
 .copyright-statement {
@@ -48,20 +50,17 @@ footer a:hover {
 
 
 @media(min-width: 600px) {
-    .footer-menu .menu-item {
+    .footer-menu .item {
         width: calc(1/3 * 100% - 20px);
+        flex-wrap: nowrap;
     }
 }
 
 
 @media(min-width: 900px) {
-    .footer-menu {
-        flex-wrap: nowrap;
-    }
-
-    .footer-menu .menu-item {
+    .footer-menu .item {
         width: fit-content;
-        padding: 0 20px;
+        padding: 0 10px;
     }
 
     .footer-menu .divider-point {
