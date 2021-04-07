@@ -46,4 +46,5 @@ const PSView = {
     results: 2,
 }
 
-register(PartycipateSurvey, "partycipate-survey", ["survey-id"], { shadow: true }) // Set shadow: true before build
+
+register(PartycipateSurvey, "partycipate-survey", ["survey-id"], { shadow: true })

@@ -1,4 +1,3 @@
-//import "./dev-style.css" // Remove before build
 
 export default element => {
     const style = document.createElement('style')

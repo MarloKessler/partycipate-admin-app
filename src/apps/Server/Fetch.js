@@ -1,14 +1,14 @@
+import { getToken } from "./Auth"
+
 
 const acceptableStatusCodes = [200, 201, 304]
 
 
-class Fetch {
-    static get = async (path, header) => {
-        let reqHeader = new Headers()
-        reqHeader.append('Content-Type', 'application/json')
+export default class Fetch {
+    static async get(path) {
         let initObject = {
             method: 'GET', 
-            headers: reqHeader,
+            headers: new PAHeaders(),
         }
         const url = `${process.env.REACT_APP_BACKEND_URL}/${path}`
         const response = await fetch(url, initObject)
@@ -18,12 +18,10 @@ class Fetch {
         return dict
     }
 
-    static post = async (path, header, body) => {
-        let reqHeader = new Headers()
-        reqHeader.append('Content-Type', 'application/json')
+    static post = async (path, body) => {
         let initObject = {
             method: 'POST', 
-            headers: reqHeader,
+            headers: new PAHeaders(),
             body: JSON.stringify(body),
         }
         const url = `${process.env.REACT_APP_BACKEND_URL}/${path}`
@@ -32,29 +30,34 @@ class Fetch {
         return response
     }
 
-    static put = async (path, header, body) => {
-        let reqHeader = new Headers()
-        reqHeader.append('Content-Type', 'application/json')
+    static put = async (path, body) => {
         let initObject = {
             method: 'PUT', 
-            headers: reqHeader,
+            headers: new PAHeaders(),
             body: JSON.stringify(body),
         }
         const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/${path}`, initObject)
         if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
     }
 
-    static delete = async (path, header) => {
-        let reqHeader = new Headers()
-        reqHeader.append('Content-Type', 'application/json')
+    static delete = async (path, body) => {
         let initObject = {
             method: 'DELETE',
-            headers: reqHeader,
+            headers: new PAHeaders(),
         }
+        if (body) initObject.body = JSON.stringify(body)
         const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/${path}`, initObject)
         if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
     }
 }
 
 
-export default Fetch
+
+class PAHeaders extends Headers {
+    constructor() {
+        super()
+        this.append('Content-Type', 'application/json')
+        const token = getToken()
+        if (token) this.append('Authorization', `Bearer ${token}`)
+    }
+}

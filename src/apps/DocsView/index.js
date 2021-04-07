@@ -136,6 +136,7 @@ export const HelpSections = {
     general: "general",
     createSurvey: "create-survey",
     analyseSurvey: "analyse-survey",
+    account: "account",
 }
 
 
