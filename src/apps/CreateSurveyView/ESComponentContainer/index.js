@@ -9,7 +9,7 @@ export default ESComponentContainer
 function ESComponentContainer({ title, children, className = "" }) {
     return (
         <div className={ `es-component-container ${className}` }>
-            <PageTitleElement>{ title }</PageTitleElement>
+            <PageTitleElement helpSection="create-survey">{ title }</PageTitleElement>
             <CardElement className="es-card-element">{ children }</CardElement>
         </div>
     )

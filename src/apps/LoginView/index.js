@@ -13,10 +13,10 @@ export default function LoginView() {
         <CardElement className="celement">
           <PageTitleElement className="Log-in"><a>Log-in</a></PageTitleElement>
           <label htmlFor="uname" className="labelUN"><b>E-Mail:</b></label><br/>
-          <input className="un " align="center" type="text" placeholder="Enter E-Mail" name="uname" required></input>
+          <input className="email" align="center" type="text" placeholder="Enter E-Mail" name="uname" required></input>
           <br/>
           <br/>
-          <label htmlFor="psw" className="labelPass"><b>Password:</b></label><br/>
+          <label htmlFor="psw" className="labelUN"><b>Password:</b></label><br/>
           <input className="pass" align="center" type="password" placeholder="Enter Password" name="psw" required></input>
           <Link to="/">
         <div className="toolbar">

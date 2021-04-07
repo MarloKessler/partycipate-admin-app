@@ -1,6 +1,7 @@
 .Log-in a{
-    font-size: 30px;
+    font-size: 28px;
     display: block;
+    color: #647374;
 }
 
 .loginHeader {
@@ -14,29 +15,27 @@
 }
 
 .login-body{
-    display:flex;
+    display: flex;
     width: 100%;
     flex-direction: row;
     justify-content: center;
 }
 
-.un {
+.email {
     width: 70%;
     color: rgb(38, 50, 56);
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
     padding: 10px 20px;
-    border: none;
     border-radius: 20px;
     outline: none;
     box-sizing: border-box;
     border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-bottom: 50px;
     margin-left: 30px;
     text-align: center;
     margin-bottom: 27px;
+    background-color: white;
     }
 
 .pass {
@@ -52,7 +51,6 @@
     outline: none;
     box-sizing: border-box;
     border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-bottom: 50px;
     margin-left: 30px;
     text-align: center;
     margin-bottom: 27px;
@@ -63,8 +61,11 @@
     margin-top: 10px;
     justify-content: center;
     padding-right: 30px;
-    position: absolute;
     font-size: 18px;
+    float: left;
+    color: white; 
+    background-color: #647374;
+    margin-top: 35px;
 }
 
 .toolbar {
@@ -79,15 +80,9 @@
     left: 5%;
     padding-top: 20px;
     text-align: left;
-    color: black;
+    color: #647374;
 }
 
-.login .labelPass{
-    display: block;
-    position: relative;
-    left: 5%;
-    text-align: left;
-}
 .toolbar .btn-dark{
     padding-left: 40px;
 }

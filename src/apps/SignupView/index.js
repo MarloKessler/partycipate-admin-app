@@ -22,27 +22,24 @@ export default function SignupView(){
         <CardElement className="celement">
           <PageTitleElement className="Sign-up"><a>Register now</a></PageTitleElement>
           <label htmlFor="uname" className="labelUN"><b>E-Mail:</b></label><br/>
-          <input className="un " align="center" type="text" placeholder="Enter E-Mail" name="uname" required></input>
+          <input className="email" align="center" type="text" placeholder="Enter E-Mail" name="uname" required></input>
           <br/>
           <br/>
-          <label htmlFor="psw" className="labelPass"><b>Password:</b></label><br/>
+          <label htmlFor="psw" className="labelUN"><b>Password:</b></label><br/>
           <input className="pass" align="center" type="password" placeholder="Enter Password" name="psw" required></input>
-          <label htmlFor="psw" className="labelPassRe"><b>Repeat password:</b></label><br/>
           <br/>
           <br/>
+          <label htmlFor="psw" className="labelUN"><b>Repeat password:</b></label><br/>
           <input className="pass" align="center" type="password" placeholder="Repeat Password" name="psw" required></input>
           <br/>
           <br/> 
-          <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} id="checkbox_id" />
+          <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} id="checkbox_id"/>
           <label htmlFor="checkbox_id" id="text">I have read and accept the terms and conditions and the privacy policy of Partycipate.</label>
-          <Link to="/">
         <div className="toolbar">
           <button className="button btn-dark" type="submit">Register<FiChevronRight/></button>
         </div>
-      </Link>
         </CardElement>  
       </div>
-
     </div>
   )
 }
