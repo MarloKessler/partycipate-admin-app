@@ -16,7 +16,7 @@ export default function AccountView() {
   
   return(
     <div className="changepw">
-      <PageTitleElement className="changepwHeader">Make changes to your Account 🎉</PageTitleElement>
+      <PageTitleElement className="changepwHeader" helpSection="account" >Make changes to your account 🎉</PageTitleElement>
       <div className="changepw-body"> 
         <CardElement className="celement">
           <PageTitleElement className="Change-pw"><a>Change your Password here</a></PageTitleElement>

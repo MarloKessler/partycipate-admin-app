@@ -11,7 +11,7 @@
 .xcb-header button {
     padding: 10px;
     margin-left: auto;
-    font-size: 20px;
+    font-size: 18px;
     background-color:#82a0aa;
 }
 
@@ -52,6 +52,7 @@
 .xchoice-block .answer-option {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .xchoice-block .answer-option textarea {
