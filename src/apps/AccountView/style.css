@@ -93,10 +93,24 @@
 }
 
 .celement button:hover {
-    background-color: #F5F5F5;
-    color: #82a0aa;
+    background-color: #647374;
+    transition: .3s;
 }
 
+.delement button:hover {
+    background-color: #647374;
+    transition: .3s;
+}
+
+.celement button:active {
+    background-color: #647374;
+    transition: .3s;
+}
+
+.delement button:active {
+    background-color: #647374;
+    transition: .3s;
+}
 
 .notification-toolbar {
     text-align: center;
@@ -149,7 +163,7 @@
 
 .delete a{
     color: #647374;
-    font-size: 30px;
+    font-size: smaller;
     display: block;
     }
 

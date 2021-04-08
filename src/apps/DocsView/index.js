@@ -124,11 +124,12 @@ const additionalFAQs = {
 
 const styles = {
     titleTextColor: "#82a0aa",
+    titleTextSize: "smaller",
     bgColor: '#F5F5F5',
     rowTitleColor: "#82a0aa",
     rowContentColor: '#647374',
     arrowColor: "#82a0aa", 
-    rowTitleTextSize: 'x-large',          
+    rowTitleTextSize: "smaller",          
 }
 
 
