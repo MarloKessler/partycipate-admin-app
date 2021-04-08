@@ -19,16 +19,16 @@ export default function AccountView() {
       <PageTitleElement className="changepwHeader" helpSection="account" >Make changes to your account 🎉</PageTitleElement>
       <div className="changepw-body"> 
         <CardElement className="celement">
-          <PageTitleElement className="Change-pw"><a>Change your Password here</a></PageTitleElement>
-          <label for="uname" className="labelUN"><b>Old password:</b></label><br/>
+          <PageTitleElement className="Change-pw"><a>Change your password here</a></PageTitleElement>
+          <label for="uname" className="labelUN"><b>Old password:</b></label>
           <input className="pass" align="center" type="password" placeholder="Enter old password" name="uname" required></input>
           <br/>
           <br/>
-          <label for="psw" className="labelPass"><b>New password:</b></label><br/>
+          <label for="psw" className="labelPass"><b>New password:</b></label>
           <input className="pass" align="center" type="password" placeholder="Enter new password" name="psw" required></input>
           <br/>
           <br/>
-          <label for="psw" className="labelPassRe"><b>Repeat new password:</b></label><br/>
+          <label for="psw" className="labelPassRe"><b>Repeat new password:</b></label>
           <input className="pass" align="center" type="password" placeholder="Repeat new password" name="psw" required></input>
             
             <div className="toolbar">
@@ -38,17 +38,14 @@ export default function AccountView() {
 
         
         <CardElement className="delement">
-          <PageTitleElement className="delete"><a>Delete your Account here</a></PageTitleElement>
+          <PageTitleElement className="delete"><a>Delete your account here</a></PageTitleElement>
             <br/>
             <div className="del"> 
-            <div>If you choose to delete your Account, all surveys will become inactive and all survey results will be lost.</div>
+            <div>If you choose to delete your account, all surveys will become inactive and all survey results will be lost.</div>
             <br/>
+            <div>We will delete all data related to your account.</div>
             <br/>
-            <div>We will delete all data related to your Account.</div>
-            <br/>
-            <br/>
-            <div>Please note that an Account deletion cannot be undone.</div>
-            <br/>
+            <div>Please note that an account deletion cannot be undone.</div>
             <br/>
             </div>
             <div className="toolbar">
