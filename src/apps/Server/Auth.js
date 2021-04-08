@@ -73,17 +73,17 @@ export default class Auth {
 
 async function restoreSession() {
     token = Cookies.get("partycipate-session-token")
-    await loadUser()
+    //if (token) await loadUser()
+    await loadUser() // REMOVE IF USER LOADING WORKS
 }
 
 
 
 async function loadUser() {
-    //const u = await Fetch.get("")
-    //u.token = token
-    //user = u
+    /*const u = await Fetch.get("")
+    u.token = token
+    user = u*/
 user = {name: "truth", email: "truth.s.gatsby@email.com", token: "1234567890"} // REMOVE IF USER LOADING WORKS
-console.log("user: ", user)
     AuthStateListeners.callListeners(user, undefined)
 }
 

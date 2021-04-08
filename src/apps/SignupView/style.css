@@ -1,23 +1,20 @@
-.Sign-up a{
-    font-size: 30px;
-    display: block;
-    color: #647374;
+.signup {
+    width: 100%;
 }
 
-.Sign-up {
-    display: block;
-}
 
 .signupHeader {
     margin-bottom: 15px;
     display: block;
 }
 
-.celement {
+
+.signup-body .celement {
     max-width: 600px;
+    margin-bottom: 60px;
 }
 
-.signup-body{
+.signup-body {
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -25,7 +22,7 @@
     align-self: center;
 }
 
-.email {
+.signup-body input {
     background-color: white;
     width: 70%;
     color: rgb(38, 50, 56);
@@ -37,29 +34,12 @@
     outline: none;
     box-sizing: border-box;
     border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-left: 30px;
-    text-align: center;
-    margin-bottom: 27px;
-    }
-
-.pass {
-    width: 70%;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
-    padding: 10px 20px;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-left: 30px;
+    margin: 0 30px;
     text-align: center;
     margin-bottom: 27px;
 }
 
-.signup button{
+.signup button {
     display: flex;
     margin-top: 10px;
     justify-content: center;
@@ -69,13 +49,20 @@
     background-color: #647374;
 }
 
-.toolbar {
+.signup-body .tac-statement {
+    margin: 0 30px;
+    width: calc(100% - 60px);
+    display: flex;
+    justify-content: center;
+}
+
+.signup-body .toolbar {
     display: flex;
     justify-content: center;
     flex-wrap: wrap; 
 }
 
-.labelUN{
+.labelUN {
     display: block;
     position: relative;
     left: 5%;
@@ -88,6 +75,13 @@
     padding-left: 40px;
 }
 
-.signup{
-    width: 100%;
+
+.signup a {
+    transition: .3s;
+    color: #647374;
+}
+
+.signup a:hover {
+    transition: .3s;
+    color: white;
 }
