@@ -74,9 +74,9 @@ export default function AccountView() {
 
       <Notification show={showWarning} className="notification">
         <p className="message">Do you really want to delete your Account? This cannot be undone!</p>
-        <div className="notification-toolbar">
-          <button onClick={() => setShowWarning(false)} className="messagebutton-cancel">Cancel</button>
-          <button onClick={deleteUser} className="messagebutton-delete">Delete</button>
+        <div className="toolbar">
+          <button onClick={() => setShowWarning(false)} className="button btn-dark">Cancel</button>
+          <button onClick={deleteUser} className="button btn-dark messagebutton-delete">Delete</button>
         </div>
       </Notification>
     </div>

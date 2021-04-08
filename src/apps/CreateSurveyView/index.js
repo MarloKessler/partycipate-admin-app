@@ -9,7 +9,7 @@ import EditSurveyComponent from "./EditSurveyComponent"
 import ImplementSurveyComponent from "./ImplementSurveyComponent"
 
 
-class CreateSurveyView extends React.Component {
+export default class CreateSurveyView extends React.Component {
     
     constructor(props) {
         super(props)
@@ -84,6 +84,3 @@ function CSVToolbar({ step, statusMessage, onGoBack, onGoForward, isSaving }) {
         
     )
 }
-
-
-export default CreateSurveyView

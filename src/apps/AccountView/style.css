@@ -1,6 +1,5 @@
 .changepwHeader {
     margin-bottom: 15px;
-    font-size: smaller;
 }
 
 .message {
@@ -9,19 +8,14 @@
     color: white;   
 }
 
-.messagebutton-cancel {
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    font-size: 18px;
-    margin-right: 15px;
-    background-color: #4e6e7c5e;
-}
-
-.messagebutton-cancel:hover {
+.changepw .notification-toolbar button:hover {
     color: #82a0aa;
     background-color: #F5F5F5;
+}
+
+.changepw .notification .toolbar button {
+    padding: 10px;
+    margin: 0 10px;
 }
 
 .messagebutton-cancel:active {
@@ -31,22 +25,9 @@
 
 .messagebutton-delete {
     color: #F50057;
-    border-radius: 10px;
-    padding: 10px;
-    margin-left: 10px;
-    text-align: center;
-    font-size: 18px;
-    margin-left: 15px;
-    background-color: #4e6e7c5e;
 }
 
 .messagebutton-delete:hover {
-    color: #F50057;
-    background-color: #F5F5F5;
-}
-
-.messagebutton-delete:active {
-    color: #F50057;
     background-color: #F5F5F5;
 }
 
@@ -107,7 +88,7 @@
     margin-top: 10px;
     justify-content: center;
     padding-right: 30px;
-    font-size: 18px;
+    font-size: medium;
     background-color: #82a0aa;
 }
 
@@ -116,22 +97,6 @@
     color: #82a0aa;
 }
 
-.delement button:hover {
-    background-color: #F5F5F5;
-    color: #82a0aa;
-}
-
-.celement button:active {
-    background-color: #F5F5F5;
-    color: #82a0aa;
-    transition: .3s;
-}
-
-.delement button:active {
-    background-color: #F5F5F5;
-    color: #82a0aa;
-    transition: .3s;
-}
 
 .notification-toolbar {
     text-align: center;
@@ -171,9 +136,6 @@
     font-size:18px;
 }
 
-.toolbar .btn-dark{
-    padding-left: 40px;
-}
 
 .changepw{
     width: 100%;
