@@ -29,7 +29,7 @@ export default function Navbar() {
     
     return (
         <div className="navbar">
-            <div className="item logo"><Link to="/"><img src={ `${process.env.PUBLIC_URL}/images/logo.png` } /></Link></div>
+            <div className="item logo"><Link to="/"><img src={ `${process.env.PUBLIC_URL}/images/logo.png` } alt="Partycipate's logo"/></Link></div>
             <div className="menu-toggle item activatable"><button className="item" onClick={ toggleMenu }>{ showMenu ? <CgClose className="icon"/> : <CgMenu className="icon"/> }</button></div>
             <div className="nav-menu" ref={ navMenuRef }>
                 <Link className="item activatable" to="/">Home</Link>

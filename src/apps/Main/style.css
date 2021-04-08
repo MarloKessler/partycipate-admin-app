@@ -29,7 +29,7 @@ code {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  
+  font-size: 20px;
   background-color: #F5F5F5;
 }
 
@@ -41,15 +41,35 @@ code {
   display: flex;
   flex-direction: column-reverse;
   overflow: hidden;
+  font-size: inherit;
 }
 
+@media(min-width: 600px) {
+  .App {
+    font-size: 20px;
+  }
+}
 
 @media(min-width: 900px) {
   .Admin-App {
     flex-direction: row;
   }
+  .App {
+    font-size: 25px;
+  }
 }
 
+@media(min-width: 1200px) {
+  .App {
+    font-size: 35px;
+  }
+}
+
+@media(min-width: 1800px) {
+  .App {
+    font-size: 40px;
+  }
+}
 
 .Page-Container {
   width: 100%;
@@ -107,6 +127,7 @@ button {
 .btn-dark {
   color: white;
   background-color: #BBD9DB;
+  text-align: center;
 }
 
 .btn-dark:hover {

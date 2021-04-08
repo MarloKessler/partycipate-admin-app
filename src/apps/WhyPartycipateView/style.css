@@ -2,10 +2,10 @@
     width: 100%;
     min-height: 100%;
     overflow: hidden;
-    overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
     color: #647374;
+    
 }
 
 .why-participate > div {
@@ -15,17 +15,15 @@
 .why-participate > div:first-of-type > p {
     margin-left: 20px;
     margin-right: 20px;
-    font-size: 28px;
     text-align: left;
+    font-size: smaller;
+    
 }
-
 
 .wpv-card-element {
     text-align: center;
-    font-size: 20px;
+    font-size: smaller;
 }
-
-
 
 @media(min-width: 900px) {
     .why-participate > div {

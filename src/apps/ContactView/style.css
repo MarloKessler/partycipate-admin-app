@@ -42,7 +42,7 @@
 }
 
 .contact > .leftcontact > p {
-  font-size: 28px;
+  font-size: smaller;
   padding-left: 20px;
   padding-right: 20px;
   line-height: 2;
