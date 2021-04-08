@@ -141,7 +141,7 @@ export const HelpSections = {
 }
 
 
-export default function GetHelpView() {
+export default function DocsView() {
     const { id } = useParams()
     
     useEffect(() => {

@@ -32,7 +32,7 @@ export default function Sidebar() {
 
     const toggleSBMenu = () => sbMenuRef.current.classList.toggle("show")
 
-    const logout = () => Server.auth().logout()
+    const logout = () => Server.auth().logout().catch(() => {})
 
     return (
         <div className="sidebar" ref={sidebar}>

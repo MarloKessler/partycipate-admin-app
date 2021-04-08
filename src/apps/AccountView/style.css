@@ -1,8 +1,3 @@
-.Change-pw a{
-    font-size: smaller;
-    display: block;
-}
-
 .changepwHeader {
     margin-bottom: 15px;
     font-size: smaller;
@@ -55,13 +50,13 @@
     background-color: #F5F5F5;
 }
 
-.celement {
+.changepw-body .celement {
     background-color: #bbd9db;
     height: 100%;
     flex: 1 1 100%;
 }
 
-.changepw-body{
+.changepw-body {
     display:flex;
     width: 100%;
     flex-direction: row;
@@ -108,15 +103,7 @@
     background-color:white;
 }
 
-.celement button{
-    margin-top: 10px;
-    justify-content: center;
-    padding-right: 30px;
-    font-size: 18px;
-    background-color: #82a0aa;
-}
-
-.delement button{
+.changepw button {
     margin-top: 10px;
     justify-content: center;
     padding-right: 30px;
@@ -154,7 +141,7 @@
     flex-wrap: wrap; 
 }
 
-.changepw .labelUN{
+.changepw .labelUN {
     display: block;
     position: relative;
     left: 5%;
@@ -209,17 +196,6 @@
     font-size: 20px;
 }
 
-/*
-.cardel{
-    flex: 1 1 100%;
-}
-
-@media(min-width: 1200px) {
-    .cardel{
-        flex: 1 1 50%;
-    }
-}
-*/
 
 @media(min-width: 900px) {
     .celement {
