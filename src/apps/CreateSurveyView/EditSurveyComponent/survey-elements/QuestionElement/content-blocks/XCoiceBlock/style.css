@@ -43,7 +43,6 @@
 }
 
 
-
 .xchoice-block .answer-option {
     display: flex;
     align-items: center;
@@ -59,8 +58,17 @@
 }
 
 
-
 .xchoice-block .create-answer-btn {
     width: 20%;
     margin-top: 20px;
+}
+
+.xchoice-block .create-answer-btn:hover {
+    background-color: #647374;
+    transition: .3s;
+}
+
+.xchoice-block .create-answer-btn:active {
+    background-color: #647374;
+    transition: .3s;
 }
