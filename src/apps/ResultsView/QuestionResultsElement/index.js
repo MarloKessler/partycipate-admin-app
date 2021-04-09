@@ -2,6 +2,7 @@ import "./style.css"
 import CardElement from "../../CardElement"
 import DoughnutChart from "./charts/DoughnutChart"
 import BarChart from "./charts/BarChart"
+import TrendChart from "./charts/TrendChart"
 
 
 export default QuestionResultsElement
@@ -22,7 +23,6 @@ function QuestionResultsElement({ element }) {
     )
 }
 
-
 function getElementTypeLabel(type) {
     switch (type) {
         case "single-choice": return "Single Choice"
@@ -31,11 +31,12 @@ function getElementTypeLabel(type) {
     }
 }
 
-
 function ResultsChart({ element }) {
     switch (element.type) {
-        case "single-choice": return <DoughnutChart element={ element }/>
-        case "multiple-choice": return <BarChart element={ element }/>
+        case "single-choice": 
+           return <div><DoughnutChart element={ element }/> <br/><br/><br/> <TrendChart element={ element }/> </div>
+        case "multiple-choice": 
+            return <div><BarChart element={ element }/> <br/><br/><br/> <TrendChart element={ element }/> </div>
         default: return <div>Chart not available</div>
     }
 }

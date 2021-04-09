@@ -1,0 +1,106 @@
+import "./style.css"
+import { useRef, useEffect } from 'react'
+import Chart from 'chart.js'
+
+
+export default TrendChart
+
+
+function TrendChart({ element }) {
+    const chartRef  = useRef()
+    const legendRef = useRef()
+
+    useEffect(() => {
+        const chart = new Chart(chartRef.current, {
+                type: "line",
+                data: getData(element),
+                options: getChartOptions(element),
+            }
+        )
+        legendRef.current.innerHTML = chart.generateLegend()
+    }, [])
+    
+    return (
+        <div className="line-chart">
+            <canvas ref={ chartRef }></canvas>
+            <div className="legend" ref={ legendRef }></div>
+        </div>
+    )
+}
+
+
+const getData = ({ answer_possibilities, results }) => {
+    const [bgColors, hoverBGColors] = getBGColors(answer_possibilities.length)
+    const data = {
+        labels: answer_possibilities.map(possibility => possibility.answer),
+        datasets: [{
+                data: results,
+                backgroundColor: bgColors,
+                borderColor: 'transparent',
+                hoverBackgroundColor: hoverBGColors,
+                borderWidth: 1,
+        }],
+    }
+    return data
+}
+
+
+const getBGColors = length => {
+    const factor = 100/(length + 1)
+    const bgColors      = []
+    const hoverBGColors = []
+    var i
+    for (i = 1; i <= length; i++) {
+        bgColors.push(`hsl(184, 31%, ${100 - i * factor}%)`)
+        hoverBGColors.push(`hsl(184, 31%, ${100 - i * factor + 0.5 * factor}%)`)
+    }
+    return [bgColors, hoverBGColors]
+}
+
+
+const getChartOptions = ({ results, count_participants }) => {
+    const formatter = new Intl.NumberFormat(window.navigator.language || "en", { style: 'percent', maximumFractionDigits: 0 })
+    console.log("count_participants", count_participants)
+
+    const options = {
+        legend: { display: false },
+        legendCallback: chart => {
+            var html = ""
+            const dataset = chart.data.datasets[0]
+            dataset.data.forEach((data, index) => {
+                html += `
+                <div class="legend-item">
+                    <div class="li-colorbox" style="background-color: ${dataset.backgroundColor[index]};"></div>
+                    <div class="li-label">${chart.data.labels[index]}</div>
+                </div>`
+            })
+            return html
+        },
+        tooltips: {
+            enabled: true,
+            mode: 'single',
+            callbacks: {
+                label: (item, data) => {
+                    const percentage = data.datasets[item.datasetIndex].data[item.index] / count_participants
+                    const percentageString = formatter.format(percentage)
+                    const votes = results[item.index]
+                    return [`${percentageString} (${votes} Votes)`]
+                },
+            },
+            custom: tooltip => {
+                if (!tooltip) return
+                // Disable color box
+                tooltip.displayColors = false
+
+                // Make tooltip body as title
+                const body = tooltip.body
+                if (body && body.length > 0) {
+                    tooltip.title = body[0].lines
+                    body[0].lines = []
+                }
+            },
+        },
+    }
+
+    return options
+}
