@@ -15,10 +15,19 @@
     background-color:#82a0aa;
 }
 
+.xcb-header button:hover {
+    transition: .3s;
+    background-color: #647374;
+}
+
+.xcb-header button:active {
+    transition: .3s;
+    background-color: #647374;
+}
+
 .xcb-header .button-icon {
     margin-left: 5px;
 }
-
 
 .xcb-element-type-selection {
     width: fit-content;
@@ -48,7 +57,6 @@
     padding: 10px;
 }
 
-
 .xchoice-block .answer-option {
     display: flex;
     align-items: center;
@@ -75,7 +83,7 @@
 
 .trash-btn {
     margin: 0 10px;
-    padding: 20px;
+    padding: 10px;
     cursor: pointer;
     border: none;
     font-size: 25px;
@@ -86,4 +94,14 @@
     margin-top: 20px;
     background-color:#82a0aa;
     font-size: 20px;
+}
+
+.xchoice-block .create-answer-btn:hover {
+    background-color: #647374;
+    transition: .3s;
+}
+
+.xchoice-block .create-answer-btn:active {
+    background-color: #647374;
+    transition: .3s;
 }

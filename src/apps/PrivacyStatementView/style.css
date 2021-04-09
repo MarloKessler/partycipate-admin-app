@@ -1,4 +1,24 @@
-
 .privacy-statement-view {
     width: 100%
+}
+
+.privacy-text {
+    padding-left: 20px;
+    color: #647374;
+    font-size: 14px;
+    padding-bottom: 30px;
+}
+
+.privacy-text a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #647374;
+}
+
+.privacy-text h2{
+    font-size: 22px;
+} 
+
+.privacy-text h3{
+    font-size: 18px;
 }

@@ -1,9 +1,7 @@
-
 .create-survey-view {
     width: 100%;
     height: max-content;
 }
-
 
 .create-survey-view .csv-toolbar {
     display: flex;
@@ -28,4 +26,8 @@
     margin: 0;
     flex: 1 100%;
     text-align: center;
+}
+
+.csv-toolbar {
+    margin-bottom: 30px;
 }
