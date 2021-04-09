@@ -2,10 +2,7 @@ import { useRef, useEffect } from 'react'
 import Chart from 'chart.js'
 
 
-export default BarChart
-
-
-function BarChart({ element }) {
+export default function BarChart({ element }) {
     const chartRef  = useRef()
 
     useEffect(() => {
@@ -21,7 +18,7 @@ function BarChart({ element }) {
 }
 
 
-const getData = ({ answerPossibilities:answer_possibilities, results, count_participants }) => {
+const getData = ({ answer_possibilities, results, count_participants }) => {
     const dataItems = results.map(item => item/count_participants)
     const [bgColors, hoverBGColors] = getBGColors(answer_possibilities.length)
     const data = {

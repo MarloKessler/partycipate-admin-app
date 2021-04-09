@@ -29,7 +29,7 @@ function DoughnutChart({ element }) {
 }
 
 
-const getData = ({ answerPossibilities: answer_possibilities, results }) => {
+const getData = ({ answer_possibilities, results }) => {
     const [bgColors, hoverBGColors] = getBGColors(answer_possibilities.length)
     const data = {
         labels: answer_possibilities.map(possibility => possibility.answer),

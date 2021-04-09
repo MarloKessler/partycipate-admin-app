@@ -48,19 +48,15 @@ export default class Database {
         }
 
         survey.elements.forEach(element => element.answer_possibilities.sort((a, b) => {
-            if ( a.position < b.position ){
-                return -1
-              }
-              if ( a.position > b.position ){
-                return 1
-              }
-              return 0
+            if ( a.position < b.position ) return -1
+            else if ( a.position > b.position ) return 1
+            else return 0
         }))
 
         const baseResults = [
             {
-                count_participants: 20,
-                results: [ 14, 30, 21, 69 ]
+                count_participants: 54,
+                results: [ 14, 30, 21, 49 ]
             },
         ]
 
@@ -107,13 +103,9 @@ export default class Database {
 
         // Sort survey elements
         survey.elements.forEach(element => element.answerPossibilities.sort((a, b) => {
-            if ( a.position < b.position ){
-                return -1
-              }
-              if ( a.position > b.position ){
-                return 1
-              }
-              return 0
+            if ( a.position < b.position ) return -1
+            else if ( a.position > b.position ) return 1
+            else return 0
         }))
 
 
