@@ -20,13 +20,13 @@ export default function SignupView() {
     event.preventDefault()
     if (!formIsValid()) return
     Server.auth().signup(email, password1, name)
-    .catch(() => {})
+    .catch((error) => {console.log("signup error: ", error)})
   }
 
-  const formIsValid = () => validateEmail(email) && password1.length > 10 && password1 === password2 && name !== "" && acceptTAC
+  const formIsValid = () => validateEmail(email) && password1.length >= 10 && password1 === password2 && name !== "" && acceptTAC
 
   function validateEmail(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    const re = /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/
     return re.test(String(email).toLowerCase())
   }
 

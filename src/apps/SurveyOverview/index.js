@@ -7,6 +7,7 @@ import ErrorPage from "../ErrorPage"
 import CardElement from "../CardElement"
 import { HelpSections } from "../DocsView"
 
+
 export default () => {
     const history = useHistory()
     const [surveys, setSurveys] = useState()
@@ -45,27 +46,6 @@ export default () => {
                         <CardElement className="so-search-bar"><input type="text" placeholder="Search" onInput={ handleSearchInput }/></CardElement>
                     </div>
                     <ul className="survey-list">
-                        {
-                            filteredSurveys.map( survey => (
-                                <li className="item" onClick={ () => history.push(`/surveys/${survey.id}`) } key={ survey.id }>
-                                    <CardElement className="so-card">{ survey.title }</CardElement>
-                                </li>
-                            ))
-                        }
-                        {
-                            filteredSurveys.map( survey => (
-                                <li className="item" onClick={ () => history.push(`/surveys/${survey.id}`) } key={ survey.id }>
-                                    <CardElement className="so-card">{ survey.title }</CardElement>
-                                </li>
-                            ))
-                        }
-                        {
-                            filteredSurveys.map( survey => (
-                                <li className="item" onClick={ () => history.push(`/surveys/${survey.id}`) } key={ survey.id }>
-                                    <CardElement className="so-card">{ survey.title }</CardElement>
-                                </li>
-                            ))
-                        }
                         {
                             filteredSurveys.map( survey => (
                                 <li className="item" onClick={ () => history.push(`/surveys/${survey.id}`) } key={ survey.id }>

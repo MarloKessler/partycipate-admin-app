@@ -17,7 +17,7 @@ function ResultsView() {
     useEffect(() => {
         Server.database().getSurveyResults(id)
         .then(setSurvey)
-        .catch(() => setSurvey(null))
+        .catch((error) => {console.log(error); setSurvey(null)})
     }, [])
     
     return (

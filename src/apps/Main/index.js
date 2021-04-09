@@ -40,24 +40,26 @@ export default function Main() {
           <div className="Admin-App">
             { user && <Sidebar/> }
             <div className="Page-Container">
-              <Switch>
-                <SecureRoute exact path="/dashboard" component={<DashboardView/>}/>
-                <SecureRoute exact path="/create-survey" component={<CreateSurveyView/>}/>
-                <SecureRoute exact path="/surveys" component={<SurveyOverview/>}/>
-                <SecureRoute exact path="/surveys/:id" component={<ResultsView/>}/>
-                <SecureRoute exact path="/my-account" component={<AccountView/>}/>
-                <AuthRoute exact path="/logout" component={<LogoutView/>}/>
-                <AuthRoute exact path="/signup" component={<SignupView/>}/>
-                <AuthRoute exact path="/login" component={<LoginView/>}/>
-                <Route exact path="/" component={HomeView}/>
-                <Route exact path="/why-partycipate" component={WhyPartycipateView}/>
-                <Route exact path="/docs" component={DocsView}/>
-                <Route exact path="/docs/:id" component={DocsView}/>
-                <Route exact path="/contact" component={ContactView}/>
-                <Route exact path="/imprint" component={ImprintView}/>
-                <Route exact path="/privacy" component={PrivacyStatementView}/>
-                <Route path="*" component={ () => <ErrorPage message="The page you’re looking for can’t be found."/> }/>
-              </Switch>
+              { user !== undefined &&
+                <Switch>
+                  <SecureRoute exact path="/dashboard" component={<DashboardView/>}/>
+                  <SecureRoute exact path="/create-survey" component={<CreateSurveyView/>}/>
+                  <SecureRoute exact path="/surveys" component={<SurveyOverview/>}/>
+                  <SecureRoute exact path="/surveys/:id" component={<ResultsView/>}/>
+                  <SecureRoute exact path="/my-account" component={<AccountView/>}/>
+                  <AuthRoute exact path="/logout" component={<LogoutView/>}/>
+                  <AuthRoute exact path="/signup" component={<SignupView/>}/>
+                  <AuthRoute exact path="/login" component={<LoginView/>}/>
+                  <Route exact path="/" component={HomeView}/>
+                  <Route exact path="/why-partycipate" component={WhyPartycipateView}/>
+                  <Route exact path="/docs" component={DocsView}/>
+                  <Route exact path="/docs/:id" component={DocsView}/>
+                  <Route exact path="/contact" component={ContactView}/>
+                  <Route exact path="/imprint" component={ImprintView}/>
+                  <Route exact path="/privacy" component={PrivacyStatementView}/>
+                  <Route path="*" component={ () => <ErrorPage message="The page you’re looking for can’t be found."/> }/>
+                </Switch>
+              }
               <Footer/>
             </div>
           </div>

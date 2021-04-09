@@ -12,7 +12,7 @@ export default class Fetch {
         }
         const url = `${process.env.REACT_APP_BACKEND_URL}/${path}`
         const response = await fetch(url, initObject)
-        //if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
+        if (!acceptableStatusCodes.includes(response.status)) throw await response.json()
         const body = await response.text()
         const dict = JSON.parse(body)
         return dict
@@ -25,9 +25,11 @@ export default class Fetch {
             body: JSON.stringify(body),
         }
         const url = `${process.env.REACT_APP_BACKEND_URL}/${path}`
+        console.log("url:", url)
         const response = await fetch(url, initObject)
-        if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
-        return response
+        if (!acceptableStatusCodes.includes(response.status)) throw await response.json()
+        const resBody = await response.json()
+        return resBody
     }
 
     static put = async (path, body) => {
@@ -36,8 +38,12 @@ export default class Fetch {
             headers: new PAHeaders(),
             body: JSON.stringify(body),
         }
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/${path}`, initObject)
-        if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
+        const url = `${process.env.REACT_APP_BACKEND_URL}/${path}`
+        console.log("url:", url)
+        const response = await fetch(url, initObject)
+        if (!acceptableStatusCodes.includes(response.status)) throw await response.json()
+        const resBody = await response.json()
+        return resBody
     }
 
     static delete = async (path, body) => {
@@ -47,7 +53,7 @@ export default class Fetch {
         }
         if (body) initObject.body = JSON.stringify(body)
         const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/${path}`, initObject)
-        if (!acceptableStatusCodes.includes(response.status)) throw Error(response.statusText)
+        if (!acceptableStatusCodes.includes(response.status)) throw await response.json()
     }
 }
 

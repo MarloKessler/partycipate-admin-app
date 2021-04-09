@@ -17,26 +17,27 @@ export default class Auth {
 
     
     static async signup(email, password, name) {
-        const result = await Fetch.post("", { email: email, password: password, name: name })
-        if (result.token) {
-            token = result.token
-            loadUser()
-        }
+        console.log("signup")
+        const result = await Fetch.put("api/auth/signup", { username: email, email: email, password: password, role: ["user"] })
+        console.log("signup result: ", result)
+        await Auth.login(email, password)
     }
 
 
     static async login(email, password) {
-        const result = await Fetch.post("", { email: email, password: password })
+        const result = await Fetch.post("api/auth/signin", { username: email, password: password })
+        console.log("login result: ", result)
         if (result.token) {
             token = result.token
-            loadUser()
+            Cookies.set("partycipate-session-token", token, { expires: 1 })
+            await loadUser()
         }
     }
 
 
     static async updateUser(email, name) {
         await Fetch.post("", { email: email, name: name })
-        loadUser()
+        await loadUser()
     }
 
 
@@ -56,7 +57,7 @@ export default class Auth {
 
     static async deleteUser() {
         const result = await Fetch.delete("")
-        Auth.logout()
+        await Auth.logout()
     }
 
 
@@ -72,15 +73,16 @@ export default class Auth {
 
 
 async function restoreSession() {
-    token = Cookies.get("partycipate-session-token")
-    //if (token) await loadUser()
-    await loadUser() // REMOVE IF USER LOADING WORKS
+    /*token = Cookies.get("partycipate-session-token")
+    if (token) await loadUser()*/
+await loadUser() // REMOVE IF USER LOADING WORKS
 }
 
 
 
 async function loadUser() {
-    /*const u = await Fetch.get("")
+    /*const u = await Fetch.get("api/user")
+    console.log("user: ", u)
     u.token = token
     user = u*/
 user = {name: "truth", email: "truth.s.gatsby@email.com", token: "1234567890"} // REMOVE IF USER LOADING WORKS
