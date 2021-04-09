@@ -36,7 +36,7 @@ p {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  font-size: 15px;
+  font-size: 17px;
   background-color: #F5F5F5;
 }
 
@@ -52,7 +52,7 @@ p {
 
 @media(min-width: 600px) {
   .App {
-    font-size: 15px;
+    font-size: 17px;
   }
 }
 
@@ -103,6 +103,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1em;
   background-color: transparent;
 }
 
@@ -185,6 +186,7 @@ a {
 .link-light {
   transition: .3s;
   cursor: pointer;
+  padding: 10px;
   border-radius: 5px;
 }
 
@@ -200,6 +202,7 @@ a {
 .link-dark {
   transition: .3s;
   cursor: pointer;
+  padding: 10px;
   border-radius: 5px;
 }
 

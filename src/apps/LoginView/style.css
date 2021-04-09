@@ -1,74 +1,47 @@
-.login {
-    width: 100%;
-}
-
-
-.loginHeader {
-    margin-bottom: 15px;
-}
-
-.celement {
-    background-color: white;
-    width: 50%;
-    height: 100%
-}
-
-.login-body {
+.login-view {
     display: flex;
-    width: 100%;
     flex-direction: row;
     justify-content: center;
 }
 
-.login-body .celement {
+
+.login-view .login-card {
     max-width: 600px;
+    min-width: 35%;
     margin-bottom: 60px;
 }
 
-.login-body input {
-    width: 70%;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
-    margin: 0 30px;
-    text-align: center;
-    margin-bottom: 27px;
-    background-color: white;
+
+.login-view .login-card h1 {
+    font-size: 1.7em;
 }
 
-.login button {
+
+
+.login-view .login-card form {
     display: flex;
-    margin-top: 10px;
-    justify-content: center;
-    padding-right: 30px;
-    font-size: 18px;
-    float: left;
-    color: white; 
-    background-color: #647374;
-    margin-top: 35px;
+    flex-direction: column;
+
+}
+
+.login-view label {
+    margin: 10px 0;
+}
+
+.login-view label:first-of-type {
+    margin-top: 20px;
+}
+
+.login-view input {
+    margin-bottom: 30px;
+    width: 70%;
+    padding: 10px 20px;
+    border: 1px solid #647374;
+    text-align: center;
 }
 
 .toolbar {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap; 
-}
-
-.login .labelUN {
-    display: block;
-    position: relative;
-    left: 5%;
-    padding-top: 20px;
-    text-align: left;
-    color: #647374;
-}
-
-.login .toolbar .btn-dark {
-    padding-left: 40px;
 }

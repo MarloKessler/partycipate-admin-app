@@ -1,20 +1,15 @@
 .imprint-view {
-    width: 100%;
-}
-
-.imprint-text {
-    padding-left: 20px;
-    color: #647374;
-    font-size: 14px;
     padding-bottom: 30px;
 }
 
-.imprint-text a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #647374;
+.imprint-view h2 {
+    margin-bottom: 10px;
 }
 
-.imprint-text h2{
-    font-size: larger;
-} 
+.imprint-view p {
+    margin-top: 0;
+}
+
+.imprint-view a {
+    text-decoration: underline;
+}

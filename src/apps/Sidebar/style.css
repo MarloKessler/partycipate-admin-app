@@ -6,7 +6,6 @@
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    background-color: #BBD9DB;
 }
 
 .sidebar.show {
@@ -17,31 +16,10 @@
 }
 
 
-.sidebar a {
-    text-decoration: none;
-}
-
-
-.sidebar .item {
+.sb-menu .link-light {
     margin: 10px 0;
-    padding: 10px;
-    justify-content: flex-start;
-    font-size: 18px;
     text-align: start;
-    color: #647374; 
 }
-
-
-.sidebar .activatable {
-    transition: .3s;
-}
-
-.sidebar .activatable:hover {
-    transition: .3s;
-    color: #BBD9DB;
-    background-color: rgb(255, 255, 255);
-}
-
 
 .sb-menu {
     position: fixed;
@@ -56,7 +34,6 @@
     transition: .1s;
     display: flex;
     flex-direction: column;
-    background-color: #BBD9DB;
 }
 
 .sb-menu.show {
@@ -67,8 +44,10 @@
     box-shadow: 0 0 1px 1px #aac5c7;
 }
 
-.sb-menu > .logout {
+.sb-menu .logout {
     margin-top: auto;
+    width: 100%;
+    justify-content: flex-start;
 }
 
 .sbm-close-btn {
@@ -90,14 +69,14 @@
     transition: .3s;
 }
 
-.item.sbtm-btn {
+.sbtm-btn {
     margin: 0;
     padding: 20px;
     flex: 0 1 25%;
     justify-content: center;
 }
 
-.item.sbtm-btn > svg {
+.sbtm-btn > svg {
     width: 20px;
     height: 20px;
 }

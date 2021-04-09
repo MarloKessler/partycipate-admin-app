@@ -35,20 +35,20 @@ export default function Sidebar() {
     const logout = () => Server.auth().logout().catch(() => {})
 
     return (
-        <div className="sidebar" ref={sidebar}>
+        <div className="sidebar secondary-element" ref={sidebar}>
             <div className="sb-toolbar-menu">
-                <Link className="item sbtm-btn activatable" to="/dashboard"><IoHome/></Link>
-                <Link className="item sbtm-btn activatable" to="/create-survey"><IoCreateOutline/></Link>
-                <Link className="item sbtm-btn activatable" to="/surveys"><IoStatsChart/></Link>
-                <button className="item sbtm-btn activatable" onClick={toggleSBMenu}><IoIosMore/></button>
+                <Link className="link-light sbtm-btn" to="/dashboard"><IoHome/></Link>
+                <Link className="link-light sbtm-btn" to="/create-survey"><IoCreateOutline/></Link>
+                <Link className="link-light sbtm-btn" to="/surveys"><IoStatsChart/></Link>
+                <button className="link-light sbtm-btn" onClick={toggleSBMenu}><IoIosMore/></button>
             </div>
-            <div className="sb-menu" ref={sbMenuRef}>
-                <button className="item sbm-close-btn activatable" onClick={toggleSBMenu}><CgClose/></button>
-                <Link className="item activatable" to="/dashboard" onClick={toggleSBMenu}>My Dashboard</Link>
-                <Link className="item activatable" to="/create-survey" onClick={toggleSBMenu}>Create Survey</Link>
-                <Link className="item activatable" to="/surveys" onClick={toggleSBMenu}>View Results</Link>
-                <Link className="item activatable" to="/my-account" onClick={toggleSBMenu}>My Account</Link>
-                <button className="item activatable logout" onClick={logout}>Logout</button>
+            <div className="sb-menu secondary-element" ref={sbMenuRef}>
+                <button className="link-light sbm-close-btn" onClick={toggleSBMenu}><CgClose/></button>
+                <Link className="link-light" to="/dashboard" onClick={toggleSBMenu}>My Dashboard</Link>
+                <Link className="link-light" to="/create-survey" onClick={toggleSBMenu}>Create Survey</Link>
+                <Link className="link-light" to="/surveys" onClick={toggleSBMenu}>View Results</Link>
+                <Link className="link-light" to="/my-account" onClick={toggleSBMenu}>My Account</Link>
+                <button className="link-light logout" onClick={logout}>Logout</button>
             </div>
         </div>
     )

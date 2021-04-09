@@ -1,9 +1,8 @@
 .navbar {
     padding: 10px 20px;
-
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-
     align-items: flex-end;
     background-color: white;
 }
@@ -14,14 +13,9 @@
     object-fit: contain;
 }
 
+
 .navbar a {
     color: #647374;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.navbar h1 {
-    margin-bottom: 0;
 }
 
 .navbar .menu-toggle {
@@ -29,14 +23,9 @@
     display: block;
 }
 
-.navbar .menu-toggle .icon {
+.navbar .menu-toggle svg {
     width: 30px;
     height: 30px;
-}
-
-.navbar .menu-toggle button {
-    background-color: transparent;
-    border: none;
 }
 
 
@@ -51,31 +40,17 @@
     width: 100%;
 }
 
-.navbar .nav-menu .item {
-    padding: 10px;
-}
-
-.navbar .item.activatable:hover {
-    background-color: rgba(219, 219, 219, 0.5);
-}
-
-.navbar .item.activatable:active {
-    background-color: rgba(235, 235, 235, 0.5);
-}
-
-.nav-menu > .focus-btn {
-    margin-left: 10px;
-    background-color: #BBD9DB;
-}
-
-.nav-menu > .login-btn {
-    margin-left: 10px;
-}
 
 .navbar .nb-separator {
     margin: 0 5px;
-    font-size: 30px;
+    display: none;
 }
+
+.navbar .link-button {
+    width: auto;
+}
+
+
 
 @media(min-width: 300px) {
     .navbar .logo img {
@@ -83,11 +58,15 @@
     }
 }
 
+
+
 @media(min-width: 600px) {
     .navbar .logo img {
         height: 50px;
     }
 }
+
+
 
 @media(min-width: 750px) {
     .navbar .logo img {

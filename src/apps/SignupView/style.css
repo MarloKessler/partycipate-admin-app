@@ -1,87 +1,51 @@
-.signup {
-    width: 100%;
-}
 
 
-.signupHeader {
-    margin-bottom: 15px;
-    display: block;
-}
-
-
-.signup-body .celement {
+.signup-body .su-card {
     max-width: 600px;
     margin-bottom: 60px;
 }
 
+.su-card h1 {
+    font-size: 1.7em;
+}
+
 .signup-body {
     display: flex;
-    width: 100%;
     flex-direction: row;
     justify-content: center;
-    align-self: center;
 }
 
-.signup-body input {
-    background-color: white;
-    width: 70%;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
-    margin: 0 30px;
-    text-align: center;
-    margin-bottom: 27px;
-}
-
-.signup button {
+.signup-body form {
     display: flex;
-    margin-top: 10px;
-    justify-content: center;
-    padding-right: 30px;
-    font-size: 18px;
-    color: white; 
-    background-color: #647374;
+    flex-direction: column;
+}
+
+.signup-body form label {
+    margin: 5px 0;
+}
+
+.signup-body form > label:first-of-type {
+    margin-top: 20px;
+}
+
+.signup-body form input {
+    width: 70%;
+    border: 1px solid #647374;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .signup-body .tac-statement {
-    margin: 0 30px;
     width: calc(100% - 60px);
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 .signup-body .toolbar {
+    margin-top: 20px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap; 
-}
-
-.labelUN {
-    display: block;
-    position: relative;
-    left: 5%;
-    padding-top: 20px;
-    text-align: left;
-    color: #647374;
-}
-
-.signup .toolbar .btn-dark{
-    padding-left: 40px;
-}
-
-
-.signup a {
-    transition: .3s;
-    color: #647374;
-}
-
-.signup a:hover {
-    transition: .3s;
-    color: white;
 }

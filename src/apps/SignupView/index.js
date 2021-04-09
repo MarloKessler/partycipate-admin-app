@@ -6,6 +6,7 @@ import CardElement from "../CardElement"
 import Server from "../Server"
 import { FiChevronRight } from "react-icons/fi"
 import Checkbox from '@material-ui/core/Checkbox'
+import StandardPage from "../StandardPage"
 
 
 
@@ -33,43 +34,30 @@ export default function SignupView() {
   const setValueVia = setter => event => setter(event.target.value)
 
   return(
-    <div className="signup">
-      <PageTitleElement className="signupHeader">Do you want to join Partycipate? Sign up here 🎉</PageTitleElement>
+    <StandardPage className="signup" title="Do you want to join Partycipate? Sign up here 🎉">
       <div className="signup-body"> 
-        <CardElement className="celement">
+        <CardElement className="primary-element su-card">
           <form onSubmit={handleSignup}>
-            <PageTitleElement className="Sign-up">Register now</PageTitleElement>
-            <label htmlFor="name" className="labelUN">Your Name:</label>
-            <br/>
-            <input className="email" align="center" type="text" placeholder="Enter Name" name="name" value={name} required onChange={setValueVia(setName)}/>
-            <br/>
-            <br/>
-            <label htmlFor="email" className="labelUN">E-Mail:</label>
-            <br/>
-            <input className="email" align="center" type="email" placeholder="Enter E-Mail" name="email" value={email} required onChange={setValueVia(setEmail)}/>
-            <br/>
-            <br/>
-            <label htmlFor="pw" className="labelUN">Password:</label>
-            <br/>
-            <input className="pass" align="center" type="password" placeholder="Enter Password" name="pw" value={password1} required onChange={setValueVia(setPassword1)}/>
-            <br/>
-            <br/>
-            <label htmlFor="repeat-pw" className="labelUN">Repeat password:</label>
-            <br/>
-            <input className="pass" align="center" type="password" placeholder="Repeat Password" name="repeat-pw" value={password2} required onChange={setValueVia(setPassword2)}/>
-            <br/>
-            <br/> 
+            <PageTitleElement>Register now</PageTitleElement>
+            <label htmlFor="name">Your Name:</label>
+            <input className="email" type="text" placeholder="Enter Name" name="name" value={name} required onChange={setValueVia(setName)}/>
+            <label htmlFor="email">E-Mail:</label>
+            <input className="email" type="email" placeholder="Enter E-Mail" name="email" value={email} required onChange={setValueVia(setEmail)}/>
+            <label htmlFor="pw">Password:</label>
+            <input className="pass" type="password" placeholder="Enter Password" name="pw" value={password1} required onChange={setValueVia(setPassword1)}/>
+            <label htmlFor="repeat-pw">Repeat password:</label>
+            <input className="pass" type="password" placeholder="Repeat Password" name="repeat-pw" value={password2} required onChange={setValueVia(setPassword2)}/>
             <div className="tac-statement">
               <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} checked={acceptTAC} required onClick={() => setAcceptTAC(!acceptTAC)}/>
               <label htmlFor="checkbox_id" id="text">I have read and accept the terms and conditions and the <Link to="/privacy">privacy policy</Link> of Partycipate.</label>
             </div>
             <div className="toolbar">
-              <button className="button btn-dark" type="submit">Register<FiChevronRight/></button>
+              <button className="btn-dark btn-icon-right">Register<FiChevronRight/></button>
             </div>
           </form>
         </CardElement>  
       </div>
-    </div>
+    </StandardPage>
   )
 }
  

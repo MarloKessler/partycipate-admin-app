@@ -29,17 +29,17 @@ export default function Navbar() {
     
     return (
         <div className="navbar">
-            <div className="item logo"><Link to="/"><img src={ `${process.env.PUBLIC_URL}/images/logo.png` } alt="Partycipate's logo"/></Link></div>
-            <div className="menu-toggle item activatable"><button className="item" onClick={ toggleMenu }>{ showMenu ? <CgClose className="icon"/> : <CgMenu className="icon"/> }</button></div>
+            <div className="logo"><Link to="/"><img src={ `${process.env.PUBLIC_URL}/images/logo.png` } alt="Partycipate's logo"/></Link></div>
+            <button className="menu-toggle link-dark" onClick={ toggleMenu }>{ showMenu ? <CgClose/> : <CgMenu/> }</button>
             <div className="nav-menu" ref={ navMenuRef }>
-                <Link className="item activatable" to="/">Home</Link>
-                <Link className="item activatable" to="/why-partycipate" >Why Partycipate</Link>
-                <Link className="item activatable" to="/docs">Docs</Link>
-                <Link className="item activatable" to="/contact">Contact</Link>
+                <Link className="link-dark" to="/">Home</Link>
+                <Link className="link-dark" to="/why-partycipate" >Why Partycipate</Link>
+                <Link className="link-dark" to="/docs">Docs</Link>
+                <Link className="link-dark" to="/contact">Contact</Link>
                 { isInBackend === false && <div className="nb-separator"> | </div> }
-                { (isLoggedIn && !isInBackend) && <Link  className="item activatable btn-dark focus-btn" to="/dashboard">Dashboard</Link> }
-                { isLoggedIn === null && <Link className="item activatable btn-dark focus-btn" to="/signup">Sign Up</Link> }
-                { isLoggedIn === null && <Link className="item activatable login-btn" to="/login">Login</Link> }
+                { (isLoggedIn && !isInBackend) && <Link className="link-button btn-light" to="/dashboard">Dashboard</Link> }
+                { isLoggedIn === null && <Link className="link-button btn-light" to="/signup">Sign Up</Link> }
+                { isLoggedIn === null && <Link className="link-dark" to="/login">Login</Link> }
             </div>
         </div>
     )

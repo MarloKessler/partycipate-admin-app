@@ -1,8 +1,8 @@
 import "./style.css"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import Server from "../Server"
-import PageTitleElement from "../PageTitleElement"
+import StandardPage from "../StandardPage"
 import ErrorPage from "../ErrorPage"
 import CardElement from "../CardElement"
 import { HelpSections } from "../DocsView"
@@ -38,26 +38,25 @@ export default () => {
 
 
     return (
-        <div className = "survey-overview searching">
-            <PageTitleElement helpSection={ HelpSections.analyseSurvey }>Which results do you want to see?</PageTitleElement>
+        <StandardPage className = "survey-overview searching" title="Which results do you want to see?" helpSection={HelpSections.analyseSurvey}>
             { filteredSurveys
                 ? <div>
                     <div className="so-search-bar-container">
-                        <CardElement className="so-search-bar"><input type="text" placeholder="Search" onInput={ handleSearchInput }/></CardElement>
+                        <CardElement className="so-search-bar"><input type="text" placeholder="Search" onInput={handleSearchInput}/></CardElement>
                     </div>
                     <ul className="survey-list">
                         {
                             filteredSurveys.map( survey => (
-                                <li className="item" onClick={ () => history.push(`/surveys/${survey.id}`) } key={ survey.id }>
-                                    <CardElement className="so-card">{ survey.title }</CardElement>
+                                <li key={survey.id}>
+                                    <CardElement className="link-light primary-element so-card" onClick={() => history.push(`/surveys/${survey.id}`)}>{survey.title}</CardElement>
                                 </li>
                             ))
                         }
                     </ul>
-                  </div>
+                    </div>
                 : surveys === null && <ErrorPage message="We are sorry, your surveys couldn't be loaded!"/>
             }
-        </div>
+        </StandardPage>
     )
 }
 
