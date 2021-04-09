@@ -4,11 +4,7 @@ import SurveyContext from "../../../SurveyContext"
 import { XCoiceBlock } from "./content-blocks"
 
 
-
-export { QuestionElement }
-
-
-function QuestionElement({ index, ...props }) {
+export function QuestionElement({ index, className="", ...props }) {
     const { survey, updateSurvey } = useContext(SurveyContext)
     const element = survey.elements[index]
 
@@ -18,9 +14,8 @@ function QuestionElement({ index, ...props }) {
         updateSurvey(survey)
     }
 
-
     return (
-        <div { ...props }>
+        <div className={`question-element ${className}`} { ...props }>
             <label>Define your question</label>
             <input className="input s-question-input" type="text" value={ element.question } placeholder="Question" onChange={ updateQuestion }/>
             <XCoiceBlock elementIndex={ index } />

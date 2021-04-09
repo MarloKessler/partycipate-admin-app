@@ -1,173 +1,81 @@
-.contact {
+.contact-view {
   width: 100%;
   min-height: 100%;
   overflow: hidden;
+  overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
-  overflow: hidden;
-  overflow-y: scroll;
-  color: #647374; 
 }
 
-.pageelementcontact {
+
+
+.cv-left {
+  flex: 1 1 100%;
+  text-align: start;
+}
+
+
+.cv-left p {
   text-align: left;
 }
 
-.leftcontact{
-  float: left;
+
+
+.cv-right {
   flex: 1 1 100%;
-  text-align: center;
-  padding-bottom: 35px;
-}
-
-.rightcontact{
-  float: right;
-  flex: 1 1 100%;
-  padding-top: 100px;
-  padding-bottom: 15px;
-  background-color: #EFF0F0;
-
-}
-
-@media(min-width: 900px) {
-  .leftcontact {
-    flex: 1 1 50%;
-  }
-}
-
-@media(min-width: 900px) {
-  .rightcontact {
-    flex: 1 1 50%;
-  }
-}
-
-.contact > .leftcontact > p {
-  font-size: smaller;
-  padding-left: 20px;
-  padding-right: 20px;
-  line-height: 2;
-  text-align: left;
-}
-
-.contact .cardelementcontact {
-  display: block;
+  display: flex;
   flex-direction: row;
-  text-align: center;
-  font-size: 20px;
-  max-width: 100%;
-  background-color: #BBD9DB;
-  margin-left: 35px;
-}
-
-.faqsright {
-  margin-top: 60px;
-}
-
-.emailright {
-  margin-top: 20px;
-}
-
-.contact .cardelementcontact span {
-  text-align: left;
-  margin-top: auto;
-  width: 33%;
-}
-
-.contact .cardelementcontact p {
-  margin-top: 3px;
-}
-
-.link{
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  margin-top: 15px;
-}
-
-.link:hover{
-color: #647374;
-transition: .3s;
-}
-
-.link:active{
-transition: .3s;
+  align-items: center;
+  background-color: #EFF0F0;
 }
 
 
 
-
-
-
-
-
-/*.contact {
-  display: flex;
+.cv-right .cv-card {
+  margin: 40px;
   width: 100%;
-  overflow: hidden;
-  flex-wrap: wrap;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-
-.contact > .leftcontact > p{
-  color:red;
-  font-size: 28px;
-  padding-left: 20px;
-  padding-right: 20px;
-  line-height: 2;
-  text-align: left;
-}
-
-.rightcontact{
-  padding-top: 15px;
-  padding-bottom: 15px;
-  align-self: center;
+  height: calc(80% - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 
-.contactBox {
-    float:right;
-    font-size: 25px;
-    background: white;
-    color: #BBD9DB;
-    justify-content: center; 
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    display: flex;
-    width: 100%;
-    
-  }
-  
-  .contactBox div {
-    font-weight: bold;
-    margin-top: 15px;
-    
-  }
-  
-  .link{
-      text-decoration: none;
-      color:black;
-  }
 
-  .link:hover{
-    color: #BBD9DB;
-    transition: .3s;
-  }
+.cv-right .cv-card .link {
+  margin: 15px 0;
+  width: fit-content;
+  transition: .3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-  .link:active{
-    transition: .3s;
-  }
-  @media(min-width: 900px) {
-    .left {
-      flex: 1 1 50%;
-    }
-  }
+.cv-right .cv-card .link:hover {
+  transition: .3s;
+  color: white;
+}
 
-  @media(min-width: 900px) {
-    .right {
-      flex: 1 1 50%;
-    }
-  }
 
-  */
+
+.cv-right .cv-card .link svg {
+  font-size: 3em;
+}
+
+
+@media(min-width: 600px) and (max-width: 899px) {
+  .cv-right .cv-card {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+
+@media(min-width: 900px) {
+  .cv-column {
+    flex: 1 1 40%;
+  }
+}

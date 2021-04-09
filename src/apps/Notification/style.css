@@ -36,7 +36,6 @@
 .notification {
     text-align: center;
     color: white;
-    background-color: #82a0aa;
     box-shadow: 3px 3px 10px #000;
     z-index: 202;
 }

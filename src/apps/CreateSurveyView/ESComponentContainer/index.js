@@ -1,4 +1,4 @@
-import "./style.css"
+/*import "./style.css"
 import PageTitleElement from "../../PageTitleElement"
 import CardElement from "../../CardElement"
 
@@ -13,4 +13,4 @@ function ESComponentContainer({ title, children, className = "" }) {
             <CardElement className="es-card-element">{ children }</CardElement>
         </div>
     )
-}
+}*/

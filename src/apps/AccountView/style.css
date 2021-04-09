@@ -1,188 +1,56 @@
-.changepwHeader {
-    margin-bottom: 15px;
-}
-
-.message {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;   
-}
-
-.changepw .notification-toolbar button:hover {
-    color: #82a0aa;
-    background-color: #F5F5F5;
-}
-
-.changepw .notification .toolbar button {
-    padding: 10px;
-    margin: 0 10px;
-}
-
-.messagebutton-cancel:active {
-    color: #82a0aa;
-    background-color: #F5F5F5;
-}
-
-.messagebutton-delete {
-    color: #F50057;
-}
-
-.messagebutton-delete:hover {
-    background-color: #F5F5F5;
-}
-
-.changepw-body .celement {
-    background-color: #bbd9db;
-    height: 100%;
+.av-card {
     flex: 1 1 100%;
 }
 
-.changepw-body {
-    display:flex;
-    width: 100%;
+
+
+.av-body {
+    margin: 0 -20px;
+    display: flex;
     flex-direction: row;
-    justify-content: center;
     flex-wrap: wrap;
 }
 
-.un {
+
+
+.av-body form {
+    display: flex;
+    flex-direction: column;
+}
+
+.av-body form label {
+    margin: 5px 0;
+}
+
+.av-body form label:first-of-type {
+    margin-top: 15px;
+}
+
+.av-body form input {
     width: 70%;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
     padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-bottom: 50px;
-    margin-left: 30px;
-    text-align: center;
-    margin-bottom: 27px;
-}
-
-.pass {
-    width: 70%;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-bottom: 50px;
-    margin-left: 30px;
-    text-align: center;
-    margin-bottom: 27px;
-    background-color:white;
-}
-
-.changepw button {
-    margin-top: 10px;
-    justify-content: center;
-    padding-right: 30px;
-    font-size: medium;
-    background-color: #82a0aa;
-}
-
-.celement button:hover {
-    background-color: #647374;
-    transition: .3s;
-}
-
-.delement button:hover {
-    background-color: #647374;
-    transition: .3s;
-}
-
-.celement button:active {
-    background-color: #647374;
-    transition: .3s;
-}
-
-.delement button:active {
-    background-color: #647374;
-    transition: .3s;
-}
-
-.notification-toolbar {
+    margin-bottom: 30px;
     text-align: center;
 }
 
-.toolbar {
+
+.account-view .btn-delete {
+    color: #ff0059;
+}
+
+.account-view .toolbar {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; 
-}
-
-.changepw .labelUN {
-    display: block;
-    position: relative;
-    left: 5%;
-    padding-top: 20px;
-    text-align: left;
-    color: #647374;
-    font-size:18px;
-}
-
-.changepw .labelPass{
-    display: block;
-    position: relative;
-    left: 5%;
-    text-align: left;
-    color: #647374;
-    font-size:18px;
-}
-
-.changepw .labelPassRe{
-    display: block;
-    position: relative;
-    left: 5%;
-    text-align: left;
-    color: #647374;
-    font-size:18px;
 }
 
 
-.changepw{
-    width: 100%;
-}
 
-.delement{
-    background-color: #bbd9db;
-    height: 100%;
-    flex: 1 1 100%;
-}
-
-.delete a{
-    color: #647374;
-    font-size: smaller;
-    display: block;
+@media(min-width: 1200px) {
+    .av-card {
+        flex: 1 1 30%;
     }
 
-.del div {
-    margin-left: 20px;
-    margin-right: 20px;
-    color:#647374;
-    font-size: 20px;
-}
-
-
-@media(min-width: 900px) {
-    .celement {
-        flex: 1 1 40%;
-    }
-
-    .delement {
-        flex: 1 1 40%;
+    .av-body > .av-card {
+        margin-right: 20px;
     }
 }
-
-

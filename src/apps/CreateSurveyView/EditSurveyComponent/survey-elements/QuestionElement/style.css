@@ -1,10 +1,5 @@
 
-.survey-element {
-    display: flex;
-    flex-direction: column;
-}
-
-.content-block {
+.question-element {
     display: flex;
     flex-direction: column;
 }

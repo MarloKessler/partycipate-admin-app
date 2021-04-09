@@ -11,7 +11,7 @@ export default function Navbar() {
     const history    = useHistory()
     const [showMenu, setShowMenu]       = useState(false)
     const [isLoggedIn, setIsLoggedIn]   = useState(false)
-    const [isInBackend, setIsInBackend] = useState(false)
+    const [isInBackend, setIsInBackend] = useState()
 
     useEffect(() => Server.auth().onAuthStateChanged(user => setIsLoggedIn(user)), [])
 
@@ -36,10 +36,10 @@ export default function Navbar() {
                 <Link className="item activatable" to="/why-partycipate" >Why Partycipate</Link>
                 <Link className="item activatable" to="/docs">Docs</Link>
                 <Link className="item activatable" to="/contact">Contact</Link>
-                { !isInBackend && <div className="nb-separator"> | </div> }
+                { isInBackend === false && <div className="nb-separator"> | </div> }
                 { (isLoggedIn && !isInBackend) && <Link  className="item activatable btn-dark focus-btn" to="/dashboard">Dashboard</Link> }
-                { !isLoggedIn && <Link className="item activatable btn-dark focus-btn" to="/signup">Sign Up</Link> }
-                { !isLoggedIn && <Link className="item activatable login-btn" to="/login">Login</Link> }
+                { isLoggedIn === null && <Link className="item activatable btn-dark focus-btn" to="/signup">Sign Up</Link> }
+                { isLoggedIn === null && <Link className="item activatable login-btn" to="/login">Login</Link> }
             </div>
         </div>
     )

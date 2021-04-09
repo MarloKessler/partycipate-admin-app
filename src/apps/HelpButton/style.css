@@ -2,20 +2,14 @@
 .help-button {
     width: 35px;
     height: 35px;
+    padding: 5px;
     border-radius: 50%;
-    color: white;
-    background-color: #BBD9DB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.help-button:hover {
-    background-color: #afcacc;
-}
-
-.help-button:active {
-    background-color: #BBD9DB;
-}
-
-.help-button .hb-icon {
+.help-button svg {
     width: 30px;
     height: 30px;
 }

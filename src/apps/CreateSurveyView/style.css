@@ -1,31 +1,14 @@
-
-.create-survey-view {
-    width: 100%;
-    height: max-content;
-}
-
-
-.create-survey-view .csv-toolbar {
+.csv-toolbar {
+    margin: 50px 0 40px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.create-survey-view .csv-toolbar .button {
-    font-size: medium;
-    margin: 20px 20px 10px;
+.csv-toolbar button {
+    margin: 0 20px;
 }
 
-.create-survey-view .csv-toolbar .back-btn {
-    padding-right: 20px;
-}
-
-.create-survey-view .csv-toolbar .next-btn {
-    padding-left: 20px;
-}
-
-.create-survey-view .csv-toolbar .status-message {
+.csv-toolbar p {
     margin: 0;
-    flex: 1 100%;
-    text-align: center;
 }

@@ -3,17 +3,17 @@
     width: 100%;
 }
 
-.docs-view .dv-section-container .doc-section {
+.docs-view .doc-section {
     padding-top: 30px;
 }
 
 
-.docs-view .dv-section-container .doc-section:first-child {
+.docs-view .doc-section:first-child {
     padding-top: 0;
 }
 
-.docs-view .dv-section-container .doc-section .row-content-text {
-    margin: 10px 0 20px;
+.docs-view .doc-section .row-content-text {
+    margin: 10px 0 30px;
 }
 
 .dv-section-container {

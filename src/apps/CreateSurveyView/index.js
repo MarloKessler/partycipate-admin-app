@@ -2,6 +2,8 @@ import './style.css'
 import React from "react"
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 import Server from "../Server"
+import StandardPage from "../StandardPage"
+import CardElement from "../CardElement"
 import Notification from "../Notification"
 import { SurveyProvider } from "./SurveyContext"
 import SelectSurveyComponent from "./SelectSurveyComponent"
@@ -50,14 +52,26 @@ export default class CreateSurveyView extends React.Component {
 
 
     render() {
-        return(
-            <div className="create-survey-view">
+        return (
+            <StandardPage title={getSurveyTitle(this.state.step)} helpSection="create-survey">
                 <SurveyProvider value={ this.state }>
-                    <SurveyComponent step={ this.state.step } onTypeSelected={ () => this.setState(() => ({ step: 1 })) }/>
+                    <CardElement className="secondary-element">
+                        <SurveyComponent step={ this.state.step } onTypeSelected={ () => this.setState(() => ({ step: 1 })) }/>
+                    </CardElement>
                     <CSVToolbar step={ this.state.step } statusMessage={ this.state.statusMessage } creationErrorOccured={ this.state.creationErrorOccured } onGoBack={ this.goBack } onGoForward={ this.goForward } isSaving={ this.state.isSaving }/>
                 </SurveyProvider>
-            </div>
+            </StandardPage>
         )
+    }
+}
+
+
+function getSurveyTitle(step) {
+    switch (step) {
+        case 0: return "1 - Choose your survey type"
+        case 1: return "2 - Specify the details of your survey"
+        case 2: return "3 - Implement your survey"
+        default: throw Error("No applicable step selected.")
     }
 }
 
@@ -76,10 +90,9 @@ function SurveyComponent({ step, onTypeSelected }) {
 function CSVToolbar({ step, statusMessage, onGoBack, onGoForward, isSaving }) {
     return (
         <div className="csv-toolbar">
-            { step === 1 && <button className="button btn-dark back-btn" disabled={ isSaving } onClick={ onGoBack }><FiChevronLeft/>Back</button> }
-            { step >= 1  && <button className="button btn-dark next-btn" disabled={ isSaving } onClick={ onGoForward }>{ step === 1 ? "Save" : "Finish" }<FiChevronRight/></button> }
-            
-            <Notification show={ statusMessage }><p className="status-message">{ statusMessage }</p></Notification>
+            { step === 1 && <button className="btn-light btn-icon-left" disabled={isSaving} onClick={onGoBack}><FiChevronLeft/>Back</button> }
+            { step >= 1  && <button className="btn-light btn-icon-right" disabled={isSaving} onClick={onGoForward}>{ step === 1 ? "Save" : "Finish" }<FiChevronRight/></button> }
+            <Notification show={statusMessage}><p>{statusMessage}</p></Notification>
         </div>
         
     )

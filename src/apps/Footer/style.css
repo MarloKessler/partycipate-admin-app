@@ -8,13 +8,11 @@ footer {
     justify-content: center;
     align-items: center;
     font-size: small;
-    color: gray;
     background-color: rgb(240, 240, 240);
 }
 
 footer a {
     font-size: small;
-    color: gray;
     text-decoration: none;
     transition: .3s;
 }
@@ -39,7 +37,6 @@ footer a:hover {
 
 .footer-menu .divider-point {
     display: none;
-
 }
 
 .copyright-statement {

@@ -5,10 +5,7 @@ import { usePopper } from 'react-popper';
 import SurveyContext from "../../../../../SurveyContext"
 
 
-export { XCoiceBlock }
-
-
-function XCoiceBlock({ elementIndex }) {
+export function XCoiceBlock({ elementIndex }) {
     const { survey, updateSurvey } = useContext(SurveyContext)
     const element = survey.elements[elementIndex]
     const answer_possibilities = element.answer_possibilities
@@ -62,11 +59,11 @@ function XCoiceBlock({ elementIndex }) {
 
 
     return (
-        <div className="content-block xchoice-block">
+        <div className="xchoice-block">
             <div className="xcb-header">
                 <label>Set your answer possibilities</label>
-                <button className="button btn-dark" ref={ setETSButton } onClick={ toggleETSPane }>{ getTypeLabelFor(element.type) }<FiChevronDown className="button-icon"/></button>
-                <ElementTypeSelection className={ showETSPane ? "show" : "" } onChange={ updateElementType } elementRef={ setETSPane } style={ styles.popper } {...attributes.popper}/>
+                <button className="btn-dark btn-icon-right" ref={ setETSButton } onClick={ toggleETSPane }>{ getTypeLabelFor(element.type) }<FiChevronDown/></button>
+                <ElementTypeSelection className={ showETSPane ? "show" : "" } onChange={updateElementType} elementRef={setETSPane} style={ styles.popper } {...attributes.popper}/>
             </div>
             { answer_possibilities.map( (possibility, index) => (
                 <div className="answer-option" key={ index }>

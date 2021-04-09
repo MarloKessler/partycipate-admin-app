@@ -1,21 +1,21 @@
 import "./style.css"
 import { Link } from "react-router-dom"
-import PageTitleElement from "../PageTitleElement"
 import DemoElement from "../DemoElement"
+import StandardPage from "../StandardPage"
+
 
 
 export default function HomeView(){
   return(
     <div className="home-view">
-      <div className="left">
-        <PageTitleElement className="pageelement">Welcome to Partycipate 🎉 <br/> the easy-to-use, <br/> flexible Survey tool!</PageTitleElement>
+      <StandardPage containerClassName="hv-column" title={<span>Welcome to Partycipate 🎉 <br/> the easy-to-use, flexible Survey tool!</span>}>
         <p>Build your own survey using our intuitive module kit, embedd it to your website, and view your results in real-time!</p>
-        <div className="homebuttons">
-          <Link className="btn-dark" to="/docs" >Learn more</Link>
-          <Link className="btn-dark" to="/signup">Register now</Link>
+        <div className="hv-actionbar">
+          <Link className="link-button btn-dark" to="/docs" >Learn more</Link>
+          <Link className="link-button btn-dark" to="/signup">Register now</Link>
         </div>
-      </div>
-      <div>
+      </StandardPage>
+      <div className="hv-column">
         <DemoElement/>
       </div>
     </div>

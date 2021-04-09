@@ -37,7 +37,10 @@ export default class Auth {
 
     static async updateUser(email, name) {
         await Fetch.post("", { email: email, name: name })
-        await loadUser()
+        const oldUser = JSON.parse(JSON.stringify(user))
+        user.name = name
+        user.email = email
+        AuthStateListeners.callListeners(user, oldUser)
     }
 
 
@@ -48,9 +51,9 @@ export default class Auth {
 
     static async logout() {
         Cookies.remove("partycipate-session-token")
-        token = undefined
+        token = null
         const oldUser = user
-        user = undefined
+        user = null
         AuthStateListeners.callListeners(user, oldUser)
     }
 
@@ -74,17 +77,28 @@ export default class Auth {
 
 async function restoreSession() {
     /*token = Cookies.get("partycipate-session-token")
-    if (token) await loadUser()*/
+    if (token) await loadUser()
+    else {
+        user = null
+        AuthStateListeners.callListeners(user, undefined)
+    }
+    */
 await loadUser() // REMOVE IF USER LOADING WORKS
 }
 
 
 
 async function loadUser() {
-    /*const u = await Fetch.get("api/user")
-    console.log("user: ", u)
-    u.token = token
-    user = u*/
+    /*
+    try {
+        const u = await Fetch.get("api/user")
+        console.log("user: ", u)
+        u.token = token
+        user = u
+    } catch (error) {
+        user = null
+    }
+    */
 user = {name: "truth", email: "truth.s.gatsby@email.com", token: "1234567890"} // REMOVE IF USER LOADING WORKS
     AuthStateListeners.callListeners(user, undefined)
 }

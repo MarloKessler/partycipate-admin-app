@@ -1,45 +1,32 @@
 .dashboard-view {
   display: block;
-  width: 100%;
-}
-
-.hello {
-  padding: 20px;
-  font-size: smaller;
-  color: #647374;
 }
 
 .dv-cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  text-align: center;
 }
 
-.dv-cards .dv-item {
-  flex: 1 1 100%;
-  text-decoration: none;
+.dv-item {
   padding-top: 5px;
   font-size: 18px;
 }
 
-@media(min-width: 900px) {
-  .dv-cards .dv-item {
-    flex: 1 1 50%;
+.dv-cards .dv-card {
+  flex: 1 1 100%;
+  padding: 0;
+}
+
+
+.dv-cards .dv-card a {
+  padding: 30px;
+}
+
+
+
+@media(min-width: 600px) {
+  .dv-cards .dv-card {
+    flex: 1 1 30%;
   }
-}
-
-.element{
-  background-color: #BBD9DB;
-}
-
-.element:hover {
-  transition: .3s;
-  background-color: white;
-  color: #BBD9DB;
-}
-
-.element:active {
-  transition: .3s;
-  background-color: rgb(255, 255, 255);
 }

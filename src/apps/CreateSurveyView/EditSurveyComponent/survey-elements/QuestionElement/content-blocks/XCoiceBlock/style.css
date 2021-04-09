@@ -1,28 +1,27 @@
-.xcb-header {
+.xchoice-block {
     margin-top: 30px;
+}
+
+
+.xcb-header {
     display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
-.xcb-header label {
-    margin-top: 0;
-}
-
 .xcb-header button {
-    padding: 10px;
     margin-left: auto;
-    font-size: 18px;
-    background-color:#82a0aa;
 }
 
-.xcb-header .button-icon {
+.xcb-header svg {
     margin-left: 5px;
 }
 
 
+
 .xcb-element-type-selection {
-    width: fit-content;
     overflow: hidden;
+    z-index: 1;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -35,18 +34,14 @@
     display: flex;
 }
 
+
 .xcb-element-type-selection button {
     width: 100%;
-    padding: 0;
-    transition: .3s;
-    cursor: pointer;
-    border: none;
+    border-radius: 0;
+    color: #647374;
     background-color: transparent;
 }
 
-.xcb-element-type-selection .item {
-    padding: 10px;
-}
 
 
 .xchoice-block .answer-option {
@@ -55,35 +50,17 @@
     margin-bottom: 20px;
 }
 
-.xchoice-block .answer-option textarea {
-    flex: 1 1 100%;
-}
-
-.xchoice-block .answer-option button {
-    display: flex;
-    align-items: center;
-    color: #82a0aa;
-}
-
-.answer-input {
+.xchoice-block .answer-input {
     width: 100%;
-    box-sizing: border-box;
-    resize: none;
-    color: #647374;
-    font-size: 18px;
 }
 
-.trash-btn {
-    margin: 0 10px;
-    padding: 20px;
-    cursor: pointer;
-    border: none;
-    font-size: 25px;
+.xchoice-block .trash-btn {
+    color: #647374;
 }
+
+
 
 .xchoice-block .create-answer-btn {
     width: 20%;
     margin-top: 20px;
-    background-color:#82a0aa;
-    font-size: 20px;
 }

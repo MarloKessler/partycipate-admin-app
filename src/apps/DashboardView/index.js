@@ -1,21 +1,19 @@
-import PageTitleElement from "../PageTitleElement"
 import CardElement from "../CardElement"
 import "./style.css"
 import { Link } from "react-router-dom"
-
+import StandardPage from "../StandardPage"
 
 
 export default function DashboardView(){
   return(
-    <div className="dashboard-view">
-      <PageTitleElement helpSection="general">Welcome back, Partycipant!🎉</PageTitleElement>
-      <div className="hello">What do you want to do today?</div>
+    <StandardPage className="dashboard-view" title="Welcome back, Partycipant!🎉">
+      <p>What do you want to do today?</p>
       <div className="dv-cards">
-        <Link className='dv-item' to="/create-survey" ><CardElement className="element"> Create a brandnew Survey ❔</CardElement></Link>
-        <Link className='dv-item' to="/surveys"><CardElement className="element">View Results of your Surveys 📊</CardElement></Link>
-        <Link className='dv-item' to="/my-account"><CardElement className="element">Change Settings of your Account 🙂</CardElement></Link>
-        <Link className='dv-item' to="/docs"><CardElement className="element">Get Help in our FAQs 🤝</CardElement></Link>
+        <CardElement className="secondary-element link-light dv-card"><Link to="/create-survey" >Create a brandnew Survey ❔</Link></CardElement>
+        <CardElement className="secondary-element link-light dv-card"><Link className='dv-item' to="/surveys">View Results of your Surveys 📊</Link></CardElement>
+        <CardElement className="secondary-element link-light dv-card"><Link className='dv-item' to="/my-account">Change Settings of your Account 🙂</Link></CardElement>
+        <CardElement className="secondary-element link-light dv-card"><Link className='dv-item' to="/docs">Get Help in our FAQs 🤝</Link></CardElement>
       </div>
-    </div>
+    </StandardPage>
   )
 }

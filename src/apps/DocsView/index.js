@@ -2,7 +2,7 @@ import "./style.css"
 import { useEffect } from "react"
 import Faq from "react-faq-component"
 import { useParams } from "react-router"
-import PageTitleElement from "../PageTitleElement"
+import StandardPage from "../StandardPage"
 
 
 const generalFAQs = {
@@ -124,7 +124,6 @@ const additionalFAQs = {
 
 const styles = {
     titleTextColor: "#82a0aa",
-    titleTextSize: "smaller",
     bgColor: '#F5F5F5',
     rowTitleColor: "#82a0aa",
     rowContentColor: '#647374',
@@ -152,25 +151,22 @@ export default function DocsView() {
     }, [id])
 
     return (
-        <div className="docs-view">
-            <PageTitleElement>FAQs: 🎉</PageTitleElement>
-            <div className="dv-section-container">
-                <section id="general" className="doc-section">
-                    <Faq data={generalFAQs} styles={styles}/>
-                </section>
-                <section id="create-survey" className="doc-section">
-                    <Faq data={createSurveyFAQs} styles={styles}/>
-                </section>
-                <section id="analyse-survey" className="doc-section">
-                    <Faq data={analyseSurveysFAQs} styles={styles}/>
-                </section>
-                <section id="account" className="doc-section">
-                    <Faq data={accountFAQs} styles={styles}/>
-                </section>
-                <section className="doc-section">
-                    <Faq data={additionalFAQs} styles={styles}/>
-                </section>
-            </div>
-        </div>
+        <StandardPage title="FAQs: 🎉" className="docs-view">
+            <section id="general" className="doc-section">
+                <Faq data={generalFAQs} styles={styles}/>
+            </section>
+            <section id="create-survey" className="doc-section">
+                <Faq data={createSurveyFAQs} styles={styles}/>
+            </section>
+            <section id="analyse-survey" className="doc-section">
+                <Faq data={analyseSurveysFAQs} styles={styles}/>
+            </section>
+            <section id="account" className="doc-section">
+                <Faq data={accountFAQs} styles={styles}/>
+            </section>
+            <section className="doc-section">
+                <Faq data={additionalFAQs} styles={styles}/>
+            </section>
+        </StandardPage>
     )
 }
