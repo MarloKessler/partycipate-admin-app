@@ -52,7 +52,7 @@ p {
 
 @media(min-width: 600px) {
   .App {
-    font-size: 17px;
+    font-size: 12px;
   }
 }
 
@@ -61,19 +61,19 @@ p {
     flex-direction: row;
   }
   .App {
-    font-size: 20px;
+    font-size: 15px;
   }
 }
 
 @media(min-width: 1200px) {
   .App {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
 @media(min-width: 1800px) {
   .App {
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 
@@ -103,7 +103,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1em;
+  font-size: 0.8em;
   background-color: transparent;
 }
 
@@ -117,6 +117,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.9em;
 }
 
 

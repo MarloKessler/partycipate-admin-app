@@ -67,24 +67,24 @@ export default class Database {
             {
                 datetime_results: [
                     {
-                        datetime: new Date(2021, 1, 12),
-                        results: [ 1, 3, 7, 2 ],
+                        datetime: new Date(2021, 2, 12),
+                        counts: [ 1, 3, 7, 2 ],
                     },
                     {
                         datetime: new Date(2021, 1, 13),
-                        results: [ 6, 4, 8, 1 ],
+                        counts: [ 6, 4, 8, 1 ],
                     },
                     {
-                        datetime: new Date(2021, 1, 14),
-                        results: [ 4, 3, 5, 9 ],
+                        datetime: new Date(2021, 4, 14),
+                        counts: [ 4, 3, 5, 9 ],
                     },
                     {
                         datetime: new Date(2021, 1, 15),
-                        results: [ 5, 7, 4, 1 ],
+                        counts: [ 5, 7, 4, 1 ],
                     },
                     {
                         datetime: new Date(2021, 1, 16),
-                        results: [ 3, 5, 7, 1 ],
+                        counts: [ 3, 5, 7, 1 ],
                     },
                 ]
             },

@@ -1,6 +1,7 @@
 import "./style.css"
 import { useRef, useEffect } from 'react'
 import Chart from 'chart.js'
+import moment from 'moment'
 
 
 export default TrendChart
@@ -29,16 +30,17 @@ function TrendChart({ element }) {
 }
 
 
-const getData = ({ answer_possibilities, results }) => {
+const getData = ({ answer_possibilities, datetime_results, counts }) => {
     const [bgColors, hoverBGColors] = getBGColors(answer_possibilities.length)
     const data = {
-        labels: answer_possibilities.map(possibility => possibility.answer),
+        labels: datetime_results.map(possibility => moment(possibility.datetime).format('YYYY MMMM DD')),
         datasets: [{
-                data: results,
+                data: counts,
                 backgroundColor: bgColors,
                 borderColor: 'transparent',
                 hoverBackgroundColor: hoverBGColors,
                 borderWidth: 1,
+                fill: false,
         }],
     }
     return data
