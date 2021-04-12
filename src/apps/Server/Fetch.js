@@ -4,6 +4,12 @@ import { getToken } from "./Auth"
 const acceptableStatusCodes = [200, 201, 304]
 
 
+export const ResponseType = {
+    json: "json",
+    text: "text",
+}
+
+
 export default class Fetch {
     static async get(path) {
         let initObject = {
@@ -13,23 +19,22 @@ export default class Fetch {
         const url = `${process.env.REACT_APP_BACKEND_URL}/${path}`
         const response = await fetch(url, initObject)
         if (!acceptableStatusCodes.includes(response.status)) throw await response.json()
-        const body = await response.text()
-        const dict = JSON.parse(body)
+        const responseBody = await response.text()
+        const dict = JSON.parse(responseBody)
         return dict
     }
 
-    static post = async (path, body) => {
+    static post = async (path, body, options = { responseType: "json" }) => {
         let initObject = {
             method: 'POST', 
             headers: new PAHeaders(),
             body: JSON.stringify(body),
         }
         const url = `${process.env.REACT_APP_BACKEND_URL}/${path}`
-        console.log("url:", url)
         const response = await fetch(url, initObject)
         if (!acceptableStatusCodes.includes(response.status)) throw await response.json()
-        const resBody = await response.json()
-        return resBody
+        if (options.responseType === ResponseType.json) return await response.json()
+        else if (options.responseType === ResponseType.text) return await response.text()
     }
 
     static put = async (path, body) => {
@@ -39,7 +44,6 @@ export default class Fetch {
             body: JSON.stringify(body),
         }
         const url = `${process.env.REACT_APP_BACKEND_URL}/${path}`
-        console.log("url:", url)
         const response = await fetch(url, initObject)
         if (!acceptableStatusCodes.includes(response.status)) throw await response.json()
         const resBody = await response.json()
@@ -52,8 +56,9 @@ export default class Fetch {
             headers: new PAHeaders(),
         }
         if (body) initObject.body = JSON.stringify(body)
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/${path}`, initObject)
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/${path}`, initObject)
         if (!acceptableStatusCodes.includes(response.status)) throw await response.json()
+        return response.text()
     }
 }
 

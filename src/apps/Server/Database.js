@@ -1,17 +1,17 @@
-import Fetch from "./Fetch"
+import Fetch, {ResponseType} from "./Fetch"
 
 
 export default class Database {
     static createSurvey = async survey => {
-        survey.user_id = 1
-        const response = await Fetch.post("api/survey", undefined, survey)
-        return await response.text()
+        const response = await Fetch.post("api/survey", survey, { responseType: ResponseType.text })
+        console.log("res: ", response)
+        return response
     }
 
 
     static getSurveys = async () => await Fetch.get(`api/survey`)
 
-
+/*
     static getSurveyResults = async id => {
         const survey = {
             id: 234,
@@ -111,12 +111,12 @@ export default class Database {
 
         return survey
     }
+*/
 
-
-    /*static getSurveyResults = async id => {
+    static getSurveyResults = async id => {
         // Fetch survey
         const survey = await Fetch.get(`api/survey/${id}`)
-
+        survey.creation_date = new Date(survey.creation_date)
         // Sort survey elements
         survey.elements.forEach(element => element.answerPossibilities.sort((a, b) => {
             if ( a.position < b.position ) return -1
@@ -124,26 +124,33 @@ export default class Database {
             else return 0
         }))
 
-
         console.log("Fetched survey: ", survey)
-        // Fetch base results
-        const baseResults = await Fetch.get(`api/participant/results/${id}`)
-        console.log("BaseResults: ", baseResults)
-        
-        // Append base results to survey
-        survey.elements[0].results = baseResults[0].results
-        survey.elements[0].count_participants = baseResults[0].count_participants
-
-        // Fetch datetime results
-        const datetimeResults = // await Fetch.get(`api/analyticts/results/${id}`)
-        console.log("Datetime results: ", datetimeResults)
-        // Append datetime results to survey
-        survey.elements[0].datetime_results = datetimeResults[0].datetime_results
+        // Fetch results
+        await Promise.all([ insertBaseResults(survey), insertDatetimeResults(survey) ])
         console.log("survey: ", survey)
 
         return survey
-    }*/
+    }
 
 
-    static deleteSurvey = async id => true //await Fetch.delete(`${dbBasePath}/surveys/${id}`)
+    static deleteSurvey = async id => await Fetch.delete(`api/survey/${id}`)
+}
+
+
+async function insertBaseResults(survey) {
+    // Fetch base results
+    const baseResults = await Fetch.get(`api/analytics/answers/${survey.id}`)
+    console.log("BaseResults: ", baseResults)
+    // Append base results to survey
+    survey.elements[0].results = baseResults[0].results
+    survey.elements[0].count_participants = baseResults[0].count_participants
+}
+
+
+async function insertDatetimeResults(survey) {
+    // Fetch datetime results
+    const datetimeResults = await Fetch.post(`api/analytics/timeline/${survey.id}`, { start: survey.creation_date, end: new Date() })
+    console.log("Datetime results: ", datetimeResults)
+    // Append datetime results to survey
+    survey.elements[0].datetime_result = datetimeResults[0].datetime_result
 }
