@@ -17,10 +17,20 @@ export default function SignupView() {
   const [password2, setPassword2]   = useState("")
   const [acceptTAC, setAcceptTAC] = useState(false)
 
+  const [error, setError] = useState(false)
+
+  const SigupError = {
+    emailInUse: "emailInUse",
+    passwordsUnequal: "passwordsUnequal",
+    unknown: "unknown",
+  }
+
   function handleSignup(event) {
     event.preventDefault()
     if (!formIsValid()) return
     Server.auth().signup(email, password1, name)
+    //{message: "Fail -> Email is aleady in use!"}
+    // Sonstige errors
     .catch((error) => {console.log("signup error: ", error)})
   }
 
@@ -43,10 +53,13 @@ export default function SignupView() {
             <input className="email" type="text" placeholder="Enter Name" name="name" value={name} required onChange={setValueVia(setName)}/>
             <label htmlFor="email">E-Mail:</label>
             <input className="email" type="email" placeholder="Enter E-Mail" name="email" value={email} required onChange={setValueVia(setEmail)}/>
+
             <label htmlFor="pw">Password:</label>
             <input className="pass" type="password" placeholder="Enter Password" name="pw" value={password1} required onChange={setValueVia(setPassword1)}/>
+            
             <label htmlFor="repeat-pw">Repeat password:</label>
             <input className="pass" type="password" placeholder="Repeat Password" name="repeat-pw" value={password2} required onChange={setValueVia(setPassword2)}/>
+            { error === SigupError.passwordsUnequal && <small>The passwords are not equal</small> }
             <div className="tac-statement">
               <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} checked={acceptTAC} required onClick={() => setAcceptTAC(!acceptTAC)}/>
               <label htmlFor="checkbox_id" id="text">I have read and accept the terms and conditions and the <Link to="/privacy">privacy policy</Link> of Partycipate.</label>

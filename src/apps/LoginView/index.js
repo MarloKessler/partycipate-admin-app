@@ -14,7 +14,10 @@ export default function LoginView() {
   function handleLogin(event) {
     event.preventDefault()
     Server.auth().login(email, password)
-    .catch(() => {})
+    //{message: "Fail -> Email is aleady in use!"}
+    // PW is false
+    // Sonstige errors
+    .catch((error) => {console.log(error)})
   }
 
   const setValueVia = setter => event => setter(event.target.value)
