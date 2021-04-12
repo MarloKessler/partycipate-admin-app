@@ -44,9 +44,7 @@ export default class Auth {
     }
 
 
-    static async updatePassword(oldPW, newPW) {
-        await Fetch.post("", { oldpw: oldPW, newpw: newPW })
-    }
+    static updatePassword = async (oldPW, newPW) => await Fetch.post("api/user/pw", { oldPw: oldPW, newPw: newPW })
 
 
     static async logout() {
@@ -59,7 +57,7 @@ export default class Auth {
 
 
     static async deleteUser() {
-        const result = await Fetch.delete("")
+        await Fetch.delete(`api/user`)
         await Auth.logout()
     }
 
@@ -89,7 +87,6 @@ async function restoreSession() {
 
 
 async function loadUser() {
-    
     try {
         const u = await Fetch.get("api/user")
         console.log("user: ", u)
@@ -98,7 +95,6 @@ async function loadUser() {
     } catch (error) {
         user = null
     }
-    
 //user = {name: "truth", email: "truth.s.gatsby@email.com", token: "1234567890"} // REMOVE IF USER LOADING WORKS
     AuthStateListeners.callListeners(user, undefined)
 }

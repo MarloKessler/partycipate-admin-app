@@ -17,6 +17,9 @@ export default () => {
     useEffect(() => {
         Server.database().getSurveys()
         .then(surveyArray => {
+            surveyArray.forEach(survey => {
+                console.log("delete survey res: ", Server.database().deleteSurvey(survey.id))
+            })
             setSurveys(surveyArray)
             setFilteredSurveys(surveyArray)
         })
