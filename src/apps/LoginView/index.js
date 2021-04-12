@@ -15,7 +15,7 @@ export default function LoginView() {
   const LoginError = {
     emailError: "emailError",
     passwordError: "passwordError",
-    //unknownError: "unknownError",
+    unknownError: "unknownError",
   }
 
   function handleLogin(event) {
