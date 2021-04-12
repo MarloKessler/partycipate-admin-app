@@ -19,7 +19,7 @@ export default function SignupView() {
 
   const [error, setError] = useState(false)
 
-  const SigupError = {
+  const SignupError = {
     emailInUse: "emailInUse",
     passwordsUnequal: "passwordsUnequal",
     unknown: "unknown",
@@ -59,7 +59,9 @@ export default function SignupView() {
             
             <label htmlFor="repeat-pw">Repeat password:</label>
             <input className="pass" type="password" placeholder="Repeat Password" name="repeat-pw" value={password2} required onChange={setValueVia(setPassword2)}/>
-            { error === SigupError.passwordsUnequal && <small>The passwords are not equal</small> }
+            
+            { error === SignupError.passwordsUnequal && <small>The passwords are not equal.</small> }
+           
             <div className="tac-statement">
               <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} checked={acceptTAC} required onClick={() => setAcceptTAC(!acceptTAC)}/>
               <label htmlFor="checkbox_id" id="text">I have read and accept the terms and conditions and the <Link to="/privacy">privacy policy</Link> of Partycipate.</label>
