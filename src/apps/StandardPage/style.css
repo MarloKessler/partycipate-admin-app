@@ -1,5 +1,5 @@
 .standard-page {
-    width: 100%;
+    width: calc(100% - 40px);;
     height: fit-content;
     margin: 20px
 }

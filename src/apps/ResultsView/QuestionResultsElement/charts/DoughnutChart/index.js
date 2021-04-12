@@ -1,12 +1,10 @@
 import "./style.css"
 import { useRef, useEffect } from 'react'
 import Chart from 'chart.js'
+import { getBGColors } from "../utils"
 
 
-export default DoughnutChart
-
-
-function DoughnutChart({ element }) {
+export default function DoughnutChart({ element }) {
     const chartRef  = useRef()
     const legendRef = useRef()
 
@@ -18,6 +16,8 @@ function DoughnutChart({ element }) {
             }
         )
         legendRef.current.innerHTML = chart.generateLegend()
+        // 101 miliseconds, because the sidebar needs 100 ms to expand.
+        setTimeout(() => chart.resize(), 101)
     }, [])
     
     return (
@@ -42,19 +42,6 @@ const getData = ({ answer_possibilities, results }) => {
         }],
     }
     return data
-}
-
-
-const getBGColors = length => {
-    const factor = 100/(length + 1)
-    const bgColors      = []
-    const hoverBGColors = []
-    var i
-    for (i = 1; i <= length; i++) {
-        bgColors.push(`hsl(184, 31%, ${100 - i * factor}%)`)
-        hoverBGColors.push(`hsl(184, 31%, ${100 - i * factor + 0.5 * factor}%)`)
-    }
-    return [bgColors, hoverBGColors]
 }
 
 

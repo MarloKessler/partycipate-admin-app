@@ -17,7 +17,11 @@ export default function Navbar() {
 
     // Set "isInBackend" flas so that some navbar items which are duplicated in sidebar can be hided.
     useEffect(() => {
-        const updateNavbar = () => setIsInBackend(App.userIsInBackend())
+        const updateNavbar = () => {
+            setShowMenu(false)
+            navMenuRef.current.classList.remove("show-menu")
+            setIsInBackend(App.userIsInBackend())
+        }
         updateNavbar()
         history.listen(updateNavbar)
     }, [])

@@ -65,32 +65,48 @@ export default class Database {
 
         const datetimeResults = [
             {
-                datetime_results: [
+                element_id: 123,
+                datetime_result: [
                     {
-                        datetime: new Date(2021, 2, 12),
-                        counts: [ 1, 3, 7, 2 ],
+                        datetime: new Date(2021, 1, 12),
+                        result: {
+                            results: [ 1, 3, 7, 2 ],
+                            participants: 9,
+                        }
                     },
                     {
                         datetime: new Date(2021, 1, 13),
-                        counts: [ 6, 4, 8, 1 ],
+                        result: {
+                            results: [ 6, 4, 8, 1 ],
+                            participants: 12,
+                        }
                     },
                     {
-                        datetime: new Date(2021, 4, 14),
-                        counts: [ 4, 3, 5, 9 ],
+                        datetime: new Date(2021, 1, 14),
+                        result: {
+                            results: [ 4, 3, 5, 9 ],
+                            participants: 11,
+                        }
                     },
                     {
                         datetime: new Date(2021, 1, 15),
-                        counts: [ 5, 7, 4, 1 ],
+                        result: {
+                            results: [ 5, 7, 4, 1 ],
+                            participants: 10,
+                        }
                     },
                     {
                         datetime: new Date(2021, 1, 16),
-                        counts: [ 3, 5, 7, 1 ],
+                        result: {
+                            results: [ 3, 5, 7, 1 ],
+                            participants: 9,
+                        }
                     },
                 ]
             },
         ]
 
-        survey.elements[0].datetime_results = datetimeResults[0].datetime_results
+        survey.elements[0].datetime_result = datetimeResults[0].datetime_result
         console.log("survey: ", survey)
 
         return survey

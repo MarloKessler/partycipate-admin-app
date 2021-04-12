@@ -1,17 +1,20 @@
 import { useRef, useEffect } from 'react'
 import Chart from 'chart.js'
+import { getBGColors } from "./utils"
 
 
 export default function BarChart({ element }) {
     const chartRef  = useRef()
 
     useEffect(() => {
-        new Chart(chartRef.current, {
+        const chart = new Chart(chartRef.current, {
                 type: "bar",
                 data: getData(element),
                 options: getChartOptions(element),
             }
         )
+        // 101 miliseconds, because the sidebar needs 100 ms to expand.
+        setTimeout(() => chart.resize(), 101)
     }, [])
     
     return <canvas className="bar-chart" ref={ chartRef }></canvas>
@@ -35,23 +38,12 @@ const getData = ({ answer_possibilities, results, count_participants }) => {
 }
 
 
-const getBGColors = length => {
-    const factor = 100/(length + 1)
-    const bgColors      = []
-    const hoverBGColors = []
-    var i
-    for (i = 1; i <= length; i++) {
-        bgColors.push(`hsl(184, 31%, ${100 - i * factor}%)`)
-        hoverBGColors.push(`hsl(184, 31%, ${100 - i * factor + 0.5 * factor}%)`)
-    }
-    return [bgColors, hoverBGColors]
-}
-
-
 const getChartOptions = ({ results }) => {
     const formatter = new Intl.NumberFormat(window.navigator.language || "en", { style: 'percent', maximumFractionDigits: 0 })
 
     const options = {
+        responsive: true,
+        maintainAspectRatio: false,
         legend: { display: false },
         tooltips: {
             enabled: true,

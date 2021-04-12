@@ -1,15 +1,13 @@
 import "./style.css"
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState, useMemo } from 'react'
 import Chart from 'chart.js'
-import moment from 'moment'
+import { getBGColors } from "../utils"
 
 
-export default TrendChart
-
-
-function TrendChart({ element }) {
+export default function TrendChart({ element }) {
     const chartRef  = useRef()
-    const legendRef = useRef()
+    const [stackedChart, setStackedChart] = useState(false)
+    const [chart, setChart] = useState()
 
     useEffect(() => {
         const chart = new Chart(chartRef.current, {
@@ -18,91 +16,79 @@ function TrendChart({ element }) {
                 options: getChartOptions(element),
             }
         )
-        legendRef.current.innerHTML = chart.generateLegend()
+        setChart(chart)
+        // 101 miliseconds, because the sidebar needs 100 ms to expand.
+        setTimeout(() => chart.resize(), 101)
     }, [])
+
+    function showStacked() {
+        if (!chart) return
+        setStackedChart(true)
+        chart.options.scales.yAxes[0].stacked = true
+        chart.update()
+    }
+
+    function showSingle() {
+        if (!chart) return
+        setStackedChart(false)
+        chart.options.scales.yAxes[0].stacked = false
+        chart.update()
+    }
     
     return (
         <div className="line-chart">
-            <canvas ref={ chartRef }></canvas>
-            <div className="legend" ref={ legendRef }></div>
+            
+            <canvas ref={chartRef}></canvas>
+            <div className="btn-group">
+                <button className={`btn-light ${!stackedChart ? "selected" : ""}`} onClick={showSingle}>Single</button>
+                <button className={`btn-light ${stackedChart ? "selected" : ""}`} onClick={showStacked}>Stacked</button>
+            </div>
         </div>
     )
 }
 
 
-const getData = ({ answer_possibilities, datetime_results, counts }) => {
+const getData = ({datetime_result, answer_possibilities}) => {
     const [bgColors, hoverBGColors] = getBGColors(answer_possibilities.length)
     const data = {
-        labels: datetime_results.map(possibility => moment(possibility.datetime).format('YYYY MMMM DD')),
-        datasets: [{
-                data: counts,
-                backgroundColor: bgColors,
-                borderColor: 'transparent',
-                hoverBackgroundColor: hoverBGColors,
+        labels: datetime_result.map(dt_result => new Intl.DateTimeFormat(window.navigator.language || "en").format(dt_result.datetime)),
+        datasets: answer_possibilities.map((possibility, index) => (
+            {
+                data: datetime_result.map(dt_result => dt_result.result.results[index]),
+                backgroundColor: bgColors[index],
+                hoverBackgroundColor: hoverBGColors[index],
                 borderWidth: 1,
-                fill: false,
-        }],
+                fill: true,
+                label: possibility.answer,
+            }
+        )),
     }
     return data
 }
 
 
-const getBGColors = length => {
-    const factor = 100/(length + 1)
-    const bgColors      = []
-    const hoverBGColors = []
-    var i
-    for (i = 1; i <= length; i++) {
-        bgColors.push(`hsl(184, 31%, ${100 - i * factor}%)`)
-        hoverBGColors.push(`hsl(184, 31%, ${100 - i * factor + 0.5 * factor}%)`)
-    }
-    return [bgColors, hoverBGColors]
-}
-
-
-const getChartOptions = ({ results, count_participants }) => {
-    const formatter = new Intl.NumberFormat(window.navigator.language || "en", { style: 'percent', maximumFractionDigits: 0 })
-    console.log("count_participants", count_participants)
-
+const getChartOptions = () => {
     const options = {
-        legend: { display: false },
-        legendCallback: chart => {
-            var html = ""
-            const dataset = chart.data.datasets[0]
-            dataset.data.forEach((data, index) => {
-                html += `
-                <div class="legend-item">
-                    <div class="li-colorbox" style="background-color: ${dataset.backgroundColor[index]};"></div>
-                    <div class="li-label">${chart.data.labels[index]}</div>
-                </div>`
-            })
-            return html
-        },
+        responsive: true,
+        maintainAspectRatio: false,
         tooltips: {
-            enabled: true,
-            mode: 'single',
             callbacks: {
                 label: (item, data) => {
-                    const percentage = data.datasets[item.datasetIndex].data[item.index] / count_participants
-                    const percentageString = formatter.format(percentage)
-                    const votes = results[item.index]
-                    return [`${percentageString} (${votes} Votes)`]
+                    const votes = item.value
+                    const label = data.datasets[item.datasetIndex].label
+                    return [`${label}: ${votes} Votes`]
                 },
             },
-            custom: tooltip => {
-                if (!tooltip) return
-                // Disable color box
-                tooltip.displayColors = false
-
-                // Make tooltip body as title
-                const body = tooltip.body
-                if (body && body.length > 0) {
-                    tooltip.title = body[0].lines
-                    body[0].lines = []
-                }
-            },
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    callback: label => `${label} Votes`,
+                },
+                stacked: false,
+            }]
         },
     }
-
     return options
 }

@@ -5,20 +5,24 @@ import BarChart from "./charts/BarChart"
 import TrendChart from "./charts/TrendChart"
 
 
-export default QuestionResultsElement
-
-
-function QuestionResultsElement({ element }) {
+export default function QuestionResultsElement({ element }) {
     return (
         <CardElement className="results-element">
             <div className="re-header">
                 <div className="re-header-first-line">
-                    <h3>{ element.question }</h3>
-                    <h4 className="re-total-votes">{ element.count_participants } Participants</h4>
+                    <h2>{ element.question }</h2>
+                    <h4 className="re-total-votes">{element.count_participants} Participants</h4>
                 </div>
-                <p><small>{ getElementTypeLabel(element.type) }</small></p>
+                <p>{getElementTypeLabel(element.type)}</p>
             </div>
-            <ResultsChart element={ element } />
+            <div className="results-group">
+                <h3>Total results</h3>
+                <ResultsChart element={ element } />
+            </div>
+            <div className="results-group">
+                <h3>Results over time</h3>
+                <TrendChart element={ element }/>
+            </div>
         </CardElement>
     )
 }
@@ -33,10 +37,8 @@ function getElementTypeLabel(type) {
 
 function ResultsChart({ element }) {
     switch (element.type) {
-        case "single-choice": 
-           return <div><DoughnutChart element={ element }/> <br/><br/><br/> <TrendChart element={ element }/> </div>
-        case "multiple-choice": 
-            return <div><BarChart element={ element }/> <br/><br/><br/> <TrendChart element={ element }/> </div>
+        case "single-choice": return <DoughnutChart element={ element }/>
+        case "multiple-choice": return <BarChart element={ element }/>
         default: return <div>Chart not available</div>
     }
 }

@@ -4,6 +4,10 @@
     padding-bottom: 30px;
 }
 
+.survey-results > div {
+    width: 100%;
+}
+
 .survey-results > div > .card-element {
     margin: 20px 0;
 }

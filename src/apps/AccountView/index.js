@@ -39,11 +39,11 @@ export default function AccountView() {
         <CardElement className="secondary-element av-card">
           <form onSubmit={changePW}>
             <PageTitleElement className="Change-pw">Change your Password here</PageTitleElement>
-            <label for="oldpw">Old password:</label>
+            <label htmlFor="oldpw">Old password:</label>
             <input type="password" placeholder="Enter old password" name="oldpw" value={oldPW} required onChange={setValueVia(setOldPW)}/>
-            <label for="pw1">New password:</label>
+            <label htmlFor="pw1">New password:</label>
             <input type="password" placeholder="Enter new password" name="pw1" value={pw1} required onChange={setValueVia(setPW1)}/>
-            <label for="pw2">Repeat new password:</label>
+            <label htmlFor="pw2">Repeat new password:</label>
             <input type="password" placeholder="Repeat new password" name="pw2" value={pw2} required onChange={setValueVia(setPW2)}/>
             <div className="toolbar">
               <button className="btn-dark btn-icon-right">Change now<FiChevronRight/></button>

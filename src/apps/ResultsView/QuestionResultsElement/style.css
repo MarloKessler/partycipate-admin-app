@@ -1,3 +1,7 @@
+.results-element {
+    max-width: 100%;
+    overflow: hidden;
+}
 
 .re-header {
     margin-bottom: 20px;
@@ -8,7 +12,7 @@
     flex-wrap: wrap;
 }
 
-.results-element h3, .results-element h4 {
+.results-element h2, .results-element h4 {
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -18,5 +22,9 @@
 }
 
 .results-element p {
-    margin: 10px 0;
+    margin: 5px 0;
+}
+
+.results-element > .results-group {
+    margin-top: 30px;
 }
