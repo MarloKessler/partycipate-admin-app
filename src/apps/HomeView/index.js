@@ -4,7 +4,6 @@ import DemoElement from "../DemoElement"
 import StandardPage from "../StandardPage"
 
 
-
 export default function HomeView(){
   return(
     <div className="home-view">

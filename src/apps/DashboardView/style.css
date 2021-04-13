@@ -16,6 +16,9 @@
   align-items: center;
 }
 
+.dv-cards .dv-card:first-of-type {
+  padding: 30px;
+}
 
 .dv-cards .dv-card a {
   width: 100%;
@@ -31,5 +34,9 @@
 @media(min-width: 600px) {
   .dv-cards .dv-card {
     flex: 1 1 30%;
+  }
+
+  .dv-cards .dv-card:first-of-type {
+    flex: 1 1 100%;
   }
 }
