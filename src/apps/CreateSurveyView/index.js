@@ -18,7 +18,6 @@ export default class CreateSurveyView extends React.Component {
         
         const element = { position: 1, type: "", question: "", answer_possibilities: [ { position: 1, answer: "" } ], may_skip: false, }
         const survey = { 
-            user_id: Server.auth().currentUser().user_id,
             creation_date: new Date().toISOString(), 
             title: "", 
             elements: [ element ]

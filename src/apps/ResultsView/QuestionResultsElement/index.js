@@ -17,11 +17,11 @@ export default function QuestionResultsElement({ element }) {
             </div>
             <div className="results-group">
                 <h3>Total results</h3>
-                <ResultsChart element={ element } />
+                <ResultsChart element={element} />
             </div>
             <div className="results-group">
                 <h3>Results over time</h3>
-                <TrendChart element={ element }/>
+                { element.datetime_result && <TrendChart element={element}/> }
             </div>
         </CardElement>
     )

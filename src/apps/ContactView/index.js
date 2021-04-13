@@ -15,10 +15,10 @@ export default function ContactView(){
 
       <div className="cv-column cv-right">
         <CardElement className="secondary-element cv-card">
-          <Link to="/" className="link">
+          <a href="mailto:hello@partycipate.de" className="link">
             <AiOutlineMail/>
-            info@partycipate.de
-          </Link>
+            hello@partycipate.de
+          </a>
           <Link to="/docs" className="link">
             <IoHelpOutline/>
             Docs

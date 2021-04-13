@@ -1,5 +1,5 @@
 import "./style.css"
-import { useRef, useEffect, useState, useMemo } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import Chart from 'chart.js'
 import { getBGColors } from "../utils"
 
@@ -70,7 +70,8 @@ const getData = ({datetime_result, answer_possibilities}) => {
 const getChartOptions = () => {
     const options = {
         responsive: true,
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
+        aspectRatio: 1.5,
         tooltips: {
             callbacks: {
                 label: (item, data) => {
@@ -83,6 +84,7 @@ const getChartOptions = () => {
         scales: {
             yAxes: [{
                 ticks: {
+                    stepSize: 1,
                     beginAtZero: true,
                     callback: label => `${label} Votes`,
                 },

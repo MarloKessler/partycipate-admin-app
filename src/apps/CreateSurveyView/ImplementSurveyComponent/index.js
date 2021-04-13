@@ -1,6 +1,5 @@
 import "./style.css"
 import { useContext } from "react"
-import { Link } from "react-router-dom"
 import SurveyContext from "../SurveyContext"
 import { CopyBlock, dracula } from "react-code-blocks"
 
@@ -29,7 +28,7 @@ import { CopyBlock, dracula } from "react-code-blocks"
                 language={"html"}
                 theme={dracula}
             />
-            <p>To be compliant with the GDPR, please adapt your privacy and cookie statement accordingly. For further help please <Link to="docs/create-survey">click here</Link>.</p>
+            <p>To be compliant with the GDPR, please adapt your privacy and cookie statement accordingly. For further help please <a href={`${window.location.origin}/docs/create-survey`} target="blank">click here</a>.</p>
         </div>
     )
 }

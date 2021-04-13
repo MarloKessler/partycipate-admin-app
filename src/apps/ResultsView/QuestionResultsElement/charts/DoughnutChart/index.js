@@ -5,6 +5,7 @@ import { getBGColors } from "../utils"
 
 
 export default function DoughnutChart({ element }) {
+    console.log("element: ", element)
     const chartRef  = useRef()
     const legendRef = useRef()
 
@@ -34,7 +35,8 @@ const getData = ({ answer_possibilities, results }) => {
     const data = {
         labels: answer_possibilities.map(possibility => possibility.answer),
         datasets: [{
-                data: results,
+                //Mapping is necessary since Chartjs fills it with additional data
+                data: results.map(result => result),
                 backgroundColor: bgColors,
                 borderColor: 'transparent',
                 hoverBackgroundColor: hoverBGColors,
@@ -47,8 +49,6 @@ const getData = ({ answer_possibilities, results }) => {
 
 const getChartOptions = ({ results, count_participants }) => {
     const formatter = new Intl.NumberFormat(window.navigator.language || "en", { style: 'percent', maximumFractionDigits: 0 })
-    console.log("count_participants", count_participants)
-
     const options = {
         legend: { display: false },
         legendCallback: chart => {
