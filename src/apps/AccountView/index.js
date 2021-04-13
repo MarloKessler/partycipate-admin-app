@@ -13,27 +13,41 @@ export default function AccountView() {
   const [ pw1, setPW1 ]     = useState("")
   const [ pw2, setPW2 ]     = useState("")
   const [ showWarning, setShowWarning ] = useState(false)
-  const [error, setError] = useState(false)
+
+  const [errors, setErrors] = useState(false)
 
   const AccountError = {
-    error: "error",
+    oldError: "oldError",
+    passwordUnequalError: "passwordUnequalError",
+    passwordShortError: "passwordShortError",
+    unknownError : "unknownError"
   }
-  
+
+  const deleteUser = () => Server.auth().deleteUser().catch(() => {})
+  const setValueVia = setter => event => setter(event.target.value)
 
   function changePW(event) {
     event.preventDefault()
-    if (oldPW === "" || pw1.length < 10 || pw1 !== pw2) return //pw === pw2
+    if (oldPW === "" || pw1.length < 10 || pw1 !== pw2) return
     Server.auth().updatePassword(oldPW, pw1)
     .then(() => {
+      setErrors(undefined)
       setOldPW("")
       setPW1("")
       setPW2("")
     })
-    .catch((error) => {setError(AccountError.error)})
+    .catch((errors) => {
+      const errorArray = []
+      switch(errors.message) {
+        case AccountError.oldError : errorArray.push(AccountError.oldError)
+        case AccountError.passwordUnequalError : errorArray.push(AccountError.passwordUnequalError)
+        case AccountError.passwordShortError : errorArray.push(AccountError.passwordShortError)
+        break
+        default : errorArray.push(AccountError.unknownError)
+      } 
+      setErrors(errorArray)
+    })
   }
-  const deleteUser = () => Server.auth().deleteUser().catch(() => {})
-
-  const setValueVia = setter => event => setter(event.target.value)
   
   return(
     <StandardPage
@@ -46,12 +60,17 @@ export default function AccountView() {
             <PageTitleElement className="Change-pw">Change your Password here</PageTitleElement>
             <label htmlFor="oldpw">Old password:</label>
             <input type="password" placeholder="Enter old password" name="oldpw" value={oldPW} required onChange={setValueVia(setOldPW)}/>
+
+            { (Array.isArray(errors) && errors.includes(AccountError.oldError)) && <small className="errormessage">The old password is not correct. Please try again.</small> }
+
             <label htmlFor="pw1">New password:</label>
             <input type="password" placeholder="Enter new password" name="pw1" value={pw1} required onChange={setValueVia(setPW1)}/>
             <label htmlFor="pw2">Repeat new password:</label>
             <input type="password" placeholder="Repeat new password" name="pw2" value={pw2} required onChange={setValueVia(setPW2)}/>
 
-            { error === AccountError.error && <small className="errormessage">Your password couldn't be changed. Please try again!</small> }
+            { (Array.isArray(errors) && errors.includes(AccountError.passwordUnequalError)) && <small className="errormessage">Your password is not equal to the one mentioned above. Please try again!</small> }
+            { (Array.isArray(errors) && errors.includes(AccountError.passwordShortError)) && <small className="errormessage">Your password needs at least a length of 10 characters. Please try again!</small> }
+            { (Array.isArray(errors) && errors.includes(AccountError.unknownError)) && <small className="errormessage">Your password needs at least a length of 10 characters. Please try again!</small> }
 
             <div className="toolbar">
               <button className="btn-dark btn-icon-right">Change now<FiChevronRight/></button>
@@ -81,4 +100,5 @@ export default function AccountView() {
       </Notification>
     </StandardPage>
   )
-}
+
+    }
