@@ -11,7 +11,7 @@ export default class Database {
 
     static getSurveys = async () => await Fetch.get(`api/survey`)
 
-/*
+
     static getSurveyResults = async id => {
         const survey = {
             id: 234,
@@ -111,7 +111,7 @@ export default class Database {
 
         return survey
     }
-*/
+
 
     static getSurveyResults = async id => {
         // Fetch survey
