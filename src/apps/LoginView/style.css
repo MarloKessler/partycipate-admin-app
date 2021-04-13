@@ -45,3 +45,8 @@
     flex-direction: row;
     justify-content: center;
 }
+
+.errormessage {
+    padding-bottom: 30px;
+    color: #F50057;
+}

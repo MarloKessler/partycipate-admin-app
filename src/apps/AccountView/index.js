@@ -13,18 +13,23 @@ export default function AccountView() {
   const [ pw1, setPW1 ]     = useState("")
   const [ pw2, setPW2 ]     = useState("")
   const [ showWarning, setShowWarning ] = useState(false)
+  const [error, setError] = useState(false)
+
+  const AccountError = {
+    error: "error",
+  }
   
 
   function changePW(event) {
     event.preventDefault()
-    if (oldPW === "" || pw1.length < 10 || pw1 !== pw2) return
+    if (oldPW === "" || pw1.length < 10 || pw1 !== pw2) return //pw === pw2
     Server.auth().updatePassword(oldPW, pw1)
     .then(() => {
       setOldPW("")
       setPW1("")
       setPW2("")
     })
-    .catch(() => {})
+    .catch((error) => {setError(AccountError.error)})
   }
   const deleteUser = () => Server.auth().deleteUser().catch(() => {})
 
@@ -45,6 +50,9 @@ export default function AccountView() {
             <input type="password" placeholder="Enter new password" name="pw1" value={pw1} required onChange={setValueVia(setPW1)}/>
             <label htmlFor="pw2">Repeat new password:</label>
             <input type="password" placeholder="Repeat new password" name="pw2" value={pw2} required onChange={setValueVia(setPW2)}/>
+
+            { error === AccountError.error && <small className="errormessage">Your password couldn't be changed. Please try again!</small> }
+
             <div className="toolbar">
               <button className="btn-dark btn-icon-right">Change now<FiChevronRight/></button>
             </div>

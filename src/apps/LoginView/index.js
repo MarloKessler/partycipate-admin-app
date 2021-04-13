@@ -10,15 +10,18 @@ import CardElement from "../CardElement"
 export default function LoginView() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [error, setError] = useState(false)
+
+  const LoginError = {
+    error: "error",
+  }
 
   function handleLogin(event) {
     event.preventDefault()
     Server.auth().login(email, password)
-    //{message: "Fail -> Email is aleady in use!"}
-    // PW is false
-    // Sonstige errors
-    .catch((error) => {console.log(error)})
-  }
+    .catch((error) => {setError(LoginError.error)})
+    }
+
 
   const setValueVia = setter => event => setter(event.target.value)
 
@@ -31,6 +34,9 @@ export default function LoginView() {
           <input type="email" placeholder="Enter E-Mail" name="uname" value={email} required onChange={setValueVia(setEmail)}/>
           <label htmlFor="psw">Password:</label>
           <input type="password" placeholder="Enter Password" name="psw" value={password} required onChange={setValueVia(setPassword)}/>
+
+          { error === LoginError.error && <small className="errormessage">You couldn't get logged in. Please try again!</small> }
+
           <div className="toolbar">
             <button className="btn-dark btn-icon-right" type="submit">Login<FiChevronRight/></button>
           </div>

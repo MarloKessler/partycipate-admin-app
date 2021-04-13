@@ -19,19 +19,15 @@ export default function SignupView() {
 
   const [error, setError] = useState(false)
 
-  const SigupError = {
-    emailInUse: "emailInUse",
-    passwordsUnequal: "passwordsUnequal",
-    unknown: "unknown",
+  const SignupError = {
+    error: "error",
   }
 
   function handleSignup(event) {
     event.preventDefault()
     if (!formIsValid()) return
     Server.auth().signup(email, password1, name)
-    //{message: "Fail -> Email is aleady in use!"}
-    // Sonstige errors
-    .catch((error) => {console.log("signup error: ", error)})
+    .catch((error) => {setError(SignupError.error)})
   }
 
   const formIsValid = () => validateEmail(email) && password1.length >= 10 && password1 === password2 && name !== "" && acceptTAC
@@ -59,7 +55,9 @@ export default function SignupView() {
             
             <label htmlFor="repeat-pw">Repeat password:</label>
             <input className="pass" type="password" placeholder="Repeat Password" name="repeat-pw" value={password2} required onChange={setValueVia(setPassword2)}/>
-            { error === SigupError.passwordsUnequal && <small>The passwords are not equal</small> }
+            
+            { error === SignupError.error && <small className="errormessage">Your account couldn't be created. Please try again!</small> }
+           
             <div className="tac-statement">
               <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} checked={acceptTAC} required onClick={() => setAcceptTAC(!acceptTAC)}/>
               <label htmlFor="checkbox_id" id="text">I have read and accept the terms and conditions and the <Link to="/privacy">privacy policy</Link> of Partycipate.</label>
