@@ -264,3 +264,11 @@ input {
 small {
   font-size: 0.7em;
 }
+
+small.error {
+  color: #F50057;
+}
+
+small.success {
+  color: rgb(0, 145, 0);
+}

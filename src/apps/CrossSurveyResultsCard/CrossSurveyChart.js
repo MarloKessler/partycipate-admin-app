@@ -2,14 +2,14 @@ import { useRef, useEffect } from 'react'
 import Chart from 'chart.js'
 
 
-export default function CrossSurveyChart({ element }) {
+export default function CrossSurveyChart({ data:results }) {
     const chartRef = useRef()
 
     useEffect(() => {
         const chart = new Chart(chartRef.current, {
                 type: "line",
-                data: getData(element),
-                options: getChartOptions(element),
+                data: getData(results),
+                options: getChartOptions(),
             }
         )
         // 101 miliseconds, because the sidebar needs 100 ms to expand.
@@ -24,17 +24,17 @@ export default function CrossSurveyChart({ element }) {
 }
 
 
-const getData = ({datetime_result, answer_possibilities}) => {
+const getData = (results) => {
     const data = {
-        labels: datetime_result.map(dt_result => new Intl.DateTimeFormat(window.navigator.language || "en").format(dt_result.datetime)),
+        labels: results.map(result => new Intl.DateTimeFormat(window.navigator.language || "en").format(result.datetime)),
         datasets: [
             {
-                data: datetime_result.results,
-                backgroundColor: "#BBD9DB",
+                data: results.map(result => result.count),
+                borderColor: "#BBD9DB",
                 hoverBackgroundColor: "#a1c1c2",
-                borderWidth: 2,
+                borderWidth: 5,
                 fill: false,
-                label: answer_possibilities.answer,
+                label: "Participants",
             },
         ],
     }
@@ -45,14 +45,21 @@ const getData = ({datetime_result, answer_possibilities}) => {
 const getChartOptions = () => {
     const options = {
         responsive: true,
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
+        aspectRatio: window.innerWidth / (window.innerHeight/2) < 1.5 ? 1.5 : window.innerWidth / (window.innerHeight/2),
+        legend: { display: false },
         tooltips: {
             callbacks: {
                 label: (item, data) => {
                     const votes = item.value
                     const label = data.datasets[item.datasetIndex].label
-                    return [`${label}: ${votes} Answers`]
+                    return [`${votes} Participants`]
                 },
+            },
+            custom: tooltip => {
+                if (!tooltip) return
+                // Disable color box
+                tooltip.displayColors = false
             },
         },
         scales: {
@@ -60,7 +67,7 @@ const getChartOptions = () => {
                 ticks: {
                     stepSize: 1,
                     beginAtZero: true,
-                    callback: label => `${label} Answers`,
+                    callback: label => `${label} Participants`,
                 },
                 stacked: false,
             }]

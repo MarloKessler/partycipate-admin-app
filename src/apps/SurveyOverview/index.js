@@ -21,7 +21,7 @@ export default () => {
 
     return (
         <StandardPage className = "survey-overview searching" title="Which results do you want to see?" helpSection={HelpSections.analyseSurvey}>
-            <CrossSurveyResultsCard/>
+            <CrossSurveyResultsCard className="so-csrc"/>
             { surveys
                 ? <Surveys surveys={surveys}/>
                 : surveys === null && <ErrorPage message="We are sorry, your surveys couldn't be loaded!"/>

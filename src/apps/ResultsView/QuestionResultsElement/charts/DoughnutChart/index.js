@@ -50,6 +50,7 @@ const getData = ({ answer_possibilities, results }) => {
 const getChartOptions = ({ results, count_participants }) => {
     const formatter = new Intl.NumberFormat(window.navigator.language || "en", { style: 'percent', maximumFractionDigits: 0 })
     const options = {
+        maintainAspectRatio: true,
         legend: { display: false },
         legendCallback: chart => {
             var html = ""

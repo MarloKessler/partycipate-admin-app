@@ -19,7 +19,7 @@
 }
 
 .av-body form label {
-    margin: 5px 0;
+    margin: 30px 0 5px;
 }
 
 .av-body form label:first-of-type {
@@ -27,9 +27,9 @@
 }
 
 .av-body form input {
+    margin-bottom: 5px;
     width: 70%;
     padding: 10px 20px;
-    margin-bottom: 30px;
     text-align: center;
 }
 
@@ -38,11 +38,20 @@
     color: #ff0059;
 }
 
-.account-view .toolbar {
-    display: flex;
-    justify-content: center;
+.account-view .card-element button {
+    margin: 30px auto 0;
 }
 
+.account-view .notification .toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.account-view .notification .toolbar button {
+    margin: 0 10px;
+}
 
 
 @media(min-width: 1200px) {

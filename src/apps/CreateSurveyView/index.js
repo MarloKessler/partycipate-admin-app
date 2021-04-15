@@ -1,5 +1,6 @@
 import './style.css'
 import React from "react"
+import { withRouter } from "react-router-dom"
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 import Server from "../Server"
 import StandardPage from "../StandardPage"
@@ -11,10 +12,11 @@ import EditSurveyComponent from "./EditSurveyComponent"
 import ImplementSurveyComponent from "./ImplementSurveyComponent"
 
 
-export default class CreateSurveyView extends React.Component {
+class CreateSurveyView extends React.Component {
     
     constructor(props) {
         super(props)
+        this.props = props
         
         const element = { position: 1, type: "", question: "", answer_possibilities: [ { position: 1, answer: "" } ], may_skip: false, }
         const survey = { 
@@ -68,6 +70,9 @@ export default class CreateSurveyView extends React.Component {
         )
     }
 }
+
+
+export default withRouter(CreateSurveyView)
 
 
 function getSurveyTitle(step) {

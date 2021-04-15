@@ -44,7 +44,7 @@ const getChartOptions = ({ results }) => {
     const options = {
         responsive: true,
         maintainAspectRatio: true,
-        aspectRatio: 1.5,
+        aspectRatio: window.innerWidth / (window.innerHeight/2) < 1.5 ? 1.5 : window.innerWidth / (window.innerHeight/2),
         legend: { display: false },
         tooltips: {
             enabled: true,

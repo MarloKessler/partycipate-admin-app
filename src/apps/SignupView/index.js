@@ -24,98 +24,94 @@ export default function SignupView() {
   const [errors, setErrors] = useState(false)
 
   const SignupError = {
-    emailError : "emailError",
-    unknownError : "unknownError",
-    checkError : "checkError",
+    emailAlreadyInUse : "emailAlreadyInUse",
+    emailNotValid : "emailNotValid",
+    nameIsEmpty : "nameIsEmpty",
+    passwordsIsInvalid : "passwordsIsInvalid",
+    passwordsAreUnequal : "passwordsAreUnequal",
+    notAcceptedTAC : "notCheckedTAC",
+    unknown : "unknown",
   }
+
 
   function handleSignup(event) {
     event.preventDefault()
     if (!formIsValid()) return
     Server.auth().signup(email, password1, name)
+    .then(() => setErrors(undefined))
     .catch((errors) => {
       const errorArray = []
       switch(errors.message) {
-        case SignupError.emailError : errorArray.push(SignupError.emailError)
-        case SignupError.checkError : errorArray.push(SignupError.checkError)
+        case SignupError.emailAlreadyInUse : errorArray.push(SignupError.emailAlreadyInUse)
         break
-        default : errorArray.push(SignupError.unknownError)
-    }
+        default : errorArray.push(SignupError.unknown)
+      }
+      setErrors(errorArray)
     })
   }
 
-  const formIsValid = () => validateEmail(email) || nameEntered() || passwordLength() || passwordIsUnequal() || terms()
 
-  function nameEntered() {
-    if (name.length < 0) return
-    setNameEmpty(true)
-  }
+  function formIsValid() {
+    const errorArray = []
+    if (!nameEntered()) errorArray.push(SignupError.nameIsEmpty)
+    if (!emailIsValid()) errorArray.push(SignupError.emailNotValid)
+    if (!passwordIsValid()) errorArray.push(SignupError.passwordsIsInvalid)
+    if (!passwordsAreEqual()) errorArray.push(SignupError.passwordsAreUnequal)
+    if (!acceptTAC) errorArray.push(SignupError.notAcceptedTAC)
+    if (errorArray.length > 0) {
+      setErrors(errorArray)
+      return false
+    } else return true
+  } 
 
-  function passwordLength() {
-    if (password1.length >= 10) return
-      setpasswordShort(true)
-  }
-
-  function passwordIsUnequal() {
-    if (password1 === password2) return
-    setpasswordUnequal(true)
-  }
-
-  function terms() {
-    if (acceptTAC === false) return
-    setAcceptTAC(true)
-  }
-
-  function validateEmail(email) {
-    //if (email.length < 0) {
-    //  setEmail(true)
-    //}
-    //else {
+  const nameEntered = () => name.length > 0
+  function emailIsValid() {
     const re = /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/
     return re.test(String(email).toLowerCase())
-    //}
   }
+  const passwordIsValid = () => password1.length >= 10
+  const passwordsAreEqual = () => password1 === password2
+
 
   const setValueVia = setter => event => setter(event.target.value)
+  const errorOccured = error => Array.isArray(errors) && errors.includes(error)
+
 
   return(
     <StandardPage className="signup" title="Do you want to join Partycipate? Sign up here 🎉">
       <div className="signup-body"> 
         <CardElement className="primary-element su-card">
-          <form onSubmit={handleSignup}>
+          <form onSubmit={handleSignup} noValidate>
             <PageTitleElement>Register now</PageTitleElement>
             <label htmlFor="name">Your Name:</label>
             <input className="email" type="text" placeholder="Enter Name" name="name" value={name} onChange={setValueVia(setName)}/>
 
-            { nameEmpty && <small className="errormessage">Please enter a name!</small> }
+            { errorOccured(SignupError.nameIsEmpty) && <small className="error">Please enter a name!</small> }
 
             <label htmlFor="email">E-Mail:</label>
             <input className="email" type="email" placeholder="Enter E-Mail" name="email" value={email} onChange={setValueVia(setEmail)}/>
             
-            { email && <small className="errormessage">The e-mail is already in use or invalid. Please try another email!</small> }
+            { errorOccured(SignupError.emailAlreadyInUse)
+              ? <small className="errormessage">The e-mail is already in use. Please provide another email!</small>
+              : errorOccured(SignupError.emailNotValid) && <small className="error">The e-mail is invalid.</small>
+            }
 
             <label htmlFor="pw">Password:</label>
             <input className="pass" type="password" placeholder="Enter Password" name="pw" value={password1} onChange={setValueVia(setPassword1)}/>
-            
+            { errorOccured(SignupError.passwordsIsInvalid) && <small className="error">Your password needs at least a length of 10 characters. Please try again!</small> }
+
             <label htmlFor="repeat-pw">Repeat password:</label>
             <input className="pass" type="password" placeholder="Repeat Password" name="repeat-pw" value={password2} onChange={setValueVia(setPassword2)}/>
-            
-            { passwordUnequal && <small className="errormessage">Your password is not equal to the one mentioned above. Please try again!</small> }
-            { passwordShort && <small className="errormessage">Your password needs at least a length of 10 characters. Please try again!</small> }
-           
-           
+            { errorOccured(SignupError.passwordsAreUnequal) && <small className="error">Your password is not equal to the one mentioned above. Please try again!</small> }
+
             <div className="tac-statement">
               <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} checked={acceptTAC} onClick={() => setAcceptTAC(!acceptTAC)}/>
               <label htmlFor="checkbox_id" id="text">I have read and accept the terms and conditions and the <Link to="/privacy">privacy policy</Link> of Partycipate.</label>
-              
-            { !acceptTAC && <small className="errormessage">Please accept our terms and conditions to continue!</small> }
-            { (Array.isArray(errors) && errors.includes(SignupError.unknownError)) && <small className="errormessage">Your password needs at least a length of 10 characters. Please try again!</small> }
-
-
             </div>
-            <div className="toolbar">
-              <button className="btn-dark btn-icon-right">Register<FiChevronRight/></button>
-            </div>
+            { errorOccured(SignupError.notAcceptedTAC) && <small className="error">Please accept our terms and conditions to continue!</small> }
+            { errorOccured(SignupError.unknown) && <small className="error">An error occured. Please try again in some minutes!</small> }
+            
+            <button className="btn-dark btn-icon-right">Register<FiChevronRight/></button>
           </form>
         </CardElement>  
       </div>

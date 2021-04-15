@@ -22,7 +22,7 @@ function ResultsComponent({ survey }) {
     useEffect(() => {
         Server.getSurveyResults(survey.id)
         .then(resultsArray => {
-            survey.elements[0].answerPossibilities.sort((a, b) => {
+            survey.elements[0].answer_possibilities.sort((a, b) => {
                 if ( a.position < b.position ){
                     return -1;
                   }

@@ -19,7 +19,7 @@
 }
 
 .signup-body form label {
-    margin: 5px 0;
+    margin: 30px 0 5px;
 }
 
 .signup-body form > label:first-of-type {
@@ -28,27 +28,23 @@
 
 .signup-body form input {
     width: 70%;
+    margin-bottom: 5px;
     border: 1px solid #647374;
     text-align: center;
-    margin-bottom: 30px;
 }
 
 .signup-body .tac-statement {
+    margin-top: 30px;
     width: calc(100% - 60px);
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
 }
 
-.signup-body .toolbar {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.signup-body .tac-statement label {
+    margin: 0;
 }
 
-.errormessage {
-    padding-bottom: 30px;
-    color: #F50057;
+.signup-body button {
+    margin: 20px auto 0;
 }

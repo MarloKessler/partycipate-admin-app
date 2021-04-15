@@ -8,7 +8,7 @@ export function XCoiceBlock({ elementIndex }) {
     const answersRef = useRef()
     const element = survey.elements[elementIndex]
     console.log("element: ", element)
-    const answerPossibilities = element.answerPossibilities
+    const answerPossibilities = element.answer_possibilities
     console.log("answerPossibilities: ", answerPossibilities)
 
 
@@ -39,7 +39,7 @@ const AnswerCard = ({ elementIndex, answerIndex, onChange }) => {
     const { survey, response } = useContext(SurveyContext)
     const inputRef     = useRef()
     const element      = survey.elements[elementIndex]
-    const answerOption = element.answerPossibilities[answerIndex]
+    const answerOption = element.answer_possibilities[answerIndex]
     
     const toggleAnswer     = () => inputRef.current.click()
     const answerIsSelected = () => {

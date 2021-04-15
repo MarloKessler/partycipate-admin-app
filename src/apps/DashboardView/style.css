@@ -12,11 +12,13 @@
   flex: 1 1 100%;
   padding: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .dv-cards .dv-card:first-of-type {
+  max-width: calc(100% - 100px);
   padding: 30px;
 }
 

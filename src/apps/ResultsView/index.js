@@ -10,12 +10,12 @@ import StandardPage from "../StandardPage"
 
 export default function ResultsView() {
     const { id } = useParams()
-    const [ survey, setSurvey ] = useState(null)
+    const [ survey, setSurvey ] = useState()
 
     useEffect(() => {
         Server.database().getSurveyResults(id)
         .then(setSurvey)
-        .catch((error) => {console.log(error); setSurvey(null)})
+        .catch(() => setSurvey(null))
     }, [])
     
     return (

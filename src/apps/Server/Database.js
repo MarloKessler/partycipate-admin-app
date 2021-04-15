@@ -12,7 +12,7 @@ export default class Database {
     static getSurveys = async () => await Fetch.get(`api/survey`)
 
 
-    static getSurveyResults = async id => {
+    /*static getSurveyResults = async id => {
         const survey = {
             id: 234,
             creation_date: new Date(2020, 5, 12), 
@@ -110,7 +110,7 @@ export default class Database {
         console.log("survey: ", survey)
 
         return survey
-    }
+    }*/
 
 
     static getSurveyResults = async id => {
@@ -120,13 +120,27 @@ export default class Database {
         
         // Sort survey elements
         survey.elements.sort((a,b) => a.position - b.position)
-        //survey.elements = [survey.elements[0]]
         survey.elements.forEach(element => element.answer_possibilities.sort((a, b) => a.position - b.position))
         // Fetch results
         await Promise.all([ insertBaseResults(survey), insertDatetimeResults(survey) ])
         console.log("survey: ", survey)
 
         return survey
+    }
+
+    static async getCrossSurveyResults() {
+        // Fetch survey
+        const currentDate = new Date()
+        const previouseDate = new Date()
+        previouseDate.setMonth(previouseDate.getMonth() - 1)
+        // TODO: UNCOMMENT BEFORE FINAL
+        const timeLine = { start: new Date(2021, 3, 12), end: currentDate.toISOString() }
+        //const timeLine = { start: previouseDate.toISOString(), end: currentDate.toISOString() }
+        console.log("timeLine", timeLine)
+        const csResults = await Fetch.post(`api/analytics/participants`, timeLine)
+        console.log("csResults: ", csResults)
+        csResults.forEach(dayResult => dayResult.datetime = new Date(dayResult.datetime))
+        return csResults
     }
 
 

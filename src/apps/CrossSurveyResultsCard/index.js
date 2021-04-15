@@ -9,20 +9,15 @@ export default function CrossSurveyResultsCard({ className="" }) {
     const [crossSurveyResults, setCrossSurveyResults] = useState()
 
     useEffect(() => {
-        /*
         Server.database().getCrossSurveyResults()
         .then(setCrossSurveyResults)
         .catch(() => {})
-        */
     }, [])
     
     if (crossSurveyResults) return (
         <CardElement className={`cross-survey-results-card primary-element ${className}`}>
-            <div className="csr-header">
-                <h2>Overall results</h2>
-                <h3>{ crossSurveyResults.count_participants } Answers</h3>
-            </div>
-            <CrossSurveyChart data={crossSurveyResults.data}/>
+            <h2>Overall participants</h2>
+            <CrossSurveyChart data={crossSurveyResults}/>
         </CardElement>
     )
     else return <div/>

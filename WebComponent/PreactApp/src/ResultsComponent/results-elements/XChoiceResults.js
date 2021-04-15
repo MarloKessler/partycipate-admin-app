@@ -28,7 +28,7 @@ export function XChoiceResults({ element }) {
 
 const setResultsChart = (element, canvas) => {
     const barColors = distinctColors({
-        count: element.answerPossibilities.length,
+        count: element.answer_possibilities.length,
         chromaMin: 80,
     })
 
@@ -38,7 +38,7 @@ const setResultsChart = (element, canvas) => {
         plugins: [ChartDataLabels],
         type: "bar",
         data: {
-            labels: element.answerPossibilities.map(possibility => possibility.answer),
+            labels: element.answer_possibilities.map(possibility => possibility.answer),
             datasets: [
                 {
                     label: element.question,
