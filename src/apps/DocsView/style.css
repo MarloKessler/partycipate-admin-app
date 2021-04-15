@@ -16,25 +16,19 @@
     margin: 10px 0 30px;
 }
 
-.dv-section-container {
-    margin: 20px;
-    padding-bottom: 40px;
-}
-
-.dv-section-container :hover {
-    transition: .3s;
-    color: #BBD9DB;
-}
-
-.dv-section-container :active {
-    transition: .3s;
-    color: #BBD9DB;
+.docs-view .doc-section .row-title {
+    font-weight: bold;
 }
 
 a.FAQ_Link{ 
     text-decoration: none; 
     color: #82a0aa;
     font-weight: bold;
-    
+    transition: .3s;
+}
+
+a.FAQ_Link:hover {
+    transition: .3s;
+    color: #9bc1cf;    
 }
 

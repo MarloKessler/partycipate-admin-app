@@ -129,12 +129,14 @@ export default class Database {
     }
 
     static async getCrossSurveyResults() {
+        console.log("getCrossSurveyResults")
         // Fetch survey
         const currentDate = new Date()
         const previouseDate = new Date()
-        previouseDate.setMonth(previouseDate.getMonth() - 1)
+        console.log("previouseDate.getDate()", previouseDate.getDate())
+        previouseDate.setDate(previouseDate.getDate() - 7)
         // TODO: UNCOMMENT BEFORE FINAL
-        const timeLine = { start: new Date(2021, 3, 12), end: currentDate.toISOString() }
+        const timeLine = { start: previouseDate.toISOString(), end: currentDate.toISOString() }
         //const timeLine = { start: previouseDate.toISOString(), end: currentDate.toISOString() }
         console.log("timeLine", timeLine)
         const csResults = await Fetch.post(`api/analytics/participants`, timeLine)
