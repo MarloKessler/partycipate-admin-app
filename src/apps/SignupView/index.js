@@ -83,13 +83,13 @@ export default function SignupView() {
         <CardElement className="primary-element su-card">
           <form onSubmit={handleSignup} noValidate>
             <PageTitleElement>Register now</PageTitleElement>
-            <label htmlFor="name">Your Name:</label>
-            <input className="email" type="text" placeholder="Enter Name" name="name" value={name} onChange={setValueVia(setName)}/>
+            <label htmlFor="name">Your name:</label>
+            <input className="email" type="text" placeholder="Enter name" name="name" value={name} onChange={setValueVia(setName)}/>
 
             { errorOccured(SignupError.nameIsEmpty) && <small className="error">Please enter a name!</small> }
 
             <label htmlFor="email">E-Mail:</label>
-            <input className="email" type="email" placeholder="Enter E-Mail" name="email" value={email} onChange={setValueVia(setEmail)}/>
+            <input className="email" type="email" placeholder="Enter e-Mail" name="email" value={email} onChange={setValueVia(setEmail)}/>
             
             { errorOccured(SignupError.emailAlreadyInUse)
               ? <small className="errormessage">The e-mail is already in use. Please provide another email!</small>

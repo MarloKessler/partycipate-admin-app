@@ -11,10 +11,10 @@ export default function DashboardView(){
       <p>What do you want to do today?</p>
       <div className="dv-cards">
         <CrossSurveyResultsCard className="dv-card"/>
-        <CardElement className="secondary-element link-light dv-card"><Link to="/create-survey" >Create a brandnew Survey ❔</Link></CardElement>
-        <CardElement className="secondary-element link-light dv-card"><Link to="/surveys">View Results of your Surveys 📊</Link></CardElement>
-        <CardElement className="secondary-element link-light dv-card"><Link to="/my-account">Change Settings of your Account 🙂</Link></CardElement>
-        <CardElement className="secondary-element link-light dv-card"><Link to="/docs">Get Help in our FAQs 🤝</Link></CardElement>
+        <CardElement className="secondary-element link-light dv-card"><Link to="/create-survey" >Create a brandnew survey ❔</Link></CardElement>
+        <CardElement className="secondary-element link-light dv-card"><Link to="/surveys">View results of your surveys 📊</Link></CardElement>
+        <CardElement className="secondary-element link-light dv-card"><Link to="/my-account">Change settings of your account 🙂</Link></CardElement>
+        <CardElement className="secondary-element link-light dv-card"><Link to="/docs">Get help in our FAQs 🤝</Link></CardElement>
       </div>
     </StandardPage>
   )

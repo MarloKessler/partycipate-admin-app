@@ -2,16 +2,12 @@
     flex: 1 1 100%;
 }
 
-
-
 .av-body {
     margin: 0 -20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-
-
 
 .av-body form {
     display: flex;
@@ -33,7 +29,6 @@
     text-align: center;
 }
 
-
 .account-view .btn-delete {
     color: #ff0059;
 }
@@ -52,7 +47,6 @@
 .account-view .notification .toolbar button {
     margin: 0 10px;
 }
-
 
 @media(min-width: 1200px) {
     .av-card {
