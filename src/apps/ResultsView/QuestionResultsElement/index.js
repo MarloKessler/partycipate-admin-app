@@ -5,9 +5,9 @@ import BarChart from "./charts/BarChart"
 import TrendChart from "./charts/TrendChart"
 
 
-export default function QuestionResultsElement({ element }) {
+export default function QuestionResultsElement({ className="", element }) {
     return (
-        <CardElement className="results-element">
+        <CardElement className={`results-element ${className}`}>
             <div className="re-header">
                 <div className="re-header-first-line">
                     <h2>{ element.question }</h2>
@@ -17,15 +17,22 @@ export default function QuestionResultsElement({ element }) {
             </div>
             <div className="results-group">
                 <h3>Total results</h3>
-                <ResultsChart element={element} />
+                { element.count_participants > 0
+                    ? <ResultsChart element={element} />
+                    : <p>No enough answers to display valid results.</p>
+                }
             </div>
             <div className="results-group">
                 <h3>Results over time</h3>
-                { element.datetime_result && <TrendChart element={element}/> }
+                { element.datetime_result
+                    ? <TrendChart element={element}/>
+                    : <p>No enough answers to display valid results.</p>
+                }
             </div>
         </CardElement>
     )
 }
+
 
 function getElementTypeLabel(type) {
     switch (type) {
@@ -34,6 +41,7 @@ function getElementTypeLabel(type) {
         default: return ""
     }
 }
+
 
 function ResultsChart({ element }) {
     switch (element.type) {

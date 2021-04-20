@@ -22,17 +22,15 @@ function ResultsComponent({ survey }) {
     useEffect(() => {
         Server.getSurveyResults(survey.id)
         .then(resultsArray => {
-            survey.elements[0].answer_possibilities.sort((a, b) => {
-                if ( a.position < b.position ){
-                    return -1;
-                  }
-                  if ( a.position > b.position ){
-                    return 1;
-                  }
-                  return 0;
+            resultsArray.forEach(resultObject => {
+                console.log("result", resultObject)
+                const element = survey.elements.find(element => element.id == resultObject.element_id)
+                console.log("element", element)
+                if(!element) return
+                element.results = resultObject.results
+                element.count_participants = resultObject.count_participants
             })
-            survey.elements[0].results = resultsArray[0].results
-            survey.elements[0].count_participants = resultsArray[0].count_participants
+            console.log("survey", survey)
             setResults(survey)
         })
     }, [ survey ])

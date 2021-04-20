@@ -23,7 +23,7 @@ export default function ResultsView() {
             { survey
                 ? <div>
                     <PageTitleElement className="so-page-title">{ survey.title }</PageTitleElement>
-                    { survey.elements.map((element, index) => <QuestionResultsElement element={element} key={index}/>) } 
+                    { survey.elements.map((element, index) => <QuestionResultsElement className="primary-element" element={element} key={index}/>) } 
                 </div>
                 : survey === null && <ErrorPage message="We re sorry, the survey you requested couldn't be found."/>
             }

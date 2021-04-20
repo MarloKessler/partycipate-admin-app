@@ -35,7 +35,7 @@
 
 @media(min-width: 600px) {
   .dv-cards .dv-card {
-    flex: 1 1 30%;
+    flex: 1 1 40%;
   }
 
   .dv-cards .dv-card:first-of-type {

@@ -18,24 +18,20 @@ function PartycipateSurvey(props) {
     // Set style
     useEffect(() => setStyle(containerRef.current), [])
     // Load Survey
-    useEffect(() => Server.getSurvey(surveyID).then(survey => {
-        console.log("survey: ", survey)
-        setSurvey(survey)
-    }), [])
+    useEffect(() => Server.getSurvey(surveyID).then(setSurvey), [])
 
     return (
-        <div ref={ containerRef } className="partycipate-survey-container">
-            { survey && <View view={ view } survey={ survey } onChange={ setView }/> }
+        <div ref={containerRef} className="partycipate-survey-container">
+            { survey && <View view={view} survey={survey} onChange={setView}/> }
         </div>
     )
 }
 
 
 function View({ view, survey, onChange }) {
-    console.log("view: ", view)
     switch (view) {
-        case PSView.survey: return <SurveyComponent survey={ survey } responseSent={ () => onChange(PSView.results) }/>
-        case PSView.results: return <ResultsComponent survey={ survey }/>
+        case PSView.survey: return <SurveyComponent survey={survey} responseSent={() => onChange(PSView.results)}/>
+        case PSView.results: return <ResultsComponent survey={survey}/>
         default: return <div></div>
     }
 }

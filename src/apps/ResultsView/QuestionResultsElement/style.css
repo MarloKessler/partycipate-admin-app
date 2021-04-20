@@ -28,3 +28,7 @@
 .results-element > .results-group {
     margin-top: 30px;
 }
+
+.results-element > .results-group > p {
+    text-align: center;
+}

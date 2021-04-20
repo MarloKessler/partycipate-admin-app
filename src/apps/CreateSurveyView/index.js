@@ -10,6 +10,7 @@ import { SurveyProvider } from "./SurveyContext"
 import SelectSurveyComponent from "./SelectSurveyComponent"
 import EditSurveyComponent from "./EditSurveyComponent"
 import ImplementSurveyComponent from "./ImplementSurveyComponent"
+import CreateSurveyError from "./CreateSurveyError"
 
 
 class CreateSurveyView extends React.Component {
@@ -18,11 +19,11 @@ class CreateSurveyView extends React.Component {
         super(props)
         this.props = props
         
-        const element = { position: 1, type: "", question: "", answer_possibilities: [ { position: 1, answer: "" } ], may_skip: false, }
+        const element = { position: 0, type: "", question: "", answer_possibilities: [ { position: 1, answer: "" } ], may_skip: false, }
         const survey = { 
             creation_date: new Date().toISOString(), 
             title: "", 
-            elements: [ element ]
+            elements: [ element ],
         }
         this.state = {
             survey: survey,
@@ -38,11 +39,13 @@ class CreateSurveyView extends React.Component {
 
         this.goForward = () => {
             if (this.state.step === 1) {
+                const survey = this.state.survey
+                if (!survey.title) return this.setState(() => ({ errors: [CreateSurveyError.titleIsEmpty] }))
                 this.setState(() => ({ statusMessage: "Saving Survey…", isSaving: true }))
-                Server.database().createSurvey(this.state.survey)
+                Server.database().createSurvey(survey)
                 .then(surveyID => {
                     this.state.survey.id = surveyID
-                    this.state.updateSurvey(this.state.survey)
+                    this.state.updateSurvey(survey)
                     this.setState(() => ({ step: this.state.step + 1 }))
                     this.setState(() => ({ statusMessage: null }))
                 })
@@ -62,7 +65,7 @@ class CreateSurveyView extends React.Component {
             <StandardPage title={getSurveyTitle(this.state.step)} helpSection="create-survey">
                 <SurveyProvider value={ this.state }>
                     <CardElement className="secondary-element">
-                        <SurveyComponent step={ this.state.step } onTypeSelected={ () => this.setState(() => ({ step: 1 })) }/>
+                        <SurveyComponent step={ this.state.step } onTypeSelected={ () => this.setState(() => ({ step: 1 })) } errors={this.state.errors}/>
                     </CardElement>
                     <CSVToolbar step={ this.state.step } statusMessage={ this.state.statusMessage } creationErrorOccured={ this.state.creationErrorOccured } onGoBack={ this.goBack } onGoForward={ this.goForward } isSaving={ this.state.isSaving }/>
                 </SurveyProvider>
@@ -86,11 +89,11 @@ function getSurveyTitle(step) {
 
 
 
-function SurveyComponent({ step, onTypeSelected }) {
+function SurveyComponent({ step, onTypeSelected, errors }) {
     switch (step) {
-        case 0: return <SelectSurveyComponent onTypeSelected={ onTypeSelected }/>
-        case 1: return <EditSurveyComponent/>
-        case 2: return <ImplementSurveyComponent/>
+        case 0: return <SelectSurveyComponent onTypeSelected={ onTypeSelected } errors={errors}/>
+        case 1: return <EditSurveyComponent errors={errors}/>
+        case 2: return <ImplementSurveyComponent errors={errors}/>
         default: throw Error("No applicable step selected.")
     }
 }
