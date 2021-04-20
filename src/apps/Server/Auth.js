@@ -74,28 +74,28 @@ export default class Auth {
 
 
 async function restoreSession() {
-    token = Cookies.get("partycipate-session-token")
-    if (token) await loadUser()
-    else {
-        user = null
-        AuthStateListeners.callListeners(user, undefined)
-    }
+    //token = Cookies.get("partycipate-session-token")
+    //if (token) await loadUser()
+    //else {
+    //    user = null
+    //    AuthStateListeners.callListeners(user, undefined)
+    //}
     
-//await loadUser() // REMOVE IF USER LOADING WORKS
+await loadUser() // REMOVE IF USER LOADING WORKS
 }
 
 
 
 async function loadUser() {
-    try {
-        const u = await Fetch.get("api/user")
-        console.log("user: ", u)
-        u.token = token
-        user = u
-    } catch (error) {
-        user = null
-    }
-//user = {name: "truth", email: "truth.s.gatsby@email.com", token: "1234567890"} // REMOVE IF USER LOADING WORKS
+    //try {
+    //    const u = await Fetch.get("api/user")
+    //    console.log("user: ", u)
+    //    u.token = token
+    //    user = u
+    //} catch (error) {
+    //    user = null
+    //}
+user = {name: "truth", email: "truth.s.gatsby@email.com", token: "1234567890"} // REMOVE IF USER LOADING WORKS
     AuthStateListeners.callListeners(user, undefined)
 }
 

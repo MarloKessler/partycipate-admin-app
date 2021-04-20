@@ -29,7 +29,7 @@ const generalFAQs = {
 }
 
 const analyseSurveysFAQs = {
-    title: "Analyse Results",
+    title: "Analyse results",
     rows: [
         {
             id: "check-results",
@@ -53,7 +53,7 @@ const analyseSurveysFAQs = {
 }
 
 const createSurveyFAQs = {
-    title: "Create Surveys",
+    title: "Create surveys",
     rows: [
         {
             id: "create-survey",
@@ -93,7 +93,7 @@ const createSurveyFAQs = {
 }
 
 const accountFAQs = {
-    title: "My Account",
+    title: "My account",
     rows: [
         {
             title: "How can I delete my account?",
@@ -104,13 +104,15 @@ const accountFAQs = {
             content: `If you want to change your password, you can do so in the section <a href='/my-account' class='FAQ_Link'>My Account</a>.`,
         },
         {
+            title: "How can I change my name and email?",
+            content: `If you want to change your name and email, you can do so in the section <a href='/my-account' class='FAQ_Link'>My Account</a>.`,
+        },
+        {
             title: "Can I restore my account after deletion?",
             content: `No. We work according to the highest privacy and data security standards and will therefore delete all your data, if you chose to delete your account!`,
         },
     ],
 }
-
-
 
 const additionalFAQs = {
     title: "Additional",
@@ -138,7 +140,6 @@ export const HelpSections = {
     analyseSurvey: "analyse-survey",
     account: "account",
 }
-
 
 export default function DocsView() {
     const { id } = useParams()
