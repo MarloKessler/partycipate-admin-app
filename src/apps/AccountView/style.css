@@ -12,6 +12,7 @@
 .av-body form {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .av-body form label {
@@ -46,6 +47,10 @@
 
 .account-view .notification .toolbar button {
     margin: 0 10px;
+}
+
+.buttonbar {
+    margin-top: auto;
 }
 
 @media(min-width: 1200px) {
