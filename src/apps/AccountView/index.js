@@ -143,7 +143,9 @@ export default function AccountView() {
             { updateUserErrorOccured(UpdateUserError.unknownError) && <small className="error">An error occured. Please try again in some minutes!</small> }
             { updateUserSuccess && <small className="success">Your profile was successfully changed!</small> }
             
+            <div className="buttonbar">
             <button className="btn-dark btn-icon-right">Change now<FiChevronRight/></button>
+            </div>
           </form>
         </CardElement>
 
@@ -163,8 +165,10 @@ export default function AccountView() {
             { updatePWErrorOccured(UpdatePWError.passwordUnequalError) && <small className="error">Your password is not equal to the one mentioned above. Please try again!</small> }
             { updatePWErrorOccured(UpdatePWError.unknownError) && <small className="error">An error occured. Please try again in some minutes!</small> }
             { updatePWSuccess && <small className="success">Your password was successfully changed!</small> }
-           
+            
+            <div className="buttonbar">
             <button className="btn-dark btn-icon-right">Change now<FiChevronRight/></button>
+            </div>
           </form>
         </CardElement>
 
@@ -175,7 +179,9 @@ export default function AccountView() {
             <p>We will delete all data related to your account.</p>
             <p>Please note that an account deletion cannot be undone.</p>
           </div>
+          <div className="buttonbar">
           <button className="btn-dark btn-icon-right" onClick={() => setShowWarning(true)}>Delete now<FiChevronRight/></button>
+          </div>
         </CardElement>
       </div>
 
