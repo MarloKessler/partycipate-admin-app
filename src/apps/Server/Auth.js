@@ -18,7 +18,7 @@ export default class Auth {
     
     static async signup(email, password, name) {
         console.log("signup")
-        const result = await Fetch.put("api/auth/signup", { username: email, email: email, password: password, role: ["user"] })
+        const result = await Fetch.put("api/auth/signup", { name: name, username: email, email: email, password: password, role: ["user"] })
         console.log("signup result: ", result)
         await Auth.login(email, password)
     }
@@ -64,6 +64,7 @@ export default class Auth {
 
     static onAuthStateChanged(authStateChangedHandler) {
         const listenerID = AuthStateListeners.addListener(authStateChangedHandler)
+        authStateChangedHandler(user, undefined)
         return () => AuthStateListeners.removeListener(listenerID)
     }
 

@@ -1,6 +1,6 @@
 import './style.css'
-import { useEffect, useState } from 'react'
-import { Switch, Route, useHistory, Redirect } from "react-router-dom"
+import { useEffect, useRef, useState } from 'react'
+import { Switch, Route, useHistory, Redirect, useLocation } from "react-router-dom"
 import Server from "../Server"
 
 // Views
@@ -27,29 +27,38 @@ import PrivacyStatementView from "../PrivacyStatementView"
 export default function Main() {
   const [ user, setUser ] = useState()
   const history = useHistory()
+  const pageContainerRef = useRef()
+
+  useEffect(() => Server.init(), [])
+
   useEffect(() => Server.auth().onAuthStateChanged((newUser, oldUser) => {
     if (oldUser && !newUser) history.push("/logout")
     setUser(newUser)
   }), [])
 
-  useEffect(() => setTimeout(Server.auth().init(), 5000), [])
+  useEffect(() => history.listen(location => {
+      // Keep default behavior of restoring scroll position when the user goes back
+      if (history.action === 'POP') return
+      // In all other cases, scroll to the top
+      pageContainerRef.current.scrollTo(0, 0)
+    }), [])
 
   return (
     <div className="App">
         <Navbar/>
           <div className="Admin-App">
             { user && <Sidebar/> }
-            <div className="Page-Container">
+            <div className="Page-Container" ref={pageContainerRef}>
               { user !== undefined &&
                 <Switch>
-                  <SecureRoute exact path="/dashboard" component={<DashboardView/>}/>
-                  <SecureRoute exact path="/create-survey" component={<CreateSurveyView/>}/>
-                  <SecureRoute exact path="/surveys" component={<SurveyOverview/>}/>
-                  <SecureRoute exact path="/surveys/:id" component={<ResultsView/>}/>
-                  <SecureRoute exact path="/my-account" component={<AccountView/>}/>
-                  <AuthRoute exact path="/logout" component={<LogoutView/>}/>
-                  <AuthRoute exact path="/signup" component={<SignupView/>}/>
-                  <AuthRoute exact path="/login" component={<LoginView/>}/>
+                  <SecureRoute user={user} exact path="/dashboard" component={DashboardView}/>
+                  <SecureRoute user={user} exact path="/create-survey" component={CreateSurveyView}/>
+                  <SecureRoute user={user} exact path="/surveys" component={SurveyOverview}/>
+                  <SecureRoute user={user} exact path="/surveys/:id" component={ResultsView}/>
+                  <SecureRoute user={user} exact path="/my-account" component={AccountView}/>
+                  <AuthRoute user={user} exact path="/logout" component={LogoutView}/>
+                  <AuthRoute user={user} exact path="/signup" component={SignupView}/>
+                  <AuthRoute user={user} exact path="/login" component={LoginView}/>
                   <Route exact path="/" component={HomeView}/>
                   <Route exact path="/why-partycipate" component={WhyPartycipateView}/>
                   <Route exact path="/docs" component={DocsView}/>
@@ -57,7 +66,7 @@ export default function Main() {
                   <Route exact path="/contact" component={ContactView}/>
                   <Route exact path="/imprint" component={ImprintView}/>
                   <Route exact path="/privacy" component={PrivacyStatementView}/>
-                  <Route path="*" component={ () => <ErrorPage message="The page you’re looking for can’t be found."/> }/>
+                  <Route path="*" component={() => <ErrorPage message="The page you’re looking for can’t be found."/>}/>
                 </Switch>
               }
               <Footer/>
@@ -68,22 +77,13 @@ export default function Main() {
 }
 
 
-function SecureRoute({ exact, path, component }) {
+function SecureRoute({ user, exact, path, component }) {
   const history = useHistory()
-  const user = Server.auth().currentUser()
-  return (
-    <Route exact={exact} path={path}>
-      { user ? component : <Redirect to={{pathname: "/login", search: `red=${window.location.pathname}`, state: history.location.state }}/> }
-    </Route>
-  )
+  return user ? <Route exact={exact} path={path} component={component}/> : <Redirect exact={exact} path={path} to={{pathname: "/login", search: `red=${window.location.pathname}`, state: history.location.state }}/>
 }
 
 
-function AuthRoute({ exact, path, component }) {
-  const user = Server.auth().currentUser()
-  return (
-    <Route exact={exact} path={path}>
-      { user ? <Redirect to="dashboard"/> : component }
-    </Route>
-  )
+function AuthRoute({ user, exact, path, component }) {
+  const redirectPath = new URLSearchParams(useLocation().search).get("red")
+  return user ? <Redirect exact={exact} path={path} to={redirectPath || "/dashboard"}/> : <Route exact={exact} path={path} component={component}/>
 }

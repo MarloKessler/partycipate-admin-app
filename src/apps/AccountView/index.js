@@ -188,4 +188,4 @@ export default function AccountView() {
       </Notification>
     </StandardPage>
   )
-    }
+}
