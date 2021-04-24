@@ -106,7 +106,7 @@ export default function SignupView() {
 
             <div className="tac-statement">
               <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} checked={acceptTAC} onClick={() => setAcceptTAC(!acceptTAC)}/>
-              <label htmlFor="checkbox_id" id="text">I have read and accept the terms and conditions and the <Link to="/privacy">privacy policy</Link> of Partycipate.</label>
+              <label htmlFor="checkbox_id" id="text">I have read and accept the terms and conditions and the <Link to={process.env.REACT_APP_PATH_PRIVACY_STATEMENT}>privacy policy</Link> of Partycipate.</label>
             </div>
             { errorOccured(SignupError.notAcceptedTAC) && <small className="error">Please accept our terms and conditions to continue!</small> }
             { errorOccured(SignupError.unknown) && <small className="error">An error occured. Please try again in some minutes!</small> }

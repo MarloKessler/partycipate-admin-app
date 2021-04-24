@@ -20,15 +20,18 @@
     font-weight: bold;
 }
 
-a.FAQ_Link{ 
+.docs-view a { 
     text-decoration: none; 
     color: #82a0aa;
     font-weight: bold;
     transition: .3s;
 }
 
-a.FAQ_Link:hover {
+.docs-view a:hover {
     transition: .3s;
     color: #9bc1cf;    
 }
 
+.docs-view ol > li, .docs-view ul > li {
+    padding-bottom: 10px;
+}

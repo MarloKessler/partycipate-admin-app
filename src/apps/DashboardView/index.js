@@ -11,10 +11,10 @@ export default function DashboardView(){
       <p>What do you want to do today?</p>
       <div className="dv-cards">
         <CrossSurveyResultsCard className="dv-card"/>
-        <CardElement className="secondary-element link-light dv-card"><Link to="/create-survey" >Create a brandnew survey ❔</Link></CardElement>
-        <CardElement className="secondary-element link-light dv-card"><Link to="/surveys">View results of your surveys 📊</Link></CardElement>
-        <CardElement className="secondary-element link-light dv-card"><Link to="/my-account">Change settings of your account 🙂</Link></CardElement>
-        <CardElement className="secondary-element link-light dv-card"><Link to="/docs">Get help in our FAQs 🤝</Link></CardElement>
+        <CardElement className="secondary-element link-light dv-card"><Link to={process.env.REACT_APP_PATH_CREATE_SURVEY} >Create a brandnew survey ❔</Link></CardElement>
+        <CardElement className="secondary-element link-light dv-card"><Link to={process.env.REACT_APP_PATH_SURVEY_OVERVIEW}>View results of your surveys 📊</Link></CardElement>
+        <CardElement className="secondary-element link-light dv-card"><Link to={process.env.REACT_APP_PATH_ACCOUNT_VIEW}>Change settings of your account 🙂</Link></CardElement>
+        <CardElement className="secondary-element link-light dv-card"><Link to={process.env.REACT_APP_PATH_DOCS}>Get help in our FAQs 🤝</Link></CardElement>
       </div>
     </StandardPage>
   )

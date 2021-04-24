@@ -33,17 +33,17 @@ export default function Navbar() {
     
     return (
         <div className="navbar">
-            <div className="logo"><Link to="/"><img src={ `${process.env.PUBLIC_URL}/images/logo.png` } alt="Partycipate's logo"/></Link></div>
+            <div className="logo"><Link to={process.env.REACT_APP_PATH_HOME}><img src={ `${process.env.PUBLIC_URL}/images/logo.png` } alt="Partycipate's logo"/></Link></div>
             <button className="menu-toggle link-dark" onClick={ toggleMenu }>{ showMenu ? <CgClose/> : <CgMenu/> }</button>
             <div className="nav-menu" ref={ navMenuRef }>
-                <Link className="link-dark" to="/">Home</Link>
-                <Link className="link-dark" to="/why-partycipate" >Why Partycipate</Link>
-                <Link className="link-dark" to="/docs">Docs</Link>
-                <Link className="link-dark" to="/contact">Contact</Link>
+                <Link className="link-dark" to={process.env.REACT_APP_PATH_HOME}>Home</Link>
+                <Link className="link-dark" to={process.env.REACT_APP_PATH_WHY_PARTICIPATE}>Why Partycipate</Link>
+                <Link className="link-dark" to={process.env.REACT_APP_PATH_DOCS}>Docs</Link>
+                <Link className="link-dark" to={process.env.REACT_APP_PATH_CONTACT}>Contact</Link>
                 { isInBackend === false && <div className="nb-separator"> | </div> }
-                { (isLoggedIn && !isInBackend) && <Link className="link-button btn-light" to="/dashboard">Dashboard</Link> }
-                { isLoggedIn === null && <Link className="link-button btn-light" to="/signup">Sign Up</Link> }
-                { isLoggedIn === null && <Link className="link-dark" to="/login">Login</Link> }
+                { (isLoggedIn && !isInBackend) && <Link className="link-button btn-light" to={process.env.REACT_APP_PATH_DASHBOARD}>Dashboard</Link> }
+                { isLoggedIn === null && <Link className="link-button btn-light" to={process.env.REACT_APP_PATH_SIGN_UP}>Sign Up</Link> }
+                { isLoggedIn === null && <Link className="link-dark" to={process.env.REACT_APP_PATH_LOGIN}>Login</Link> }
             </div>
         </div>
     )

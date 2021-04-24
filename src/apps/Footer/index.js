@@ -5,19 +5,19 @@ export default function Footer() {
     return (
         <footer>
             <div className="footer-menu">
-                <Link className="item activatable" to="/">Home</Link>
+                <Link className="item activatable" to={process.env.REACT_APP_PATH_HOME}>Home</Link>
                 <DividerPoint/>
-                <Link className="item activatable" to="/why-partycipate" >Why Partycipate</Link>
+                <Link className="item activatable" to={process.env.REACT_APP_PATH_WHY_PARTICIPATE}>Why Partycipate</Link>
                 <DividerPoint/>
-                <Link className="item activatable" to="/docs">Docs</Link>
+                <Link className="item activatable" to={process.env.REACT_APP_PATH_DOCS}>Docs</Link>
                 <DividerPoint/>
-                <Link className="item activatable" to="/contact">Contact</Link>
+                <Link className="item activatable" to={process.env.REACT_APP_PATH_CONTACT}>Contact</Link>
                 <DividerPoint/>
-                <Link className="item activatable" to="/imprint">Imprint</Link>
+                <Link className="item activatable" to={process.env.REACT_APP_PATH_IMPRINT}>Imprint</Link>
                 <DividerPoint/>
-                <Link className="item activatable" to="/privacy">Privacy Statement</Link>
+                <Link className="item activatable" to={process.env.REACT_APP_PATH_PRIVACY_STATEMENT}>Privacy Statement</Link>
             </div>
-            <p className="copyright-statement"><Link to="/">Partycipate AG</Link> © { new Date().getFullYear() }</p>
+            <p className="copyright-statement"><Link to={process.env.REACT_APP_PATH_HOME}>Partycipate AG</Link> © { new Date().getFullYear() }</p>
         </footer>
     )
 }

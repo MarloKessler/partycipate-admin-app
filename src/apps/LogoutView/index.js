@@ -20,7 +20,7 @@ export default function LogoutView() {
       <div className="lv-body">
         <CardElement className="primary-element lv-card"> 
           <p>We hope to see you back soon on</p>
-          <Link to="/" ><img src={ `${process.env.PUBLIC_URL}/images/logo.png` }/></Link>
+          <Link to={process.env.REACT_APP_PATH_HOME} ><img src={ `${process.env.PUBLIC_URL}/images/logo.png` }/></Link>
         </CardElement> 
       </div>
     </StandardPage>

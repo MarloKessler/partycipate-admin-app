@@ -2,20 +2,33 @@ import "./style.css"
 import { useEffect } from "react"
 import Faq from "react-faq-component"
 import { useParams } from "react-router"
+import { CopyBlock, dracula } from "react-code-blocks"
 import StandardPage from "../StandardPage"
 
 
-const generalFAQs = {
+const generalFAQs = () => ({
     title: "About Partycipate",
     rows: [
         {
             id: "what-is-partycipate",
             title: "What is Partycipate?",
-            content: `Partycipate is an easy-to-use survey tool. <br>Learn more about us <a href='/why-partycipate' class='FAQ_Link'>here</a>! `,
+            content: (
+                <p>
+                    Partycipate is an easy-to-use survey tool. 
+                    <br/>
+                    Learn more about us <a href={process.env.REACT_APP_PATH_WHY_PARTICIPATE}>here</a>!
+                </p>
+            ),
         },
         {
             title: "Do I need to be a developer to use Partycipate?",
-            content: `Absolutely not! Our goal is to make creating surveys as easy as possible. <br>Learn more about creating surveys <a href='/create-survey' class='FAQ_Link'>here</a>!`,
+            content: (
+                <p>
+                    Absolutely not! Our goal is to make creating surveys as easy as possible.
+                    <br/>
+                    Learn more about creating surveys <a href={`${process.env.REACT_APP_PATH_DOCS}/${HelpSections.createSurvey}`}>here</a>!
+                </p>
+            ),
         },
         {
             title: "How secure is Partycipate?",
@@ -23,10 +36,10 @@ const generalFAQs = {
         },
         {
             title: "How can I register at Partycipate?",
-            content: `Registrating at Partycipate is easy. Just enter your e-mail address and set a password and you're good to go. You can do so  <a href=' /signup' class='FAQ_Link'>here </a>.`,
+            content: <p>Registrating at Partycipate is easy. Just enter your e-mail address and set a password and you're good to go. You can do so  <a href={process.env.REACT_APP_PATH_SIGN_UP}>here</a>.</p>,
         },
     ],
-}
+})
 
 const analyseSurveysFAQs = {
     title: "Analyse results",
@@ -34,11 +47,17 @@ const analyseSurveysFAQs = {
         {
             id: "check-results",
             title: "How can I check the results of my survey?",
-            content: "You can find your survey results in <a href='/surveys' class='FAQ_Link'>View Results</a>." ,
+            content: <p>You can find your survey results in <a href={process.env.REACT_APP_PATH_SURVEY_OVERVIEW}>View Results</a>.</p>,
         },
         {
             title: "Who is allowed to see the results of a survey?",
-            content: `Partycipants get a short overview of the survey-results after answering. <br>Creators of a survey can get a full report in <a href='/surveys' class='FAQ_Link'>View Results</a>.`,
+            content: (
+                <p>
+                    Partycipants get a short overview of the survey-results after answering.
+                    <br/>
+                    Creators of a survey can get a full report in <a href={process.env.REACT_APP_PATH_SURVEY_OVERVIEW}>View Results</a>.
+                </p>
+            ),
         },
         {
             title: "Can a participant answer a question twice?",
@@ -46,8 +65,15 @@ const analyseSurveysFAQs = {
         },
         {
             title: "Does a participant need an account to take part in a survey?",
-            content: `No. A participant can take part in a Partycipate survey without an account. <br>However, if you want to create a survey, you will need an account.
-                    <br>Either  <a href='/create-account' class='FAQ_Link'>create</a> an account or  <a href='/log-in' class='FAQ_Link'>log in</a>.`,
+            content: (
+                <p>
+                    No. A participant can take part in a Partycipate survey without an account.
+                    <br/>
+                    However, if you want to create a survey, you will need an account.
+                    <br/>
+                    Either <a href={process.env.REACT_APP_PATH_SIGN_UP}>create an account</a> or  <a href={process.env.REACT_APP_PATH_LOGIN}>log in</a>.
+                </p>
+            ),
         },
     ],
 }
@@ -58,20 +84,28 @@ const createSurveyFAQs = {
         {
             id: "create-survey",
             title: "How can I create a survey?",
-            content: `
-            1.	<a href='/create-survey' class='FAQ_Link' >Start</a> choosing your survey type:
-            <br>Decide between a single- or multiple-choice survey, click on ‘save’ and you will get directed to the next step.
-            
-            <br> <br> 2.	Specify the details of your survey:
-            <br>Set the name for your survey first. This name is only used for storing. 
-            <br>Next, enter your question of interest in an easily understandable way.
-            <br>Last, define the answer possibilities. To add an additional one, click on “add answer". 
-            To delete an answer, click on the bin-symbol right next to it. 
-            <br>You can also change the survey type using the drop-down button on the right. 
-            When you're finished, click on "save" to get directed to the final step. 
-            
-            <br> <br> 3.	Implement your survey:
-            <br>In the last step you get your code snippet. Copy and paste it to your website. Don't forget to also copy our privacy snippet. Congratulations, you're down and your survey is now answerable! `,
+            content: (
+                <ol>
+                    <li>
+                        Go to <a href={process.env.REACT_APP_PATH_CREATE_SURVEY} target="blank" >"Create Survey"</a> and choose your survey type:<br/>
+                        Decide between a single- or multiple-choice survey, click on ‘save’ and you will get directed to the next step.
+                    </li>
+                    <li>
+                        Specify the details of your survey: 
+                        <ul style={{paddingTop: "10px"}}>
+                            <li>Set the name for your survey first. This name is only used for storing.</li>
+                            <li>Next, enter your question of interest in an easily understandable way.</li>
+                            <li>Last, define the answer possibilities. To add an additional one, click on “add answer".</li>
+                            <li>To delete an answer, click on the bin-symbol right next to it.</li>
+                            <li style={{paddingBottom: "0"}}>You can also change the survey type using the drop-down button on the right. When you're finished, click on "save" to get directed to the final step.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Implement your survey: <br/>
+                        In the last step you get your code snippet. Copy and paste it to your website. Don't forget to also copy our privacy snippet. Congratulations, you're down and your survey is now answerable! 
+                    </li>
+                </ol>
+            ),
         },
         {
             id: "which-survey-types-do-you-offer",
@@ -80,8 +114,44 @@ const createSurveyFAQs = {
         },
         
         {
-            title: "Do you offer any help concerning privacy documentation?",
-            content: `Of course we do. You can copy the following snippet to your website: `,
+            title: "Adapt my sites privacy statement",
+            content: (
+                <div>
+                    <p>We recommend to insert the following text into your privacy statement under the subsection “Surveys", which is proofen by our legal experts:</p>
+                    <div style={{paddingLeft: "10px", borderLeft: "2px solid #BBD9DB"}}>
+                        <h3>Partycipate</h3>
+                        <p>This website uses functions of the online survey service Partycipate. The provider of this service is Partycipate AG (&bdquo;Partycipate&ldquo;), Roteb&uuml;hlplatz 41, Geb&auml;ude 1 70178 Stuttgart, Germany.</p>
+                        <p>Partycipate is a tool used to conduct surveys on this website. When participating in a survey only data transmitted by the browser in use will be stored and processed.</p>
+                        <p>Partycipate uses so-called cookies. Cookies are text files, which are stored on your computer and that enable an analysis of the use of the website by users. The information generated by cookies on your use of this website is usually transferred to a Partycipate server in Germany, where it is stored.</p>
+                        <p>The storage of Partycipate cookies and the utilization of this survey tool are based on Art. 6 Sect. 1 lit. f GDPR. The operator of this website has a legitimate interest in the analysis of conducted user surveys to optimize both, the services offered online and the operator&rsquo;s advertising activities. If a corresponding agreement has been requested (e.g. an agreement to the storage of cookies), the processing takes place exclusively on the basis of Art. 6 para. 1 lit. a GDPR; the agreement can be revoked at any time.</p>
+                        <p>You do have the option to prevent the archiving of cookies by making pertinent changes to the settings of your browser software. However, we have to point out that in this case you may not be able to use all of the functions of this website to their fullest extent.</p>
+                        <p> Partycipate uses Google Analytics. For more information about the handling of user data by Partycipate, please consult Partycipate&rsquo;s Data Privacy Declaration at: <a href={process.env.REACT_APP_PATH_PRIVACY_STATEMENT}>Partycipate Data Privacy Declaration Link</a>.</p>
+                        <p><strong>Archiving period</strong> </p>
+                        <p>Data on the user or incident level stored by Partycipate linked to cookies will be retained as long as needed or permitted in the light of the purpose it was obtained for and consistent with applicable law.</p>
+                    </div>
+                    <br/>
+                    <p>Alternatively, you can also copy the following HTML code snippet:</p>
+                    <CopyBlock
+                        className="code-block"
+                        text={
+`
+<h3>Partycipate</h3>
+<p>This website uses functions of the online survey service Partycipate. The provider of this service is Partycipate AG (&bdquo;Partycipate&ldquo;), Roteb&uuml;hlplatz 41, Geb&auml;ude 1 70178 Stuttgart, Germany.</p>
+<p>Partycipate is a tool used to conduct surveys on this website. When participating in a survey only data transmitted by the browser in use will be stored and processed.</p>
+<p>Partycipate uses so-called cookies. Cookies are text files, which are stored on your computer and that enable an analysis of the use of the website by users. The information generated by cookies on your use of this website is usually transferred to a Partycipate server in Germany, where it is stored.</p>
+<p>The storage of Partycipate cookies and the utilization of this survey tool are based on Art. 6 Sect. 1 lit. f GDPR. The operator of this website has a legitimate interest in the analysis of conducted user surveys to optimize both, the services offered online and the operator&rsquo;s advertising activities. If a corresponding agreement has been requested (e.g. an agreement to the storage of cookies), the processing takes place exclusively on the basis of Art. 6 para. 1 lit. a GDPR; the agreement can be revoked at any time.</p>
+<p>You do have the option to prevent the archiving of cookies by making pertinent changes to the settings of your browser software. However, we have to point out that in this case you may not be able to use all of the functions of this website to their fullest extent.</p>
+<p> Partycipate uses Google Analytics. For more information about the handling of user data by Partycipate, please consult Partycipate&rsquo;s Data Privacy Declaration at: <a href="${window.location.origin}${process.env.REACT_APP_PATH_PRIVACY_STATEMENT}">Partycipate Data Privacy Declaration Link</a>.</p>
+<p><strong>Archiving period</strong> </p>
+<p>Data on the user or incident level stored by Partycipate linked to cookies will be retained as long as needed or permitted in the light of the purpose it was obtained for and consistent with applicable law.</p>
+
+`
+                        }
+                        language={"html"}
+                        theme={dracula}
+                    />
+                </div>
+            ),
         },
         {
             title: "Do you have any advice for creating a good survey?",
@@ -97,15 +167,20 @@ const accountFAQs = {
     rows: [
         {
             title: "How can I delete my account?",
-            content: `If you want to delete your account, you can do so in the section <a href='/my-account' class='FAQ_Link'>My Account</a>. <br>Do think twice before you delete your account, your data can't be restored afterwards.`,
+            content: (
+                <p>
+                    If you want to delete your account, you can do so in the section <a href={process.env.REACT_APP_PATH_ACCOUNT_VIEW}>My Account</a>.<br/>
+                    Do think twice before you delete your account, your data can't be restored afterwards.
+                </p>
+            ),
         },
         {
             title: "How can I change my password?",
-            content: `If you want to change your password, you can do so in the section <a href='/my-account' class='FAQ_Link'>My Account</a>.`,
+            content: <p>If you want to change your password, you can do so in the section <a href={process.env.REACT_APP_PATH_ACCOUNT_VIEW}>My Account</a>.</p>,
         },
         {
             title: "How can I change my name and email?",
-            content: `If you want to change your name and email, you can do so in the section <a href='/my-account' class='FAQ_Link'>My Account</a>.`,
+            content: <p>If you want to change your name and email, you can do so in the section <a href={process.env.REACT_APP_PATH_ACCOUNT_VIEW}>My Account</a>.</p>,
         },
         {
             title: "Can I restore my account after deletion?",
@@ -119,7 +194,7 @@ const additionalFAQs = {
     rows: [
         {
             title: "I have an additional question?",
-            content: `Please, don't hesitate and <a href='/contact' class='FAQ_Link'>contact</a> us!`,
+            content: <p>Please, don't hesitate and <a href={process.env.REACT_APP_PATH_CONTACT}>contact us!</a></p>,
         },
     ],
 }
@@ -154,7 +229,7 @@ export default function DocsView() {
     return (
         <StandardPage title="FAQs: 🎉" className="docs-view">
             <section id="general" className="doc-section">
-                <Faq data={generalFAQs} styles={styles}/>
+                <Faq data={generalFAQs()} styles={styles}/>
             </section>
             <section id="create-survey" className="doc-section">
                 <Faq data={createSurveyFAQs} styles={styles}/>

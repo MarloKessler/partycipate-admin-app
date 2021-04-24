@@ -19,7 +19,7 @@ export default function ContactView(){
             <AiOutlineMail/>
             hello@partycipate.de
           </a>
-          <Link to="/docs" className="link">
+          <Link to={process.env.REACT_APP_PATH_DOCS} className="link">
             <IoHelpOutline/>
             Docs
           </Link>
