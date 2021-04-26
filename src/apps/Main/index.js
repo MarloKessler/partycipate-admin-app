@@ -62,7 +62,7 @@ export default function Main() {
                   <Route exact path={process.env.REACT_APP_PATH_HOME} component={HomeView}/>
                   <Route exact path={process.env.REACT_APP_PATH_WHY_PARTICIPATE} component={WhyPartycipateView}/>
                   <Route exact path={process.env.REACT_APP_PATH_DOCS} component={DocsView}/>
-                  <Route exact path={`${process.env.REACT_APP_PATH_DOCS}:id`} component={DocsView}/>
+                  <Route exact path={`${process.env.REACT_APP_PATH_DOCS}/:id`} component={DocsView}/>
                   <Route exact path={process.env.REACT_APP_PATH_CONTACT} component={ContactView}/>
                   <Route exact path={process.env.REACT_APP_PATH_IMPRINT} component={ImprintView}/>
                   <Route exact path={process.env.REACT_APP_PATH_PRIVACY_STATEMENT} component={PrivacyStatementView}/>
