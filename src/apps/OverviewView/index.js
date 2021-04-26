@@ -2,10 +2,8 @@ import "./style.css"
 import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import Server from "../Server"
-import StandardPage from "../StandardPage"
-import ErrorPage from "../ErrorPage"
-import CardElement from "../CardElement"
-import { HelpSections } from "../DocsView"
+import { ErrorPage, CardElement, StandardPage } from "../utilElements"
+import { HelpSections } from "../PublicApp"
 import CrossSurveyResultsCard from "../CrossSurveyResultsCard"
 
 

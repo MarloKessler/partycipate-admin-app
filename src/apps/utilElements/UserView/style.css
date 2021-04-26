@@ -1,0 +1,64 @@
+.av-card {
+    flex: 1 1 100%;
+}
+
+.av-body {
+    margin: 0 -20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.av-body form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.av-body form label {
+    margin: 30px 0 5px;
+}
+
+.av-body form label:first-of-type {
+    margin-top: 15px;
+}
+
+.av-body form input {
+    margin-bottom: 5px;
+    width: 70%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.user-view .btn-delete {
+    color: #ff0059;
+}
+
+.user-view .card-element button {
+    margin: 30px auto 0;
+}
+
+.user-view .notification .toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.user-view .notification .toolbar button {
+    margin: 0 10px;
+}
+
+.buttonbar {
+    margin-top: auto;
+}
+
+@media(min-width: 1200px) {
+    .av-card {
+        flex: 1 1 30%;
+    }
+
+    .av-body > .av-card {
+        margin-right: 20px;
+    }
+}

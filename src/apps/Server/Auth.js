@@ -27,19 +27,19 @@ export default class Auth {
     static async login(email, password) {
         const result = await Fetch.post("api/auth/signin", { username: email, password: password })
         console.log("login result: ", result)
-        if (result.token) {
-            token = result.token
-            Cookies.set("partycipate-session-token", token, { expires: 1 })
-            await loadUser()
-        }
+        setToken(result)
+        await loadUser()
     }
 
 
-    static async updateUser(email, name) {
-        await Fetch.post("", { email: email, name: name })
-        const oldUser = JSON.parse(JSON.stringify(user))
-        user.name = name
-        user.email = email
+    static async updateUser(user) {
+        console.log("user: ", user)
+        const result = await Fetch.post("api/user", { email: user.email, name: user.name })
+        console.log("result: ", result)
+        setToken(result)
+        const oldUser = Object.assign({}, user)
+        user.name = user.name
+        user.email = user.email
         AuthStateListeners.callListeners(user, oldUser)
     }
 
@@ -74,13 +74,22 @@ export default class Auth {
 
 
 
+function setToken(result) {
+    if (result.token) {
+        token = result.token
+        Cookies.set("partycipate-session-token", token, { expires: 1 })
+    } else throw Error("No token provided")
+}
+
+
+
 async function restoreSession() {
-    //token = Cookies.get("partycipate-session-token")
-    //if (token) await loadUser()
-    //else {
-    //    user = null
-    //    AuthStateListeners.callListeners(user, undefined)
-    //}
+    token = Cookies.get("partycipate-session-token")
+    if (token) await loadUser()
+    else {
+        user = null
+        AuthStateListeners.callListeners(user, undefined)
+    }
     
 await loadUser() // REMOVE IF USER LOADING WORKS
 }
@@ -88,15 +97,15 @@ await loadUser() // REMOVE IF USER LOADING WORKS
 
 
 async function loadUser() {
-    //try {
-    //    const u = await Fetch.get("api/user")
-    //    console.log("user: ", u)
-    //    u.token = token
-    //    user = u
-    //} catch (error) {
-    //    user = null
-    //}
-user = {name: "truth", email: "truth.s.gatsby@email.com", token: "1234567890"} // REMOVE IF USER LOADING WORKS
+    try {
+        const u = await Fetch.get("api/user")
+        console.log("user: ", u)
+        u.token = token
+        user = u
+    } catch (error) {
+        user = null
+    }
+//user = {name: "truth", email: "truth.s.gatsby@email.com", token: "1234567890", roles: ["admin"]} // REMOVE IF USER LOADING WORKS
     AuthStateListeners.callListeners(user, undefined)
 }
 

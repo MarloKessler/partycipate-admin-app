@@ -1,0 +1,19 @@
+.legal-view h2 {
+    margin: 30px 0 20px;
+} 
+
+.legal-view h3 {
+    margin: 20px 0 10px;
+}
+
+.legal-view h4 {
+    margin: 10px 0 5px;
+}
+
+.legal-view p {
+    margin-top: 0;
+}
+
+.legal-view a {
+    text-decoration: underline;
+}

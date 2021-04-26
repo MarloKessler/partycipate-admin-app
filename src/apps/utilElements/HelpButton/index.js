@@ -1,0 +1,11 @@
+import "./style.css"
+import { IoHelpOutline } from "react-icons/io5"
+
+
+export function HelpButton({ className = "", section: sectionID = "" }) {
+    return (
+        <a className={`btn-light help-button ${className}`} href={`${window.location.origin}${process.env.REACT_APP_PATH_DOCS}/${sectionID}`} target="blank">
+            <IoHelpOutline/>
+        </a>
+    )
+}

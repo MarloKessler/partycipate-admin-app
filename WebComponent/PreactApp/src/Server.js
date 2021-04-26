@@ -1,4 +1,5 @@
 import 'regenerator-runtime/runtime'
+import Cookies from "js-cookie"
 
 
 const endpoint = "http://localhost:8088/api"
@@ -51,5 +52,29 @@ export default class Server {
         const response = await fetch(`${endpoint}/participant/results/${id}`, initObject)
         const results = await response.json()
         return results
+    }
+
+
+    static async setParticipant(surveyID) {
+        const participant_cookie_name = "partycipate-ppc"
+
+        // Get participant cookie
+        const participantCookie = Cookies.get(participant_cookie_name)
+        const participant = {
+            "survey_id": surveyID,
+            "participant_cookie": participantCookie,
+            "language": window.navigator.language
+        }
+
+        // Send participant
+        const response = await fetch(`${endpoint}/participant`, { method: "POST", body: participant })
+        const responseBody = await response.json()
+
+        // Handle response
+        const newParticipant = responseBody.participant_cookie
+        if (newParticipant) {
+            Cookies.set(participant_cookie_name, responseBody.participant_cookie)
+            return responseBody.participant.id
+        } else return responseBody.participant_id
     }
 }

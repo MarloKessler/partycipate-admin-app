@@ -9,9 +9,9 @@ export default class SurveyComponent extends Component {
     constructor(props) {
         super(props)
         const survey = props.survey
-        const response = { id: survey.id, elements: [] }
+        const response = { id: survey.id, elements: [], browser_language: window.navigator.language }
         // Prepare response
-        survey.elements.forEach(element => response.elements.push({ participant_id: 1, survey_element_id: element.id, answer: [] }))
+        survey.elements.forEach(element => response.elements.push({ survey_element_id: element.id, answer: [] }))
         
         this.state = {
             survey: survey,
@@ -22,7 +22,11 @@ export default class SurveyComponent extends Component {
     }
 
     sendResponse() {
-        Server.sendResponse(this.state.response)
+        Server.setParticipant(this.state.response.id)
+        .then(participantID => {
+            const response = Object.assign({participant_id: participantID}, this.state.response)
+            return Server.sendResponse(response)
+        })
         .then(() => {
             Cookies.set(`partycipate-survey-${this.state.survey.id}-partycipated`, true)
             this.props.responseSent()
@@ -48,7 +52,7 @@ export default class SurveyComponent extends Component {
 function SurveyElement({ type, index }) {
     switch (type) {
         case "single-choice":
-        case "multiple-choice": return <QuestionElement className="survey-element" index={ index }/>
+        case "multiple-choice": return <QuestionElement className="survey-element" index={index}/>
         default: <div></div>
     }
 }

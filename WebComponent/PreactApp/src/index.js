@@ -1,7 +1,7 @@
 import { h } from "preact"
 import { useEffect, useRef, useState } from "preact/hooks"
 import register from "preact-custom-element"
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie"
 import Server from "./Server"
 import setStyle from "./setStyle"
 import SurveyComponent from "./SurveyComponent"
