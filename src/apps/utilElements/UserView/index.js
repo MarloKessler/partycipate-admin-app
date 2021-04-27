@@ -21,8 +21,8 @@ export function UserView({ user, helpSection, confirmNewPasswort=false, onUpdate
   const [oldPW, setOldPW] = useState("")
   const [pw1, setPW1]     = useState("")
   const [pw2, setPW2]     = useState("")
-  const [name, setName]   = useState(user.name)
-  const [email, setEmail] = useState(user.email)
+  const [name, setName]   = useState(user.name || "")
+  const [email, setEmail] = useState(user.email || "")
 
   const [showDeletationWarning, setShowDeletationWarning] = useState(false)
 

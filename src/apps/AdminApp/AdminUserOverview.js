@@ -1,5 +1,4 @@
 import Server from "../Server"
-import { HelpSections } from "../PublicApp"
 import { ListView } from "../utilElements"
 
 
@@ -11,7 +10,7 @@ export function AdminUserOverview() {
             errorMessage="We are sorry, the users couldn't be loaded!"
             listItemContent={user => 
                 <div style={{ textAlign: "start" }}> 
-                    <p>{user.name}</p>
+                    <p style={{ margin: "0" }}>{user.name}</p>
                     <small>{user.email}</small>
                 </div>
             }

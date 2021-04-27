@@ -21,6 +21,7 @@ code {
 }
 
 h1, h2, h3, h4, h5, h6, p, a, label, input, textarea, button, div {
+  transition: color .3s;
   color: #647374;
 }
 
@@ -198,7 +199,16 @@ a {
   background-color: white;
 }
 
-.link-light a:hover {
+.link-light:hover h1, 
+.link-light:hover h2, 
+.link-light:hover h3, 
+.link-light:hover h4, 
+.link-light:hover h5, 
+.link-light:hover h6, 
+.link-light:hover p, 
+.link-light:hover a, 
+.link-light:hover label, 
+.link-light:hover div {
   transition: .3s;
   color: #BBD9DB;
 }
@@ -222,7 +232,6 @@ a {
   transition: .3s;
   background-color: rgba(235, 235, 235, 0.5);
 }
-
 
 
 
