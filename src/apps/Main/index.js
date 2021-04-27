@@ -60,8 +60,8 @@ export default function Main() {
                   <SecureRoute user={user} exact path={`${process.env.REACT_APP_PATH_SURVEY_OVERVIEW}/:id`} component={ResultsView}/>
                   <SecureRoute user={user} exact path={process.env.REACT_APP_PATH_ACCOUNT_VIEW} component={AccountView}/>
 
-                  <AdminRoute user={user} exact path={"/users"} component={AdminUserOverview}/>
-                  <AdminRoute user={user} exact path={"/users/:userID"} component={AdminUserView}/>
+                  <AdminRoute user={user} exact path={process.env.REACT_APP_PATH_USERS_OVERVIEW} component={AdminUserOverview}/>
+                  <AdminRoute user={user} exact path={`${process.env.REACT_APP_PATH_USERS_OVERVIEW}/:userID`} component={AdminUserView}/>
                   
                   <Route path="*" component={Page404}/>
                 </Switch>

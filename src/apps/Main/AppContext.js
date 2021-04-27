@@ -1,5 +1,5 @@
 
-const backendPaths = ["dashboard", "create-survey", "surveys", "my-account"]
+const backendPaths = ["dashboard", "create-survey", "surveys", "my-account", "users"]
 
 export default class App {
     static userIsInBackend()  {
