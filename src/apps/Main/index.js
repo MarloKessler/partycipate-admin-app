@@ -83,7 +83,7 @@ function SecureRoute({ user, exact, path, component }) {
 
 function AdminRoute({ user, exact, path, component }) {
   const history = useHistory()
-  const userIsAdmin = () => Array.isArray(user.roles) && user.roles.includes("admin")
+  const userIsAdmin = () => user && Server.admin().userIsAdmin(user)
   return userIsAdmin() ? <Route exact={exact} path={path} component={component}/> : <Page404/>
 }
 
