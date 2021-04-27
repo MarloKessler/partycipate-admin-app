@@ -1,22 +1,22 @@
-.survey-overview {
+.list-view {
     width: 100%;
     height: fit-content;
     padding-bottom: 50px;
 }
 
 
-.survey-overview .so-csrc {
-    width: calc(100% - 60px);
+.list-view .so-csrc {
+   
 }
 
 
-.survey-list {
+.item-list {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.so-search-bar-container {
+.lv-search-bar-container {
     position: sticky;
     /* Setting the top to 0px leads to a small gap between the searchbar and the top */
     top: -1px;
@@ -25,7 +25,7 @@
     background-color: #F5F5F5;
 }
 
-.so-search-bar-container .so-search-bar {
+.lv-search-bar-container .lv-search-bar {
     margin: 0;
     padding: 10px 20px;
     transition: .3s;
@@ -36,13 +36,14 @@
     box-shadow: none;
 }
 
-.so-search-bar input {
+.lv-search-bar input {
     width: 100%;
     border: none;
     background-color: transparent;    
 }
 
-.survey-list .so-card {
+.item-list .lv-card {
+    width: calc(100% - 80px);
     margin: 10px 20px;
     padding: 20px;
 }

@@ -5,7 +5,7 @@ import Server from "../../Server"
 import CrossSurveyChart from "./CrossSurveyChart"
 
 
-export default function CrossSurveyResultsCard({ className="" }) {
+export default function CrossSurveyResultsCard({ className="", ...props }) {
     const [crossSurveyResults, setCrossSurveyResults] = useState()
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export default function CrossSurveyResultsCard({ className="" }) {
     }, [])
     
     if (crossSurveyResults) return (
-        <CardElement className={`cross-survey-results-card primary-element ${className}`}>
+        <CardElement className={`cross-survey-results-card primary-element ${className}`} {...props}>
             <h2>Overall participants</h2>
             <CrossSurveyChart data={crossSurveyResults}/>
         </CardElement>
