@@ -9,14 +9,12 @@
     flex: 1 1 100%;
 }
 
-.why-participate > .wpv-column:first-of-type > p {
-    text-align: left;    
-}
-
 .wpv-card-element {
     text-align: center;
     font-size: smaller;
 }
+
+
 
 @media(min-width: 900px) {
     .why-participate > .wpv-column {

@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import Faq from "react-faq-component"
 import { useParams } from "react-router"
 import { CopyBlock, dracula } from "react-code-blocks"
-import { StandardPage } from "../../utilElements"
+import { StandardPage, YTVideo } from "../../utilElements"
 
 
 const generalFAQs = () => ({
@@ -13,11 +13,11 @@ const generalFAQs = () => ({
             id: "what-is-partycipate",
             title: "What is Partycipate?",
             content: (
-                <p>
-                    Partycipate is an easy-to-use survey tool. 
-                    <br/>
-                    Learn more about us <a href={process.env.REACT_APP_PATH_WHY_PARTICIPATE}>here</a>!
-                </p>
+                <div>
+                    <p>Partycipate is an easy-to-use survey tool.<br/></p>
+                    <YTVideo url={process.env.REACT_APP_INTRO_VIDEO_URL} alt="Hello, we are Partycipate!"/>
+                    <p>Learn more about us <a href={process.env.REACT_APP_PATH_WHY_PARTICIPATE}>here</a>!<br/></p>
+                </div>
             ),
         },
         {

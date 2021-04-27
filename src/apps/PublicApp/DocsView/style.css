@@ -36,3 +36,9 @@
 .docs-view ol > li, .docs-view ul > li {
     padding-bottom: 10px;
 }
+
+.docs-view .yt-video-container {
+    margin: 20px auto;
+    max-width: 700px;
+    max-height: 393px;
+}

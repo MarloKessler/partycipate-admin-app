@@ -15,3 +15,7 @@
 .survey-results .results-element {
     margin: 30px 20px;
 }
+
+.survey-results > h3 {
+    margin: 50px auto;
+}

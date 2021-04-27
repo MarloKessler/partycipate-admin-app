@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import Server from "../../Server"
 import { ErrorPage, PageTitleElement, StandardPage } from "../../utilElements"
 import QuestionResultsElement from "./QuestionResultsElement"
+import GeoChart from "./GeoChart"
 
 
 export function ResultsView() {
@@ -15,16 +16,22 @@ export function ResultsView() {
         .then(setSurvey)
         .catch(() => setSurvey(null))
     }, [])
+
+    function Content() {
+        if (survey) return (
+            <div>
+                <PageTitleElement className="so-page-title">{ survey.title }</PageTitleElement>
+                { Array.isArray(survey.map_results) && <GeoChart data={survey.map_results}/> }
+                { Array.isArray(survey.elements) && survey.elements.map((element, index) => <QuestionResultsElement className="primary-element" element={element} key={index}/>) } 
+            </div>
+        )
+        else if (survey === null) return <ErrorPage message="We re sorry, the survey you requested couldn't be found."/>
+        else return <h3>Loading Results…</h3>
+    }
     
     return (
         <StandardPage className= "survey-results"> 
-            { survey
-                ? <div>
-                    <PageTitleElement className="so-page-title">{ survey.title }</PageTitleElement>
-                    { survey.elements.map((element, index) => <QuestionResultsElement className="primary-element" element={element} key={index}/>) } 
-                </div>
-                : survey === null && <ErrorPage message="We re sorry, the survey you requested couldn't be found."/>
-            }
+            <Content/>
         </StandardPage>
     )
 }
