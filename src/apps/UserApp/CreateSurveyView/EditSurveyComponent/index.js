@@ -1,9 +1,9 @@
 import "./style.css"
 import { useContext } from "react"
-import { FiTrash2 } from "react-icons/fi"
+import { v4 as uuid } from "uuid"
+import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import SurveyContext from "../SurveyContext"
-import { QuestionElement } from "./survey-elements"
-import { CardElement } from "../../../utilElements"
+import SurveyElement from "./SurveyElement"
 import CreateSurveyError from "../CreateSurveyError"
 
 
@@ -18,7 +18,26 @@ export default function EditSurveyComponent({errors}) {
     function addElement() {
         const elements = survey.elements
         if (!Array.isArray(elements)) return
-        elements.push({ position: elements.length, type: "single-choice", question: "", answer_possibilities: [ { position: 1, answer: "" } ], may_skip: false, })
+        elements.push({ id: uuid(), type: "single-choice", question: "", answer_possibilities: [""], may_skip: false, })
+        updateSurvey(survey)
+    }
+
+    function duplicateElement(index) {
+        const elements = survey.elements
+        if (!Array.isArray(elements)) return
+        const newElement = Object.assign({}, elements[index])
+        elements.push(newElement)
+        updateSurvey(survey)
+    }
+
+    function moveElement(result) {
+        const { destination, source } = result
+        if (!destination) return
+        if (destination.droppableId === source.droppableId && destination.index === source.index) return
+        const elements = survey.elements
+        const draggedElements = elements.splice(source.index, 1)
+        elements.splice(destination.index, 0, draggedElements[0])
+        console.log("survey: ", survey)
         updateSurvey(survey)
     }
 
@@ -39,20 +58,19 @@ export default function EditSurveyComponent({errors}) {
                 : <small>The name will not be shown to the user.</small>
             }
             
-            { survey.elements && survey.elements.map( (_, index) =>  <SurveyElement index={index} onDelete={deleteElement}/>) }
+            <DragDropContext onDragEnd={moveElement}>
+                <div>
+                    <Droppable droppableId="element-list">
+                        { provided => (
+                            <div ref={provided.innerRef} {...provided.droppableProps}>
+                                {survey.elements.map((element, index) => <SurveyElement element={element} index={index} onDuplicate={duplicateElement} onDelete={deleteElement} key={element.id}/>)}
+                                {provided.placeholder}
+                            </div>
+                        )}
+                    </Droppable>
+                </div>
+            </DragDropContext>
             <button className="btn-dark" onClick={addElement}>Add Question</button>
-        </div>
-    )
-}
-
-
-function SurveyElement({index, onDelete}) {
-    return (
-        <div className="survey-element-container">
-            <CardElement className="primary-element">
-                <QuestionElement className="survey-element" index={ index } key={ index }/>
-            </CardElement>
-            <button className="btn-dark trash-btn" title="Delete Answer" onClick={ () => onDelete(index) }><FiTrash2/></button>
         </div>
     )
 }

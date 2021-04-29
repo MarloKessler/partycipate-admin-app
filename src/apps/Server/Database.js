@@ -3,6 +3,7 @@ import Fetch, {ResponseType} from "./Fetch"
 
 export default class Database {
     static createSurvey = async survey => {
+        console.log("Survey: ", survey)
         const response = await Fetch.post("api/survey", survey, { responseType: ResponseType.text })
         console.log("res: ", response)
         return response

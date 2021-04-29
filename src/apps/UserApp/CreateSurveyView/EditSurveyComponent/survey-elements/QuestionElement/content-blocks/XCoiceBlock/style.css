@@ -46,7 +46,10 @@
 .xchoice-block .answer-option {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+}
+
+.xchoice-block .answer-option > div:first-of-type {
+    margin-right: 5px;
 }
 
 .xchoice-block .answer-input {

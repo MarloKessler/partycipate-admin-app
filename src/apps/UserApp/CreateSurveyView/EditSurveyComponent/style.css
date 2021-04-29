@@ -4,9 +4,6 @@
 }
 
 
-.edit-survey-component label, .edit-survey-component small {
-    margin-left: 5px;
-}
 
 .edit-survey-component input {
     margin: 10px 0;
@@ -14,27 +11,6 @@
 
 .edit-survey-component .s-name-input {
     font-size: 1.1em;
-}
-
-
-/* Survey Element */
-.edit-survey-component > .survey-element-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.edit-survey-component > .survey-element-container > button {
-    margin: 0 0 0 20px;
-}
-
-.edit-survey-component > .survey-element-container > .card-element {
-    margin: 20px 0;
-    width: 100%;
-}
-
-.edit-survey-component > .survey-element-container > .card-element input {
-    border: 1px solid #647374;
 }
 
 .edit-survey-component > button {

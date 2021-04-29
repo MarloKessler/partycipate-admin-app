@@ -1,0 +1,28 @@
+.survey-element-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.survey-element-container > div > div {
+    margin: 0 20px 0 10px;
+}
+
+.survey-element-container > .card-element {
+    margin: 20px 0;
+    width: 100%;
+}
+
+.survey-element-container > .card-element input {
+    border: 1px solid #647374;
+}
+
+.survey-element-container > div:last-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.survey-element-container > div:last-of-type > button {
+    margin: 5px 20px;
+}

@@ -9,7 +9,7 @@ export default class SurveyComponent extends Component {
     constructor(props) {
         super(props)
         const survey = props.survey
-        const response = { id: survey.id, elements: [], browser_language: window.navigator.language }
+        const response = { id: survey.id, elements: [] }
         // Prepare response
         survey.elements.forEach(element => response.elements.push({ survey_element_id: element.id, answer: [] }))
         
@@ -24,8 +24,8 @@ export default class SurveyComponent extends Component {
     sendResponse() {
         Server.setParticipant(this.state.response.id)
         .then(participantID => {
-            const response = Object.assign({participant_id: participantID}, this.state.response)
-            return Server.sendResponse(response)
+            this.state.response.elements.forEach(element => element.participant_id = participantID)
+            return Server.sendResponse(this.state.response)
         })
         .then(() => {
             Cookies.set(`partycipate-survey-${this.state.survey.id}-partycipated`, true)

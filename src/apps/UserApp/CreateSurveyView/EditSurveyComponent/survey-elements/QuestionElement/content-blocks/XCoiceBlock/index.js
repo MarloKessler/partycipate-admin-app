@@ -1,7 +1,10 @@
 import "./style.css"
 import { useContext, useEffect, useState } from "react"
 import { FiChevronDown, FiTrash2 } from "react-icons/fi"
-import { usePopper } from 'react-popper';
+import { MdDragHandle } from "react-icons/md"
+import { usePopper } from 'react-popper'
+import { v4 as uuid } from "uuid"
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
 import SurveyContext from "../../../../../SurveyContext"
 
 
@@ -40,13 +43,23 @@ export function XCoiceBlock({ elementIndex }) {
         // Set flag to focus last answer on rerender
         setFocusOnLastAnswer(true)
         // Add new answer
-        answer_possibilities.push({ position: answer_possibilities.length + 1, answer: "" })
+        answer_possibilities.push("")
         survey.elements[elementIndex].answer_possibilities = answer_possibilities
         updateSurvey(survey)
     }
 
+    const moveAnswer = result => {
+        const { destination, source } = result
+        if (!destination) return
+        if (destination.droppableId === source.droppableId && destination.index === source.index) return
+        const draggedAnswers = answer_possibilities.splice(source.index, 1)
+        answer_possibilities.splice(destination.index, 0, draggedAnswers[0])
+        console.log("element: ", element)
+        updateSurvey(survey)
+    }
+
     const updateAnswer = (event, index) => {
-        answer_possibilities[index].answer = event.target.value
+        answer_possibilities[index] = event.target.value
         survey.elements[elementIndex].answer_possibilities = answer_possibilities
         updateSurvey(survey)
     }
@@ -59,27 +72,34 @@ export function XCoiceBlock({ elementIndex }) {
 
 
     return (
-        <div className="xchoice-block">
-            <div className="xcb-header">
-                <label>Set your answer possibilities</label>
-                <button className="btn-dark btn-icon-right" ref={ setETSButton } onClick={ toggleETSPane }>{ getTypeLabelFor(element.type) }<FiChevronDown/></button>
-                <ElementTypeSelection className={ showETSPane ? "show" : "" } onChange={updateElementType} elementRef={setETSPane} style={ styles.popper } {...attributes.popper}/>
-            </div>
-            { answer_possibilities.map( (possibility, index) => (
-                <div className="answer-option" key={ index }>
-                    <input 
-                        autoFocus={ index === (answer_possibilities.length - 1) && focusOnLastAnswer } 
-                        type="text" className="input answer-input" 
-                        placeholder={ `Answer ${index + 1}` } 
-                        value={ possibility.answer } 
-                        onChange={ event => updateAnswer(event, index) } 
-                        onKeyDown={ event => handleKeyDown(event, index)}
-                    />
-                    <button className="item btn-light trash-btn" title="Delete Answer" onClick={ () => deleteAnswer(index) }><FiTrash2/></button>
+        <DragDropContext onDragEnd={moveAnswer}>
+            <div className="xchoice-block">
+                <div className="xcb-header">
+                    <label>Set your answer possibilities</label>
+                    <button className="btn-dark btn-icon-right" ref={ setETSButton } onClick={ toggleETSPane }>{ getTypeLabelFor(element.type) }<FiChevronDown/></button>
+                    <ElementTypeSelection className={ showETSPane ? "show" : "" } onChange={updateElementType} elementRef={setETSPane} style={ styles.popper } {...attributes.popper}/>
                 </div>
-            )) }
-            <button className="button btn-dark create-answer-btn" title="Add Answer" onClick={ createAnswer }>Add answer</button>
-        </div>
+                <Droppable droppableId="answer-list">
+                    { provided => (
+                        <div ref={provided.innerRef} {...provided.droppableProps}>
+                            { Array.isArray(answer_possibilities) && answer_possibilities.map((answer, index) => (
+                                <AnswerOption
+                                    answer={answer} 
+                                    index={index} 
+                                    focus={index === (answer_possibilities.length - 1) && focusOnLastAnswer}
+                                    onUpdate={updateAnswer} 
+                                    onKeyDown={handleKeyDown}
+                                    onDelete={deleteAnswer}
+                                    key={index}
+                                />
+                            ))}
+                            { provided.placeholder }
+                        </div>
+                    )}
+                </Droppable>
+                <button className="button btn-dark create-answer-btn" title="Add Answer" onClick={createAnswer}>Add answer</button>
+            </div>
+        </DragDropContext>
     )
 }
 
@@ -101,6 +121,28 @@ function ElementTypeSelection({ className = "", elementRef, onChange, ...props }
                 return <button className="btn-light" key={ index } onClick={ () => onChange(type) }><div className="item">{ getTypeLabelFor(type) }</div></button>
             }) }            
         </div>
+    )
+}
+
+
+function AnswerOption({answer, index, focus, onUpdate, onKeyDown, onDelete}) {
+    return (
+        <Draggable draggableId={`${index}`} index={index} key={index}>
+            { provided => (
+                <div className="answer-option" ref={provided.innerRef} {...provided.draggableProps}>
+                    <div {...provided.dragHandleProps}><MdDragHandle/></div>
+                    <input
+                        autoFocus={focus} 
+                        type="text" className="input answer-input" 
+                        placeholder={`Answer ${index + 1}`} 
+                        value={answer} 
+                        onChange={event => onUpdate(event, index) } 
+                        onKeyDown={event => onKeyDown(event, index)}
+                    />
+                    <button className="item btn-light trash-btn" title="Delete Answer" onClick={() => onDelete(index)}><FiTrash2/></button>
+                </div>
+            )}
+        </Draggable>
     )
 }
 
