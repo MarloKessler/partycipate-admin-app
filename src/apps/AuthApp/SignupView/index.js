@@ -1,7 +1,7 @@
 import "./style.css"
 import { useState } from 'react'
 import { Link } from "react-router-dom"
-import { CardElement, StandardPage, PageTitleElement } from "../../utilElements"
+import { CardElement, StandardPage, TitleElement } from "../../utilElements"
 import Server from "../../Server"
 import { FiChevronRight } from "react-icons/fi"
 import Checkbox from '@material-ui/core/Checkbox'
@@ -76,7 +76,7 @@ export function SignupView() {
       <div className="signup-body"> 
         <CardElement className="primary-element su-card">
           <form onSubmit={handleSignup} noValidate>
-            <PageTitleElement>Register now</PageTitleElement>
+            <TitleElement>Register now</TitleElement>
             <label htmlFor="name">Your name:</label>
             <input className="email" type="text" placeholder="Enter name" name="name" value={name} onChange={setValueVia(setName)}/>
 

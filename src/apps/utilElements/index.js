@@ -1,6 +1,6 @@
 export { HelpButton } from "./HelpButton"
 export { ErrorPage } from "./ErrorPage"
-export { PageTitleElement } from "./PageTitleElement"
+export { TitleElement } from "./TitleElement"
 export { Notification } from "./Notification"
 export { CardElement } from "./CardElement"
 export { StandardPage } from "./StandardPage"

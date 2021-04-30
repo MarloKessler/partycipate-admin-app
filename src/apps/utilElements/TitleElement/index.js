@@ -2,7 +2,7 @@ import "./style.css";
 import { HelpButton } from "../HelpButton"
 
 
-export function PageTitleElement({ children, className = "", helpSection }) {
+export function TitleElement({ children, className = "", helpSection }) {
     return(
         <div className={ `page-title-element ${className}` }>
             <div className="pte-title">

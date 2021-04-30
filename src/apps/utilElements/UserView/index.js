@@ -1,7 +1,7 @@
 import "./style.css"
 import { FiChevronRight } from "react-icons/fi"
 import { useState } from "react"
-import { PageTitleElement, CardElement, Notification, StandardPage } from ".."
+import { TitleElement, CardElement, Notification, StandardPage } from ".."
 
 const UpdateUserError = {
   nameError: "nameError",
@@ -126,7 +126,7 @@ export function UserView({ user, helpSection, confirmNewPasswort=false, onUpdate
       <div className="av-body">
         <CardElement className="secondary-element av-card">
           <form onSubmit={handleUpdateUser} noValidate>
-            <PageTitleElement className="Change-name">Change name and e-mail here</PageTitleElement>
+            <TitleElement className="Change-name">Change name and e-mail here</TitleElement>
             <label htmlFor="newname">New name:</label>
             <input type="name" placeholder="Enter name" name="newname" value={name} onChange={setValueVia(setName)}/>
             { updateUserErrorOccured(UpdateUserError.nameError) && <small className="error">Please enter a valid name!</small> }
@@ -145,7 +145,7 @@ export function UserView({ user, helpSection, confirmNewPasswort=false, onUpdate
 
         <CardElement className="secondary-element av-card">
           <form onSubmit={handleUpdatePW} noValidate>
-            <PageTitleElement className="Change-pw">Change password here</PageTitleElement>
+            <TitleElement className="Change-pw">Change password here</TitleElement>
             <label htmlFor="oldpw">Old password:</label>
             <input type="password" placeholder="Enter old password" name="oldpw" value={oldPW} onChange={setValueVia(setOldPW)}/>
             { updatePWErrorOccured(UpdatePWError.oldError) && <small className="error">The old password is not correct. Please try again.</small> }
@@ -168,7 +168,7 @@ export function UserView({ user, helpSection, confirmNewPasswort=false, onUpdate
         </CardElement>
 
         <CardElement className="secondary-element av-card">
-          <PageTitleElement className="delete">Delete account here</PageTitleElement>
+          <TitleElement className="delete">Delete account here</TitleElement>
           <div className="del"> 
             <p>If you choose to delete this account, all surveys will become inactive and all survey results will be lost.</p>
             <p>We will delete all data related to this account.</p>

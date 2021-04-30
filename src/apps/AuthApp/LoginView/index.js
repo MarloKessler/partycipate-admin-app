@@ -2,7 +2,7 @@ import "./style.css"
 import { useState } from "react"
 import { FiChevronRight } from "react-icons/fi"
 import Server from "../../Server"
-import { PageTitleElement, CardElement, StandardPage } from "../../utilElements"
+import { TitleElement, CardElement, StandardPage } from "../../utilElements"
 
 
 export function LoginView() {
@@ -39,7 +39,7 @@ export function LoginView() {
     <StandardPage className="login-view" title="Log in to your existing account! 🎉">
       <CardElement className="primary-element login-card">
         <form onSubmit={handleLogin} noValidate>
-          <PageTitleElement className="login-title">Log-in</PageTitleElement>
+          <TitleElement className="login-title">Log-in</TitleElement>
           <label htmlFor="uname">E-Mail:</label>
           <input type="email" placeholder="Enter E-Mail" name="uname" value={email} onChange={setValueVia(setEmail)}/>
           { errorOccured(LoginError.emailNotRegistered) && <small className="errormessage">Your E-mail could not be found. Please try again!</small> }

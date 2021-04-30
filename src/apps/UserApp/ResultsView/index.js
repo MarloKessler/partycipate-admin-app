@@ -2,7 +2,7 @@ import "./style.css"
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Server from "../../Server"
-import { ErrorPage, PageTitleElement, StandardPage } from "../../utilElements"
+import { ErrorPage, TitleElement, StandardPage } from "../../utilElements"
 import QuestionResultsElement from "./QuestionResultsElement"
 import GeoChart from "./GeoChart"
 
@@ -20,7 +20,7 @@ export function ResultsView() {
     function Content() {
         if (survey) return (
             <div>
-                <PageTitleElement className="so-page-title">{ survey.title }</PageTitleElement>
+                <TitleElement className="so-page-title">{ survey.title }</TitleElement>
                 { Array.isArray(survey.map_results) && <GeoChart data={survey.map_results}/> }
                 { Array.isArray(survey.elements) && survey.elements.map((element, index) => <QuestionResultsElement className="primary-element" element={element} key={index}/>) } 
             </div>
