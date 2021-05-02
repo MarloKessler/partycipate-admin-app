@@ -60,10 +60,10 @@ export function SignupView() {
 
   const nameEntered = () => name.length > 0
   function emailIsValid() {
-    const re = /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return re.test(String(email).toLowerCase())
   }
-  const passwordIsValid = () => password1.length >= 10
+  const passwordIsValid = () => /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{10,}$/.test(password1)
   const passwordsAreEqual = () => password1 === password2
 
 
@@ -92,7 +92,7 @@ export function SignupView() {
 
             <label htmlFor="pw">Password:</label>
             <input className="pass" type="password" placeholder="Enter Password" name="pw" value={password1} onChange={setValueVia(setPassword1)}/>
-            { errorOccured(SignupError.passwordsIsInvalid) && <small className="error">Your password needs at least a length of 10 characters. Please try again!</small> }
+            <small className={errorOccured(SignupError.passwordsIsInvalid) ? "error" : ""}>Your password needs at least a length of 10 characters and needs to contain numbers, uppercase and one lowercase letters.</small>
 
             <label htmlFor="repeat-pw">Repeat password:</label>
             <input className="pass" type="password" placeholder="Repeat Password" name="repeat-pw" value={password2} onChange={setValueVia(setPassword2)}/>

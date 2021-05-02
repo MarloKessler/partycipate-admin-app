@@ -10,14 +10,14 @@ const UpdateUserError = {
 }
 
 const UpdatePWError = {
-  oldError: "oldError",
+  oldPWIsWrong: "Fail -> Old Password is wrong",
   passwordUnequalError: "passwordUnequalError",
-  passwordShortError: "passwordShortError",
+  passwordRules: "Fail -> PasswordRules didn't match",
   unknownError : "unknownError",
 }
 
 
-export function UserView({ user, helpSection, confirmNewPasswort=false, onUpdateUser: updateUser, onUpdatePW: updatePW, onDeleteUser: deleteUser }) {
+export function UserView({ user, helpSection, validateWithOldPasswort=false, onUpdateUser: updateUser, onUpdatePW: updatePW, onDeleteUser: deleteUser }) {
   const [oldPW, setOldPW] = useState("")
   const [pw1, setPW1]     = useState("")
   const [pw2, setPW2]     = useState("")
@@ -31,22 +31,21 @@ export function UserView({ user, helpSection, confirmNewPasswort=false, onUpdate
   const [updatePWSuccess, setUpdatePWSuccess] = useState()
   const [updatePWErrors, setUpdatePWErrors] = useState()
 
+  const setValueVia = setter => event => setter(event.target.value)
+
+
+  const nameIsValid = () => /^(([A-Za-z0-9-]{1,30})[ ]?)*([A-Za-z0-9-]{1,30})?$/.test(name)
 
   function emailIsValid() {
-    const re = /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return re.test(String(email).toLowerCase())
   }
 
-
-  const setValueVia = setter => event => setter(event.target.value)
-  const nameIsValid = () => /^(([A-Za-z0-9-]{1,30})[ ]?)*([A-Za-z0-9-]{1,30})?$/.test(name)
-
-
   function validatePWForm() {
     const errorArray = []
-    if (oldPW === "") errorArray.push(UpdatePWError.oldError)
-    if (pw1.length < 10) errorArray.push(UpdatePWError.passwordShortError)
-    if (confirmNewPasswort && pw1 !== pw2) errorArray.push(UpdatePWError.passwordUnequalError)
+    if (validateWithOldPasswort && oldPW === "") errorArray.push(UpdatePWError.oldPWIsWrong)
+    if (!/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{10,}$/.test(pw1)) errorArray.push(UpdatePWError.passwordRules)
+    if (pw1 !== pw2) errorArray.push(UpdatePWError.passwordUnequalError)
     if (errorArray.length > 0) {
       setUpdatePWErrors(errorArray)
       return false
@@ -66,14 +65,13 @@ export function UserView({ user, helpSection, confirmNewPasswort=false, onUpdate
       setPW1("")
       setPW2("")
     })
-    .catch((errors) => {
+    .catch(error => {
       const errorArray = []
-      switch(errors.message) {
-        case UpdatePWError.oldError : errorArray.push(UpdatePWError.oldError)
-        //case UpdatePWError.passwordUnequalError : errorArray.push(UpdatePWError.passwordUnequalError)
-        //case UpdatePWError.passwordShortError : errorArray.push(UpdatePWError.passwordShortError)
+      switch(error.message) {
+        case UpdatePWError.oldPWIsWrong: errorArray.push(UpdatePWError.oldPWIsWrong)
+        case UpdatePWError.passwordRules: errorArray.push(UpdatePWError.passwordRules)
         break
-        default : errorArray.push(UpdatePWError.unknownError)
+        default: errorArray.push(UpdatePWError.unknownError)
       } 
       setUpdatePWErrors(errorArray)
     })
@@ -146,16 +144,16 @@ export function UserView({ user, helpSection, confirmNewPasswort=false, onUpdate
         <CardElement className="secondary-element av-card">
           <form onSubmit={handleUpdatePW} noValidate>
             <TitleElement className="Change-pw">Change password here</TitleElement>
-            <label htmlFor="oldpw">Old password:</label>
-            <input type="password" placeholder="Enter old password" name="oldpw" value={oldPW} onChange={setValueVia(setOldPW)}/>
-            { updatePWErrorOccured(UpdatePWError.oldError) && <small className="error">The old password is not correct. Please try again.</small> }
+            { validateWithOldPasswort &&  <label htmlFor="oldpw">Old password:</label> }
+            { validateWithOldPasswort && <input type="password" placeholder="Enter old password" name="oldpw" value={oldPW} onChange={setValueVia(setOldPW)}/> }
+            { updatePWErrorOccured(UpdatePWError.oldPWIsWrong) && <small className="error">The old password is not correct. Please try again.</small> }
 
             <label htmlFor="pw1">New password:</label>
             <input type="password" placeholder="Enter new password" name="pw1" value={pw1} onChange={setValueVia(setPW1)}/>
-            { updatePWErrorOccured(UpdatePWError.passwordShortError) && <small className="error">Your password needs at least a length of 10 characters. Please try again!</small> }
+            <small className={updatePWErrorOccured(UpdatePWError.passwordRules) ? "error" : ""}>Your password needs at least a length of 10 characters and needs to contain numbers, uppercase and one lowercase letters.</small>
 
-            { confirmNewPasswort && <label htmlFor="pw2">Repeat new password:</label>}
-            { confirmNewPasswort && <input type="password" placeholder="Repeat new password" name="pw2" value={pw2} onChange={setValueVia(setPW2)}/>}
+            <label htmlFor="pw2">Repeat new password:</label>
+            <input type="password" placeholder="Repeat new password" name="pw2" value={pw2} onChange={setValueVia(setPW2)}/>
             { updatePWErrorOccured(UpdatePWError.passwordUnequalError) && <small className="error">Your password is not equal to the one mentioned above. Please try again!</small> }
 
             { updatePWErrorOccured(UpdatePWError.unknownError) && <small className="error">An error occured. Please try again in some minutes!</small> }

@@ -9,7 +9,7 @@ export function ListView({ title, helpSection, className="", header, errorMessag
 
     useEffect(() => {
         onLoad()
-        .then(setListItems)
+        .then(items => {console.log(items); setListItems(items)})
         .catch(() => setListItems(null))
     }, [])
 

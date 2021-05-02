@@ -91,7 +91,7 @@ async function restoreSession() {
         AuthStateListeners.callListeners(user, undefined)
     }
     
-await loadUser() // REMOVE IF USER LOADING WORKS
+//await loadUser() // REMOVE IF USER LOADING WORKS
 }
 
 

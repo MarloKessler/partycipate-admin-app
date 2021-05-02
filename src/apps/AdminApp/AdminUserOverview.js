@@ -3,7 +3,7 @@ import { ListView } from "../utilElements"
 
 
 export function AdminUserOverview() {
-    const handleFilter = (user, searchInput) => user.name.toLowerCase().includes(searchInput) || user.email.toLowerCase().includes(searchInput)
+    const handleFilter = (user, searchInput) => (user.name && user.name.toLowerCase().includes(searchInput)) || (user.email && user.email.toLowerCase().includes(searchInput))
     return (
         <ListView 
             title="Users"
@@ -14,8 +14,8 @@ export function AdminUserOverview() {
                     <small>{user.email}</small>
                 </div>
             }
-            linkForItem={user => `${process.env.REACT_APP_PATH_SURVEY_OVERVIEW}/${user.id}`}
-            onLoad={Server.admin().getUsers}
+            linkForItem={user => `${process.env.REACT_APP_PATH_USERS_OVERVIEW}/${user.user_id}`}
+            onLoad={() => Server.admin().getUsers().then(users => users.filter(user => Server.auth().currentUser().user_id != user.user_id))}
             onFilter={handleFilter}
         />
     )

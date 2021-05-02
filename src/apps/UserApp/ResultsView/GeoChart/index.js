@@ -63,7 +63,8 @@ function addPolygonSeries(chart, data) {
     })
 
     // Configure series
-    polygonSeries.mapPolygons.template.tooltipText  = "{name}: {value} Participants"
+    console.log("polygonSeries.mapPolygons.template", polygonSeries.mapPolygons.template)
+    polygonSeries.mapPolygons.template.tooltipText = "{name}: {value} Participants"
     chart.smallMap.series.push(polygonSeries)
     return polygonSeries
 }

@@ -13,12 +13,12 @@ export function AdminUserView() {
     useEffect(() => {
         Server.admin().getUser(userID)
         .then(setUser)
-        .catch(error => setUser(null))
+        .catch(() => setUser(null))
     }, [])
 
 
     function handleDeletation() {
-        Server.admin().deleteUser(user.id)
+        Server.admin().deleteUser(user.user_id)
         .then(() => history.goBack())
     }
 
@@ -27,7 +27,7 @@ export function AdminUserView() {
         <UserView
             user={user}
             onUpdateUser={Server.admin().updateUser}
-            onUpdatePW={Server.admin().updatePassword}
+            onUpdatePW={(_, newPW) => Server.admin().updatePassword(user.user_id, newPW)}
             onDeleteUser={handleDeletation}
         />
     )

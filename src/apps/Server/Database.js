@@ -180,30 +180,8 @@ async function insertDatetimeResults(survey) {
 
 
 async function insertMapResults(survey) {
-    //const countryResults = await Fetch.get(`/api/analytics/countries/${survey.id}`)
-    const data = [
-        {
-            "id": "US",
-            "value": 100
-        }, 
-        {
-            "id": "FR",
-            "value": 50
-        }, 
-        {
-            "id": "DE",
-            "value": 60
-        }, 
-        {
-            "id": "GB",
-            "value": 80
-        },
-        {
-            "id": "RU",
-            "value": 65
-        },
-    ]
-    survey.map_results = data
+    const countryResults = await Fetch.get(`api/analytics/countries/${survey.id}`)
+    survey.map_results = countryResults
 }
 
 

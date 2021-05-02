@@ -11,7 +11,7 @@ export function AccountView() {
     <UserView
       helpSection={HelpSections.account}
       user={user}
-      confirmNewPasswort={true}
+      validateWithOldPasswort={true}
 
       onUpdateUser={Server.auth().updateUser}
       onUpdatePW={Server.auth().updatePassword}
