@@ -48,3 +48,7 @@
 .signup-body button {
     margin: 20px auto 0;
 }
+
+.passwordHint {
+    margin-top: 15px;
+}
