@@ -206,8 +206,8 @@ const accountFAQs = {
             content: <p>If you want to change your password, you can do so in the section <a href={process.env.REACT_APP_PATH_ACCOUNT_VIEW}>My Account</a>.</p>,
         },
         {
-            title: "How can I change my name and email?",
-            content: <p>If you want to change your name and email, you can do so in the section <a href={process.env.REACT_APP_PATH_ACCOUNT_VIEW}>My Account</a>.</p>,
+            title: "How can I change my name and e-mail?",
+            content: <p>If you want to change your name and e-mail, you can do so in the section <a href={process.env.REACT_APP_PATH_ACCOUNT_VIEW}>My Account</a>.</p>,
         },
         {
             title: "Can I restore my account after deletion?",
