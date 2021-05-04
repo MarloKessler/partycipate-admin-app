@@ -47,14 +47,24 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            background-color: red;
+            background-color: #444;
+        }
+
+        .m-c > .images {
+            display: flex;
+            flex-direction: column;
         }
 
         .m-c img {
             margin: 20px;
+            height: 300px;
             object-fit: cover;
             overflow: hidden;
             flex: 1 0 20%;
+        }
+
+        .m-c > img {
+            height: 600px;
         }
 
         .s-c {
@@ -66,7 +76,7 @@
             overflow: hidden;
             background-color: white;
         }
-
+        
         .m-c .btn-c {
             margin: 20px;
             height: fit-content;
@@ -115,11 +125,14 @@
         </section>
 
         <div class="m-c">
-            <img src="https://cdn3.vectorstock.com/i/1000x1000/85/42/travel-social-media-add-banner-layout-vector-28638542.jpg" alt="Time to travel">
-            <div class="s-c">
-                <partycipate-survey survey-id="18"/>
+            <div class="images">
+                <img src="https://cdn3.vectorstock.com/i/1000x1000/85/42/travel-social-media-add-banner-layout-vector-28638542.jpg" alt="Time to travel">
+                <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/130291669/original/966a566e1455049c9af317c89b7cd76bd3ee8416/design-clean-and-owesme-add-banner.png" alt="Time to travel">
             </div>
-            <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/130291669/original/966a566e1455049c9af317c89b7cd76bd3ee8416/design-clean-and-owesme-add-banner.png" alt="Time to travel">
+            <div class="s-c">
+                <partycipate-survey survey-id="1"/>
+            </div>
+            <img src="https://www.nicepng.com/png/detail/311-3111466_horizontal-and-vertical-website-banner-ads-for-spectrum.png" alt="Time to travel">
             <div class="btn-c"><a href="./our-great-car-survey.html">Next Page ></a></div>
         </div>
 

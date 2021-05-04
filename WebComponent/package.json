@@ -7,5 +7,9 @@
     "preact": "^10.5.12",
     "preact-custom-element": "^4.2.1",
     "regenerator-runtime": "^0.13.7"
+  },
+  "scripts": {
+    "start": "parcel demosite.html",
+    "build": "parcel build ./src/index.js -d build --no-source-maps && node -e \"require('fs').rename('build/index.js', 'build/partycipate-survey.js', ()=>{})\""
   }
 }

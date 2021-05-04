@@ -23,14 +23,11 @@ function ResultsComponent({ survey }) {
         Server.getSurveyResults(survey.id)
         .then(resultsArray => {
             resultsArray.forEach(resultObject => {
-                console.log("result", resultObject)
                 const element = survey.elements.find(element => element.id == resultObject.element_id)
-                console.log("element", element)
                 if(!element) return
                 element.results = resultObject.results
                 element.count_participants = resultObject.count_participants
             })
-            console.log("survey", survey)
             setResults(survey)
         })
     }, [ survey ])

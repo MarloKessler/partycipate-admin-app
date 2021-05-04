@@ -2,16 +2,13 @@ import 'regenerator-runtime/runtime'
 import Cookies from "js-cookie"
 
 
-const endpoint = "http://localhost:8088/api"
-
-
 export default class Server {
     static async getSurvey(id) {
         const initObject = {
             method: "GET",
             headers: getHeaders(),
         }
-        const response = await fetch(`${endpoint}/participant/survey/${id}`, initObject)
+        const response = await fetch(`${process.env.PREACT_APP_BACKEND_URL}/api/participant/survey/${id}`, initObject)
         const survey = await response.json()
         if (!Array.isArray(survey.elements)) throw Error("No Elements provided.")
         // Sort Elements
@@ -22,7 +19,7 @@ export default class Server {
     }
 
 
-    static async sendResponse(participantResponse) {        
+    static async sendResponse(participantResponse) {      
         const promisses = []
         participantResponse.elements.forEach(elementResponse => {
             let initObject = { 
@@ -30,16 +27,15 @@ export default class Server {
                 headers: getHeaders(),
                 body: JSON.stringify(elementResponse),
             }
-            promisses.push(fetch(`${endpoint}/participant/answer`, initObject))
+            promisses.push(fetch(`${process.env.PREACT_APP_BACKEND_URL}/api/participant/answer`, initObject))
         })
-
         return await Promise.all(promisses)
     }
 
 
     static async getSurveyResults(id) {
         const initObject = { method: "GET" }
-        const response = await fetch(`${endpoint}/participant/results/${id}`, initObject)
+        const response = await fetch(`${process.env.PREACT_APP_BACKEND_URL}/api/participant/results/${id}`, initObject)
         const results = await response.json()
         return results
     }
@@ -56,7 +52,7 @@ export default class Server {
             "language": window.navigator.language
         }
 
-        const response = await fetch(`${endpoint}/participant`, { method: "POST", headers: getHeaders(), body: JSON.stringify(participant) })
+        const response = await fetch(`${process.env.PREACT_APP_BACKEND_URL}/api/participant`, { method: "POST", headers: getHeaders(), body: JSON.stringify(participant) })
         const responseBody = await response.json()
 
         // Handle response

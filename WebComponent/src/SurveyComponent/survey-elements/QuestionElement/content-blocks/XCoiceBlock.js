@@ -7,10 +7,7 @@ export function XCoiceBlock({ elementIndex }) {
     const { survey, response, updateResponse } = useContext(SurveyContext)
     const answersRef = useRef()
     const element = survey.elements[elementIndex]
-    console.log("element: ", element)
     const answerPossibilities = element.answer_possibilities
-    console.log("answerPossibilities: ", answerPossibilities)
-
 
     const onChangeResponse = () => {
         const elements = answersRef.current.querySelectorAll(`input[name='${element.id}']`)
