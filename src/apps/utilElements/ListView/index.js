@@ -40,7 +40,7 @@ function List({listItems, onFilter, listItemContent, linkForItem}) {
     return (
         <div>
             <div className="lv-search-bar-container">
-                <CardElement className="lv-search-bar"><input type="text" placeholder="Search" onInput={handleSearchInput}/></CardElement>
+                <input type="text" placeholder="Search" onInput={handleSearchInput}/>
             </div>
             <ul className="item-list">
                 { Array.isArray(filteredItems) &&

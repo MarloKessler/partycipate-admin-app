@@ -4,7 +4,13 @@ import Chart from 'chart.js'
 import { getBGColors } from "../utils"
 
 
-export default function TrendChart({ element }) {
+export const TrendChartMode = {
+    stacked: "stacked",
+    single: "single",
+}
+
+
+export default function TrendChart({ element, mode }) {
     const chartRef  = useRef()
     const [stackedChart, setStackedChart] = useState(false)
     const [chart, setChart] = useState()
@@ -21,28 +27,18 @@ export default function TrendChart({ element }) {
         setTimeout(() => chart.resize(), 101)
     }, [])
 
-    function showStacked() {
+
+    useEffect(() => {
         if (!chart) return
         setStackedChart(true)
-        chart.options.scales.yAxes[0].stacked = true
+        chart.options.scales.yAxes[0].stacked = mode === TrendChartMode.stacked
         chart.update()
-    }
-
-    function showSingle() {
-        if (!chart) return
-        setStackedChart(false)
-        chart.options.scales.yAxes[0].stacked = false
-        chart.update()
-    }
+    }, [mode])
+    
     
     return (
         <div className="line-chart">
-            
-            <canvas ref={chartRef}></canvas>
-            <div className="btn-group">
-                <button className={`btn-light ${!stackedChart ? "selected" : ""}`} onClick={showSingle}>Single</button>
-                <button className={`btn-light ${stackedChart ? "selected" : ""}`} onClick={showStacked}>Stacked</button>
-            </div>
+            <canvas ref={chartRef}/>
         </div>
     )
 }

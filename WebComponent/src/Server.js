@@ -11,7 +11,7 @@ export default class Server {
             method: "GET",
             headers: getHeaders(),
         }
-        const response = await fetch(`${endpoint}/survey/${id}`, initObject)
+        const response = await fetch(`${endpoint}/participant/survey/${id}`, initObject)
         const survey = await response.json()
         if (!Array.isArray(survey.elements)) throw Error("No Elements provided.")
         // Sort Elements

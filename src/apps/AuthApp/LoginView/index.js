@@ -19,9 +19,10 @@ export function LoginView() {
   function handleLogin(event) {
     event.preventDefault()
     Server.auth().login(email, password)
-    .catch((errors) => {
+    .catch(error => {
       const errorArray = []
-      switch(errors.message) {
+      console.log("login error", error)
+      switch(error.message) {
         case LoginError.emailNotRegistered : errorArray.push(LoginError.emailNotRegistered)
         case LoginError.wrongPassword : errorArray.push(LoginError.wrongPassword)
         break

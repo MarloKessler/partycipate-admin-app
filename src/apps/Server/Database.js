@@ -1,4 +1,5 @@
 import Fetch, {ResponseType} from "./Fetch"
+import Server from "./index"
 
 
 export default class Database {
@@ -12,108 +13,7 @@ export default class Database {
 
     static getSurveys = async () => await Fetch.get(`api/survey`)
 
-
-    /*static getSurveyResults = async id => {
-        const survey = {
-            id: 234,
-            creation_date: new Date(2020, 5, 12), 
-            user_id: 6543, 
-            title: "Ice Survey", 
-            elements: [
-                {
-                    id: 123,
-                    position: 1, 
-                    type: "multiple-choice", 
-                    question: "What are your favorite ice creams?", 
-                    answer_possibilities: [
-                        {
-                            position: 3, 
-                            answer: "Choco" 
-                        },
-                        {
-                            position: 1, 
-                            answer: "Vanilla" 
-                        },
-                        {
-                            position: 4, 
-                            answer: "Stracciatella" 
-                        },
-                        {
-                            position: 2, 
-                            answer: "Watermelon" 
-                        },
-                    ], 
-                    may_skip: false,
-                },
-            ]
-        }
-
-        survey.elements.forEach(element => element.answer_possibilities.sort((a, b) => {
-            if ( a.position < b.position ) return -1
-            else if ( a.position > b.position ) return 1
-            else return 0
-        }))
-
-        const baseResults = [
-            {
-                count_participants: 54,
-                results: [ 14, 30, 21, 49 ]
-            },
-        ]
-
-        survey.elements[0].results = baseResults[0].results
-        survey.elements[0].count_participants = baseResults[0].count_participants
-
-        const datetimeResults = [
-            {
-                element_id: 123,
-                datetime_result: [
-                    {
-                        datetime: new Date(2021, 1, 12),
-                        result: {
-                            results: [ 1, 3, 7, 2 ],
-                            participants: 9,
-                        }
-                    },
-                    {
-                        datetime: new Date(2021, 1, 13),
-                        result: {
-                            results: [ 6, 4, 8, 1 ],
-                            participants: 12,
-                        }
-                    },
-                    {
-                        datetime: new Date(2021, 1, 14),
-                        result: {
-                            results: [ 4, 3, 5, 9 ],
-                            participants: 11,
-                        }
-                    },
-                    {
-                        datetime: new Date(2021, 1, 15),
-                        result: {
-                            results: [ 5, 7, 4, 1 ],
-                            participants: 10,
-                        }
-                    },
-                    {
-                        datetime: new Date(2021, 1, 16),
-                        result: {
-                            results: [ 3, 5, 7, 1 ],
-                            participants: 9,
-                        }
-                    },
-                ]
-            },
-        ]
-
-        survey.elements[0].datetime_result = datetimeResults[0].datetime_result
-        console.log("survey: ", survey)
-
-        return survey
-    }*/
-
-
+    
     static getSurveyResults = async id => {
         // Fetch survey
         const survey = await Fetch.get(`api/survey/${id}`)
@@ -129,7 +29,7 @@ export default class Database {
         return survey
     }
 
-    static async getCrossSurveyResults() {
+    static async getCrossSurveyTimelineResults() {
         console.log("getCrossSurveyResults")
         // Fetch survey
         const currentDate = new Date()
@@ -146,6 +46,7 @@ export default class Database {
         return csResults
     }
 
+    static getCrossSurveyMapResults = async () => Server.admin().userIsAdmin(Server.auth().currentUser()) ? await Fetch.get(`api/analytics/countries`) : await Fetch.get(`api/analytics/countries/user/${Server.auth().currentUser().user_id}`)
 
     static deleteSurvey = async id => await Fetch.delete(`api/survey/${id}`)
 }

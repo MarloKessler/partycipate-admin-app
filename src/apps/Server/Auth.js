@@ -103,6 +103,7 @@ async function loadUser() {
         u.token = token
         user = u
     } catch (error) {
+        console.log("login error", error)
         user = null
     }
 //user = {name: "truth", email: "truth.s.gatsby@email.com", token: "1234567890", roles: ["admin"]} // REMOVE IF USER LOADING WORKS

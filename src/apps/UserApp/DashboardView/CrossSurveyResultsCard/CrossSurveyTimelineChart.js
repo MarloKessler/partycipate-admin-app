@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react'
 import Chart from 'chart.js'
 
 
-export default function CrossSurveyChart({ data:results }) {
+export default function CrossSurveyTimelineChart({ data:results, ...props }) {
     const chartRef = useRef()
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export default function CrossSurveyChart({ data:results }) {
     }, [])
     
     return (
-        <div className="line-chart">
+        <div className="cross-survey-results-timeline-chart" {...props}>
             <canvas ref={chartRef}></canvas>
         </div>
     )

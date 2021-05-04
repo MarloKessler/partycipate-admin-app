@@ -31,6 +31,6 @@ export function AdminUserView() {
             onDeleteUser={handleDeletation}
         />
     )
-    else if (user == null) return <ErrorPage message="We are sorry, the user couldn't be loaded!"/>
+    else if (user === null) return <ErrorPage message="We are sorry, the user couldn't be loaded!"/>
     else return <div/>
 }

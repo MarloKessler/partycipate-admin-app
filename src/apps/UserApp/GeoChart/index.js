@@ -4,12 +4,13 @@ import * as am4core from "@amcharts/amcharts4/core"
 import * as am4maps from "@amcharts/amcharts4/maps"
 import am4themes_animated from "@amcharts/amcharts4/themes/animated"
 import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow"
-import { CardElement } from "../../../utilElements"
+
 
 am4core.useTheme(am4themes_animated)
 
 
-export default function GeoChart({ data=[], className="" }) {
+export default function GeoChart({ data=[], className="", ...props }) {
+    const cartElementContainerRef = useRef()
     const cartElementRef = useRef()
 
 
@@ -19,22 +20,32 @@ export default function GeoChart({ data=[], className="" }) {
         
         let chart = am4core.create(chartEl, am4maps.MapChart)
         configureChart(chart)
-        let polygonSeries = addPolygonSeries(chart, data)
+        const copyOfDataArray = data.slice(0, data.length)
+        let polygonSeries = addPolygonSeries(chart, copyOfDataArray)
         addHeatLegend(chart, polygonSeries)
 
+        // Set value for each undefinded to 0; needs to be in a timeout because am4Chart needs to add missing countries.
+        setTimeout(() => data.forEach(data => {if (data.value === undefined) data.value = 0}), 10)
         return () => chart.dispose()
     }, [])
 
+
+    // Resize if chart width passes 900px.
+    useEffect(() => {
+        if (!cartElementContainerRef.current) return
+        const container = cartElementContainerRef.current
+        if (container.offsetWidth >= 900) container.classList.add("large")
+        else container.classList.remove("large")
+    })
     
 
     return (
-        <CardElement className={`primary-element geo-card results-element ${className}`}>
-            <div className="geo-chart-container">
-                <div ref={cartElementRef} className="geo-chart"/>
-            </div>
-        </CardElement>
+        <div ref={cartElementContainerRef} className={`geo-chart-container ${className}`} {...props}>
+            <div ref={cartElementRef} className="geo-chart"/>
+        </div>
     )
 }
+
 
 function configureChart(chart) {
     chart.geodata = am4geodata_worldLow
@@ -49,11 +60,11 @@ function addPolygonSeries(chart, data) {
     let polygonSeries = new am4maps.MapPolygonSeries()
     polygonSeries.useGeodata = true
     chart.series.push(polygonSeries)
+    chart.chartContainer.wheelable = false
     // Exclude Antarctica
     polygonSeries.exclude = ["AQ"]
     // Append data
-    polygonSeries.data = data
-
+    polygonSeries.data = data    
     // Configure heatmap
     polygonSeries.heatRules.push({
         "property": "fill",
@@ -63,7 +74,6 @@ function addPolygonSeries(chart, data) {
     })
 
     // Configure series
-    console.log("polygonSeries.mapPolygons.template", polygonSeries.mapPolygons.template)
     polygonSeries.mapPolygons.template.tooltipText = "{name}: {value} Participants"
     chart.smallMap.series.push(polygonSeries)
     return polygonSeries

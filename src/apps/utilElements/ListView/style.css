@@ -2,11 +2,7 @@
     width: 100%;
     height: fit-content;
     padding-bottom: 50px;
-}
-
-
-.list-view .so-csrc {
-   
+    display: block;
 }
 
 
@@ -16,32 +12,37 @@
     list-style: none;
 }
 
+
+
+/* Searchbar */
 .lv-search-bar-container {
     position: sticky;
     /* Setting the top to 0px leads to a small gap between the searchbar and the top */
     top: -1px;
     z-index: 1;
     padding: 10px 21px;
+    display: flex;
+    flex-direction: row;
     background-color: #F5F5F5;
 }
 
-.lv-search-bar-container .lv-search-bar {
-    margin: 0;
-    padding: 10px 20px;
-    transition: .3s;
-    display: flex;
-    flex-direction: row;
+.lv-search-bar-container input {
+    width: 100%;
     border: 1px solid lightgray;
     border-radius: 15px;
-    box-shadow: none;
-}
-
-.lv-search-bar input {
-    width: 100%;
-    border: none;
+    padding: 15px 20px;
     background-color: transparent;    
 }
 
+.lv-search-bar-container input:focus {
+    margin: -1px;
+    border-width: 2px;
+    border-color: #BBD9DB;
+}
+
+
+
+/* List Item */
 .item-list .lv-card {
     width: calc(100% - 80px);
     margin: 10px 20px;

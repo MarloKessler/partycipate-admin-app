@@ -12,7 +12,6 @@ export function AccountView() {
       helpSection={HelpSections.account}
       user={user}
       validateWithOldPasswort={true}
-
       onUpdateUser={Server.auth().updateUser}
       onUpdatePW={Server.auth().updatePassword}
       onDeleteUser={Server.auth().deleteUser}

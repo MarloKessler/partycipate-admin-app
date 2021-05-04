@@ -1,16 +1,11 @@
-
-.geo-card {
-    height: fit-content;
-}
-
-.geo-card .geo-chart-container {
+.geo-chart-container {
     position: relative;
     height: 0;
     width: 100%;
     padding-bottom: 60%;
 }
 
-.geo-card .geo-chart {
+.geo-chart-container > .geo-chart {
     position: absolute;
     top: 0;
     left: 0;
@@ -19,15 +14,9 @@
 }
 
 
-@media(min-width: 600px) {
-    .geo-card .geo-chart-container {
-        padding-bottom: 60%;
-    }
-}
-
 
 @media(min-width: 900px) {
-    .geo-card .geo-chart-container {
+    .geo-chart-container.large {
         padding-bottom: 45%;
     }
 }

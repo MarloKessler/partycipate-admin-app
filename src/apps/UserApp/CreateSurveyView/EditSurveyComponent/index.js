@@ -25,7 +25,11 @@ export default function EditSurveyComponent({errors}) {
     function duplicateElement(index) {
         const elements = survey.elements
         if (!Array.isArray(elements)) return
-        const newElement = Object.assign({}, elements[index])
+        const oldElement = elements[index]
+        const newElement = Object.assign({}, oldElement)
+        const oldAnswerPossibilities = oldElement.answer_possibilities
+        newElement.answer_possibilities = oldAnswerPossibilities.slice(0, oldAnswerPossibilities.length)
+        newElement.id = uuid()
         elements.push(newElement)
         updateSurvey(survey)
     }

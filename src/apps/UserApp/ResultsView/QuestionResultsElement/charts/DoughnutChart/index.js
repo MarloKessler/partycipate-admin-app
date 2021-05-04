@@ -23,7 +23,7 @@ export default function DoughnutChart({ element }) {
     
     return (
         <div className="doughnut-chart">
-            <canvas ref={ chartRef }></canvas>
+            <canvas ref={ chartRef } style={{maxWidth: "40%"}}></canvas>
             <div className="legend" ref={ legendRef }></div>
         </div>
     )

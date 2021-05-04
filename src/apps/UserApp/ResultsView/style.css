@@ -19,3 +19,17 @@
 .survey-results > h3 {
     margin: 50px auto;
 }
+
+.survey-results .results-element {
+    min-height: none;
+}
+
+.survey-results .so-geochart {
+    max-height: 65vh;
+}
+
+@media(min-width: 900px) {
+    .survey-results .so-geochart {
+        max-height: none;
+    }
+}

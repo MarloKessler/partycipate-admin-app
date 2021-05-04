@@ -32,3 +32,34 @@
 .results-element > .results-group > p {
     text-align: center;
 }
+
+
+.results-group > div:first-of-type {
+    display: flex;
+    align-items: center;
+}
+
+
+.results-element .btn-group {
+    margin-left: auto;
+    width: fit-content;
+    overflow: hidden;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.results-element .btn-group > button {
+    margin: 0;
+    border-radius: 0;
+    border-right: 1px solid white;
+}
+
+.results-element .btn-group > button:last-of-type {
+    border-right: none;
+}
+
+.results-element .btn-group > button.selected {
+    transition: .3s;
+    background-color: #a1c1c2;
+}

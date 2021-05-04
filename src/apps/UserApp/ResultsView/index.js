@@ -2,9 +2,9 @@ import "./style.css"
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Server from "../../Server"
-import { ErrorPage, TitleElement, StandardPage } from "../../utilElements"
+import { ErrorPage, TitleElement, StandardPage, CardElement } from "../../utilElements"
 import QuestionResultsElement from "./QuestionResultsElement"
-import GeoChart from "./GeoChart"
+import GeoChart from "../GeoChart"
 
 
 export function ResultsView() {
@@ -21,7 +21,7 @@ export function ResultsView() {
         if (survey) return (
             <div>
                 <TitleElement className="so-page-title">{ survey.title }</TitleElement>
-                { Array.isArray(survey.map_results) && <GeoChart data={survey.map_results}/> }
+                { Array.isArray(survey.map_results) && <GeoCard data={survey.map_results}/> }
                 { Array.isArray(survey.elements) && survey.elements.map((element, index) => <QuestionResultsElement className="primary-element" element={element} key={index}/>) } 
             </div>
         )
@@ -33,5 +33,13 @@ export function ResultsView() {
         <StandardPage className= "survey-results"> 
             <Content/>
         </StandardPage>
+    )
+}
+
+function GeoCard({data}) {
+    return (
+        <CardElement className="primary-element so-geochart geo-card">
+            <GeoChart data={data}/>
+        </CardElement>
     )
 }

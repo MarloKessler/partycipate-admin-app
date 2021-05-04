@@ -63,11 +63,11 @@ class CreateSurveyViewComponent extends React.Component {
     prepareSurveyForSaving() {
         const survey = this.state.survey
         survey.elements.forEach((element, index) => {
-            element.position = index
+            element.position = index + 1
             switch (element.type) {
                 case "multiple-choice":
                 case "single-choice":
-                    element.answer_possibilities = element.answer_possibilities.map((answer, index) => ({position: index, answer: answer }))
+                    element.answer_possibilities = element.answer_possibilities.map((answer, index) => ({position: index + 1, answer: answer }))
                 default: break
             }
         })
