@@ -72,18 +72,18 @@ export function SignupView() {
 
 
   return(
-    <StandardPage className="signup" title="Do you want to join Partycipate? Sign up here 🎉">
+    <StandardPage className="signup" title="Do you want to join Partycipate? Sign up here! 🎉">
       <div className="signup-body"> 
         <CardElement className="primary-element su-card">
           <form onSubmit={handleSignup} noValidate>
             <TitleElement>Register now</TitleElement>
             <label htmlFor="name">Your name:</label>
-            <input className="email" type="text" placeholder="Enter name" name="name" value={name} onChange={setValueVia(setName)}/>
+            <input className="email" type="text" placeholder="Enter Name" name="name" value={name} onChange={setValueVia(setName)}/>
 
             { errorOccured(SignupError.nameIsEmpty) && <small className="error">Please enter a name!</small> }
 
             <label htmlFor="email">E-Mail:</label>
-            <input className="email" type="email" placeholder="Enter e-Mail" name="email" value={email} onChange={setValueVia(setEmail)}/>
+            <input className="email" type="email" placeholder="Enter E-Mail" name="email" value={email} onChange={setValueVia(setEmail)}/>
             
             { errorOccured(SignupError.emailAlreadyInUse)
               ? <small className="errormessage">The e-mail is already in use. Please provide another email!</small>
@@ -92,7 +92,7 @@ export function SignupView() {
 
             <label htmlFor="pw">Password:</label>
             <input className="pass" type="password" placeholder="Enter Password" name="pw" value={password1} onChange={setValueVia(setPassword1)}/>
-            <small className={errorOccured(SignupError.passwordsIsInvalid) ? "error" : ""}>Your password needs at least a length of 10 characters and needs to contain numbers, uppercase and one lowercase letters.</small>
+            <small className={errorOccured(SignupError.passwordsIsInvalid) ? "error" : ""}><div className="passwordHint">Your password needs at least a length of 10 characters and needs to contain numbers, uppercase and one lowercase letters.</div></small>
 
             <label htmlFor="repeat-pw">Repeat password:</label>
             <input className="pass" type="password" placeholder="Repeat Password" name="repeat-pw" value={password2} onChange={setValueVia(setPassword2)}/>
