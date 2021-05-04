@@ -25,7 +25,7 @@ export default function GeoChart({ data=[], className="", ...props }) {
         addHeatLegend(chart, polygonSeries)
 
         // Set value for each undefinded to 0; needs to be in a timeout because am4Chart needs to add missing countries.
-        setTimeout(() => data.forEach(data => {if (data.value === undefined) data.value = 0}), 10)
+        setTimeout(() => copyOfDataArray.forEach(data => {if (data.value === undefined) data.value = 0}), 10)
         return () => chart.dispose()
     }, [])
 

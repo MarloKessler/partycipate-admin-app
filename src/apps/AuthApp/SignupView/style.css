@@ -19,7 +19,7 @@
 }
 
 .signup-body form label {
-    margin: 30px 0 5px;
+    margin: 30px 0 10px;
 }
 
 .signup-body form > label:first-of-type {
@@ -28,13 +28,13 @@
 
 .signup-body form input {
     width: 70%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     border: 1px solid #647374;
     text-align: center;
 }
 
 .signup-body .tac-statement {
-    margin-top: 30px;
+    margin: 30px 0 10px;
     width: calc(100% - 60px);
     display: flex;
     flex-direction: row;
@@ -47,8 +47,4 @@
 
 .signup-body button {
     margin: 20px auto 0;
-}
-
-.passwordHint {
-    margin-top: 15px;
 }

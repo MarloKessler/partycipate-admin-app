@@ -25,7 +25,7 @@
 }
 
 .login-view label {
-    margin: 30px 0 5px;
+    margin: 30px 0 10px;
 }
 
 .login-view label:first-of-type {
@@ -33,7 +33,7 @@
 }
 
 .login-view input {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     width: 70%;
     padding: 10px 20px;
     border: 1px solid #647374;
