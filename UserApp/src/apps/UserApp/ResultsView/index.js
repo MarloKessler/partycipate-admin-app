@@ -25,7 +25,7 @@ export function ResultsView() {
                 { Array.isArray(survey.elements) && survey.elements.map((element, index) => <QuestionResultsElement className="primary-element" element={element} key={index}/>) } 
             </div>
         )
-        else if (survey === null) return <ErrorPage message="We re sorry, the survey you requested couldn't be found."/>
+        else if (survey === null) return <ErrorPage message="We're sorry, the survey you requested couldn't be found."/>
         else return <h3>Loading Results…</h3>
     }
     

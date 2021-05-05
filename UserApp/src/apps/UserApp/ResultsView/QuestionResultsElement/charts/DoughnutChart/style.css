@@ -39,10 +39,3 @@
         flex: 1 1 calc(1/3 * 100% - 20px);
     }
 }
-
-@media(min-width: 1200px) {
-    .doughnut-chart {
-        flex-direction: row;
-        justify-content: flex-end;
-    }
-}

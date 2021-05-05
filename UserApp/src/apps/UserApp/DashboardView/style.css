@@ -2,34 +2,23 @@
   display: block;
 }
 
+.dashboard-view > p {
+  margin: 40px 0 0;
+}
+
 .dv-cards {
+  margin: 0 -20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .dv-cards .dv-card {
-  margin: 20px 0;
+  margin: 10px 20px;
   flex: 1 1 100%;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.dv-cards .dv-card:first-of-type {
-  margin: 0 0 20px;
-  max-width: calc(100% - 40px);
-  padding: 20px;
-  display: block;
-}
-
-.dv-cards .dv-card a {
-  width: 100%;
-  height: 100%;
   padding: 20px 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -40,14 +29,6 @@
   .dv-cards .dv-card {
     margin: 20px;
     flex: 1 1 40%;
-  }
-
-  .dv-cards .dv-card:first-of-type {
-    margin: 0 20px 20px;
-    flex: 1 1 100%;
-  }
-
-  .dv-cards .dv-card a {
-    padding: 30px;
+    padding: 30px 0;
   }
 }

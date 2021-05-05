@@ -73,11 +73,16 @@ export default function GeoChart({ data=[], className="", ...props }) {
 
     // Resize if chart width passes 900px.
     useEffect(() => {
-        if (!cartElementContainerRef.current) return
-        const container = cartElementContainerRef.current
-        if (container.offsetWidth >= 900) container.classList.add("large")
-        else container.classList.remove("large")
-    })
+        function resizeContainer() {
+            const container = cartElementContainerRef.current
+            if (!container) return
+            if (container.offsetWidth >= 900) container.classList.add("large")
+            else container.classList.remove("large")
+        }
+        resizeContainer()
+        window.addEventListener("resize", resizeContainer)
+        return () => window.removeEventListener("resize", resizeContainer)
+    }, [])
     
 
     return (

@@ -9,6 +9,8 @@ export default function Footer() {
                 <DividerPoint/>
                 <Link className="item activatable" to={process.env.REACT_APP_PATH_WHY_PARTICIPATE}>Why Partycipate</Link>
                 <DividerPoint/>
+                <Link className="item activatable" to={process.env.REACT_APP_PATH_ABOUT_US}>About us</Link>
+                <DividerPoint/>
                 <Link className="item activatable" to={process.env.REACT_APP_PATH_DOCS}>Docs</Link>
                 <DividerPoint/>
                 <Link className="item activatable" to={process.env.REACT_APP_PATH_CONTACT}>Contact</Link>

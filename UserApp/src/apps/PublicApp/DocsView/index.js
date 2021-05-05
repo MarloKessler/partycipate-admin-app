@@ -38,6 +38,10 @@ const generalFAQs = () => ({
             title: "How can I register at Partycipate?",
             content: <p>Registrating at Partycipate is easy. Just enter your e-mail address and set a password and you're good to go. You can do so  <a href={process.env.REACT_APP_PATH_SIGN_UP}>here</a>.</p>,
         },
+        {
+            title: "Which browsers are supported?",
+            content: <p>For our Admin App, we recommend using Chrome, Safari or Edge. Survey analysis does currently not work on Firefox, but we're working hard on it to enable this feature for you. Our Web Snippet for your website works in all modern Browsers.</p>,
+        },
     ],
 })
 
@@ -88,13 +92,13 @@ const createSurveyFAQs = {
                 <ol>
                     <li>
                         Go to <a href={process.env.REACT_APP_PATH_CREATE_SURVEY} target="blank" >"Create Survey"</a> and choose your survey type:<br/>
-                        Decide between a single- or multiple-choice survey, click on ‘save’ and you will get directed to the next step.
+                        Decide between a single- or multiple-choice survey, click on "save" and you will get directed to the next step.
                     </li>
                     <li>
                         Specify the details of your survey: 
                         <ul style={{paddingTop: "10px"}}>
                             <li>Set the name for your survey first. This name is only used for storing.</li>
-                            <li>Next, enter your question of interest in an easily understandable way.</li>
+                            <li>Next, enter your questions of interest in an easily understandable way.</li>
                             <li>Last, define the answer possibilities. To add an additional one, click on “add answer".</li>
                             <li>To delete an answer, click on the bin-symbol right next to it.</li>
                             <li style={{paddingBottom: "0"}}>You can also change the survey type using the drop-down button on the right. When you're finished, click on "save" to get directed to the final step.</li>
@@ -117,7 +121,7 @@ const createSurveyFAQs = {
             title: "What should be considered concerning legal terms?",
             content: (
                 <div>
-                    <p>We recommend to insert the following text into your privacy statement under the subsection “Surveys", which is proofen by our legal experts:</p>
+                    <p>We recommend to insert the following text into your privacy statement under the subsection “Surveys", which is reviewed by our legal experts:</p>
                     <div style={{paddingLeft: "10px", borderLeft: "2px solid #BBD9DB"}}>
                         <h3>Partycipate</h3>
                         <p>This website uses functions of the online survey service Partycipate. The provider of this service is Partycipate AG (&bdquo;Partycipate&ldquo;), Roteb&uuml;hlplatz 41, Geb&auml;ude 1 70178 Stuttgart, Germany.</p>
@@ -235,7 +239,7 @@ const styles = {
 
 
 export const HelpSections = {
-    general: "general",
+    about: "about",
     createSurvey: "create-survey",
     analyseSurvey: "analyse-survey",
     account: "account",
@@ -253,7 +257,7 @@ export function DocsView() {
 
     return (
         <StandardPage title="FAQs: 🎉" className="docs-view">
-            <section id="general" className="doc-section">
+            <section id="about" className="doc-section">
                 <Faq data={generalFAQs()} styles={styles}/>
             </section>
             <section id="create-survey" className="doc-section">

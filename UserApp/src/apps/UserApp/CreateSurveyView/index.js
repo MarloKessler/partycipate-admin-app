@@ -43,7 +43,7 @@ class CreateSurveyViewComponent extends React.Component {
 
     saveSurvey() {
         const survey = this.state.survey
-        if (!survey.title) return this.setState(() => ({ errors: [CreateSurveyError.titleIsEmpty] }))
+        if (!this.validateSurvey()) return
         this.prepareSurveyForSaving()
         this.setState(() => ({ statusMessage: "Saving Survey…", isSaving: true }))
         Server.database().createSurvey(survey)
@@ -58,6 +58,19 @@ class CreateSurveyViewComponent extends React.Component {
             setTimeout(() => this.setState(() => ({ statusMessage: null })), 5000)
         })
         .finally(() => this.setState(() => ({ isSaving: false })))
+    }
+
+    validateSurvey() {
+        const survey = this.state.survey
+        if (!survey.title) return this.setState(() => ({ showErrors: true }))
+        const elementsHasErrors = survey.elements.some(element => !this.validateElement(element))
+        if (elementsHasErrors) return this.setState(() => ({ showErrors: true }))
+        return true
+    }
+
+    validateElement(element) {
+        if (!element.question) return
+        return !element.answer_possibilities.some(answerPossibility => !answerPossibility)
     }
 
     prepareSurveyForSaving() {
@@ -76,7 +89,7 @@ class CreateSurveyViewComponent extends React.Component {
 
     render() {
         return (
-            <StandardPage title={getSurveyTitle(this.state.step)} helpSection="create-survey">
+            <StandardPage title={getSurveyTitle(this.state.step)} className="create-survey-view" helpSection="create-survey">
                 <SurveyProvider value={ this.state }>
                     <CardElement className="secondary-element">
                         <SurveyComponent step={ this.state.step } onTypeSelected={ () => this.setState(() => ({ step: 1 })) } errors={this.state.errors}/>

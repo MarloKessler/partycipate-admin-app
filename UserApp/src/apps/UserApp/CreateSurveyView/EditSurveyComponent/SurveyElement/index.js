@@ -12,15 +12,17 @@ export default function SurveyElement({element, index, onDuplicate, onDelete}) {
         <Draggable draggableId={element.id} index={index}>
             { provided => (
                 <div className="survey-element-container" ref={provided.innerRef} {...provided.draggableProps}>
-                    <div>
+                    <div className="drag-handle-container">
                         <div {...provided.dragHandleProps}><MdDragHandle/></div>
                     </div>
-                    <CardElement className="primary-element">
-                        <QuestionElement className="survey-element" index={index} key={index}/>
-                    </CardElement>
-                    <div>
-                        <button className="btn-dark" title="Duplicate Answer" onClick={() => onDuplicate(index)}><IoDuplicateOutline/></button>
-                        <button className="btn-dark" title="Delete Element" onClick={() => onDelete(index)}><FiTrash2/></button>
+                    <div className="element-content-container">
+                        <CardElement className="primary-element">
+                            <QuestionElement className="survey-element" index={index} key={index}/>
+                        </CardElement>
+                        <div className="sec-toolbar">
+                            <button className="btn-dark" title="Duplicate Element" onClick={() => onDuplicate(index)}><IoDuplicateOutline/></button>
+                            <button className="btn-dark" title="Delete Element" onClick={() => onDelete(index)}><FiTrash2/></button>
+                        </div>
                     </div>
                 </div>
             )}

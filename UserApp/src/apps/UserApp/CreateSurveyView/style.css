@@ -1,3 +1,9 @@
+.create-survey-view .card-element {
+    padding: 10px;
+}
+
+
+/* Toolbar */
 .csv-toolbar {
     margin: 50px 0 40px;
     display: flex;
@@ -11,4 +17,12 @@
 
 .csv-toolbar p {
     margin: 0;
+}
+
+
+
+@media(min-width: 600px) {
+    .create-survey-view .card-element {
+        padding: 20px;
+    }
 }

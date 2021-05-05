@@ -4,25 +4,53 @@
     align-items: center;
 }
 
-.survey-element-container > div > div {
-    margin: 0 20px 0 10px;
+.survey-element-container > .drag-handle-container {
+    margin: 0 10px;
 }
 
-.survey-element-container > .card-element {
-    margin: 20px 0;
+.survey-element-container > .element-content-container {
     width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.survey-element-container > .element-content-container > .card-element {
+    margin: 10px;
+    max-width: 100%;
 }
 
 .survey-element-container > .card-element input {
     border: 1px solid #647374;
 }
 
-.survey-element-container > div:last-of-type {
+.survey-element-container > .element-content-container > .sec-toolbar {
+    margin-top: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
 }
 
-.survey-element-container > div:last-of-type > button {
-    margin: 5px 20px;
+.survey-element-container > .element-content-container > .sec-toolbar > button {
+    margin: 5px 10px;
+}
+
+
+
+@media(min-width: 600px) {
+    .survey-element-container > .element-content-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .survey-element-container > .element-content-container > .card-element {
+        width: 100%;
+    }
+
+    .survey-element-container > .element-content-container > .sec-toolbar {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }

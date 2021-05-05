@@ -43,13 +43,19 @@
 }
 
 
-.xchoice-block .answer-option {
+
+/* Answer option */
+.xchoice-block .answer-option > div {
     display: flex;
     align-items: center;
 }
 
-.xchoice-block .answer-option > div:first-of-type {
-    margin-right: 5px;
+.xchoice-block .answer-option > small {
+    margin-left: 20px;
+}
+
+.xchoice-block .answer-option > div > div:first-of-type {
+    margin-right: 7px;
 }
 
 .xchoice-block .answer-input {
@@ -63,6 +69,7 @@
 
 .xchoice-block .create-answer-btn {
     width: 20%;
+    min-width: fit-content;
     margin-top: 20px;
 }
 

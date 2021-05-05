@@ -5,7 +5,7 @@ import { XCoiceBlock } from "./content-blocks"
 
 
 export function QuestionElement({ index, className="", ...props }) {
-    const { survey, updateSurvey } = useContext(SurveyContext)
+    const { survey, updateSurvey, showErrors } = useContext(SurveyContext)
     const element = survey.elements[index]
 
     const updateQuestion = event => {
@@ -18,6 +18,7 @@ export function QuestionElement({ index, className="", ...props }) {
         <div className={`question-element ${className}`} { ...props }>
             <label>Define your question</label>
             <input className="input s-question-input" type="text" value={ element.question } placeholder="Question" onChange={ updateQuestion }/>
+            { (showErrors && !element.question) && <small className="error">No question provided.</small> }
             <XCoiceBlock elementIndex={ index } />
         </div>
     )

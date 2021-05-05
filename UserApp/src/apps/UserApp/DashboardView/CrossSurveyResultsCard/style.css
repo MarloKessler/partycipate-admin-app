@@ -1,4 +1,5 @@
 @media(min-width: 900px) {
+    .cross-survey-results-card .csrc-map,
     .cross-survey-results-card .csrc-map.large {
         padding-bottom: 35%;
     }

@@ -9,7 +9,7 @@ import SurveyContext from "../../../../../SurveyContext"
 
 
 export function XCoiceBlock({ elementIndex }) {
-    const { survey, updateSurvey } = useContext(SurveyContext)
+    const { survey, updateSurvey, showErrors } = useContext(SurveyContext)
     const element = survey.elements[elementIndex]
     const answer_possibilities = element.answer_possibilities
     const [focusOnLastAnswer, setFocusOnLastAnswer] = useState(false)
@@ -125,20 +125,24 @@ function ElementTypeSelection({ className = "", elementRef, onChange, ...props }
 
 
 function AnswerOption({answer, index, focus, onUpdate, onKeyDown, onDelete}) {
+    const { showErrors } = useContext(SurveyContext)
     return (
         <Draggable draggableId={`${index}`} index={index} key={index}>
             { provided => (
                 <div className="answer-option" ref={provided.innerRef} {...provided.draggableProps}>
-                    <div {...provided.dragHandleProps}><MdDragHandle/></div>
-                    <input
-                        autoFocus={focus} 
-                        type="text" className="input answer-input" 
-                        placeholder={`Answer ${index + 1}`} 
-                        value={answer} 
-                        onChange={event => onUpdate(event, index) } 
-                        onKeyDown={event => onKeyDown(event, index)}
-                    />
-                    <button className="item btn-light trash-btn" title="Delete Answer" onClick={() => onDelete(index)}><FiTrash2/></button>
+                    <div>
+                        <div {...provided.dragHandleProps}><MdDragHandle/></div>
+                        <input
+                            autoFocus={focus} 
+                            type="text" className="input answer-input" 
+                            placeholder={`Answer ${index + 1}`}
+                            value={answer} 
+                            onChange={event => onUpdate(event, index) } 
+                            onKeyDown={event => onKeyDown(event, index)}
+                        />
+                        <button className="item btn-light trash-btn" title="Delete Answer" onClick={() => onDelete(index)}><FiTrash2/></button>
+                    </div>
+                    {(showErrors && !answer) && <small className="error">No answer provided.</small>}
                 </div>
             )}
         </Draggable>

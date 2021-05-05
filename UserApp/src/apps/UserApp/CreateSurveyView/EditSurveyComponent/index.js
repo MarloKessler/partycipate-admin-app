@@ -4,11 +4,10 @@ import { v4 as uuid } from "uuid"
 import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import SurveyContext from "../SurveyContext"
 import SurveyElement from "./SurveyElement"
-import CreateSurveyError from "../CreateSurveyError"
 
 
-export default function EditSurveyComponent({errors}) {
-    const { survey, updateSurvey } = useContext(SurveyContext)
+export default function EditSurveyComponent() {
+    const { survey, updateSurvey, showErrors } = useContext(SurveyContext)
 
     const updateName = event => {
         survey.title = event.target.value
@@ -56,11 +55,7 @@ export default function EditSurveyComponent({errors}) {
         <div className="edit-survey-component">
             <label>Survey name</label>
             <input className="s-name-input" type="text" value={ survey.title } placeholder="Name" onChange={ updateName }/>
-            { (Array.isArray(errors) && errors.includes(CreateSurveyError.titleIsEmpty))
-                ? <small className="error">The name is empty.</small>
-                : <small>The name will not be shown to the user.</small>
-            }
-            
+            <small className={(showErrors && !survey.title) ? "error" : ""}>{(showErrors && !survey.title) && "The name is empty. "}The name will not be shown to the user.</small>
             <DragDropContext onDragEnd={moveElement}>
                 <div>
                     <Droppable droppableId="element-list">

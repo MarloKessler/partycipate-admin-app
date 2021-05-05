@@ -17,11 +17,12 @@ export default class SurveyComponent extends Component {
             survey: survey,
             response: response,
             updateResponse: response => this.setState(() => ({ response: response })),
-            isSendDisabled: false,
+            sendingSurvey: false,
         }
     }
 
     sendResponse() {
+        this.setState(() => ({sendingSurvey: true}))
         Server.setParticipant(this.state.response.id)
         .then(participantID => {
             this.state.response.elements.forEach(element => element.participant_id = participantID)
@@ -31,6 +32,8 @@ export default class SurveyComponent extends Component {
             Cookies.set(`partycipate-survey-${this.state.survey.id}-partycipated`, true)
             this.props.responseSent()
         })
+        .catch(() => {})
+        .finally(() => this.setState(() => ({sendingSurvey: false})))
     }
 
 
@@ -41,7 +44,7 @@ export default class SurveyComponent extends Component {
                     <SurveyProvider value={ this.state }>
                         { this.state.survey.elements.map( (element, index) => <SurveyElement type={ element.type } index={ index } key={ index }/> ) }
                     </SurveyProvider>
-                    <button className="item btn-dark send-button" disabled={ this.state.isSendDisabled } onClick={ this.sendResponse.bind(this) }>Send</button>
+                    <button className="item btn-light send-button" disabled={ this.state.sendingSurvey } onClick={ this.sendResponse.bind(this) }>Send</button>
                 </div>
             </div>
         )

@@ -51,7 +51,6 @@ export default class Server {
             "participant_cookie": participantCookie,
             "language": window.navigator.language
         }
-
         const response = await fetch(`${process.env.PREACT_APP_BACKEND_URL}/api/participant`, { method: "POST", headers: getHeaders(), body: JSON.stringify(participant) })
         const responseBody = await response.json()
 

@@ -1,4 +1,6 @@
 
+// Style needs to be applied via JS because applying CSS files to a shadow dom object id not possible.
+
 export default element => {
     const style = document.createElement('style')
     style.appendChild(document.createTextNode(css))
@@ -53,24 +55,22 @@ button {
     background-color: transparent;
 }
 
-.btn-dark {
-    padding: 5px;
-    color: white;
-    background-color: #c4c4c4;
+/* btn-light */
+.btn-light {
+  transition: .3s;
+  color: white;
+  background-color: #BBD9DB;
 }
 
-.btn-dark:hover {
-    transition: .3s;
-    background-color: #bbb;
-}
-  
-.btn-dark:active {
-    transition: .3s;
-    background-color: #cfcfcf;
+.btn-light:hover {
+  transition: .3s;
+  background-color: #a1c1c2;
 }
 
-.btn-dark:disabled {
-    background-color: #d6d6d6;
+.btn-light:disabled {
+  transition: .3s;
+  color: rgb(226, 226, 226);
+  background-color: #aebfc0;
 }
 
 
