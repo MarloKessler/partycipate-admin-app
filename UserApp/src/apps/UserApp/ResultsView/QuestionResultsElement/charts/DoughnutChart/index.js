@@ -8,6 +8,7 @@ export default function DoughnutChart({ element }) {
     const chartRef  = useRef()
     const legendRef = useRef()
 
+
     useEffect(() => {
         const chart = new Chart(chartRef.current, {
                 type: "doughnut",
@@ -19,6 +20,7 @@ export default function DoughnutChart({ element }) {
         // 101 miliseconds, because the sidebar needs 100 ms to expand.
         setTimeout(() => chart.resize(), 101)
     }, [])
+
     
     return (
         <div className="doughnut-chart">

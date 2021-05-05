@@ -9,8 +9,8 @@ export function LogoutView() {
 
   // Sets a timer so that after 5 seconds the user is redirected to the home page.
   useEffect(() => {
-    const timeoutID = setTimeout(() => history.push("/"), 5000)
-    return () => clearTimeout(timeoutID)
+    //const timeoutID = setTimeout(() => history.push("/"), 5000)
+    //return () => clearTimeout(timeoutID)
   }, [history])
 
   return(
@@ -19,7 +19,7 @@ export function LogoutView() {
       <div className="lv-body">
         <CardElement className="primary-element lv-card"> 
           <p>We hope to see you back soon on</p>
-          <Link to={process.env.REACT_APP_PATH_HOME} ><img src={ `${process.env.PUBLIC_URL}/images/logo.png` }/></Link>
+          <Link to={process.env.REACT_APP_PATH_HOME}><img src={ `${process.env.PUBLIC_URL}/images/logo.png` }/></Link>
         </CardElement> 
       </div>
     </StandardPage>

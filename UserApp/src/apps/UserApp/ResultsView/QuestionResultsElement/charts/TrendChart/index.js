@@ -1,5 +1,5 @@
 import "./style.css"
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, useMemo } from 'react'
 import Chart from 'chart.js'
 import { getBGColors } from "../utils"
 
@@ -11,20 +11,38 @@ export const TrendChartMode = {
 
 
 export default function TrendChart({ element, mode }) {
-    const chartRef  = useRef()
+    const chartRef = useRef()
+    const mql = useMemo(() => window.matchMedia("(prefers-color-scheme: dark)"), [])
     const [chart, setChart] = useState()
+    
 
     useEffect(() => {
         const chart = new Chart(chartRef.current, {
                 type: "line",
                 data: getData(element),
-                options: getChartOptions(element),
+                options: getChartOptions(mql.matches),
             }
         )
         setChart(chart)
         // 101 miliseconds, because the sidebar needs 100 ms to expand.
         setTimeout(() => chart.resize(), 101)
     }, [])
+
+
+    // Color preference listener
+    useEffect(() => {
+        const listener = event => adaptChartColorScheme(chart, event.matches)
+        mql.addEventListener("change", listener)
+        return () => mql.removeEventListener("change", listener)
+    }, [chart])
+
+    function adaptChartColorScheme(chart, isDark) {
+        const fontColor = isDark ? "#eee" : "#000"
+        chart.options.legend.labels.fontColor = fontColor
+        chart.options.scales.xAxes[0].ticks.fontColor = fontColor
+        chart.options.scales.yAxes[0].ticks.fontColor = fontColor
+        chart.update()
+    }
 
 
     useEffect(() => {
@@ -61,8 +79,14 @@ const getData = ({datetime_result, answer_possibilities}) => {
 }
 
 
-const getChartOptions = () => {
+const getChartOptions = (isDark) => {
+    const textColor = isDark ? "#eee" : "#000"
     const options = {
+        legend: {
+            labels: {
+                fontColor: textColor,
+            },
+        },
         responsive: true,
         maintainAspectRatio: true,
         aspectRatio: window.innerWidth / (window.innerHeight/2) < 1.5 ? 1.5 : window.innerWidth / (window.innerHeight/2),
@@ -76,10 +100,16 @@ const getChartOptions = () => {
             },
         },
         scales: {
+            xAxes: [{
+                ticks: {
+                    fontColor: textColor,
+                },
+            }],
             yAxes: [{
                 ticks: {
                     stepSize: 1,
                     beginAtZero: true,
+                    fontColor: textColor,
                     callback: label => `${label} Votes`,
                 },
                 stacked: false,

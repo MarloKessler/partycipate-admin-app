@@ -32,7 +32,7 @@ const generalFAQs = () => ({
         },
         {
             title: "How secure is Partycipate?",
-            content: `Partycipate is totally secure, so you can lay back and benefit from our functionalities.`,
+            content: <p>Partycipate is totally secure, so you can lay back and benefit from our functionalities.</p>,
         },
         {
             title: "How can I register at Partycipate?",
@@ -61,7 +61,7 @@ const analyseSurveysFAQs = {
         },
         {
             title: "Can a participant answer a question twice?",
-            content: `No. We make use of cookies in order to prevent users from taking surveys twice and to prevent blurred results.`,
+            content: <p>No. We make use of cookies in order to prevent users from taking surveys twice and to prevent blurred results.</p>,
         },
         {
             title: "Does a participant need an account to take part in a survey?",
@@ -110,7 +110,7 @@ const createSurveyFAQs = {
         {
             id: "which-survey-types-do-you-offer",
             title: "Which survey types do you offer?",
-            content: `Currently, we offer single- and multiple-choice surveys. <br>We are planning on extending our survey types in future, so stay tuned! `,
+            content: <p>Currently, we offer single- and multiple-choice surveys.<br/>We are planning on extending our survey types in future, so stay tuned!</p>,
         },
         
         {
@@ -138,7 +138,7 @@ const createSurveyFAQs = {
                             <li> Sexual Orientation</li>
                         </ul> 
                         <p>However, the processing of this data only takes place, if a person answered the survey question asking for the respective content. Survey participant can always skip question or choose not to answer them. Legal Basis for the processing of sensitive data is Art. 9 Sect. 2 lit. a GDPR. Sensitive data will only be processed for the purpose of offering correct survey results.</p>
-                        <p> Partycipate uses Google Analytics. For more information about the handling of user data by Partycipate, please consult Partycipate&rsquo;s Data Privacy Declaration at: <a href={process.env.REACT_APP_PATH_PRIVACY_STATEMENT}> Partycipate Data Privacy Declaration</a>.</p>
+                        <p> Partycipate uses Google Analytics. For more information about the handling of user data by Partycipate, please consult Partycipate&rsquo;s Data Privacy Declaration at: <a href={`${window.location.origin}${process.env.REACT_APP_PATH_PRIVACY_STATEMENT}`}> Partycipate Data Privacy Declaration</a>.</p>
                         <h4>Archiving period</h4>
                         <p>Data on the user or incident level stored by Partycipate linked to cookies will be retained as long as needed or permitted in the light of the purpose it was obtained for and consistent with applicable law.</p>
                     </div>
@@ -167,7 +167,7 @@ const createSurveyFAQs = {
     <li> Sexual Orientation</li>
 </ul> 
 <p>However, the processing of this data only takes place, if a person answered the survey question asking for the respective content. Survey participant can always skip question or choose not to answer them. Legal Basis for the processing of sensitive data is Art. 9 Sect. 2 lit. a GDPR. Sensitive data will only be processed for the purpose of offering correct survey results.</p>
-<p> Partycipate uses Google Analytics. For more information about the handling of user data by Partycipate, please consult Partycipate&rsquo;s Data Privacy Declaration at: <a href={process.env.REACT_APP_PATH_PRIVACY_STATEMENT}> Partycipate Data Privacy Declaration</a>.</p>
+<p> Partycipate uses Google Analytics. For more information about the handling of user data by Partycipate, please consult Partycipate&rsquo;s Data Privacy Declaration at: <a href="${window.location.origin}${process.env.REACT_APP_PATH_PRIVACY_STATEMENT}"> Partycipate Data Privacy Declaration</a>.</p>
 <h4>Archiving period</h4>
 <p>Data on the user or incident level stored by Partycipate linked to cookies will be retained as long as needed or permitted in the light of the purpose it was obtained for and consistent with applicable law.</p>
 `
@@ -180,9 +180,11 @@ const createSurveyFAQs = {
         },
         {
             title: "Do you have any advice for creating a good survey?",
-            content: `Make sure to use a question and answer possibilities that can be easily understood by your users. People often do not take the time to read thoroughly.
-            <br> Think about your answer possibilites carefully. Have you included all possible options?
-            <br> Ideally, you test your survey with someone prior to releasing it.`,
+            content: <p>
+                Make sure to use a question and answer possibilities that can be easily understood by your users. People often do not take the time to read thoroughly.<br/> 
+                Think about your answer possibilites carefully. Have you included all possible options?<br/> 
+                Ideally, you test your survey with someone prior to releasing it.
+            </p>,
         },
     ],
 }
@@ -209,7 +211,7 @@ const accountFAQs = {
         },
         {
             title: "Can I restore my account after deletion?",
-            content: `No. We work according to the highest privacy and data security standards and will therefore delete all your data, if you chose to delete your account!`,
+            content: <p>No. We work according to the highest privacy and data security standards and will therefore delete all your data, if you chose to delete your account!</p>,
         },
     ],
 }
@@ -226,11 +228,9 @@ const additionalFAQs = {
 
 const styles = {
     titleTextColor: "#82a0aa",
-    bgColor: '#F5F5F5',
+    bgColor: 'transparent',
     rowTitleColor: "#82a0aa",
-    rowContentColor: '#647374',
     arrowColor: "#82a0aa", 
-    rowTitleTextSize: "smaller",          
 }
 
 

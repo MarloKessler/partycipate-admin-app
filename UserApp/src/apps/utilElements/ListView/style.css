@@ -48,3 +48,16 @@
     margin: 10px 20px;
     padding: 20px;
 }
+
+
+
+/* Dark mode */
+@media(prefers-color-scheme: dark) {
+    .lv-search-bar-container {
+        background-color: #222;
+    }
+    
+    .lv-search-bar-container input:focus {
+        border-color: #82a0aa;
+    }
+}

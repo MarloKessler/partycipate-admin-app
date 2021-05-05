@@ -79,3 +79,12 @@
     flex: 1 1 40%;
   }
 }
+
+
+
+/* Dark mode */
+@media(prefers-color-scheme: dark) {
+  .cv-right {
+    background-color: #444;
+  }
+}

@@ -41,3 +41,12 @@
     margin: auto;
     object-fit: contain;
 }
+
+
+
+/* Dark mode */
+@media(prefers-color-scheme: dark) {
+    .demo-element {
+        background-color: #444;
+    }
+}

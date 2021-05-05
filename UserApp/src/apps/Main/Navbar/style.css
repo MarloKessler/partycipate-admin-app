@@ -93,3 +93,15 @@
         display: inline;
     }
 }
+
+
+/* Dark mode */
+@media(prefers-color-scheme: dark) {
+    .navbar {
+        background-color: #252d2e;
+    }
+
+    .navbar a {
+        color: inherit;
+    }
+}

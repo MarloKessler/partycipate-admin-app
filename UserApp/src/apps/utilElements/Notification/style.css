@@ -37,3 +37,12 @@
     text-align: center;
     z-index: 202;
 }
+
+
+
+/* Dark mode */
+@media(prefers-color-scheme: dark) {
+    .n-bg {
+        background-color: rgba(110, 110, 110, 0.5);
+    }
+}

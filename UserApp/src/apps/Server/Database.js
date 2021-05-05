@@ -60,7 +60,6 @@ async function insertBaseResults(survey) {
 async function insertDatetimeResults(survey) {
     // Fetch datetime results
     const datetimeResults = await Fetch.post(`api/analytics/timeline/${survey.id}`, { start: survey.creation_date.toISOString(), end: new Date().toISOString() })
-    console.log("datetime results", datetimeResults)
     datetimeResults.forEach(elementResult => {
         if (!elementResult.datetime_result) return
         elementResult.datetime_result.forEach(dayResult => dayResult.datetime = new Date(dayResult.datetime))

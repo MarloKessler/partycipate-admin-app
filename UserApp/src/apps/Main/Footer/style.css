@@ -64,3 +64,11 @@ footer a:hover {
         display: inline;
     }
 }
+
+
+/* Dark mode */
+@media(prefers-color-scheme: dark) {
+    footer {
+        background-color: #333;
+    }
+}

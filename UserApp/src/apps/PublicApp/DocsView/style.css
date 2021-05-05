@@ -42,3 +42,20 @@
     max-width: 700px;
     max-height: 393px;
 }
+
+
+
+/* Dark mode */
+@media(prefers-color-scheme: dark) {
+    .docs-view a { 
+        text-decoration: none; 
+        color: #84bfd3;
+        font-weight: bold;
+        transition: .3s;
+    }
+    
+    .docs-view a:hover {
+        transition: .3s;
+        color: #9ee2f8;
+    }
+}
