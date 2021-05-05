@@ -15,5 +15,6 @@
 }
 
 .legal-view a {
+    word-break: break-all;
     text-decoration: underline;
 }

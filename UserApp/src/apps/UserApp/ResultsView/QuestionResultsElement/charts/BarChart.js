@@ -29,7 +29,7 @@ export default function BarChart({ element }) {
     }, [chart])
 
     function adaptChartColorScheme(chart, isDark) {
-        const fontColor = isDark ? "#eee" : "#000"
+        const fontColor = isDark ? "#eee" : "#444"
         chart.options.legend.labels.fontColor = fontColor
         chart.options.scales.xAxes[0].ticks.fontColor = fontColor
         chart.options.scales.yAxes[0].ticks.fontColor = fontColor
@@ -59,7 +59,7 @@ const getData = ({ answer_possibilities, results, count_participants }) => {
 
 
 const getChartOptions = ({ results }, isDark) => {
-    const textColor = isDark ? "#eee" : "#000"
+    const textColor = isDark ? "#eee" : "#444"
     const formatter = new Intl.NumberFormat(window.navigator.language || "en", { style: 'percent', maximumFractionDigits: 0 })
 
     const options = {
