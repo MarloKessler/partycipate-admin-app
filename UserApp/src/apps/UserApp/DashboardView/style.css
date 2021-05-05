@@ -9,6 +9,7 @@
 }
 
 .dv-cards .dv-card {
+  margin: 20px 0;
   flex: 1 1 100%;
   padding: 0;
   display: flex;
@@ -18,8 +19,8 @@
 }
 
 .dv-cards .dv-card:first-of-type {
-  margin-top: 0;
-  max-width: 100%;
+  margin: 0 0 20px;
+  max-width: calc(100% - 40px);
   padding: 20px;
   display: block;
 }
@@ -27,7 +28,7 @@
 .dv-cards .dv-card a {
   width: 100%;
   height: 100%;
-  padding: 30px;
+  padding: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,10 +38,16 @@
 
 @media(min-width: 600px) {
   .dv-cards .dv-card {
+    margin: 20px;
     flex: 1 1 40%;
   }
 
   .dv-cards .dv-card:first-of-type {
+    margin: 0 20px 20px;
     flex: 1 1 100%;
+  }
+
+  .dv-cards .dv-card a {
+    padding: 30px;
   }
 }

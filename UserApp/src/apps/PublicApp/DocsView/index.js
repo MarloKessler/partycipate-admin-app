@@ -114,7 +114,7 @@ const createSurveyFAQs = {
         },
         
         {
-            title: "Adapt my sites privacy statement",
+            title: "What should be considered concerning legal terms?",
             content: (
                 <div>
                     <p>We recommend to insert the following text into your privacy statement under the subsection “Surveys", which is proofen by our legal experts:</p>

@@ -92,7 +92,7 @@ export function SignupView() {
 
             <label htmlFor="pw">Password:</label>
             <input className="pass" type="password" placeholder="Enter Password" name="pw" value={password1} onChange={setValueVia(setPassword1)}/>
-            <small className={errorOccured(SignupError.passwordsIsInvalid) ? "error" : ""}>Your password needs at least a length of 10 characters and needs to contain numbers, uppercase and one lowercase letters.</small>
+            <small className={errorOccured(SignupError.passwordsIsInvalid) ? "error" : ""}>Your password needs at least a length of 10 characters and needs to contain numbers, uppercase and lowercase letters.</small>
 
             <label htmlFor="repeat-pw">Repeat password:</label>
             <input className="pass" type="password" placeholder="Repeat Password" name="repeat-pw" value={password2} onChange={setValueVia(setPassword2)}/>

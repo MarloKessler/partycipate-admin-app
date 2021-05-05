@@ -8,8 +8,7 @@ import SurveyComponent from "./SurveyComponent"
 import ResultsComponent from "./ResultsComponent"
 
 
-function PartycipateSurvey(props) {
-    const surveyID = props.surveyId
+function PartycipateSurvey({surveyId: surveyID}) {
     const containerRef = useRef()
 
     const [survey, setSurvey] = useState()
@@ -18,7 +17,9 @@ function PartycipateSurvey(props) {
     // Set style
     useEffect(() => setStyle(containerRef.current), [])
     // Load Survey
-    useEffect(() => Server.getSurvey(surveyID).then(setSurvey), [])
+    useEffect(() => {
+        Server.getSurvey(surveyID).then(setSurvey)
+    }, [surveyID])
 
     return (
         <div ref={containerRef} className="partycipate-survey-container">

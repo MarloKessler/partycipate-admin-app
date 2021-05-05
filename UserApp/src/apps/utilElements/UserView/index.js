@@ -150,7 +150,7 @@ export function UserView({ user, helpSection, validateWithOldPasswort=false, onU
 
             <label htmlFor="pw1">New password:</label>
             <input type="password" placeholder="Enter new password" name="pw1" value={pw1} onChange={setValueVia(setPW1)}/>
-            <small className={updatePWErrorOccured(UpdatePWError.passwordRules) ? "error" : ""}>The password needs at least a length of 10 characters and needs to contain numbers, uppercase and one lowercase letters.</small>
+            <small className={updatePWErrorOccured(UpdatePWError.passwordRules) ? "error" : ""}>The password needs at least a length of 10 characters and needs to contain numbers, uppercase and lowercase letters.</small>
 
             <label htmlFor="pw2">Repeat new password:</label>
             <input type="password" placeholder="Repeat new password" name="pw2" value={pw2} onChange={setValueVia(setPW2)}/>
