@@ -19,7 +19,7 @@
     max-width: 100%;
 }
 
-.survey-element-container > .card-element input {
+.survey-element-container input {
     border: 1px solid #647374;
 }
 
