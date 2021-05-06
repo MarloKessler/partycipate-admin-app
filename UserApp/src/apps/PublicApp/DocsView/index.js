@@ -142,7 +142,7 @@ const createSurveyFAQs = {
                             <li> Sexual Orientation</li>
                         </ul> 
                         <p>However, the processing of this data only takes place, if a person answered the survey question asking for the respective content. Survey participant can always skip question or choose not to answer them. Legal Basis for the processing of sensitive data is Art. 9 Sect. 2 lit. a GDPR. Sensitive data will only be processed for the purpose of offering correct survey results.</p>
-                        <p> Partycipate uses Google Analytics. For more information about the handling of user data by Partycipate, please consult Partycipate&rsquo;s Data Privacy Declaration at: <a href={`${window.location.origin}${process.env.REACT_APP_PATH_PRIVACY_STATEMENT}`}> Partycipate Data Privacy Declaration</a>.</p>
+                        <p> Partycipate uses Google Analytics. For more information about the handling of user data by Partycipate, please consult Partycipate&rsquo;s Data Privacy Declaration at: <a href={`${window.location.origin}${process.env.REACT_APP_PATH_PRIVACY_STATEMENT}`} target="_blank"> Partycipate Data Privacy Declaration</a>.</p>
                         <h4>Archiving period</h4>
                         <p>Data on the user or incident level stored by Partycipate linked to cookies will be retained as long as needed or permitted in the light of the purpose it was obtained for and consistent with applicable law.</p>
                     </div>
@@ -171,7 +171,7 @@ const createSurveyFAQs = {
     <li> Sexual Orientation</li>
 </ul> 
 <p>However, the processing of this data only takes place, if a person answered the survey question asking for the respective content. Survey participant can always skip question or choose not to answer them. Legal Basis for the processing of sensitive data is Art. 9 Sect. 2 lit. a GDPR. Sensitive data will only be processed for the purpose of offering correct survey results.</p>
-<p> Partycipate uses Google Analytics. For more information about the handling of user data by Partycipate, please consult Partycipate&rsquo;s Data Privacy Declaration at: <a href="${window.location.origin}${process.env.REACT_APP_PATH_PRIVACY_STATEMENT}"> Partycipate Data Privacy Declaration</a>.</p>
+<p> Partycipate uses Google Analytics. For more information about the handling of user data by Partycipate, please consult Partycipate&rsquo;s Data Privacy Declaration at: <a href="${window.location.origin}${process.env.REACT_APP_PATH_PRIVACY_STATEMENT}" target="_blank"> Partycipate Data Privacy Declaration</a>.</p>
 <h4>Archiving period</h4>
 <p>Data on the user or incident level stored by Partycipate linked to cookies will be retained as long as needed or permitted in the light of the purpose it was obtained for and consistent with applicable law.</p>
 `

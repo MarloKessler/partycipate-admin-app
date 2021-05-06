@@ -29,7 +29,7 @@ import { CopyBlock, dracula } from "react-code-blocks"
                 language={"html"}
                 theme={dracula}
             />
-            <p>To be compliant with the GDPR, please adapt your privacy and cookie statement accordingly. For further help please <a href={`${window.location.origin}${process.env.REACT_APP_PATH_DOCS}/${HelpSections.createSurvey}`} target="blank">click here</a>.</p>
+            <p>To be compliant with the GDPR, please adapt your privacy and cookie statement accordingly. For further help please <a href={`${window.location.origin}${process.env.REACT_APP_PATH_DOCS}/${HelpSections.createSurvey}`} target="_blank">click here</a>.</p>
         </div>
     )
 }
