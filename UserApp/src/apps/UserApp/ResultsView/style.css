@@ -28,6 +28,67 @@
     max-height: 65vh;
 }
 
+
+
+/* Delete Survey */
+.delete-notification > p {
+    margin: 0;
+    text-align: center;
+}
+
+.sr-delete-btn {
+    margin: 50px auto 0;
+    color: #F50057;
+}
+
+.survey-results .delete-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.survey-results .delete-toolbar > button:last-of-type {
+    color: #F50057;
+}
+
+
+
+/* Code Snippet */
+.code-snippet > button {
+    transition: .3s;
+    width: 45px;
+    height: 45px;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+    color: white;
+}
+
+.code-snippet > button:hover {
+    transition: .3s;
+    background-color: #bbb;
+}
+
+.code-snippet > button > svg {
+    width: 30px;
+    height: 30px;
+}
+
+
+.code-snippet .cs-close-btn {
+    margin-left: auto;
+}
+
+.code-snippet .cs-implementation-details {
+    text-align: left;
+}
+
+
+
+/* Responsiveness */
 @media(min-width: 900px) {
     .survey-results .so-geochart {
         max-height: none;

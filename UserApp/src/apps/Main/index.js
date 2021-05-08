@@ -27,7 +27,7 @@ export default function Main() {
     setUser(newUser)
   }), [])
 
-  useEffect(() => history.listen(location => {
+  useEffect(() => history.listen(() => {
       // Keep default behavior of restoring scroll position when the user goes back
       if (history.action === 'POP') return
       // In all other cases, scroll to the top

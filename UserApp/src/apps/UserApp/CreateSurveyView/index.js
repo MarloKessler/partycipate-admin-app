@@ -8,8 +8,7 @@ import { Notification, CardElement, StandardPage } from "../../utilElements"
 import { SurveyProvider } from "./SurveyContext"
 import SelectSurveyComponent from "./SelectSurveyComponent"
 import EditSurveyComponent from "./EditSurveyComponent"
-import ImplementSurveyComponent from "./ImplementSurveyComponent"
-import CreateSurveyError from "./CreateSurveyError"
+import { ImplementSurveyComponent } from "../shared"
 
 
 class CreateSurveyViewComponent extends React.Component {
@@ -92,7 +91,7 @@ class CreateSurveyViewComponent extends React.Component {
             <StandardPage title={getSurveyTitle(this.state.step)} className="create-survey-view" helpSection="create-survey">
                 <SurveyProvider value={ this.state }>
                     <CardElement className="secondary-element">
-                        <SurveyComponent step={ this.state.step } onTypeSelected={ () => this.setState(() => ({ step: 1 })) } errors={this.state.errors}/>
+                        <SurveyComponent step={ this.state.step } survey={this.state.survey} onTypeSelected={ () => this.setState(() => ({ step: 1 })) }/>
                     </CardElement>
                     <CSVToolbar step={ this.state.step } statusMessage={ this.state.statusMessage } creationErrorOccured={ this.state.creationErrorOccured } onGoBack={ this.goBack.bind(this) } onGoForward={ this.goForward.bind(this) } isSaving={ this.state.isSaving }/>
                 </SurveyProvider>
@@ -116,11 +115,11 @@ function getSurveyTitle(step) {
 
 
 
-function SurveyComponent({ step, onTypeSelected, errors }) {
+function SurveyComponent({ step, survey, onTypeSelected }) {
     switch (step) {
-        case 0: return <SelectSurveyComponent onTypeSelected={ onTypeSelected } errors={errors}/>
-        case 1: return <EditSurveyComponent errors={errors}/>
-        case 2: return <ImplementSurveyComponent errors={errors}/>
+        case 0: return <SelectSurveyComponent onTypeSelected={ onTypeSelected }/>
+        case 1: return <EditSurveyComponent/>
+        case 2: return <ImplementSurveyComponent survey={survey}/>
         default: throw Error("No applicable step selected.")
     }
 }

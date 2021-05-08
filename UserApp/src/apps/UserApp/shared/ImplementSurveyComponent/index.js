@@ -1,12 +1,9 @@
 import "./style.css"
-import { useContext } from "react"
 import { HelpSections } from "../../../PublicApp"
-import SurveyContext from "../SurveyContext"
 import { CopyBlock, dracula } from "react-code-blocks"
 
 
- export default function ImplementSurveyComponent() {
-    const { survey } = useContext(SurveyContext)
+export function ImplementSurveyComponent({ survey, className="" }) {
     const headCode = 
 `<!-- Insert in head -->
 <script src="${process.env.REACT_APP_SNIPPET_SCRIPT_URL}"></script>`
@@ -16,7 +13,7 @@ import { CopyBlock, dracula } from "react-code-blocks"
 <partycipate-survey survey-id="${survey.id}"/>`
 
     return (
-        <div className="implement-survey-component">
+        <div className={`implement-survey-component ${className}`}>
             <p>To implement your survey in any website, insert the following code:</p>
             <CopyBlock
                 className="code-block"

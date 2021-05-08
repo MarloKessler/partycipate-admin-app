@@ -9,7 +9,7 @@ import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow"
 am4core.useTheme(am4themes_animated)
 
 
-export default function GeoChart({ data=[], className="", ...props }) {
+export function GeoChart({ data=[], className="", ...props }) {
     const cartElementContainerRef = useRef()
     const cartElementRef = useRef()
     var chart

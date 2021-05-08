@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { CardElement, PaginationElement } from "../../../utilElements"
 import Server from "../../../Server"
 import CrossSurveyTimelineChart from "./CrossSurveyTimelineChart"
-import GeoChart from "../../GeoChart"
+import { GeoChart } from "../../shared"
 
 
 export default function CrossSurveyResultsCard({ className="", ...props }) {
