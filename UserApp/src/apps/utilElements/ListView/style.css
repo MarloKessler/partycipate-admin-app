@@ -28,6 +28,7 @@
 }
 
 .lv-search-bar-container input {
+    margin: 0;
     width: 100%;
     border: 1px solid lightgray;
     border-radius: 15px;
