@@ -20,6 +20,7 @@ export function AdminUserView() {
     function handleDeletation() {
         Server.admin().deleteUser(user.user_id)
         .then(() => history.goBack())
+        .catch(() => {})
     }
 
 

@@ -9,8 +9,8 @@ export function LogoutView() {
 
   // Sets a timer so that after 5 seconds the user is redirected to the home page.
   useEffect(() => {
-    //const timeoutID = setTimeout(() => history.push("/"), 5000)
-    //return () => clearTimeout(timeoutID)
+    const timeoutID = setTimeout(() => history.push("/"), 5000)
+    return () => clearTimeout(timeoutID)
   }, [history])
 
   return(

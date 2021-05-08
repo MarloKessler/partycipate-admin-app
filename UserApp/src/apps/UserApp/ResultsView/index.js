@@ -79,10 +79,7 @@ function DeleteNotification({survey}) {
 
     function deleteSurvey() {
         Server.database().deleteSurvey(survey.id)
-        .then((res) => {
-            console.log("result deleting survey: ", res)
-            history.push(process.env.REACT_APP_PATH_SURVEY_OVERVIEW)
-        })
+        .then(() => history.push(process.env.REACT_APP_PATH_SURVEY_OVERVIEW))
         .catch(() => {
             setShowDeleteSurveyNotification(false)
             setShowDeleteError(true)

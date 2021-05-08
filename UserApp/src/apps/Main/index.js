@@ -23,8 +23,8 @@ export default function Main() {
   useEffect(() => Server.init(), [])
 
   useEffect(() => Server.auth().onAuthStateChanged((newUser, oldUser) => {
-    if (oldUser && !newUser) history.push("/logout")
     setUser(newUser)
+    if (oldUser && !newUser) history.push("/logout")
   }), [])
 
   useEffect(() => history.listen(() => {
@@ -82,7 +82,6 @@ function SecureRoute({ user, exact, path, component }) {
 
 
 function AdminRoute({ user, exact, path, component }) {
-  const history = useHistory()
   const userIsAdmin = () => user && Server.admin().userIsAdmin(user)
   return userIsAdmin() ? <Route exact={exact} path={path} component={component}/> : <Page404/>
 }
